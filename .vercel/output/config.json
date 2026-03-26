@@ -1,0 +1,275 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/about",
+			"dest": "/about/"
+		},
+		{
+			"src": "/about/",
+			"status": 308,
+			"headers": {
+				"Location": "/about"
+			}
+		},
+		{
+			"src": "/businesses",
+			"dest": "/businesses/"
+		},
+		{
+			"src": "/businesses/",
+			"status": 308,
+			"headers": {
+				"Location": "/businesses"
+			}
+		},
+		{
+			"src": "/contact",
+			"dest": "/contact/"
+		},
+		{
+			"src": "/contact/",
+			"status": 308,
+			"headers": {
+				"Location": "/contact"
+			}
+		},
+		{
+			"src": "/discover",
+			"dest": "/discover/"
+		},
+		{
+			"src": "/discover/",
+			"status": 308,
+			"headers": {
+				"Location": "/discover"
+			}
+		},
+		{
+			"src": "/events",
+			"dest": "/events/"
+		},
+		{
+			"src": "/events/",
+			"status": 308,
+			"headers": {
+				"Location": "/events"
+			}
+		},
+		{
+			"src": "/news",
+			"dest": "/news/"
+		},
+		{
+			"src": "/news/",
+			"status": 308,
+			"headers": {
+				"Location": "/news"
+			}
+		},
+		{
+			"src": "/events/long-eaton-makers-market",
+			"dest": "/events/long-eaton-makers-market/"
+		},
+		{
+			"src": "/events/long-eaton-makers-market/",
+			"status": 308,
+			"headers": {
+				"Location": "/events/long-eaton-makers-market"
+			}
+		},
+		{
+			"src": "/events/family-fun-at-west-park",
+			"dest": "/events/family-fun-at-west-park/"
+		},
+		{
+			"src": "/events/family-fun-at-west-park/",
+			"status": 308,
+			"headers": {
+				"Location": "/events/family-fun-at-west-park"
+			}
+		},
+		{
+			"src": "/businesses/station-street-kitchen",
+			"dest": "/businesses/station-street-kitchen/"
+		},
+		{
+			"src": "/businesses/station-street-kitchen/",
+			"status": 308,
+			"headers": {
+				"Location": "/businesses/station-street-kitchen"
+			}
+		},
+		{
+			"src": "/businesses/canal-side-cycles",
+			"dest": "/businesses/canal-side-cycles/"
+		},
+		{
+			"src": "/businesses/canal-side-cycles/",
+			"status": 308,
+			"headers": {
+				"Location": "/businesses/canal-side-cycles"
+			}
+		},
+		{
+			"src": "/businesses/long-eaton-books-co",
+			"dest": "/businesses/long-eaton-books-co/"
+		},
+		{
+			"src": "/businesses/long-eaton-books-co/",
+			"status": 308,
+			"headers": {
+				"Location": "/businesses/long-eaton-books-co"
+			}
+		},
+		{
+			"src": "/businesses/the-curated-corner",
+			"dest": "/businesses/the-curated-corner/"
+		},
+		{
+			"src": "/businesses/the-curated-corner/",
+			"status": 308,
+			"headers": {
+				"Location": "/businesses/the-curated-corner"
+			}
+		},
+		{
+			"src": "/businesses/erewash-wellness-studio",
+			"dest": "/businesses/erewash-wellness-studio/"
+		},
+		{
+			"src": "/businesses/erewash-wellness-studio/",
+			"status": 308,
+			"headers": {
+				"Location": "/businesses/erewash-wellness-studio"
+			}
+		},
+		{
+			"src": "/businesses/park-view-florist",
+			"dest": "/businesses/park-view-florist/"
+		},
+		{
+			"src": "/businesses/park-view-florist/",
+			"status": 308,
+			"headers": {
+				"Location": "/businesses/park-view-florist"
+			}
+		},
+		{
+			"src": "/events/twilight-canal-walk",
+			"dest": "/events/twilight-canal-walk/"
+		},
+		{
+			"src": "/events/twilight-canal-walk/",
+			"status": 308,
+			"headers": {
+				"Location": "/events/twilight-canal-walk"
+			}
+		},
+		{
+			"src": "/events/independent-food-weekend",
+			"dest": "/events/independent-food-weekend/"
+		},
+		{
+			"src": "/events/independent-food-weekend/",
+			"status": 308,
+			"headers": {
+				"Location": "/events/independent-food-weekend"
+			}
+		},
+		{
+			"src": "/events/summer-bandstand-sessions",
+			"dest": "/events/summer-bandstand-sessions/"
+		},
+		{
+			"src": "/events/summer-bandstand-sessions/",
+			"status": 308,
+			"headers": {
+				"Location": "/events/summer-bandstand-sessions"
+			}
+		},
+		{
+			"src": "/events/shop-small-late-night",
+			"dest": "/events/shop-small-late-night/"
+		},
+		{
+			"src": "/events/shop-small-late-night/",
+			"status": 308,
+			"headers": {
+				"Location": "/events/shop-small-late-night"
+			}
+		},
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "/.*",
+			"dest": "/![-]/catchall"
+		}
+	],
+	"overrides": {
+		"index.html": {
+			"path": ""
+		},
+		"about.html": {
+			"path": "about"
+		},
+		"businesses.html": {
+			"path": "businesses"
+		},
+		"contact.html": {
+			"path": "contact"
+		},
+		"discover.html": {
+			"path": "discover"
+		},
+		"events.html": {
+			"path": "events"
+		},
+		"news.html": {
+			"path": "news"
+		},
+		"events/long-eaton-makers-market.html": {
+			"path": "events/long-eaton-makers-market"
+		},
+		"events/family-fun-at-west-park.html": {
+			"path": "events/family-fun-at-west-park"
+		},
+		"businesses/station-street-kitchen.html": {
+			"path": "businesses/station-street-kitchen"
+		},
+		"businesses/canal-side-cycles.html": {
+			"path": "businesses/canal-side-cycles"
+		},
+		"businesses/long-eaton-books-co.html": {
+			"path": "businesses/long-eaton-books-co"
+		},
+		"businesses/the-curated-corner.html": {
+			"path": "businesses/the-curated-corner"
+		},
+		"businesses/erewash-wellness-studio.html": {
+			"path": "businesses/erewash-wellness-studio"
+		},
+		"businesses/park-view-florist.html": {
+			"path": "businesses/park-view-florist"
+		},
+		"events/twilight-canal-walk.html": {
+			"path": "events/twilight-canal-walk"
+		},
+		"events/independent-food-weekend.html": {
+			"path": "events/independent-food-weekend"
+		},
+		"events/summer-bandstand-sessions.html": {
+			"path": "events/summer-bandstand-sessions"
+		},
+		"events/shop-small-late-night.html": {
+			"path": "events/shop-small-late-night"
+		}
+	}
+}
