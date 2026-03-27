@@ -187,6 +187,23 @@
 			{/key}
 
 			{#if totalSlides > 1}
+				<div class="absolute inset-x-0 bottom-0 z-20 flex justify-center px-4 pb-4 sm:hidden">
+					<div class="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/28 px-3 py-2 backdrop-blur-md">
+						{#each slides as slide, index}
+							<button
+								type="button"
+								class={`rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/70 ${
+									index === activeIndex
+										? 'h-2 w-6 bg-white shadow-[0_0_0_1px_rgba(255,255,255,0.14)]'
+										: 'h-2 w-2 bg-white/45 hover:bg-white/70'
+								}`}
+								on:click={() => goToSlide(index)}
+								aria-label={`Go to featured event ${index + 1}: ${slide.title}`}
+								aria-current={index === activeIndex ? 'true' : undefined}
+							></button>
+						{/each}
+					</div>
+				</div>
 				<div class="absolute inset-x-0 bottom-0 z-20 hidden justify-end px-5 pb-5 sm:flex sm:px-8 sm:pb-8 lg:px-10 lg:pb-10">
 					<div class="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/18 px-3 py-2 backdrop-blur-md">
 						{#each slides as slide, index}
