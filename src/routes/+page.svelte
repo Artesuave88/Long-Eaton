@@ -129,33 +129,6 @@
 	</div>
 </section>
 
-<section class="section-muted">
-	<div class="container-shell section-space">
-		<div class="surface-card grid gap-8 p-7 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-			<div>
-				<p class="eyebrow">About Love Long Eaton</p>
-				<h2 class="mt-3 text-brand-text">A local guide built around community life in the town</h2>
-				<p class="body-copy mt-4 max-w-2xl">
-					Love Long Eaton brings together what’s on, where to go and who to know about, with a structure that helps people move easily between events, places and local businesses.
-				</p>
-				<div class="mt-6">
-					<a href="/about" class="button-secondary">Find out more</a>
-				</div>
-			</div>
-			<div>
-				<p class="eyebrow">Quick links</p>
-				<div class="mt-4 grid gap-3 sm:grid-cols-2">
-					<a href="/" class="surface-card p-4 text-sm font-semibold text-brand-text hover:text-brand-accent">Home</a>
-					<a href="/events" class="surface-card p-4 text-sm font-semibold text-brand-text hover:text-brand-accent">Events</a>
-					<a href="/businesses" class="surface-card p-4 text-sm font-semibold text-brand-text hover:text-brand-accent">Businesses</a>
-					<a href="/about" class="surface-card p-4 text-sm font-semibold text-brand-text hover:text-brand-accent">About</a>
-					<a href="/contact" class="surface-card p-4 text-sm font-semibold text-brand-text hover:text-brand-accent">Contact</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
 <section class="section-surface">
 	<div class="container-shell section-space">
 		<CTASection

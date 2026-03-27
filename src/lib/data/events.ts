@@ -7,25 +7,26 @@ const carBootBase = {
   startTime: "7:00 AM seller setup",
   location: "Event Field, West Park, Long Eaton",
   price: "Free entry on foot",
-  priceSummary: "Sellers: Car £8, car plus trailer or large van £11. Buyers on foot free, on-site parking £1.",
+  priceSummary:
+    "Sellers: Car £8, car plus trailer or large van £11. Buyers on foot free, on-site parking £1.",
   organiser: "Long Eaton Carnival committee",
   tags: ["Car Boot", "West Park", "Fundraising", "Community"],
   category: "Markets",
   description: [
     "Long Eaton Carnival's car boot sales return to West Park on selected Sundays through spring and summer.",
     "Sellers can set up from 7am and there is no booking required. Buyers can come in from 8am, with free entry on foot and on-site parking for £1.",
-    "All proceeds go to the Carnival fund."
+    "All proceeds go to the Carnival fund.",
   ],
   sellerInfo: [
     "Setup from 7am.",
     "No booking required.",
     "Car: £8.",
-    "Car plus trailer or large van: £11."
+    "Car plus trailer or large van: £11.",
   ],
   buyerInfo: [
     "Gates open at 8am.",
     "Free entry on foot.",
-    "On-site parking: £1."
+    "On-site parking: £1.",
   ],
   fundraisingNote: "All proceeds go to the Carnival fund.",
   locationNote: "The field is opposite George's Fish and Chip shop.",
@@ -36,18 +37,19 @@ const carBootBase = {
     { title: "Planned car boot sale", date: "2026-07-19" },
     { title: "Planned car boot sale", date: "2026-08-16" },
     { title: "Planned car boot sale", date: "2026-09-20" },
-    { title: "Planned car boot sale", dateLabel: "October 2026", note: "TBC" }
+    { title: "Planned car boot sale", dateLabel: "October 2026", note: "TBC" },
   ],
   imageLabel: "Car boot stalls on West Park",
   imageStyle: "bg-brand-section",
   imageSrc: "/carboot.jpg",
-  imageAlt: "Cars and stalls at the Long Eaton Carnival car boot sale on West Park",
+  imageAlt:
+    "Cars and stalls at the Long Eaton Carnival car boot sale on West Park",
   image: {
     label: "Car boot stalls on West Park",
-    style: "bg-brand-section"
+    style: "bg-brand-section",
   },
   sourceName: "Long Eaton Carnival car boots page",
-  sourceUrl: "https://www.longeatoncarnival.org.uk/car-boots/"
+  sourceUrl: "https://www.longeatoncarnival.org.uk/car-boots/",
 } satisfies Partial<EventItem>;
 
 const baseEvents: EventItem[] = [
@@ -58,7 +60,7 @@ const baseEvents: EventItem[] = [
       "The first planned 2026 Long Eaton Carnival car boot sale is due at West Park on Sunday 12 April.",
     date: "2026-04-12",
     featured: true,
-    ...carBootBase
+    ...carBootBase,
   },
   {
     id: "event-long-eaton-carnival-car-boot-2026-05-17",
@@ -66,7 +68,7 @@ const baseEvents: EventItem[] = [
     excerpt:
       "Long Eaton Carnival's May car boot sale is planned for Sunday 17 May at West Park.",
     date: "2026-05-17",
-    ...carBootBase
+    ...carBootBase,
   },
   {
     id: "event-long-eaton-carnival",
@@ -80,13 +82,19 @@ const baseEvents: EventItem[] = [
     price: "Free entry to the main carnival site",
     organiser: "Long Eaton Carnival volunteers",
     strapline: "Bringing Long Eaton people together as a community",
-    tags: ["Carnival", "Parade", "Community", "West Park", "Through the Decades"],
+    tags: [
+      "Carnival",
+      "Parade",
+      "Community",
+      "West Park",
+      "Through the Decades",
+    ],
     category: "Community",
     excerpt:
       "Long Eaton Carnival returns on Saturday 20 June with the road parade through town before events continue on West Park.",
     description: [
       "The 2026 theme is Through the Decades. The day starts with the road parade through town before displays and events continue on West Park.",
-      "The parade starts at 11am and returns to the carnival site at around 12:30pm to 1:00pm. The main carnival site is free to enter."
+      "The parade starts at 11am and returns to the carnival site at around 12:30pm to 1:00pm. The main carnival site is free to enter.",
     ],
     imageSrc: "/carnival.webp",
     imageAlt: "Long Eaton Carnival parade band walking through the town centre",
@@ -94,21 +102,21 @@ const baseEvents: EventItem[] = [
     imageStyle: "bg-brand-section",
     image: {
       label: "Carnival parade",
-      style: "bg-brand-section"
+      style: "bg-brand-section",
     },
     gallery: [
       {
         src: "/carnival.webp",
-        alt: "Long Eaton Carnival parade band walking through the town centre"
+        alt: "Long Eaton Carnival parade band walking through the town centre",
       },
       {
         src: "/carnival-2.webp",
-        alt: "A standard bearer leading the Long Eaton Carnival parade past crowds in town"
+        alt: "A standard bearer leading the Long Eaton Carnival parade past crowds in town",
       },
       {
         src: "/carnival-3.webp",
-        alt: "Families and fairground rides on West Park during Long Eaton Carnival"
-      }
+        alt: "Families and fairground rides on West Park during Long Eaton Carnival",
+      },
     ],
     sourceName: "Long Eaton Carnival homepage",
     volunteerRun: true,
@@ -119,9 +127,9 @@ const baseEvents: EventItem[] = [
       { title: "Car boot sale", date: "2026-07-19" },
       { title: "Car boot sale", date: "2026-08-16" },
       { title: "Car boot sale", date: "2026-09-20" },
-      { title: "Car boot sale", dateLabel: "October 2026", note: "TBC" }
+      { title: "Car boot sale", dateLabel: "October 2026", note: "TBC" },
     ],
-    featured: true
+    featured: true,
   },
   {
     id: "event-long-eaton-carnival-car-boot-2026-06-21",
@@ -129,7 +137,7 @@ const baseEvents: EventItem[] = [
     excerpt:
       "The June Long Eaton Carnival car boot sale is planned for Sunday 21 June at West Park.",
     date: "2026-06-21",
-    ...carBootBase
+    ...carBootBase,
   },
   {
     id: "event-long-eaton-carnival-car-boot-2026-07-19",
@@ -137,7 +145,7 @@ const baseEvents: EventItem[] = [
     excerpt:
       "Long Eaton Carnival's July car boot sale is due on Sunday 19 July at West Park.",
     date: "2026-07-19",
-    ...carBootBase
+    ...carBootBase,
   },
   {
     id: "event-long-eaton-carnival-car-boot-2026-08-16",
@@ -145,7 +153,7 @@ const baseEvents: EventItem[] = [
     excerpt:
       "Long Eaton Carnival's August car boot sale is planned for Sunday 16 August at West Park.",
     date: "2026-08-16",
-    ...carBootBase
+    ...carBootBase,
   },
   {
     id: "event-long-eaton-carnival-car-boot-2026-09-20",
@@ -153,7 +161,7 @@ const baseEvents: EventItem[] = [
     excerpt:
       "The September Long Eaton Carnival car boot sale is planned for Sunday 20 September at West Park.",
     date: "2026-09-20",
-    ...carBootBase
+    ...carBootBase,
   },
   {
     id: "event-long-eaton-carnival-car-boot-2026-10",
@@ -163,14 +171,11 @@ const baseEvents: EventItem[] = [
     dateLabel: "October 2026",
     isTbc: true,
     ...carBootBase,
-    time: "Date to be confirmed"
-  }
+    time: "Date to be confirmed",
+  },
 ];
 
-export const events: EventItem[] = [
-  ...baseEvents,
-  ...optionalImportedEvents,
-];
+export const events: EventItem[] = [...baseEvents, ...optionalImportedEvents];
 
 const getEventSortValue = (event: EventItem) => {
   if (event.date) {
@@ -184,9 +189,11 @@ const getEventSortValue = (event: EventItem) => {
   return Number.MAX_SAFE_INTEGER;
 };
 
-export const sortedEvents = [...events].sort((a, b) => getEventSortValue(a) - getEventSortValue(b));
+export const sortedEvents = [...events].sort(
+  (a, b) => getEventSortValue(a) - getEventSortValue(b),
+);
 
 export const eventCategories = [
   "All",
-  ...new Set(sortedEvents.map((event) => event.category))
+  ...new Set(sortedEvents.map((event) => event.category)),
 ];

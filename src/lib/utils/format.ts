@@ -7,7 +7,9 @@ export const formatDisplayDate = (value: string) =>
     year: "numeric",
   }).format(new Date(value));
 
-export const formatEventDate = (event: Pick<EventItem, "date" | "dateLabel" | "isTbc">) => {
+export const formatEventDate = (
+  event: Pick<EventItem, "date" | "dateLabel" | "isTbc">,
+) => {
   if (event.date) {
     return formatDisplayDate(event.date);
   }

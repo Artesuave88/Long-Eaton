@@ -69,7 +69,10 @@ function normalizeLabelForMatch(label: string): string {
     .trim();
 }
 
-function absoluteUrl(href: string | undefined, base = SOURCE_URL): string | null {
+function absoluteUrl(
+  href: string | undefined,
+  base = SOURCE_URL,
+): string | null {
   if (!href) {
     return null;
   }
@@ -145,7 +148,9 @@ function extractSocials($: CheerioAPI): ImportLink[] {
   const allowed = new Set(SOCIAL_LABELS.map(normalizeLabelForMatch));
 
   return uniqueByKey(
-    anchors.filter((anchor) => allowed.has(normalizeLabelForMatch(anchor.label))),
+    anchors.filter((anchor) =>
+      allowed.has(normalizeLabelForMatch(anchor.label)),
+    ),
     (anchor) => `${anchor.label}:${anchor.url}`,
   );
 }
@@ -168,7 +173,9 @@ function extractVenue($: CheerioAPI): ImportedVenue {
     category: "Arts & Entertainment",
     address:
       normalizeWhitespace(
-        pageText.match(/West Gate,\s*Long Eaton,\s*Derbyshire,\s*NG10 1EF/i)?.[0],
+        pageText.match(
+          /West Gate,\s*Long Eaton,\s*Derbyshire,\s*NG10 1EF/i,
+        )?.[0],
       ) || "",
     summary:
       normalizeWhitespace(
@@ -177,10 +184,14 @@ function extractVenue($: CheerioAPI): ImportedVenue {
         )?.[0],
       ) || "Long Eaton’s premier live arts and entertainment facility",
     description,
-    volunteerRun: description.some((line) => /organised and run by volunteers/i.test(line)),
+    volunteerRun: description.some((line) =>
+      /organised and run by volunteers/i.test(line),
+    ),
     charityNote:
       normalizeWhitespace(
-        pageText.match(/The Long Eaton & District Arts Council Reg\. Charity No\. 508745/i)?.[0],
+        pageText.match(
+          /The Long Eaton & District Arts Council Reg\. Charity No\. 508745/i,
+        )?.[0],
       ) || "",
     sourceName: SOURCE_NAME,
     sourceUrl: SOURCE_URL,
@@ -232,7 +243,10 @@ function extractShowsFromTicketSource($: CheerioAPI): ImportedShow[] {
           $(element).find("[itemprop='name']").first().text(),
         );
         const url = absoluteUrl(
-          $(element).find("a.card-link, a.result, .event-btn a").first().attr("href"),
+          $(element)
+            .find("a.card-link, a.result, .event-btn a")
+            .first()
+            .attr("href"),
           TICKETSOURCE_URL,
         );
         const imageUrl = absoluteUrl(
@@ -272,7 +286,9 @@ async function fetchHtml(url: string): Promise<string> {
   });
 
   if (!response.ok) {
-    throw new Error(`Request failed with ${response.status} ${response.statusText} for ${url}`);
+    throw new Error(
+      `Request failed with ${response.status} ${response.statusText} for ${url}`,
+    );
   }
 
   return response.text();
@@ -287,8 +303,12 @@ function logVenue(venue: ImportedVenue): void {
   console.log(`- summary: ${venue.summary || "(not found)"}`);
   console.log(`- volunteerRun: ${venue.volunteerRun}`);
   console.log(`- charityNote: ${venue.charityNote || "(not found)"}`);
-  console.log(`- socials: ${venue.socials.map((item) => item.label).join(", ") || "(none)"}`);
-  console.log(`- links: ${venue.links.map((item) => item.label).join(", ") || "(none)"}`);
+  console.log(
+    `- socials: ${venue.socials.map((item) => item.label).join(", ") || "(none)"}`,
+  );
+  console.log(
+    `- links: ${venue.links.map((item) => item.label).join(", ") || "(none)"}`,
+  );
   console.log(
     `- featuredShows: ${venue.featuredShows.map((item) => item.title).join(", ") || "(none)"}`,
   );
@@ -319,9 +339,10 @@ async function main(): Promise<void> {
     const venue = extractVenue($homepage);
     const shows = extractShowsFromTicketSource($ticketSource);
 
-    venue.description = [...venue.description, ...extractWhatsOnNotes($whatsOn)].filter(
-      (value, index, values) => values.indexOf(value) === index,
-    );
+    venue.description = [
+      ...venue.description,
+      ...extractWhatsOnNotes($whatsOn),
+    ].filter((value, index, values) => values.indexOf(value) === index);
     venue.featuredShows = shows.map(({ title, url, startDate, endDate }) => ({
       title,
       url,
