@@ -10,36 +10,7 @@
 	/>
 </svelte:head>
 
-<section class="section-surface">
-	<div class="container-shell section-space">
-		<SectionHeading
-			eyebrow="About"
-			title="A local guide for Long Eaton"
-			copy="Love Long Eaton is a simple town guide for what's on, where to go and which local businesses to know about."
-		/>
 
-		<div class="grid gap-6 lg:grid-cols-3">
-			<div class="surface-card p-7">
-				<h2 class="text-2xl text-brand-text">Made to be useful</h2>
-				<p class="body-copy-sm mt-4">
-					The aim is to make local information easier to find without turning it into a formal directory or a sales pitch.
-				</p>
-			</div>
-			<div class="surface-card p-7">
-				<h2 class="text-2xl text-brand-text">Clear and current</h2>
-				<p class="body-copy-sm mt-4">
-					Listings, events and updates are written to be easy to scan, with enough context to be genuinely helpful.
-				</p>
-			</div>
-			<div class="surface-card p-7">
-				<h2 class="text-2xl text-brand-text">Local tone first</h2>
-				<p class="body-copy-sm mt-4">
-					The site is designed to feel calm, direct and familiar rather than promotional or overworked.
-				</p>
-			</div>
-		</div>
-	</div>
-</section>
 
 <section class="section-muted">
 	<div class="container-shell section-space">
