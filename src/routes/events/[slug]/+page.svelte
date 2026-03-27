@@ -153,7 +153,7 @@
 				{#if data.event.sourceUrl}
 					<div class="mt-8">
 						<a href={data.event.sourceUrl} target="_blank" rel="noreferrer" class="button-primary">
-							View source listing
+							View
 						</a>
 					</div>
 				{/if}

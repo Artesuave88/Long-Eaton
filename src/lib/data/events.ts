@@ -40,6 +40,8 @@ const carBootBase = {
   ],
   imageLabel: "Car boot stalls on West Park",
   imageStyle: "bg-brand-section",
+  imageSrc: "/carboot.jpg",
+  imageAlt: "Cars and stalls at the Long Eaton Carnival car boot sale on West Park",
   image: {
     label: "Car boot stalls on West Park",
     style: "bg-brand-section"

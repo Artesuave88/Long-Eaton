@@ -123,7 +123,7 @@
 	aria-label="Featured events"
 	aria-roledescription="carousel"
 >
-	<div bind:this={carouselElement} class="relative min-h-[24rem] sm:min-h-[28rem] lg:h-[68vh] lg:min-h-[38rem] lg:max-h-[46rem]">
+	<div bind:this={carouselElement} class="relative min-h-[22rem] sm:min-h-[24rem] lg:h-[58vh] lg:min-h-[32rem] lg:max-h-[40rem]">
 		{#if totalSlides > 0}
 			{#key slides[activeIndex]?.id}
 				<div class="absolute inset-0" in:fade={{ duration: 650, delay: 120 }} out:fade={{ duration: 420 }}>
@@ -132,27 +132,8 @@
 			{/key}
 
 			{#if totalSlides > 1}
-				<div class="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-4 p-5 sm:p-8 lg:p-12">
-					<div class="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/20 p-2 backdrop-blur-md">
-						<button
-							type="button"
-							class="flex h-11 w-11 items-center justify-center rounded-full bg-white/8 text-white/90 transition duration-300 hover:bg-white/16 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70"
-							on:click={showPrevious}
-							aria-label="Show previous featured event"
-						>
-							<span aria-hidden="true" class="text-lg leading-none">←</span>
-						</button>
-						<button
-							type="button"
-							class="flex h-11 w-11 items-center justify-center rounded-full bg-white/8 text-white/90 transition duration-300 hover:bg-white/16 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70"
-							on:click={showNext}
-							aria-label="Show next featured event"
-						>
-							<span aria-hidden="true" class="text-lg leading-none">→</span>
-						</button>
-					</div>
-
-					<div class="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/20 px-3 py-2 backdrop-blur-md">
+				<div class="absolute inset-x-0 bottom-0 z-20 flex justify-end px-5 pb-5 sm:px-8 sm:pb-8 lg:px-10 lg:pb-10">
+					<div class="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/18 px-3 py-2 backdrop-blur-md">
 						{#each slides as slide, index}
 							<button
 								type="button"

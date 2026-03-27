@@ -134,11 +134,8 @@ function createImportedEvent(show: ImportedShow, index: number): EventItem {
     organiser: venueName,
 
     category: "Arts & Entertainment",
-    excerpt: `${show.title} is currently listed by Duchess Theatre on TicketSource.`,
-    description: [
-      `${show.title} is currently listed by Duchess Theatre on TicketSource.`,
-      "Use the source listing for the latest public booking information.",
-    ],
+    excerpt: show.title,
+    description: [],
     imageSrc: show.imageUrl ?? "/duchess-theatre.webp",
     imageAlt: show.title,
     imageLabel: show.title,
