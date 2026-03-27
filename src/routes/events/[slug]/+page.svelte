@@ -178,11 +178,31 @@
 			</div>
 
 			<div class="space-y-6">
-				<ImagePlaceholder
-					label={data.event.image?.label ?? data.event.imageLabel}
-					style={data.event.image?.style ?? data.event.imageStyle}
-					className="h-[24rem] w-full"
-				/>
+				{#if data.event.imageSrc}
+					<div class="overflow-hidden rounded-xl border border-brand-border bg-brand-primaryDark/10 shadow-sm">
+						<img
+							src={data.event.imageSrc}
+							alt={data.event.imageAlt ?? data.event.title}
+							class="h-[24rem] w-full object-cover"
+						/>
+					</div>
+				{:else}
+					<ImagePlaceholder
+						label={data.event.image?.label ?? data.event.imageLabel}
+						style={data.event.image?.style ?? data.event.imageStyle}
+						className="h-[24rem] w-full"
+					/>
+				{/if}
+
+				{#if data.event.gallery && data.event.gallery.length > 1}
+					<div class="grid gap-4 sm:grid-cols-2">
+						{#each data.event.gallery.slice(1) as image}
+							<div class="overflow-hidden rounded-xl border border-brand-border bg-brand-surface shadow-sm">
+								<img src={image.src} alt={image.alt} class="h-48 w-full object-cover" />
+							</div>
+						{/each}
+					</div>
+				{/if}
 				<div class="surface-card p-6">
 					<h2 class="text-2xl text-brand-text">Planning your visit</h2>
 					<p class="body-copy-sm mt-4">

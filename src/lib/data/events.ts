@@ -85,12 +85,28 @@ export const events: EventItem[] = [
       "The 2026 theme is Through the Decades. The day starts with the road parade through town before displays and events continue on West Park.",
       "The parade starts at 11am and returns to the carnival site at around 12:30pm to 1:00pm. The main carnival site is free to enter."
     ],
+    imageSrc: "/carnival.webp",
+    imageAlt: "Long Eaton Carnival parade band walking through the town centre",
     imageLabel: "Carnival parade",
     imageStyle: "bg-brand-section",
     image: {
       label: "Carnival parade",
       style: "bg-brand-section"
     },
+    gallery: [
+      {
+        src: "/carnival.webp",
+        alt: "Long Eaton Carnival parade band walking through the town centre"
+      },
+      {
+        src: "/carnival-2.webp",
+        alt: "A standard bearer leading the Long Eaton Carnival parade past crowds in town"
+      },
+      {
+        src: "/carnival-3.webp",
+        alt: "Families and fairground rides on West Park during Long Eaton Carnival"
+      }
+    ],
     sourceName: "Long Eaton Carnival homepage",
     volunteerRun: true,
     relatedDates: [

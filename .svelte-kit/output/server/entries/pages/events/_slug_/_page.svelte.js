@@ -1,4 +1,4 @@
-import { h as head, b as escape_html, e as ensure_array_like, c as bind_props, a as attr } from "../../../../chunks/index.js";
+import { h as head, b as escape_html, e as ensure_array_like, a as attr, c as bind_props } from "../../../../chunks/index.js";
 import { I as ImagePlaceholder } from "../../../../chunks/ImagePlaceholder.js";
 import { f as formatEventDate, a as formatDisplayDate } from "../../../../chunks/format.js";
 function _page($$renderer, $$props) {
@@ -156,12 +156,31 @@ function _page($$renderer, $$props) {
       $$renderer2.push("<!--[-1-->");
     }
     $$renderer2.push(`<!--]--></div> <div class="space-y-6">`);
-    ImagePlaceholder($$renderer2, {
-      label: data.event.image?.label ?? data.event.imageLabel,
-      style: data.event.image?.style ?? data.event.imageStyle,
-      className: "h-[24rem] w-full"
-    });
-    $$renderer2.push(`<!----> <div class="surface-card p-6"><h2 class="text-2xl text-brand-text">Planning your visit</h2> <p class="body-copy-sm mt-4">`);
+    if (data.event.imageSrc) {
+      $$renderer2.push("<!--[0-->");
+      $$renderer2.push(`<div class="overflow-hidden rounded-xl border border-brand-border bg-brand-primaryDark/10 shadow-sm"><img${attr("src", data.event.imageSrc)}${attr("alt", data.event.imageAlt ?? data.event.title)} class="h-[24rem] w-full object-cover"/></div>`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      ImagePlaceholder($$renderer2, {
+        label: data.event.image?.label ?? data.event.imageLabel,
+        style: data.event.image?.style ?? data.event.imageStyle,
+        className: "h-[24rem] w-full"
+      });
+    }
+    $$renderer2.push(`<!--]--> `);
+    if (data.event.gallery && data.event.gallery.length > 1) {
+      $$renderer2.push("<!--[0-->");
+      $$renderer2.push(`<div class="grid gap-4 sm:grid-cols-2"><!--[-->`);
+      const each_array_5 = ensure_array_like(data.event.gallery.slice(1));
+      for (let $$index_5 = 0, $$length = each_array_5.length; $$index_5 < $$length; $$index_5++) {
+        let image = each_array_5[$$index_5];
+        $$renderer2.push(`<div class="overflow-hidden rounded-xl border border-brand-border bg-brand-surface shadow-sm"><img${attr("src", image.src)}${attr("alt", image.alt)} class="h-48 w-full object-cover"/></div>`);
+      }
+      $$renderer2.push(`<!--]--></div>`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+    }
+    $$renderer2.push(`<!--]--> <div class="surface-card p-6"><h2 class="text-2xl text-brand-text">Planning your visit</h2> <p class="body-copy-sm mt-4">`);
     if (isCarnival) {
       $$renderer2.push("<!--[0-->");
       $$renderer2.push(`For the carnival, the day starts with the road parade before the main site activity continues on West Park. The main site is free to enter.`);

@@ -6,10 +6,17 @@
 </script>
 
 <header class="sticky top-0 z-50 bg-brand-primaryDark text-white shadow-sm">
-	<div class="container-shell flex items-center justify-between gap-4 py-4">
-		<a href="/" class="flex flex-col leading-none text-white">
-			<span class="font-display text-[1.65rem] tracking-[-0.03em]">Love Long Eaton</span>
-			<span class="mt-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/80">Town guide</span>
+	<div class="container-shell flex items-center justify-between gap-4 py-3">
+		<a
+			href="/"
+			class="flex items-center"
+			aria-label="Love Long Eaton home"
+		>
+			<img
+				src="/le-logo.png"
+				alt="Love Long Eaton"
+				class="h-16 w-auto brightness-0 invert [filter:brightness(0)_invert(1)_drop-shadow(0_2px_10px_rgba(7,18,41,0.35))] sm:h-20"
+			/>
 		</a>
 
 		<nav class="hidden items-center gap-2 lg:flex" aria-label="Primary">

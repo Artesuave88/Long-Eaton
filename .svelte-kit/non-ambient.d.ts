@@ -47,6 +47,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/" | "/about" | "/businesses" | `/businesses/${string}` & {} | "/contact" | "/discover" | "/events" | `/events/${string}` & {} | "/news";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/favicon.svg" | "/lebjj-logo.png" | string & {};
+		Asset(): "/carnival-2.webp" | "/carnival-3.webp" | "/carnival.webp" | "/favicon.png" | "/favicon.svg" | "/le-logo.png" | "/lebjj-logo.png" | string & {};
 	}
 }

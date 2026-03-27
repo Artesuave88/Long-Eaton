@@ -22,12 +22,18 @@ export type EventItem = {
   buyerInfo?: string[];
   fundraisingNote?: string;
   locationNote?: string;
+  imageSrc?: string;
+  imageAlt?: string;
   imageLabel: string;
   imageStyle: string;
   image?: {
     label: string;
     style: string;
   };
+  gallery?: {
+    src: string;
+    alt: string;
+  }[];
   sourceName?: string;
   sourceUrl?: string;
   volunteerRun?: boolean;

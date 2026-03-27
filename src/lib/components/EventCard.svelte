@@ -7,11 +7,17 @@
 </script>
 
 <article class="surface-card surface-card-hover overflow-hidden">
-	<ImagePlaceholder
-		label={event.image?.label ?? event.imageLabel}
-		style={event.image?.style ?? event.imageStyle}
-		className="h-48 w-full rounded-none"
-	/>
+	{#if event.imageSrc}
+		<div class="h-48 w-full overflow-hidden bg-brand-primaryDark/10">
+			<img src={event.imageSrc} alt={event.imageAlt ?? event.title} class="h-full w-full object-cover" />
+		</div>
+	{:else}
+		<ImagePlaceholder
+			label={event.image?.label ?? event.imageLabel}
+			style={event.image?.style ?? event.imageStyle}
+			className="h-48 w-full rounded-none"
+		/>
+	{/if}
 	<div class="p-5">
 		<div class="flex flex-wrap items-center gap-2">
 			<span class="chip">{event.category}</span>

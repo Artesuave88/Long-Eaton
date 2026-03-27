@@ -5,7 +5,13 @@
 <footer class="border-t border-brand-border bg-brand-surface">
 	<div class="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
 		<div>
-			<a href="/" class="font-display text-2xl tracking-[-0.03em] text-brand-text">Love Long Eaton</a>
+			<a href="/" class="inline-flex items-center" aria-label="Love Long Eaton home">
+				<img
+					src="/le-logo.png"
+					alt="Love Long Eaton"
+					class="h-14 w-auto sm:h-16"
+				/>
+			</a>
 			<p class="body-copy-sm mt-4 max-w-md">
 				Local events, businesses and everyday places worth knowing about in Long Eaton.
 			</p>

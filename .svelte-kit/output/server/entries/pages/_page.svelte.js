@@ -1,4 +1,4 @@
-import { f as fallback, b as escape_html, a as attr, e as ensure_array_like, c as bind_props, h as head } from "../../chunks/index.js";
+import { f as fallback, e as ensure_array_like, a6 as attr_class, a7 as attr_style, a as attr, b as escape_html, c as bind_props, h as head } from "../../chunks/index.js";
 import { C as CTASection } from "../../chunks/CTASection.js";
 import { E as EventCard } from "../../chunks/EventCard.js";
 import { f as formatEventDate } from "../../chunks/format.js";
@@ -8,7 +8,7 @@ import { b as businesses } from "../../chunks/businesses.js";
 import { s as sortedEvents } from "../../chunks/events.js";
 function Hero($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
-    let bannerEvents, useScrollingBanner;
+    let slideshowEvents, totalSlides, animationDuration, hasSlides, useAnimation;
     let eyebrow = fallback($$props["eyebrow"], "Love Long Eaton");
     let title = $$props["title"];
     let copy = $$props["copy"];
@@ -17,26 +17,62 @@ function Hero($$renderer, $$props) {
     let primaryLabel = fallback($$props["primaryLabel"], "See what’s on");
     let secondaryHref = fallback($$props["secondaryHref"], "/businesses");
     let secondaryLabel = fallback($$props["secondaryLabel"], "Browse businesses");
-    bannerEvents = events.length ? [...events, ...events] : [];
-    useScrollingBanner = events.length > 1;
-    $$renderer2.push(`<section class="overflow-hidden rounded-xl border border-brand-border bg-brand-surface"><div class="grid gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-12"><div class="max-w-2xl"><p class="eyebrow mb-4">${escape_html(eyebrow)}</p> <h1 class="max-w-3xl text-brand-text">${escape_html(title)}</h1> <p class="mt-5 max-w-xl text-base leading-8 text-brand-muted sm:text-lg">${escape_html(copy)}</p> <div class="mt-8 flex flex-col gap-3 sm:flex-row"><a${attr("href", primaryHref)} class="button-primary">${escape_html(primaryLabel)}</a> <a${attr("href", secondaryHref)} class="button-secondary">${escape_html(secondaryLabel)}</a></div></div> <div class="overflow-hidden rounded-xl border border-brand-border bg-brand-section/70 p-4"><div class="mb-4 flex items-center justify-between gap-4"><p class="eyebrow">Featured events</p> <a href="/events" class="button-subtle">Full calendar</a></div> `);
-    if (useScrollingBanner) {
+    const slideSeconds = 6;
+    slideshowEvents = events.length ? events : [];
+    totalSlides = slideshowEvents.length || 1;
+    animationDuration = `${totalSlides * slideSeconds}s`;
+    hasSlides = slideshowEvents.length > 0;
+    useAnimation = slideshowEvents.length > 1;
+    $$renderer2.push(`<section class="hero-shell relative overflow-hidden rounded-[1.75rem] border border-brand-border bg-brand-primaryDark text-white svelte-1q37ri0">`);
+    if (hasSlides) {
       $$renderer2.push("<!--[0-->");
-      $$renderer2.push(`<div class="hero-banner-mask svelte-1q37ri0"><div class="hero-banner-track svelte-1q37ri0"><!--[-->`);
-      const each_array = ensure_array_like(bannerEvents);
+      $$renderer2.push(`<div class="absolute inset-0 svelte-1q37ri0"><!--[-->`);
+      const each_array = ensure_array_like(slideshowEvents);
       for (let index = 0, $$length = each_array.length; index < $$length; index++) {
         let event = each_array[index];
-        $$renderer2.push(`<a${attr("href", `/events/${event.slug}`)} class="surface-card hero-banner-card flex min-h-[14rem] w-[17.5rem] flex-col justify-between p-5 svelte-1q37ri0"${attr("aria-label", `View event: ${event.title}`)}><div><p class="eyebrow">${escape_html(event.category)}</p> <h2 class="mt-3 text-xl text-brand-text">${escape_html(event.title)}</h2> <p class="mt-3 text-sm font-medium text-brand-muted">${escape_html(formatEventDate(event))} • ${escape_html(event.location)}</p> <p class="body-copy-sm mt-4">${escape_html(event.excerpt)}</p></div> <div class="mt-5 flex items-center justify-between gap-3"><span class="text-sm font-semibold text-brand-accent">See details</span> <span class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-muted">${escape_html(index < events.length ? "Now" : "Next")}</span></div></a>`);
+        $$renderer2.push(`<article${attr_class(`hero-slide absolute inset-0 ${useAnimation ? "hero-slide-animated" : "hero-slide-static"}`, "svelte-1q37ri0")}${attr_style(`animation-duration: ${animationDuration}; animation-delay: ${index * slideSeconds}s;`)}${attr("aria-hidden", index === 0 ? "false" : "true")}>`);
+        if (event.imageSrc) {
+          $$renderer2.push("<!--[0-->");
+          $$renderer2.push(`<img${attr("src", event.imageSrc)}${attr("alt", event.imageAlt ?? event.title)} class="absolute inset-0 h-full w-full object-cover svelte-1q37ri0"/>`);
+        } else {
+          $$renderer2.push("<!--[-1-->");
+          $$renderer2.push(`<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.22),transparent_35%),linear-gradient(135deg,rgba(1,36,190,0.9),rgba(7,61,255,0.72))] svelte-1q37ri0"></div>`);
+        }
+        $$renderer2.push(`<!--]--> <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,18,41,0.32),rgba(7,18,41,0.72)_48%,rgba(7,18,41,0.92))] svelte-1q37ri0"></div></article>`);
       }
-      $$renderer2.push(`<!--]--></div></div>`);
-    } else if (events.length) {
-      $$renderer2.push("<!--[1-->");
-      $$renderer2.push(`<div class="surface-card p-5"><p class="eyebrow">${escape_html(events[0].category)}</p> <h2 class="mt-3 text-xl text-brand-text">${escape_html(events[0].title)}</h2> <p class="mt-3 text-sm font-medium text-brand-muted">${escape_html(formatEventDate(events[0]))} • ${escape_html(events[0].location)}</p> <p class="body-copy-sm mt-4">${escape_html(events[0].excerpt)}</p> <a${attr("href", `/events/${events[0].slug}`)} class="button-subtle mt-5">See event details</a></div>`);
+      $$renderer2.push(`<!--]--></div>`);
     } else {
       $$renderer2.push("<!--[-1-->");
-      $$renderer2.push(`<div class="surface-card p-5"><p class="body-copy-sm">Browse the events calendar to see what’s happening across Long Eaton.</p></div>`);
+      $$renderer2.push(`<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.2),transparent_35%),linear-gradient(135deg,rgba(1,36,190,0.92),rgba(7,61,255,0.72))] svelte-1q37ri0"></div>`);
     }
-    $$renderer2.push(`<!--]--></div></div></section>`);
+    $$renderer2.push(`<!--]--> <div class="relative z-10 flex min-h-[32rem] flex-col justify-end p-6 sm:min-h-[36rem] sm:p-8 lg:min-h-[40rem] lg:p-12 svelte-1q37ri0">`);
+    if (hasSlides) {
+      $$renderer2.push("<!--[0-->");
+      $$renderer2.push(`<div class="hero-content-wrap relative svelte-1q37ri0"><!--[-->`);
+      const each_array_1 = ensure_array_like(slideshowEvents);
+      for (let index = 0, $$length = each_array_1.length; index < $$length; index++) {
+        let event = each_array_1[index];
+        $$renderer2.push(`<div${attr_class(`hero-copy-panel max-w-4xl ${useAnimation ? "hero-copy-animated" : "hero-copy-static"}`, "svelte-1q37ri0")}${attr_style(`animation-duration: ${animationDuration}; animation-delay: ${index * slideSeconds}s;`)}><div class="flex flex-wrap items-center gap-2 svelte-1q37ri0"><p class="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/90 svelte-1q37ri0">${escape_html(eyebrow)}</p> <span class="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/90 svelte-1q37ri0">${escape_html(event.category)}</span></div> <div class="mt-5 max-w-3xl svelte-1q37ri0"><h1 class="text-white svelte-1q37ri0">${escape_html(title)}</h1> <p class="mt-4 max-w-2xl text-base leading-8 text-white/85 sm:text-lg svelte-1q37ri0">${escape_html(copy)}</p></div> <div class="mt-8 max-w-2xl rounded-2xl border border-white/15 bg-slate-950/35 p-5 backdrop-blur-sm sm:p-6 svelte-1q37ri0"><p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-200 svelte-1q37ri0">Coming up</p> <h2 class="mt-3 text-2xl leading-tight text-white sm:text-[2rem] svelte-1q37ri0">${escape_html(event.title)}</h2> <p class="mt-3 text-sm font-medium text-white/80 svelte-1q37ri0">${escape_html(formatEventDate(event))} • ${escape_html(event.location)}</p> <p class="mt-4 text-sm leading-7 text-white/85 sm:text-base svelte-1q37ri0">${escape_html(event.excerpt)}</p> <div class="mt-6 flex flex-wrap gap-3 svelte-1q37ri0"><a${attr("href", `/events/${event.slug}`)} class="inline-flex items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-sky-50 svelte-1q37ri0">See event details</a> <a${attr("href", primaryHref)} class="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/15 svelte-1q37ri0">${escape_html(primaryLabel)}</a> <a${attr("href", secondaryHref)} class="inline-flex items-center justify-center rounded-lg border border-white/20 bg-transparent px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10 svelte-1q37ri0">${escape_html(secondaryLabel)}</a></div></div></div>`);
+      }
+      $$renderer2.push(`<!--]--></div> `);
+      if (slideshowEvents.length > 1) {
+        $$renderer2.push("<!--[0-->");
+        $$renderer2.push(`<div class="mt-8 flex flex-wrap gap-2 svelte-1q37ri0"><!--[-->`);
+        const each_array_2 = ensure_array_like(slideshowEvents);
+        for (let $$index_2 = 0, $$length = each_array_2.length; $$index_2 < $$length; $$index_2++) {
+          let event = each_array_2[$$index_2];
+          $$renderer2.push(`<a${attr("href", `/events/${event.slug}`)} class="rounded-full border border-white/15 bg-slate-950/30 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80 backdrop-blur-sm hover:bg-slate-950/45 svelte-1q37ri0">${escape_html(event.title)}</a>`);
+        }
+        $$renderer2.push(`<!--]--></div>`);
+      } else {
+        $$renderer2.push("<!--[-1-->");
+      }
+      $$renderer2.push(`<!--]-->`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<div class="max-w-3xl svelte-1q37ri0"><p class="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/90 svelte-1q37ri0">${escape_html(eyebrow)}</p> <h1 class="mt-5 text-white svelte-1q37ri0">${escape_html(title)}</h1> <p class="mt-4 max-w-2xl text-base leading-8 text-white/85 sm:text-lg svelte-1q37ri0">${escape_html(copy)}</p> <div class="mt-8 flex flex-wrap gap-3 svelte-1q37ri0"><a${attr("href", primaryHref)} class="inline-flex items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-sky-50 svelte-1q37ri0">${escape_html(primaryLabel)}</a> <a${attr("href", secondaryHref)} class="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/15 svelte-1q37ri0">${escape_html(secondaryLabel)}</a></div></div>`);
+    }
+    $$renderer2.push(`<!--]--></div></section>`);
     bind_props($$props, {
       eyebrow,
       title,

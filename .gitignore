@@ -1,0 +1,14 @@
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Build and generated output
+.svelte-kit/
+.vercel/
+dist/
+
+# Env files
+.env
+.env.*
+!.env.example

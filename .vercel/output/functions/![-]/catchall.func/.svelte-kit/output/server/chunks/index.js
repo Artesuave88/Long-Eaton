@@ -1173,6 +1173,10 @@ function attr_class(value, hash, directives) {
   var result = to_class(value, hash, directives);
   return result ? ` class="${escape_html(result, true)}"` : "";
 }
+function attr_style(value, directives) {
+  var result = to_style(value, directives);
+  return result ? ` style="${escape_html(result, true)}"` : "";
+}
 function slot(renderer, $$props, name, slot_props, fallback_fn) {
   var slot_fn = $$props.$$slots?.[name];
   if (slot_fn === true) {
@@ -1257,6 +1261,7 @@ export {
   setContext as a4,
   derived as a5,
   attr_class as a6,
+  attr_style as a7,
   escape_html as b,
   bind_props as c,
   HYDRATION_END as d,
