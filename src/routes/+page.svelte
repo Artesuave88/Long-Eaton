@@ -79,8 +79,8 @@
 				<div class="section-link-row">
 					<SectionHeading
 						eyebrow="What’s On"
-						title="Start with the event currently listed in the calendar"
-						copy="The events section stays focused on confirmed local information, starting with Long Eaton Carnival."
+						title="Find events in Long Eaton"
+						copy="Browse upcoming performances, community dates and local events across the town."
 					/>
 					<a href="/events" class="button-subtle hidden sm:inline-flex">Events calendar</a>
 				</div>
@@ -94,8 +94,8 @@
 			<div>
 				<SectionHeading
 					eyebrow="Businesses"
-					title="Keep a real local listing close to hand"
-					copy="The directory currently highlights Long Eaton BJJ with clear details and a direct route to the business website."
+					title="Browse local businesses"
+					copy="Explore independent businesses, services and useful local listings in Long Eaton."
 				/>
 				{#if featuredBusiness}
 					<div class="surface-card overflow-hidden p-6 sm:p-8">
