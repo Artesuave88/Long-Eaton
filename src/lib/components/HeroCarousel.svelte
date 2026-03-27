@@ -11,6 +11,8 @@
 	let isPaused = false;
 	let intervalId: ReturnType<typeof setInterval> | undefined;
 	let carouselElement: HTMLDivElement | null = null;
+	let touchStartX = 0;
+	let touchDeltaX = 0;
 
 	$: slides = events;
 	$: totalSlides = slides.length;
@@ -96,6 +98,50 @@
 		}
 	};
 
+	const resetTouchState = () => {
+		touchStartX = 0;
+		touchDeltaX = 0;
+	};
+
+	const handleTouchStart = (event: TouchEvent) => {
+		if (event.touches.length !== 1 || totalSlides <= 1) {
+			return;
+		}
+
+		touchStartX = event.touches[0].clientX;
+		touchDeltaX = 0;
+		isPaused = true;
+		stopAutoRotate();
+	};
+
+	const handleTouchMove = (event: TouchEvent) => {
+		if (!touchStartX || event.touches.length !== 1) {
+			return;
+		}
+
+		touchDeltaX = event.touches[0].clientX - touchStartX;
+	};
+
+	const handleTouchEnd = () => {
+		if (!touchStartX) {
+			return;
+		}
+
+		isPaused = false;
+
+		if (Math.abs(touchDeltaX) >= 48) {
+			if (touchDeltaX > 0) {
+				showPrevious();
+			} else {
+				showNext();
+			}
+		} else {
+			startAutoRotate();
+		}
+
+		resetTouchState();
+	};
+
 	onMount(() => {
 		if (!carouselElement) {
 			return;
@@ -123,7 +169,16 @@
 	aria-label="Featured events"
 	aria-roledescription="carousel"
 >
-	<div bind:this={carouselElement} class="relative min-h-[22rem] sm:min-h-[24rem] lg:h-[58vh] lg:min-h-[32rem] lg:max-h-[40rem]">
+	<div
+		bind:this={carouselElement}
+		class="relative min-h-[23rem] touch-pan-y sm:min-h-[24rem] lg:h-[58vh] lg:min-h-[32rem] lg:max-h-[40rem]"
+		role="group"
+		aria-label="Featured event slides"
+		on:touchstart={handleTouchStart}
+		on:touchmove={handleTouchMove}
+		on:touchend={handleTouchEnd}
+		on:touchcancel={handleTouchEnd}
+	>
 		{#if totalSlides > 0}
 			{#key slides[activeIndex]?.id}
 				<div class="absolute inset-0" in:fade={{ duration: 650, delay: 120 }} out:fade={{ duration: 420 }}>
@@ -132,7 +187,7 @@
 			{/key}
 
 			{#if totalSlides > 1}
-				<div class="absolute inset-x-0 bottom-0 z-20 flex justify-end px-5 pb-5 sm:px-8 sm:pb-8 lg:px-10 lg:pb-10">
+				<div class="absolute inset-x-0 bottom-0 z-20 hidden justify-end px-5 pb-5 sm:flex sm:px-8 sm:pb-8 lg:px-10 lg:pb-10">
 					<div class="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/18 px-3 py-2 backdrop-blur-md">
 						{#each slides as slide, index}
 							<button
