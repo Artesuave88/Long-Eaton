@@ -142,7 +142,7 @@
 					</p>
 					<div class="mt-5 flex flex-wrap gap-3">
 						<a href="/businesses" class="button-primary">Find a local business</a>
-						<a href="/discover" class="button-secondary">Discover the town</a>
+						<a href="/contact" class="button-secondary">Send an event</a>
 					</div>
 				</div>
 			</div>

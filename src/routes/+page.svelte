@@ -1,21 +1,15 @@
 <script lang="ts">
 	import {
 		CTASection,
-		DiscoverCard,
 		EventCard,
 		Hero,
-		NewsCard,
 		SectionHeading
 	} from '$components';
 	import { businesses } from '$data/businesses';
-	import { discoverCategories } from '$data/discover';
 	import { events } from '$data/events';
-	import { newsItems } from '$data/news';
 
-const featuredEvents = events.filter((event) => event.featured).slice(0, 3);
-const featuredBusiness = businesses[0];
-const latestNews = newsItems.slice(0, 3);
-const discoverHighlights = discoverCategories.slice(0, 2);
+	const featuredEvents = events.filter((event) => event.featured).slice(0, 3);
+	const featuredBusiness = businesses[0];
 </script>
 
 <svelte:head>
@@ -36,6 +30,7 @@ const discoverHighlights = discoverCategories.slice(0, 2);
 		<Hero
 			title="Find local events, shops and places around Long Eaton."
 			copy="A calm local guide to what’s on, where to browse, where to stop and which businesses are worth knowing about in Long Eaton."
+			events={featuredEvents.length ? featuredEvents : events.slice(0, 5)}
 			primaryHref="/events"
 			primaryLabel="See what's on"
 			secondaryHref="/businesses"
@@ -46,83 +41,69 @@ const discoverHighlights = discoverCategories.slice(0, 2);
 
 <section class="section-muted">
 	<div class="container-shell section-space">
-		<SectionHeading
-			eyebrow="Start Here"
-			title="Three simple ways into the town"
-			copy="Use the homepage like a starting point: what’s happening, what to explore and which local businesses to keep handy."
-		/>
-		<div class="grid gap-5 sm:grid-cols-3">
+		<div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
 			<div class="surface-card p-6">
 				<p class="eyebrow">What’s On</p>
-				<h2 class="mt-3 text-2xl text-brand-text">Plan the week</h2>
+				<h2 class="mt-3 text-2xl text-brand-text">Events and dates</h2>
 				<p class="body-copy-sm mt-3">
-					Markets, park days, late openings and easy reasons to head into town.
+					Currently led by Long Eaton Carnival, with timings, location and key details easy to scan.
 				</p>
+				<a href="/events" class="button-subtle mt-5">View events</a>
 			</div>
 			<div class="surface-card p-6">
-				<p class="eyebrow">Discover</p>
-				<h2 class="mt-3 text-2xl text-brand-text">Keep it simple</h2>
+				<p class="eyebrow">Businesses</p>
+				<h2 class="mt-3 text-2xl text-brand-text">Find a business</h2>
 				<p class="body-copy-sm mt-3">
-					Find a lunch spot, browse a few independents or take the canal route home.
+					Browse dependable local listings, services and places that are worth keeping close to hand.
 				</p>
+				<a href="/businesses" class="button-subtle mt-5">Browse businesses</a>
 			</div>
 			<div class="surface-card p-6">
-				<p class="eyebrow">Local Listings</p>
-				<h2 class="mt-3 text-2xl text-brand-text">Local businesses at a glance</h2>
+				<p class="eyebrow">About</p>
+				<h2 class="mt-3 text-2xl text-brand-text">Why the guide exists</h2>
 				<p class="body-copy-sm mt-3">
-					Browse independent businesses, community favourites and everyday places that help shape the town.
+					A simple local guide built around useful event and business information for Long Eaton.
 				</p>
+				<a href="/about" class="button-subtle mt-5">About Love Long Eaton</a>
 			</div>
-		</div>
-	</div>
-</section>
-
-<section class="section-surface">
-	<div class="container-shell section-space">
-		<div class="section-link-row">
-			<SectionHeading
-				eyebrow="What’s On in Long Eaton"
-				title="A few upcoming events to build a day around"
-				copy="Long Eaton Carnival leads the calendar, alongside markets, family days and smaller local dates through the season."
-			/>
-			<a href="/events" class="button-subtle hidden sm:inline-flex">View all events</a>
-		</div>
-		<div class="grid gap-6 lg:grid-cols-3">
-			{#each featuredEvents as event}
-				<EventCard {event} />
-			{/each}
+			<div class="surface-card p-6">
+				<p class="eyebrow">Contact</p>
+				<h2 class="mt-3 text-2xl text-brand-text">Send in details</h2>
+				<p class="body-copy-sm mt-3">
+					Use the contact page to send an event or add a business that should be included in the guide.
+				</p>
+				<a href="/contact" class="button-subtle mt-5">Contact us</a>
+			</div>
 		</div>
 	</div>
 </section>
 
 <section class="section-muted">
 	<div class="container-shell section-space">
-		<div class="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
-			{#if discoverHighlights.length}
-				<div>
+		<div class="grid gap-10 xl:grid-cols-[1.15fr_0.85fr]">
+			<div>
+				<div class="section-link-row">
 					<SectionHeading
-						eyebrow="Discover Long Eaton"
-						title="Pick a direction and explore a little further"
-						copy="Food, shops, green space and everyday routes that help the town feel connected and easy to enjoy."
+						eyebrow="What’s On"
+						title="Start with the event currently listed in the calendar"
+						copy="The events section stays focused on confirmed local information, starting with Long Eaton Carnival."
 					/>
-					<div class="grid gap-6 md:grid-cols-2">
-						{#each discoverHighlights as category}
-							<DiscoverCard {category} />
-						{/each}
-					</div>
-					<div class="mt-6">
-						<a href="/discover" class="button-secondary">Explore discover</a>
-					</div>
+					<a href="/events" class="button-subtle hidden sm:inline-flex">Events calendar</a>
 				</div>
-			{/if}
+				<div class="grid gap-6 lg:grid-cols-1">
+					{#each featuredEvents as event}
+						<EventCard {event} />
+					{/each}
+				</div>
+			</div>
 
-			{#if featuredBusiness}
-				<div>
-					<SectionHeading
-						eyebrow="Businesses"
-						title="Keep a reliable local business close to hand"
-						copy="The directory is there for classes, services and places you may want to return to more than once."
-					/>
+			<div>
+				<SectionHeading
+					eyebrow="Businesses"
+					title="Keep a real local listing close to hand"
+					copy="The directory currently highlights Long Eaton BJJ with clear details and a direct route to the business website."
+				/>
+				{#if featuredBusiness}
 					<div class="surface-card overflow-hidden p-6 sm:p-8">
 						<div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
 							<div>
@@ -148,62 +129,38 @@ const discoverHighlights = discoverCategories.slice(0, 2);
 							</div>
 						</div>
 					</div>
-				</div>
-			{/if}
+				{/if}
+			</div>
 		</div>
 	</div>
 </section>
 
-<section class="section-surface">
+<section class="section-muted">
 	<div class="container-shell section-space">
-		<div class="grid gap-5 lg:grid-cols-3">
-			<div class="surface-card p-7">
-				<p class="eyebrow">Community</p>
-				<h2 class="mt-3 text-2xl text-brand-text">Anchored in the town calendar</h2>
-				<p class="body-copy-sm mt-4">
-					Flagship events such as Long Eaton Carnival sit alongside smaller dates that help shape weekends and evenings.
+		<div class="surface-card grid gap-8 p-7 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+			<div>
+				<p class="eyebrow">About Love Long Eaton</p>
+				<h2 class="mt-3 text-brand-text">A local guide built around community life in the town</h2>
+				<p class="body-copy mt-4 max-w-2xl">
+					Love Long Eaton brings together what’s on, where to go and who to know about, with a structure that helps people move easily between events, places and local businesses.
 				</p>
+				<div class="mt-6">
+					<a href="/about" class="button-secondary">Find out more</a>
+				</div>
 			</div>
-			<div class="surface-card p-7">
-				<p class="eyebrow">About the guide</p>
-				<h2 class="mt-3 text-2xl text-brand-text">Easy to scan</h2>
-				<p class="body-copy-sm mt-4">
-					Timings, locations and categories stay consistent across the site so it is quick to compare what is happening.
-				</p>
+			<div>
+				<p class="eyebrow">Quick links</p>
+				<div class="mt-4 grid gap-3 sm:grid-cols-2">
+					<a href="/" class="surface-card p-4 text-sm font-semibold text-brand-text hover:text-brand-accent">Home</a>
+					<a href="/events" class="surface-card p-4 text-sm font-semibold text-brand-text hover:text-brand-accent">Events</a>
+					<a href="/businesses" class="surface-card p-4 text-sm font-semibold text-brand-text hover:text-brand-accent">Businesses</a>
+					<a href="/about" class="surface-card p-4 text-sm font-semibold text-brand-text hover:text-brand-accent">About</a>
+					<a href="/contact" class="surface-card p-4 text-sm font-semibold text-brand-text hover:text-brand-accent">Contact</a>
+				</div>
 			</div>
-			<div class="surface-card p-7">
-				<p class="eyebrow">Local focus</p>
-				<h2 class="mt-3 text-2xl text-brand-text">Made for everyday use</h2>
-				<p class="body-copy-sm mt-4">
-					The layout stays calm and practical, with enough detail to be useful without getting in the way.
-				</p>
-			</div>
-		</div>
-		<div class="mt-8 flex justify-start">
-			<a href="/about" class="button-secondary">About Love Long Eaton</a>
 		</div>
 	</div>
 </section>
-
-{#if latestNews.length}
-	<section class="section-muted">
-		<div class="container-shell section-space">
-			<div class="section-link-row">
-				<SectionHeading
-					eyebrow="Latest News"
-					title="Local updates"
-					copy="Short reads on what's changing, what's returning and what's worth keeping an eye on."
-				/>
-				<a href="/news" class="button-subtle hidden sm:inline-flex">View all news</a>
-			</div>
-			<div class="grid gap-6 lg:grid-cols-3">
-				{#each latestNews as item}
-					<NewsCard {item} />
-				{/each}
-			</div>
-		</div>
-	</section>
-{/if}
 
 <section class="section-surface">
 	<div class="container-shell section-space">
