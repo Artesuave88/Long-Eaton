@@ -8,6 +8,7 @@
 	const formatRelatedDate = (date?: string, dateLabel?: string) =>
 		date ? formatDisplayDate(date) : dateLabel ?? '';
 	const isCarnival = data.event.slug === 'long-eaton-carnival';
+	const isArtRoomEvent = data.event.sourceUrl === 'https://www.longeatonartroom.co.uk/whats-available/events/';
 	const hasVisitDetails =
 		Boolean(data.event.priceSummary) || Boolean(data.event.locationNote) || Boolean(data.event.fundraisingNote);
 </script>
@@ -38,8 +39,8 @@
 						<p class="mt-2 text-base font-semibold text-brand-text">{formatEventDate(data.event)}</p>
 					</div>
 					<div>
-						<p class="eyebrow">Start</p>
-						<p class="mt-2 text-base font-semibold text-brand-text">{data.event.startTime ?? data.event.time}</p>
+						<p class="eyebrow">Time</p>
+						<p class="mt-2 text-base font-semibold text-brand-text">{data.event.time}</p>
 					</div>
 					<div>
 						<p class="eyebrow">Location</p>
@@ -62,29 +63,31 @@
 					</div>
 				</div>
 
-				<div class="surface-card mt-8 p-6">
-					<h2 class="text-2xl text-brand-text">Timing details</h2>
-					<div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-						<div class="inset-panel p-4">
-							<p class="eyebrow">Starts</p>
-							<p class="mt-2 text-base font-semibold text-brand-text">{data.event.startTime ?? data.event.time}</p>
+				{#if !isArtRoomEvent}
+					<div class="surface-card mt-8 p-6">
+						<h2 class="text-2xl text-brand-text">Timing details</h2>
+						<div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+							<div class="inset-panel p-4">
+								<p class="eyebrow">Starts</p>
+								<p class="mt-2 text-base font-semibold text-brand-text">{data.event.startTime ?? data.event.time}</p>
+							</div>
+							{#if data.event.time !== data.event.startTime}
+								<div class="inset-panel p-4">
+									<p class="eyebrow">At a glance</p>
+									<p class="mt-2 text-base font-semibold text-brand-text">{data.event.time}</p>
+								</div>
+							{/if}
+							{#if data.event.endTime || data.event.approximateReturnTime}
+								<div class="inset-panel p-4">
+									<p class="eyebrow">{data.event.approximateReturnTime ? 'Approximate return' : 'Ends'}</p>
+									<p class="mt-2 text-base font-semibold text-brand-text">
+										{data.event.approximateReturnTime ?? data.event.endTime}
+									</p>
+								</div>
+							{/if}
 						</div>
-						{#if data.event.time !== data.event.startTime}
-							<div class="inset-panel p-4">
-								<p class="eyebrow">At a glance</p>
-								<p class="mt-2 text-base font-semibold text-brand-text">{data.event.time}</p>
-							</div>
-						{/if}
-						{#if data.event.endTime || data.event.approximateReturnTime}
-							<div class="inset-panel p-4">
-								<p class="eyebrow">{data.event.approximateReturnTime ? 'Approximate return' : 'Ends'}</p>
-								<p class="mt-2 text-base font-semibold text-brand-text">
-									{data.event.approximateReturnTime ?? data.event.endTime}
-								</p>
-							</div>
-						{/if}
 					</div>
-				</div>
+				{/if}
 
 				{#if data.event.sellerInfo?.length || data.event.buyerInfo?.length}
 					<div class="mt-8 grid gap-6 lg:grid-cols-2">
@@ -138,7 +141,7 @@
 					</div>
 				{/if}
 
-				{#if data.event.organiser}
+				{#if data.event.organiser && !isArtRoomEvent}
 					<div class="surface-card mt-8 p-6">
 						<h2 class="text-2xl text-brand-text">Organiser</h2>
 						<p class="mt-4 text-base leading-8 text-brand-muted">
@@ -191,7 +194,9 @@
 						<img
 							src={data.event.imageSrc}
 							alt={data.event.imageAlt ?? data.event.title}
-							class="h-[24rem] w-full object-cover"
+							class={`h-[24rem] w-full ${
+								data.event.imageFit === 'contain' ? 'bg-white p-6 object-contain' : 'object-cover'
+							}`}
 						/>
 					</div>
 				{:else}
@@ -211,22 +216,24 @@
 						{/each}
 					</div>
 				{/if}
-				<div class="surface-card p-6">
-					<h2 class="text-2xl text-brand-text">Planning your visit</h2>
-					<p class="body-copy-sm mt-4">
-						{#if isCarnival}
-							For the carnival, the day starts with the road parade before the main site activity continues on West Park. The main site is free to enter.
-						{:else if data.event.category === 'Markets'}
-							West Park car boots are simple to plan for: sellers arrive from 7am, buyers from 8am, and all proceeds support the Carnival fund.
-						{:else}
-							Pair this event with a stop at a local cafe, a browse through the town centre or a walk through one of Long Eaton’s green spaces.
-						{/if}
-					</p>
-					<div class="mt-5 flex flex-wrap gap-3">
-						<a href="/businesses" class="button-primary">Find a local business</a>
-						<a href="/contact" class="button-secondary">Send an event</a>
+				{#if !isArtRoomEvent}
+					<div class="surface-card p-6">
+						<h2 class="text-2xl text-brand-text">Planning your visit</h2>
+						<p class="body-copy-sm mt-4">
+							{#if isCarnival}
+								For the carnival, the day starts with the road parade before the main site activity continues on West Park. The main site is free to enter.
+							{:else if data.event.category === 'Markets'}
+								West Park car boots are simple to plan for: sellers arrive from 7am, buyers from 8am, and all proceeds support the Carnival fund.
+							{:else}
+								Pair this event with a stop at a local cafe, a browse through the town centre or a walk through one of Long Eaton’s green spaces.
+							{/if}
+						</p>
+						<div class="mt-5 flex flex-wrap gap-3">
+							<a href="/businesses" class="button-primary">Find a local business</a>
+							<a href="/contact" class="button-secondary">Send an event</a>
+						</div>
 					</div>
-				</div>
+				{/if}
 			</div>
 		</div>
 	</div>

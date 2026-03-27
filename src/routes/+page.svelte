@@ -18,7 +18,7 @@
       return false;
     }
 
-    const eventDate = new Date(event.date);
+    const eventDate = new Date(event.endDate ?? event.date);
     eventDate.setHours(0, 0, 0, 0);
 
     return eventDate >= today;
@@ -27,10 +27,7 @@
   const upcomingEvents = sortedEvents.filter(isUpcomingEvent);
   const upcomingFeaturedEvents = upcomingEvents.filter((event) => event.featured);
   const heroEvents = (upcomingFeaturedEvents.length ? upcomingFeaturedEvents : upcomingEvents).slice(0, 5);
-  const featuredEvent =
-    upcomingEvents.find((event) => event.slug === "long-eaton-carnival") ??
-    upcomingFeaturedEvents[0] ??
-    upcomingEvents[0];
+  const featuredEvent = upcomingFeaturedEvents[0] ?? upcomingEvents[0];
   const featuredBusiness =
     businesses.find((business) => business.slug === "long-eaton-bjj") ?? businesses[0];
 </script>
@@ -117,5 +114,4 @@
     </div>
   </div>
 </section> -->
-
 

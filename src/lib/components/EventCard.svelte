@@ -9,7 +9,11 @@
 <article class="surface-card surface-card-hover overflow-hidden">
 	{#if event.imageSrc}
 		<div class="h-48 w-full overflow-hidden bg-brand-primaryDark/10">
-			<img src={event.imageSrc} alt={event.imageAlt ?? event.title} class="h-full w-full object-cover" />
+			<img
+				src={event.imageSrc}
+				alt={event.imageAlt ?? event.title}
+				class={`h-full w-full ${event.imageFit === 'contain' ? 'bg-white p-4 object-contain' : 'object-cover'}`}
+			/>
 		</div>
 	{:else}
 		<ImagePlaceholder

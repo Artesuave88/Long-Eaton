@@ -39,7 +39,11 @@
 			<img
 				src={event.imageSrc}
 				alt={event.imageAlt ?? event.title}
-				class="absolute inset-y-0 right-0 h-full w-full object-contain object-right-center p-4 pl-[38%] sm:p-6 sm:pl-[42%] lg:p-8 lg:pl-[48%]"
+				class={`absolute inset-y-0 right-0 h-full w-full ${
+					event.imageFit === 'contain'
+						? 'object-contain bg-white/95 p-4 pl-[38%] sm:p-6 sm:pl-[42%] lg:p-8 lg:pl-[48%]'
+						: 'object-contain object-right-center p-4 pl-[38%] sm:p-6 sm:pl-[42%] lg:p-8 lg:pl-[48%]'
+				}`}
 			/>
 		</div>
 	{:else}

@@ -6,9 +6,9 @@
   export let event: EventItem;
 </script>
 
-<article class="surface-card overflow-hidden border border-brand-border/80 bg-white shadow-[0_24px_70px_rgba(7,18,41,0.08)]">
-  <div class="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
-    <div class="flex flex-col justify-between p-6 sm:p-8 lg:p-10">
+<article class="surface-card h-[40rem] overflow-hidden border border-brand-border/80 bg-white shadow-[0_24px_70px_rgba(7,18,41,0.08)] sm:h-[38rem] lg:h-[30rem]">
+  <div class="grid h-full gap-0 lg:grid-cols-[1.1fr_0.9fr]">
+    <div class="flex h-full flex-col justify-between p-6 sm:p-8 lg:p-10">
       <div>
         <p class="eyebrow">Featured event</p>
         <h2 class="mt-3 max-w-[14ch] text-brand-text">{event.title}</h2>
@@ -28,11 +28,11 @@
     </div>
 
     {#if event.imageSrc}
-      <div class="min-h-[18rem] border-t border-brand-border bg-brand-primaryDark/5 lg:min-h-full lg:border-l lg:border-t-0">
+      <div class="flex h-full min-h-[18rem] items-center justify-center border-t border-brand-border lg:border-l lg:border-t-0">
         <img
           src={event.imageSrc}
           alt={event.imageAlt ?? event.title}
-          class="h-full w-full object-cover"
+          class="max-h-56 w-full object-contain lg:max-h-64"
         />
       </div>
     {:else}

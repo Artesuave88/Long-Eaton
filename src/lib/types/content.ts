@@ -3,6 +3,7 @@ export type EventItem = {
   slug: string;
   title: string;
   date?: string;
+  endDate?: string;
   dateLabel?: string;
   isTbc?: boolean;
   time: string;
@@ -24,6 +25,7 @@ export type EventItem = {
   locationNote?: string;
   imageSrc?: string;
   imageAlt?: string;
+  imageFit?: "cover" | "contain";
   imageLabel: string;
   imageStyle: string;
   image?: {

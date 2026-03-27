@@ -5,9 +5,9 @@
   export let business: BusinessItem;
 </script>
 
-<article class="surface-card overflow-hidden border border-brand-border/80 bg-white shadow-[0_24px_70px_rgba(7,18,41,0.08)]">
-  <div class="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
-    <div class="flex flex-col justify-between p-6 sm:p-8 lg:p-10">
+<article class="surface-card h-[40rem] overflow-hidden border border-brand-border/80 bg-white shadow-[0_24px_70px_rgba(7,18,41,0.08)] sm:h-[38rem] lg:h-[30rem]">
+  <div class="grid h-full gap-0 lg:grid-cols-[1.1fr_0.9fr]">
+    <div class="flex h-full flex-col justify-between p-6 sm:p-8 lg:p-10">
       <div>
         <p class="eyebrow">Business spotlight</p>
         <h2 class="mt-3 max-w-[14ch] text-brand-text">{business.name}</h2>
@@ -27,11 +27,11 @@
     </div>
 
     {#if business.imageSrc}
-      <div class="flex min-h-[18rem] items-center justify-center border-t border-brand-border  lg:min-h-full lg:border-l lg:border-t-0">
+      <div class="flex h-full min-h-[18rem] items-center justify-center border-t border-brand-border lg:border-l lg:border-t-0">
         <img
           src={business.imageSrc}
           alt={business.imageAlt ?? business.name}
-          class="max-h-56 w-full object-contain"
+          class="max-h-56 w-full object-contain lg:max-h-64"
         />
       </div>
     {:else}

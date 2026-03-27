@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { page } from '$app/state';
 	import { BusinessCard, CategoryFilter, EmptyState, SearchBar, SectionHeading } from '$components';
 	import {
@@ -17,17 +18,18 @@
 	const featuredBusiness = businesses.find((business) => business.featured) ?? businesses[0];
 
 	const getInitialCategory = () => {
-		const category = page.url.searchParams.get('category');
+		const category = browser ? page.url.searchParams.get('category') : null;
 		return category && businessCategories.includes(category) ? category : 'All';
 	};
 
-	$: selectedGroup = page.url.searchParams.get('group');
-	$: selectedLetter = page.url.searchParams.get('letter')?.toUpperCase() ?? '';
+	$: selectedGroup = browser ? page.url.searchParams.get('group') : null;
+	$: selectedLetter = browser ? page.url.searchParams.get('letter')?.toUpperCase() ?? '' : '';
 	$: selectedBrowseGroupLabel =
 		businessBrowseGroups.find((group) => group.slug === selectedGroup)?.label ?? '';
-	$: if (page.url.search !== previousSearch) {
+	$: currentSearch = browser ? page.url.search : '';
+	$: if (currentSearch !== previousSearch) {
 		selectedCategory = getInitialCategory();
-		previousSearch = page.url.search;
+		previousSearch = currentSearch;
 	}
 
 	$: filteredBusinesses = orderedBusinesses.filter((business) => {
