@@ -150,6 +150,14 @@
 					</div>
 				{/if}
 
+				{#if data.event.sourceUrl}
+					<div class="mt-8">
+						<a href={data.event.sourceUrl} target="_blank" rel="noreferrer" class="button-primary">
+							View source listing
+						</a>
+					</div>
+				{/if}
+
 				{#if data.event.relatedDates?.length}
 					<div class="surface-card mt-8 p-6">
 						<h2 class="text-2xl text-brand-text">Related dates</h2>

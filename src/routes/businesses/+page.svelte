@@ -7,6 +7,7 @@
 	let selectedCategory = 'All';
 
 	const orderedBusinesses = [...businesses];
+	const featuredBusiness = businesses.find((business) => business.featured) ?? businesses[0];
 
 	$: filteredBusinesses = orderedBusinesses.filter((business) => {
 		const matchesQuery =
@@ -36,12 +37,14 @@
 			copy="Independent businesses, local services and useful town listings in one place."
 		/>
 
-		<div class="surface-card mb-6 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5">
-			<p class="body-copy-sm">
-				Featured now: <span class="font-semibold text-brand-text">Long Eaton BJJ</span>.
-			</p>
-			<a href="/businesses/long-eaton-bjj" class="button-subtle">View business</a>
-		</div>
+		{#if featuredBusiness}
+			<div class="surface-card mb-6 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5">
+				<p class="body-copy-sm">
+					Featured now: <span class="font-semibold text-brand-text">{featuredBusiness.name}</span>.
+				</p>
+				<a href={`/businesses/${featuredBusiness.slug}`} class="button-subtle">View business</a>
+			</div>
+		{/if}
 
 		<div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">
 			<SearchBar bind:value={query} placeholder="Search businesses, categories or streets" />

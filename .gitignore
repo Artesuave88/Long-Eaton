@@ -2,13 +2,19 @@
 
 # Dependencies
 node_modules/
+.npm/
 
 # Build and generated output
 .svelte-kit/
 .vercel/
 dist/
+.vite/
+coverage/
 
 # Env files
 .env
 .env.*
 !.env.example
+
+# Logs
+*.log

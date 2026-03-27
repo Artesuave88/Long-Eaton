@@ -5,7 +5,7 @@
 	import HeroSlide from './HeroSlide.svelte';
 
 	export let events: EventItem[] = [];
-	export let autoRotateMs = 6000;
+	export let autoRotateMs = 7200;
 
 	let activeIndex = 0;
 	let isPaused = false;
@@ -119,24 +119,24 @@
 </script>
 
 <section
-	class="relative overflow-hidden rounded-[1.75rem] border border-brand-border bg-brand-primaryDark text-white shadow-[0_24px_70px_rgba(7,18,41,0.2)]"
+	class="relative overflow-hidden rounded-[1.9rem] border border-brand-border bg-brand-primaryDark text-white shadow-[0_28px_90px_rgba(7,18,41,0.24)]"
 	aria-label="Featured events"
 	aria-roledescription="carousel"
 >
 	<div bind:this={carouselElement} class="relative min-h-[24rem] sm:min-h-[28rem] lg:h-[68vh] lg:min-h-[38rem] lg:max-h-[46rem]">
 		{#if totalSlides > 0}
 			{#key slides[activeIndex]?.id}
-				<div class="absolute inset-0" in:fade={{ duration: 450 }} out:fade={{ duration: 300 }}>
+				<div class="absolute inset-0" in:fade={{ duration: 650, delay: 120 }} out:fade={{ duration: 420 }}>
 					<HeroSlide event={slides[activeIndex]} />
 				</div>
 			{/key}
 
 			{#if totalSlides > 1}
 				<div class="absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-4 p-5 sm:p-8 lg:p-12">
-					<div class="flex items-center gap-2 rounded-full border border-white/12 bg-slate-950/28 p-2 backdrop-blur-[6px]">
+					<div class="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/20 p-2 backdrop-blur-md">
 						<button
 							type="button"
-							class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/18 focus:outline-none focus:ring-2 focus:ring-white/70"
+							class="flex h-11 w-11 items-center justify-center rounded-full bg-white/8 text-white/90 transition duration-300 hover:bg-white/16 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70"
 							on:click={showPrevious}
 							aria-label="Show previous featured event"
 						>
@@ -144,7 +144,7 @@
 						</button>
 						<button
 							type="button"
-							class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/18 focus:outline-none focus:ring-2 focus:ring-white/70"
+							class="flex h-11 w-11 items-center justify-center rounded-full bg-white/8 text-white/90 transition duration-300 hover:bg-white/16 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70"
 							on:click={showNext}
 							aria-label="Show next featured event"
 						>
@@ -152,12 +152,14 @@
 						</button>
 					</div>
 
-					<div class="flex items-center gap-2 rounded-full border border-white/12 bg-slate-950/28 px-3 py-2 backdrop-blur-[6px]">
+					<div class="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/20 px-3 py-2 backdrop-blur-md">
 						{#each slides as slide, index}
 							<button
 								type="button"
-								class={`h-2.5 rounded-full transition focus:outline-none focus:ring-2 focus:ring-white/70 ${
-									index === activeIndex ? 'w-8 bg-white' : 'w-2.5 bg-white/45 hover:bg-white/70'
+								class={`rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/70 ${
+									index === activeIndex
+										? 'h-2.5 w-8 bg-white shadow-[0_0_0_1px_rgba(255,255,255,0.16)]'
+										: 'h-2 w-2 bg-white/45 hover:bg-white/70'
 								}`}
 								on:click={() => goToSlide(index)}
 								aria-label={`Go to featured event ${index + 1}: ${slide.title}`}

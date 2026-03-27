@@ -1,4 +1,5 @@
 import type { EventItem } from "$types/content";
+import { optionalImportedEvents } from "$data/imported";
 
 const carBootBase = {
   title: "Long Eaton Carnival Car Boot Sale",
@@ -47,7 +48,7 @@ const carBootBase = {
   sourceUrl: "https://www.longeatoncarnival.org.uk/car-boots/"
 } satisfies Partial<EventItem>;
 
-export const events: EventItem[] = [
+const baseEvents: EventItem[] = [
   {
     id: "event-long-eaton-carnival-car-boot-2026-04-12",
     slug: "long-eaton-carnival-car-boot-sale-12-april-2026",
@@ -162,6 +163,11 @@ export const events: EventItem[] = [
     ...carBootBase,
     time: "Date to be confirmed"
   }
+];
+
+export const events: EventItem[] = [
+  ...baseEvents,
+  ...optionalImportedEvents,
 ];
 
 const getEventSortValue = (event: EventItem) => {

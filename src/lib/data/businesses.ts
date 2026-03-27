@@ -1,6 +1,7 @@
 import type { BusinessItem } from "$types/content";
+import { optionalImportedBusinesses } from "$data/imported";
 
-export const businesses: BusinessItem[] = [
+const baseBusinesses: BusinessItem[] = [
   {
     id: "business-7",
     slug: "long-eaton-bjj",
@@ -21,6 +22,12 @@ export const businesses: BusinessItem[] = [
     featured: true,
     isReal: true,
   },
+];
+
+export const businesses: BusinessItem[] = [
+  ...optionalImportedBusinesses.filter((business) => business.featured),
+  ...baseBusinesses,
+  ...optionalImportedBusinesses.filter((business) => !business.featured),
 ];
 
 export const businessCategories = [

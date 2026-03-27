@@ -10,7 +10,7 @@
 
 	const featuredEvents = sortedEvents.filter((event) => event.featured).slice(0, 5);
 	const heroEvents = featuredEvents.length ? featuredEvents : sortedEvents.slice(0, 5);
-	const featuredBusiness = businesses[0];
+	const featuredBusiness = businesses.find((business) => business.featured) ?? businesses[0];
 </script>
 
 <svelte:head>
