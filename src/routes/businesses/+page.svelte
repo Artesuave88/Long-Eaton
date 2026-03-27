@@ -6,7 +6,7 @@
 	let query = '';
 	let selectedCategory = 'All';
 
-	const orderedBusinesses = [...businesses].sort((a, b) => Number(Boolean(b.isReal)) - Number(Boolean(a.isReal)));
+	const orderedBusinesses = [...businesses];
 
 	$: filteredBusinesses = orderedBusinesses.filter((business) => {
 		const matchesQuery =
@@ -32,15 +32,15 @@
 	<SectionHeading
 		eyebrow="Businesses"
 		title="Browse local businesses in Long Eaton"
-		copy="One real listing has been added so far, with the wider directory still being built up."
+		copy="Only verified local listings are shown here."
 	/>
 
 	<div class="surface-card mb-6 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5">
 		<p class="text-sm leading-7 text-ink/72">
-			Featured first: <span class="font-semibold text-ink">Long Eaton BJJ</span> is the first live business now in the directory.
+			Currently listed: <span class="font-semibold text-ink">Long Eaton BJJ</span>.
 		</p>
 		<a href="/businesses/long-eaton-bjj" class="text-sm font-semibold text-brand-700 hover:text-brand-900">
-			View featured business
+			View business
 		</a>
 	</div>
 
@@ -58,7 +58,7 @@
 	{:else}
 		<EmptyState
 			title="No businesses matched your search"
-			message="Try a different search term or clear the category filter to browse more local favourites."
+			message="Try a different search term or clear the category filter to browse the current live listings."
 		/>
 	{/if}
 </section>

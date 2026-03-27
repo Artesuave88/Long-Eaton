@@ -25,9 +25,9 @@
 			</p>
 		</div>
 		<div class="surface-card p-7">
-			<h2 class="font-display text-2xl text-ink">Growing gradually</h2>
+			<h2 class="font-display text-2xl text-ink">Real-content only</h2>
 			<p class="mt-4 text-sm leading-7 text-ink/72">
-				Some sections still use mock content for now, but the structure is ready for more real listings, events and updates.
+				The guide now removes stand-in content and only shows listings, events and updates that have been properly added.
 			</p>
 		</div>
 		<div class="surface-card p-7">
@@ -56,8 +56,8 @@
 				<p class="mt-3 text-base leading-7 text-ink/72">Opening times, maps, richer business profiles and better event detail can all be added in stages.</p>
 			</div>
 			<div class="inset-panel p-5">
-				<p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Real content next</p>
-				<p class="mt-3 text-base leading-7 text-ink/72">The biggest improvement from here will come from replacing the remaining mock listings and news items.</p>
+				<p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Build carefully</p>
+				<p class="mt-3 text-base leading-7 text-ink/72">New sections can be added gradually, but only when there is enough real local material to make them worth reading.</p>
 			</div>
 		</div>
 	</div>

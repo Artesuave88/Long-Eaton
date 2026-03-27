@@ -68,6 +68,17 @@
 			}
 		},
 		{
+			"src": "/events/long-eaton-carnival",
+			"dest": "/events/long-eaton-carnival/"
+		},
+		{
+			"src": "/events/long-eaton-carnival/",
+			"status": 308,
+			"headers": {
+				"Location": "/events/long-eaton-carnival"
+			}
+		},
+		{
 			"src": "/events/long-eaton-makers-market",
 			"dest": "/events/long-eaton-makers-market/"
 		},
@@ -98,72 +109,6 @@
 			"status": 308,
 			"headers": {
 				"Location": "/businesses/long-eaton-bjj"
-			}
-		},
-		{
-			"src": "/businesses/station-street-kitchen",
-			"dest": "/businesses/station-street-kitchen/"
-		},
-		{
-			"src": "/businesses/station-street-kitchen/",
-			"status": 308,
-			"headers": {
-				"Location": "/businesses/station-street-kitchen"
-			}
-		},
-		{
-			"src": "/businesses/canal-side-cycles",
-			"dest": "/businesses/canal-side-cycles/"
-		},
-		{
-			"src": "/businesses/canal-side-cycles/",
-			"status": 308,
-			"headers": {
-				"Location": "/businesses/canal-side-cycles"
-			}
-		},
-		{
-			"src": "/businesses/market-house-gifts",
-			"dest": "/businesses/market-house-gifts/"
-		},
-		{
-			"src": "/businesses/market-house-gifts/",
-			"status": 308,
-			"headers": {
-				"Location": "/businesses/market-house-gifts"
-			}
-		},
-		{
-			"src": "/businesses/erewash-wellness-studio",
-			"dest": "/businesses/erewash-wellness-studio/"
-		},
-		{
-			"src": "/businesses/erewash-wellness-studio/",
-			"status": 308,
-			"headers": {
-				"Location": "/businesses/erewash-wellness-studio"
-			}
-		},
-		{
-			"src": "/businesses/long-eaton-books-co",
-			"dest": "/businesses/long-eaton-books-co/"
-		},
-		{
-			"src": "/businesses/long-eaton-books-co/",
-			"status": 308,
-			"headers": {
-				"Location": "/businesses/long-eaton-books-co"
-			}
-		},
-		{
-			"src": "/businesses/park-view-florist",
-			"dest": "/businesses/park-view-florist/"
-		},
-		{
-			"src": "/businesses/park-view-florist/",
-			"status": 308,
-			"headers": {
-				"Location": "/businesses/park-view-florist"
 			}
 		},
 		{
@@ -246,6 +191,9 @@
 		"news.html": {
 			"path": "news"
 		},
+		"events/long-eaton-carnival.html": {
+			"path": "events/long-eaton-carnival"
+		},
 		"events/long-eaton-makers-market.html": {
 			"path": "events/long-eaton-makers-market"
 		},
@@ -254,24 +202,6 @@
 		},
 		"businesses/long-eaton-bjj.html": {
 			"path": "businesses/long-eaton-bjj"
-		},
-		"businesses/station-street-kitchen.html": {
-			"path": "businesses/station-street-kitchen"
-		},
-		"businesses/canal-side-cycles.html": {
-			"path": "businesses/canal-side-cycles"
-		},
-		"businesses/market-house-gifts.html": {
-			"path": "businesses/market-house-gifts"
-		},
-		"businesses/erewash-wellness-studio.html": {
-			"path": "businesses/erewash-wellness-studio"
-		},
-		"businesses/long-eaton-books-co.html": {
-			"path": "businesses/long-eaton-books-co"
-		},
-		"businesses/park-view-florist.html": {
-			"path": "businesses/park-view-florist"
 		},
 		"events/twilight-canal-walk.html": {
 			"path": "events/twilight-canal-walk"

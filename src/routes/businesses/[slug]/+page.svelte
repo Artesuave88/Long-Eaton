@@ -105,20 +105,22 @@
 		</div>
 	</div>
 
-	<section class="mt-14">
-		<div class="mb-6 max-w-2xl">
-			<p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand-700">More businesses</p>
-			<h2 class="mt-3 font-display text-3xl text-ink">You might also want to look at</h2>
-		</div>
-		<div class="grid gap-4 md:grid-cols-3">
-			{#each relatedBusinesses as business}
-				<a href={`/businesses/${business.slug}`} class="surface-card p-5 transition hover:bg-brand-50/60">
-					<p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">{business.category}</p>
-					<h3 class="mt-3 font-display text-2xl text-ink">{business.name}</h3>
-					<p class="mt-2 text-sm font-medium text-ink/55">{business.location}</p>
-					<p class="mt-4 text-sm leading-7 text-ink/72">{business.description}</p>
-				</a>
-			{/each}
-		</div>
-	</section>
+	{#if relatedBusinesses.length}
+		<section class="mt-14">
+			<div class="mb-6 max-w-2xl">
+				<p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand-700">More businesses</p>
+				<h2 class="mt-3 font-display text-3xl text-ink">You might also want to look at</h2>
+			</div>
+			<div class="grid gap-4 md:grid-cols-3">
+				{#each relatedBusinesses as business}
+					<a href={`/businesses/${business.slug}`} class="surface-card p-5 transition hover:bg-brand-50/60">
+						<p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">{business.category}</p>
+						<h3 class="mt-3 font-display text-2xl text-ink">{business.name}</h3>
+						<p class="mt-2 text-sm font-medium text-ink/55">{business.location}</p>
+						<p class="mt-4 text-sm leading-7 text-ink/72">{business.description}</p>
+					</a>
+				{/each}
+			</div>
+		</section>
+	{/if}
 </article>

@@ -1,11 +1,54 @@
 const events = [
   {
+    id: "event-long-eaton-carnival",
+    slug: "long-eaton-carnival",
+    title: "Long Eaton Carnival",
+    date: "2026-06-20",
+    time: "Parade from 11:00 AM, returning around 12:30 PM to 1:00 PM",
+    startTime: "11:00 AM",
+    approximateReturnTime: "Around 12:30 PM to 1:00 PM",
+    location: "Road parade through Long Eaton, followed by events on West Park",
+    price: "Free entry to the main carnival site",
+    organiser: "Long Eaton Carnival volunteers",
+    strapline: "Bringing Long Eaton people together as a community",
+    tags: ["Carnival", "Parade", "Community", "West Park", "Through the Decades"],
+    category: "Community",
+    excerpt: "Long Eaton Carnival returns on Saturday 20 June with the road parade through town before events continue on West Park.",
+    description: [
+      "The 2026 theme is Through the Decades. The day starts with the road parade through town before displays and events continue on West Park.",
+      "The parade starts at 11am and returns to the carnival site at around 12:30pm to 1:00pm. The main carnival site is free to enter."
+    ],
+    imageLabel: "Carnival parade",
+    imageStyle: "from-coral/90 via-brand-200 to-sand",
+    image: {
+      label: "Carnival parade",
+      style: "from-coral/90 via-brand-200 to-sand"
+    },
+    sourceName: "Long Eaton Carnival homepage",
+    volunteerRun: true,
+    relatedDates: [
+      { title: "Car boot sale", date: "2026-04-12" },
+      { title: "Car boot sale", date: "2026-05-17" },
+      { title: "Car boot sale", date: "2026-06-21" },
+      { title: "Car boot sale", date: "2026-07-19" },
+      { title: "Car boot sale", date: "2026-08-16" },
+      { title: "Car boot sale", date: "2026-09-20" },
+      { title: "Car boot sale", dateLabel: "October 2026", note: "TBC" }
+    ],
+    featured: true
+  },
+  {
     id: "event-1",
     slug: "long-eaton-makers-market",
     title: "Long Eaton Makers Market",
     date: "2026-04-12",
     time: "10:00 AM - 3:00 PM",
+    startTime: "10:00 AM",
+    endTime: "3:00 PM",
     location: "Market Place",
+    price: "Free to browse",
+    organiser: "Local traders",
+    tags: ["Market", "Shopping", "Food"],
     category: "Markets",
     excerpt: "A town-centre market with local food, handmade goods and independent stalls.",
     description: [
@@ -14,6 +57,10 @@ const events = [
     ],
     imageLabel: "Market day",
     imageStyle: "from-brand-300 via-brand-100 to-sun/60",
+    image: {
+      label: "Market day",
+      style: "from-brand-300 via-brand-100 to-sun/60"
+    },
     featured: true
   },
   {
@@ -22,7 +69,12 @@ const events = [
     title: "Family Fun at West Park",
     date: "2026-04-19",
     time: "11:00 AM - 4:00 PM",
+    startTime: "11:00 AM",
+    endTime: "4:00 PM",
     location: "West Park",
+    price: "Free entry",
+    organiser: "Local groups",
+    tags: ["Family", "West Park", "Community"],
     category: "Family",
     excerpt: "An easy afternoon of games, food stalls and outdoor activities at West Park.",
     description: [
@@ -31,6 +83,10 @@ const events = [
     ],
     imageLabel: "Park festival",
     imageStyle: "from-sun/80 via-sand to-brand-100",
+    image: {
+      label: "Park festival",
+      style: "from-sun/80 via-sand to-brand-100"
+    },
     featured: true
   },
   {
@@ -39,7 +95,12 @@ const events = [
     title: "Twilight Canal Walk",
     date: "2026-04-24",
     time: "6:30 PM - 8:00 PM",
+    startTime: "6:30 PM",
+    endTime: "8:00 PM",
     location: "Erewash Canal",
+    price: "Free",
+    organiser: "Local volunteers",
+    tags: ["Outdoors", "Canal", "Walking"],
     category: "Outdoors",
     excerpt: "Join a guided evening walk and hear stories about the canal, wildlife and Long Eaton history.",
     description: [
@@ -47,7 +108,11 @@ const events = [
       "It's a good option for anyone who wants a quieter view of the town after work."
     ],
     imageLabel: "Canal walk",
-    imageStyle: "from-brand-700 via-brand-400 to-sand"
+    imageStyle: "from-brand-700 via-brand-400 to-sand",
+    image: {
+      label: "Canal walk",
+      style: "from-brand-700 via-brand-400 to-sand"
+    }
   },
   {
     id: "event-4",
@@ -56,6 +121,8 @@ const events = [
     date: "2026-05-02",
     time: "All day",
     location: "Across Long Eaton",
+    organiser: "Independent businesses across Long Eaton",
+    tags: ["Food & Drink", "Town Centre", "Weekend"],
     category: "Food & Drink",
     excerpt: "Special menus, tastings and late openings from local cafes, bakeries and restaurants.",
     description: [
@@ -63,7 +130,11 @@ const events = [
       "It works best as a slow day in town rather than a rushed stop between errands."
     ],
     imageLabel: "Food weekend",
-    imageStyle: "from-coral/80 via-sun/70 to-white"
+    imageStyle: "from-coral/80 via-sun/70 to-white",
+    image: {
+      label: "Food weekend",
+      style: "from-coral/80 via-sun/70 to-white"
+    }
   },
   {
     id: "event-5",
@@ -71,7 +142,12 @@ const events = [
     title: "Summer Bandstand Sessions",
     date: "2026-05-10",
     time: "1:00 PM - 5:00 PM",
+    startTime: "1:00 PM",
+    endTime: "5:00 PM",
     location: "West Park Bandstand",
+    price: "Free",
+    organiser: "Local performers",
+    tags: ["Live Music", "West Park", "Sunday"],
     category: "Live Music",
     excerpt: "Local performers and choirs at the bandstand on a relaxed Sunday afternoon.",
     description: [
@@ -79,7 +155,11 @@ const events = [
       "Expect a mix of acoustic sets, choirs and plenty of people stopping by with a coffee in hand."
     ],
     imageLabel: "Live music",
-    imageStyle: "from-brand-500 via-coral/70 to-sun/60"
+    imageStyle: "from-brand-500 via-coral/70 to-sun/60",
+    image: {
+      label: "Live music",
+      style: "from-brand-500 via-coral/70 to-sun/60"
+    }
   },
   {
     id: "event-6",
@@ -87,7 +167,12 @@ const events = [
     title: "Shop Small Late Night",
     date: "2026-05-21",
     time: "5:00 PM - 8:30 PM",
+    startTime: "5:00 PM",
+    endTime: "8:30 PM",
     location: "Town Centre",
+    price: "Free to attend",
+    organiser: "Independent shops",
+    tags: ["Shopping", "Town Centre", "Late Opening"],
     category: "Shopping",
     excerpt: "Independent shops stay open later with in-store treats, demos and special one-night offers.",
     description: [
@@ -95,7 +180,11 @@ const events = [
       "A few shops add demos or small in-store treats, but the main draw is simply having time to look properly."
     ],
     imageLabel: "Late shopping",
-    imageStyle: "from-ink via-brand-700 to-coral/80"
+    imageStyle: "from-ink via-brand-700 to-coral/80",
+    image: {
+      label: "Late shopping",
+      style: "from-ink via-brand-700 to-coral/80"
+    }
   }
 ];
 const eventCategories = [

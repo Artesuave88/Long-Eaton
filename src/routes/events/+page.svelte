@@ -30,7 +30,7 @@
 	<SectionHeading
 		eyebrow="Events"
 		title="What’s on in Long Eaton"
-		copy="Markets, family days, local music and a few straightforward reasons to head into town."
+		copy="Long Eaton Carnival now leads the listings, alongside markets, family days and smaller local events across town."
 	/>
 
 	<div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">

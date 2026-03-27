@@ -1,5 +1,6 @@
 import { h as head, e as ensure_array_like } from "../../../chunks/index.js";
-import { S as SearchBar, C as CategoryFilter, E as EmptyState } from "../../../chunks/SearchBar.js";
+import { S as SearchBar, C as CategoryFilter } from "../../../chunks/SearchBar.js";
+import { E as EmptyState } from "../../../chunks/EmptyState.js";
 import { E as EventCard } from "../../../chunks/EventCard.js";
 import { s as slugMatches } from "../../../chunks/format.js";
 import { S as SectionHeading } from "../../../chunks/SectionHeading.js";
@@ -27,7 +28,7 @@ function _page($$renderer, $$props) {
       SectionHeading($$renderer3, {
         eyebrow: "Events",
         title: "What’s on in Long Eaton",
-        copy: "Markets, family days, local music and a few straightforward reasons to head into town."
+        copy: "Long Eaton Carnival now leads the listings, alongside markets, family days and smaller local events across town."
       });
       $$renderer3.push(`<!----> <div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">`);
       SearchBar($$renderer3, {

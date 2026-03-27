@@ -8,8 +8,8 @@
 
 <article class="surface-card overflow-hidden">
 	<ImagePlaceholder
-		label={event.imageLabel}
-		style={event.imageStyle}
+		label={event.image?.label ?? event.imageLabel}
+		style={event.image?.style ?? event.imageStyle}
 		className="h-48 w-full rounded-none"
 	/>
 	<div class="p-5">
@@ -21,6 +21,9 @@
 		</div>
 		<h3 class="mt-4 font-display text-[1.7rem] leading-tight text-ink">{event.title}</h3>
 		<p class="mt-2 text-sm font-medium text-ink/60">{event.location} • {event.time}</p>
+		{#if event.tags?.length}
+			<p class="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-ink/45">{event.tags.slice(0, 2).join(' • ')}</p>
+		{/if}
 		<p class="mt-4 text-sm leading-7 text-ink/72">{event.excerpt}</p>
 		<a
 			href={`/events/${event.slug}`}

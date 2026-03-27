@@ -50,13 +50,20 @@ function _page($$renderer, $$props) {
         className: "h-[24rem] w-full"
       });
     }
-    $$renderer2.push(`<!--]--> <div class="surface-card p-6"><h2 class="font-display text-2xl text-ink">At a glance</h2> <p class="mt-4 text-sm leading-7 text-ink/72">This profile keeps the essentials easy to scan. Opening times, directions and extra details can be added here as more real listings go live.</p> <a href="/contact" class="button-primary mt-5">Get your business listed</a></div></div></div> <section class="mt-14"><div class="mb-6 max-w-2xl"><p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand-700">More businesses</p> <h2 class="mt-3 font-display text-3xl text-ink">You might also want to look at</h2></div> <div class="grid gap-4 md:grid-cols-3"><!--[-->`);
-    const each_array_1 = ensure_array_like(relatedBusinesses);
-    for (let $$index_1 = 0, $$length = each_array_1.length; $$index_1 < $$length; $$index_1++) {
-      let business = each_array_1[$$index_1];
-      $$renderer2.push(`<a${attr("href", `/businesses/${business.slug}`)} class="surface-card p-5 transition hover:bg-brand-50/60"><p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">${escape_html(business.category)}</p> <h3 class="mt-3 font-display text-2xl text-ink">${escape_html(business.name)}</h3> <p class="mt-2 text-sm font-medium text-ink/55">${escape_html(business.location)}</p> <p class="mt-4 text-sm leading-7 text-ink/72">${escape_html(business.description)}</p></a>`);
+    $$renderer2.push(`<!--]--> <div class="surface-card p-6"><h2 class="font-display text-2xl text-ink">At a glance</h2> <p class="mt-4 text-sm leading-7 text-ink/72">This profile keeps the essentials easy to scan. Opening times, directions and extra details can be added here as more real listings go live.</p> <a href="/contact" class="button-primary mt-5">Get your business listed</a></div></div></div> `);
+    if (relatedBusinesses.length) {
+      $$renderer2.push("<!--[0-->");
+      $$renderer2.push(`<section class="mt-14"><div class="mb-6 max-w-2xl"><p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand-700">More businesses</p> <h2 class="mt-3 font-display text-3xl text-ink">You might also want to look at</h2></div> <div class="grid gap-4 md:grid-cols-3"><!--[-->`);
+      const each_array_1 = ensure_array_like(relatedBusinesses);
+      for (let $$index_1 = 0, $$length = each_array_1.length; $$index_1 < $$length; $$index_1++) {
+        let business = each_array_1[$$index_1];
+        $$renderer2.push(`<a${attr("href", `/businesses/${business.slug}`)} class="surface-card p-5 transition hover:bg-brand-50/60"><p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">${escape_html(business.category)}</p> <h3 class="mt-3 font-display text-2xl text-ink">${escape_html(business.name)}</h3> <p class="mt-2 text-sm font-medium text-ink/55">${escape_html(business.location)}</p> <p class="mt-4 text-sm leading-7 text-ink/72">${escape_html(business.description)}</p></a>`);
+      }
+      $$renderer2.push(`<!--]--></div></section>`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
     }
-    $$renderer2.push(`<!--]--></div></section></article>`);
+    $$renderer2.push(`<!--]--></article>`);
     bind_props($$props, { data });
   });
 }
