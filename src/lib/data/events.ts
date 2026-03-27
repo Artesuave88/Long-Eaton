@@ -236,6 +236,34 @@ const baseEvents: EventItem[] = [
     sourceUrl: "https://www.longeatonartroom.co.uk/whats-available/events/",
   },
   {
+    id: "event-leos-the-wedding-singer-2026-04-14",
+    slug: "the-wedding-singer-the-musical-comedy-14-april-2026",
+    title: "The Wedding Singer – The Musical Comedy",
+    date: "2026-04-14",
+    endDate: "2026-04-18",
+    time: "Evenings 19:30, Saturday matinee 14:30",
+    startTime: "19:30",
+    location: "May Hall, Trent College, Long Eaton",
+    organiser: "LEOS Musical Theatre Company",
+    ticketUrl: "https://www.ticketsource.co.uk/leos",
+    category: "Arts & Culture",
+    excerpt:
+      "Live musical comedy from LEOS Musical Theatre Company, with evening performances and a Saturday matinee.",
+    description: [
+      "A live musical comedy performance of The Wedding Singer, presented by LEOS Musical Theatre Company.",
+      "Evening shows run from Tuesday to Saturday, with a Saturday matinee included.",
+    ],
+    relatedDates: [
+      { title: "Evening performances", date: "2026-04-14", note: "19:30 from Tuesday to Saturday" },
+      { title: "Saturday matinee", date: "2026-04-18", note: "14:30" },
+    ],
+    imageSrc: "/wedding-singer.png",
+    imageAlt: "Poster artwork for The Wedding Singer musical",
+    imageLabel: "The Wedding Singer poster",
+    imageStyle: "bg-brand-section",
+    featured: false,
+  },
+  {
     id: "event-long-eaton-carnival-car-boot-2026-04-12",
     slug: "long-eaton-carnival-car-boot-sale-12-april-2026",
     excerpt:

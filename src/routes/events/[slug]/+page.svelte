@@ -153,11 +153,18 @@
 					</div>
 				{/if}
 
-				{#if data.event.sourceUrl}
-					<div class="mt-8">
-						<a href={data.event.sourceUrl} target="_blank" rel="noreferrer" class="button-primary">
-							View
-						</a>
+				{#if data.event.ticketUrl || data.event.sourceUrl}
+					<div class="mt-8 flex flex-wrap gap-3">
+						{#if data.event.ticketUrl}
+							<a href={data.event.ticketUrl} target="_blank" rel="noreferrer" class="button-primary">
+								Book tickets
+							</a>
+						{/if}
+						{#if data.event.sourceUrl && data.event.sourceUrl !== data.event.ticketUrl}
+							<a href={data.event.sourceUrl} target="_blank" rel="noreferrer" class="button-secondary">
+								View source
+							</a>
+						{/if}
 					</div>
 				{/if}
 

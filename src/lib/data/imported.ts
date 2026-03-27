@@ -132,7 +132,7 @@ function createImportedEvent(show: ImportedShow, index: number): EventItem {
     location:
       duchessTheatre.address || "West Gate, Long Eaton, Derbyshire, NG10 1EF",
     organiser: venueName,
-
+    ticketUrl: show.url ?? undefined,
     category: "Arts & Entertainment",
     excerpt: show.title,
     description: [],
@@ -141,7 +141,7 @@ function createImportedEvent(show: ImportedShow, index: number): EventItem {
     imageLabel: show.title,
     imageStyle: "bg-brand-accent/10",
     sourceName: "Duchess Theatre TicketSource page",
-    sourceUrl: show.url ?? duchessTheatre.sourceUrl,
+    sourceUrl: duchessTheatre.sourceUrl,
     volunteerRun: duchessTheatre.volunteerRun,
     relatedDates:
       show.endDate && show.startDate && show.endDate !== show.startDate

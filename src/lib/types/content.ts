@@ -14,6 +14,7 @@ export type EventItem = {
   price?: string;
   priceSummary?: string;
   organiser?: string;
+  ticketUrl?: string;
   strapline?: string;
   tags?: string[];
   category: string;
