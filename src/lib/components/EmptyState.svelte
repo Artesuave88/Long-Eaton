@@ -4,7 +4,7 @@
 </script>
 
 <div class="surface-card p-8 text-center sm:p-10">
-	<div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-brand-100 text-brand-700">
+	<div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-sm border border-brand-200 bg-brand-50 text-brand-700">
 		<span class="text-sm font-bold uppercase tracking-[0.2em]">None</span>
 	</div>
 	<h3 class="font-display text-2xl text-ink">{title}</h3>

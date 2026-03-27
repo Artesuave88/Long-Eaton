@@ -8,34 +8,34 @@
 	export let secondaryLabel = 'Browse businesses';
 </script>
 
-<section class="overflow-hidden rounded-[2rem] bg-hero-glow px-6 py-10 shadow-card sm:px-8 sm:py-14 lg:px-12 lg:py-16">
+<section class="overflow-hidden rounded-md border border-ink/15 bg-hero-glow px-6 py-10 shadow-card sm:px-8 sm:py-14 lg:px-12 lg:py-16">
 	<div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
 		<div class="max-w-2xl">
-			<p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-brand-700">{eyebrow}</p>
-			<h1 class="font-display text-4xl leading-tight text-ink sm:text-5xl lg:text-6xl">
+			<p class="mb-4 text-sm font-semibold uppercase tracking-[0.32em] text-brand-200">{eyebrow}</p>
+			<h1 class="font-display text-4xl uppercase leading-tight text-white sm:text-5xl lg:text-6xl">
 				{title}
 			</h1>
-			<p class="mt-5 max-w-xl text-base leading-8 text-ink/75 sm:text-lg">{copy}</p>
+			<p class="mt-5 max-w-xl text-base leading-8 text-white/76 sm:text-lg">{copy}</p>
 			<div class="mt-8 flex flex-col gap-3 sm:flex-row">
 				<a
 					href={primaryHref}
-					class="inline-flex items-center justify-center rounded-full bg-brand-700 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-800"
+					class="button-secondary"
 				>
 					{primaryLabel}
 				</a>
 				<a
 					href={secondaryHref}
-					class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink hover:bg-brand-100"
+					class="rounded-sm border border-white/24 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
 				>
 					{secondaryLabel}
 				</a>
 			</div>
 		</div>
 
-		<div class="surface-card relative overflow-hidden p-5 sm:p-6">
-			<div class="absolute inset-x-8 top-0 h-24 rounded-b-full bg-sun/20 blur-3xl"></div>
+		<div class="surface-card relative overflow-hidden border-white/10 bg-white/8 p-5 backdrop-blur-sm sm:p-6">
+			<div class="absolute inset-x-8 top-0 h-20 bg-sun/10 blur-2xl"></div>
 			<div class="space-y-4">
-				<div class="rounded-[1.5rem] bg-brand-700 p-5 text-white">
+				<div class="rounded-sm border border-white/10 bg-black/25 p-5 text-white">
 					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-100">This week</p>
 					<p class="mt-3 font-display text-2xl">Markets, walks and a few good reasons to stay local</p>
 					<p class="mt-3 text-sm leading-6 text-white/80">
@@ -43,11 +43,11 @@
 					</p>
 				</div>
 				<div class="grid gap-4 sm:grid-cols-2">
-					<div class="rounded-[1.5rem] bg-sand p-5">
+					<div class="rounded-sm border border-white/10 bg-white/90 p-5">
 						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-700">Local guide</p>
 						<p class="mt-2 text-lg font-semibold text-ink">Shops, events and places worth knowing about</p>
 					</div>
-					<div class="rounded-[1.5rem] bg-white p-5">
+					<div class="rounded-sm border border-white/10 bg-brand-50 p-5">
 						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-coral">Growing listings</p>
 						<p class="mt-2 text-lg font-semibold text-ink">Real local businesses are starting to be added</p>
 					</div>

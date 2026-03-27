@@ -22,7 +22,7 @@ function _page($$renderer, $$props) {
       style: data.event.imageStyle,
       className: "h-[24rem] w-full"
     });
-    $$renderer2.push(`<!----> <div class="surface-card p-6"><h2 class="font-display text-2xl text-ink">Planning your visit</h2> <p class="mt-4 text-sm leading-7 text-ink/72">Pair this event with a stop at a local cafe, a browse through the town centre or a walk through one of Long Eaton’s green spaces.</p> <div class="mt-5 flex flex-wrap gap-3"><a href="/businesses" class="rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-800">Find a local business</a> <a href="/discover" class="rounded-full bg-sand px-5 py-3 text-sm font-semibold text-ink hover:bg-brand-100">Discover the town</a></div></div></div></div></article>`);
+    $$renderer2.push(`<!----> <div class="surface-card p-6"><h2 class="font-display text-2xl text-ink">Planning your visit</h2> <p class="mt-4 text-sm leading-7 text-ink/72">Pair this event with a stop at a local cafe, a browse through the town centre or a walk through one of Long Eaton’s green spaces.</p> <div class="mt-5 flex flex-wrap gap-3"><a href="/businesses" class="button-primary">Find a local business</a> <a href="/discover" class="button-secondary">Discover the town</a></div></div></div></div></article>`);
     bind_props($$props, { data });
   });
 }

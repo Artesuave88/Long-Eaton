@@ -90,6 +90,17 @@
 			}
 		},
 		{
+			"src": "/businesses/long-eaton-bjj",
+			"dest": "/businesses/long-eaton-bjj/"
+		},
+		{
+			"src": "/businesses/long-eaton-bjj/",
+			"status": 308,
+			"headers": {
+				"Location": "/businesses/long-eaton-bjj"
+			}
+		},
+		{
 			"src": "/businesses/station-street-kitchen",
 			"dest": "/businesses/station-street-kitchen/"
 		},
@@ -112,25 +123,14 @@
 			}
 		},
 		{
-			"src": "/businesses/long-eaton-books-co",
-			"dest": "/businesses/long-eaton-books-co/"
+			"src": "/businesses/market-house-gifts",
+			"dest": "/businesses/market-house-gifts/"
 		},
 		{
-			"src": "/businesses/long-eaton-books-co/",
+			"src": "/businesses/market-house-gifts/",
 			"status": 308,
 			"headers": {
-				"Location": "/businesses/long-eaton-books-co"
-			}
-		},
-		{
-			"src": "/businesses/the-curated-corner",
-			"dest": "/businesses/the-curated-corner/"
-		},
-		{
-			"src": "/businesses/the-curated-corner/",
-			"status": 308,
-			"headers": {
-				"Location": "/businesses/the-curated-corner"
+				"Location": "/businesses/market-house-gifts"
 			}
 		},
 		{
@@ -145,6 +145,17 @@
 			}
 		},
 		{
+			"src": "/businesses/long-eaton-books-co",
+			"dest": "/businesses/long-eaton-books-co/"
+		},
+		{
+			"src": "/businesses/long-eaton-books-co/",
+			"status": 308,
+			"headers": {
+				"Location": "/businesses/long-eaton-books-co"
+			}
+		},
+		{
 			"src": "/businesses/park-view-florist",
 			"dest": "/businesses/park-view-florist/"
 		},
@@ -153,17 +164,6 @@
 			"status": 308,
 			"headers": {
 				"Location": "/businesses/park-view-florist"
-			}
-		},
-		{
-			"src": "/businesses/long-eaton-bjj",
-			"dest": "/businesses/long-eaton-bjj/"
-		},
-		{
-			"src": "/businesses/long-eaton-bjj/",
-			"status": 308,
-			"headers": {
-				"Location": "/businesses/long-eaton-bjj"
 			}
 		},
 		{
@@ -252,26 +252,26 @@
 		"events/family-fun-at-west-park.html": {
 			"path": "events/family-fun-at-west-park"
 		},
+		"businesses/long-eaton-bjj.html": {
+			"path": "businesses/long-eaton-bjj"
+		},
 		"businesses/station-street-kitchen.html": {
 			"path": "businesses/station-street-kitchen"
 		},
 		"businesses/canal-side-cycles.html": {
 			"path": "businesses/canal-side-cycles"
 		},
-		"businesses/long-eaton-books-co.html": {
-			"path": "businesses/long-eaton-books-co"
-		},
-		"businesses/the-curated-corner.html": {
-			"path": "businesses/the-curated-corner"
+		"businesses/market-house-gifts.html": {
+			"path": "businesses/market-house-gifts"
 		},
 		"businesses/erewash-wellness-studio.html": {
 			"path": "businesses/erewash-wellness-studio"
 		},
+		"businesses/long-eaton-books-co.html": {
+			"path": "businesses/long-eaton-books-co"
+		},
 		"businesses/park-view-florist.html": {
 			"path": "businesses/park-view-florist"
-		},
-		"businesses/long-eaton-bjj.html": {
-			"path": "businesses/long-eaton-bjj"
 		},
 		"events/twilight-canal-walk.html": {
 			"path": "events/twilight-canal-walk"

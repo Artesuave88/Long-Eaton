@@ -43,19 +43,19 @@
 	<div class="surface-card p-8 sm:p-10">
 		<h2 class="font-display text-3xl text-ink">What you'll find here</h2>
 		<div class="mt-6 grid gap-5 md:grid-cols-2">
-			<div class="rounded-[1.5rem] bg-sand p-5">
+			<div class="inset-panel p-5">
 				<p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Town guide</p>
 				<p class="mt-3 text-base leading-7 text-ink/72">Events, business listings, local ideas and a simple way to keep up with town updates.</p>
 			</div>
-			<div class="rounded-[1.5rem] bg-sand p-5">
+			<div class="inset-panel p-5">
 				<p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Clear structure</p>
 				<p class="mt-3 text-base leading-7 text-ink/72">A layout that can handle more real content later without needing to rebuild the whole site.</p>
 			</div>
-			<div class="rounded-[1.5rem] bg-sand p-5">
+			<div class="inset-panel p-5">
 				<p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Room to expand</p>
 				<p class="mt-3 text-base leading-7 text-ink/72">Opening times, maps, richer business profiles and better event detail can all be added in stages.</p>
 			</div>
-			<div class="rounded-[1.5rem] bg-sand p-5">
+			<div class="inset-panel p-5">
 				<p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">Real content next</p>
 				<p class="mt-3 text-base leading-7 text-ink/72">The biggest improvement from here will come from replacing the remaining mock listings and news items.</p>
 			</div>

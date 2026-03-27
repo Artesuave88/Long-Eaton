@@ -25,7 +25,7 @@
 			<div class="flex flex-wrap items-center gap-2">
 				<p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand-700">{data.business.category}</p>
 				{#if data.business.isReal}
-					<span class="rounded-full bg-brand-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-800">
+					<span class="chip">
 						Featured local business
 					</span>
 				{/if}
@@ -69,7 +69,7 @@
 						href={data.business.website}
 						target="_blank"
 						rel="noreferrer"
-						class="inline-flex rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-800"
+						class="button-primary"
 					>
 						Visit website
 					</a>
@@ -79,7 +79,7 @@
 
 		<div class="space-y-6">
 			{#if data.business.imageSrc}
-				<div class="flex h-[24rem] w-full items-center justify-center overflow-hidden rounded-[1.75rem] bg-[#0b0b0b] p-10 shadow-card">
+				<div class="flex h-[24rem] w-full items-center justify-center overflow-hidden rounded-md border border-ink/10 bg-[#0b0b0b] p-10 shadow-card">
 					<img
 						src={data.business.imageSrc}
 						alt={data.business.imageAlt ?? data.business.name}
@@ -98,7 +98,7 @@
 				<p class="mt-4 text-sm leading-7 text-ink/72">
 					This profile keeps the essentials easy to scan. Opening times, directions and extra details can be added here as more real listings go live.
 				</p>
-				<a href="/contact" class="mt-5 inline-flex rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-800">
+				<a href="/contact" class="button-primary mt-5">
 					Get your business listed
 				</a>
 			</div>

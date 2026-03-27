@@ -13,7 +13,7 @@
 	<meta property="og:url" content={site.url} />
 </svelte:head>
 
-<div class="min-h-screen bg-[linear-gradient(180deg,#f7f2ea_0%,#fcfaf5_38%,#f3faf6_100%)]">
+<div class="min-h-screen bg-transparent">
 	<Header />
 	<main>
 		<slot />

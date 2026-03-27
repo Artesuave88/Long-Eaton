@@ -14,7 +14,7 @@
 	/>
 	<div class="p-5">
 		<div class="flex flex-wrap items-center gap-2">
-			<span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-800">
+			<span class="chip">
 				{event.category}
 			</span>
 			<span class="text-sm text-ink/55">{formatDisplayDate(event.date)}</span>

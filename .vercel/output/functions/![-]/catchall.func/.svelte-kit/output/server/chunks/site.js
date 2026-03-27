@@ -1,6 +1,6 @@
 const site = {
   name: "Love Long Eaton",
-  tagline: "A warmer way to discover events, independents, green spaces and everyday life in Long Eaton.",
+  tagline: "A local guide to what's on, where to go and who's in Long Eaton.",
   url: "https://love-long-eaton.vercel.app",
   email: "hello@lovelongeaton.co.uk",
   phone: "0115 900 2024",

@@ -5,7 +5,7 @@
 	export let business: BusinessItem;
 </script>
 
-<article class={`surface-card overflow-hidden ${business.isReal ? 'ring-1 ring-brand-200' : ''}`}>
+<article class={`surface-card overflow-hidden ${business.isReal ? 'ring-1 ring-brand-300' : ''}`}>
 	{#if business.imageSrc}
 		<div class="flex h-48 w-full items-center justify-center bg-[#0b0b0b] p-6">
 			<img
@@ -25,7 +25,7 @@
 		<div class="flex flex-wrap items-center gap-2">
 			<p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">{business.category}</p>
 			{#if business.isReal}
-				<span class="rounded-full bg-brand-100 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-800">
+				<span class="chip">
 					Featured local business
 				</span>
 			{/if}

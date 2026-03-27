@@ -43,6 +43,7 @@ declare module '$env/static/private' {
 	export const VSCODE_CRASH_REPORTER_PROCESS_TYPE: string;
 	export const NODE: string;
 	export const GEM_HOME: string;
+	export const ANDROID_HOME: string;
 	export const INIT_CWD: string;
 	export const SHELL: string;
 	export const TERM: string;
@@ -114,6 +115,7 @@ declare module '$env/static/private' {
 	export const COLORTERM: string;
 	export const npm_config_prefix: string;
 	export const npm_node_execpath: string;
+	export const NODE_ENV: string;
 }
 
 /**
@@ -205,6 +207,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_CRASH_REPORTER_PROCESS_TYPE: string;
 		NODE: string;
 		GEM_HOME: string;
+		ANDROID_HOME: string;
 		INIT_CWD: string;
 		SHELL: string;
 		TERM: string;
@@ -276,6 +279,7 @@ declare module '$env/dynamic/private' {
 		COLORTERM: string;
 		npm_config_prefix: string;
 		npm_node_execpath: string;
+		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}

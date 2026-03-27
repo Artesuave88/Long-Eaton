@@ -56,10 +56,10 @@
 					Pair this event with a stop at a local cafe, a browse through the town centre or a walk through one of Long Eaton’s green spaces.
 				</p>
 				<div class="mt-5 flex flex-wrap gap-3">
-					<a href="/businesses" class="rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-800">
+					<a href="/businesses" class="button-primary">
 						Find a local business
 					</a>
-					<a href="/discover" class="rounded-full bg-sand px-5 py-3 text-sm font-semibold text-ink hover:bg-brand-100">
+					<a href="/discover" class="button-secondary">
 						Discover the town
 					</a>
 				</div>

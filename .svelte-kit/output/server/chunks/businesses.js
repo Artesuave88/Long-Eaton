@@ -5,10 +5,10 @@ const businesses = [
     name: "Station Street Kitchen",
     category: "Food & Drink",
     location: "Station Street",
-    description: "Neighbourhood brunch spot serving fresh plates, locally roasted coffee and warm service.",
+    description: "Easy-going cafe for brunch, coffee and a quick lunch in town.",
     about: [
-      "Station Street Kitchen is a bright, friendly independent cafe with a menu built around brunch favourites, seasonal specials and great coffee.",
-      "It is the kind of place people return to for a relaxed catch-up, a quick breakfast or an easy lunch in town."
+      "Station Street Kitchen keeps things simple with brunch favourites, good coffee and a room that suits both a quick stop and a slower catch-up.",
+      "It feels like the sort of place people fold into their regular week rather than save for a special occasion."
     ],
     website: "https://stationstreetkitchen.example",
     imageLabel: "Cafe",
@@ -21,10 +21,10 @@ const businesses = [
     name: "Canal Side Cycles",
     category: "Shopping",
     location: "Tamworth Road",
-    description: "Independent bike shop for repairs, accessories and advice before exploring local routes.",
+    description: "Bike shop for repairs, accessories and route advice before heading out.",
     about: [
-      "Canal Side Cycles supports everyday riders, family outings and local commuters with approachable expertise and quality servicing.",
-      "The shop is especially popular with people heading toward canal paths and green routes around Long Eaton."
+      "Canal Side Cycles helps with everyday repairs, family bikes and the practical kit people usually need before a ride.",
+      "Its Tamworth Road location makes it a handy stop for anyone using the canal paths and nearby green routes."
     ],
     website: "https://canalsidecycles.example",
     imageLabel: "Cycle shop",
@@ -33,16 +33,16 @@ const businesses = [
   },
   {
     id: "business-3",
-    slug: "the-curated-corner",
-    name: "The Curated Corner",
+    slug: "market-house-gifts",
+    name: "Market House Gifts",
     category: "Independent Retail",
     location: "High Street",
-    description: "Gift-led lifestyle shop full of homewares, cards, candles and locally made finds.",
+    description: "Small gift shop with cards, home bits and a few locally made finds.",
     about: [
-      "The Curated Corner champions thoughtful gifting with a mix of local makers and carefully selected brands.",
-      "It is a popular stop for birthdays, home updates and those small purchases that make the town centre feel special."
+      "Market House Gifts mixes everyday cards and presents with homeware and a changing shelf of local makers.",
+      "It's an easy place to call into when you need a birthday card, a thank-you gift or something small for the house."
     ],
-    website: "https://thecuratedcorner.example",
+    website: "https://markethousegifts.example",
     imageLabel: "Gift shop",
     imageStyle: "from-coral/90 via-white to-brand-100"
   },
@@ -52,10 +52,10 @@ const businesses = [
     name: "Erewash Wellness Studio",
     category: "Health & Beauty",
     location: "Derby Road",
-    description: "Pilates, yoga and wellness classes in a calm studio built around local routines.",
+    description: "Pilates and yoga classes in a calm studio just off Derby Road.",
     about: [
-      "Erewash Wellness Studio offers flexible classes for beginners and regulars, with a welcoming atmosphere and experienced instructors.",
-      "It adds another reason to stay local for health, wellbeing and community connection."
+      "Erewash Wellness Studio runs classes for beginners and regulars, with a timetable that fits around work, school runs and weekends.",
+      "The space is low-key and friendly rather than intimidating, which makes it easy to keep coming back."
     ],
     website: "https://erewashwellness.example",
     imageLabel: "Wellness studio",
@@ -67,10 +67,10 @@ const businesses = [
     name: "Long Eaton Books Co.",
     category: "Culture",
     location: "Market Place",
-    description: "Independent bookshop hosting author evenings, children’s stories and curated shelves.",
+    description: "Independent bookshop with local interest titles, children's shelves and regular events.",
     about: [
-      "Long Eaton Books Co. mixes bestselling reads with local interest titles, gifts and community events.",
-      "It is a calm, characterful shop that invites visitors to slow down and spend time in town."
+      "Long Eaton Books Co. balances new releases with local history, children's books and a few thoughtful gift lines.",
+      "It gives people another reason to slow down in the town centre instead of heading elsewhere for an afternoon out."
     ],
     website: "https://longeatonbooks.example",
     imageLabel: "Bookshop",
@@ -83,10 +83,10 @@ const businesses = [
     name: "Park View Florist",
     category: "Local Services",
     location: "College Street",
-    description: "Seasonal bouquets, wedding flowers and thoughtful everyday arrangements with local delivery.",
+    description: "Florist for seasonal bouquets, event flowers and everyday deliveries.",
     about: [
-      "Park View Florist is a trusted local favourite for fresh flowers, event styling and personal service.",
-      "It is one of those businesses that quietly helps mark special moments right across the town."
+      "Park View Florist is the sort of shop people use for birthdays, weddings, thank-yous and the last-minute bouquet on the way home.",
+      "The work is dependable, nicely judged and part of many local occasions without making a fuss about it."
     ],
     website: "https://parkviewflorist.example",
     imageLabel: "Florist",
@@ -98,17 +98,18 @@ const businesses = [
     name: "Long Eaton BJJ",
     category: "Fitness & Martial Arts",
     location: "Unit A2 & A3 West End Mills, Leopold Street",
-    description: "Brazilian Jiu-Jitsu academy in Long Eaton with daily classes, a welcoming atmosphere and programmes for adults and children.",
+    description: "Brazilian Jiu-Jitsu academy at West End Mills with daily classes for adults and children.",
     about: [
-      "Long Eaton BJJ is a real local academy based at West End Mills, offering Brazilian Jiu-Jitsu training in a friendly, community-led setting.",
-      "The academy describes itself as fully open with classes daily and highlights fitness, self-defence, confidence and flexibility as part of the experience."
+      "Long Eaton BJJ is one of the first real businesses now featured on the site, based at West End Mills and open for regular training through the week.",
+      "Classes cover adults, children and different experience levels, with a clear focus on steady coaching, fitness and a welcoming atmosphere."
     ],
     website: "https://www.longeatonbjj.co.uk",
     imageSrc: "/lebjj-logo.png",
     imageAlt: "Long Eaton BJJ logo",
     imageLabel: "BJJ academy",
     imageStyle: "from-ink via-brand-700 to-sun/70",
-    featured: true
+    featured: true,
+    isReal: true
   }
 ];
 const businessCategories = [

@@ -103,7 +103,7 @@
 				<div class="mt-6 flex flex-wrap gap-3">
 					<a
 						href={`/businesses/${featuredBusiness.slug}`}
-						class="inline-flex items-center justify-center rounded-full bg-brand-700 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-800"
+						class="button-primary"
 					>
 						View business
 					</a>
@@ -112,7 +112,7 @@
 							href={featuredBusiness.website}
 							target="_blank"
 							rel="noreferrer"
-							class="inline-flex items-center justify-center rounded-full bg-sand px-6 py-3 text-sm font-semibold text-ink hover:bg-brand-100"
+							class="button-secondary"
 						>
 							Visit website
 						</a>

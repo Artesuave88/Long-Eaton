@@ -44,15 +44,15 @@
 			<form class="mt-6 space-y-5">
 				<div>
 					<label for="name" class="mb-2 block text-sm font-semibold text-ink">Name</label>
-					<input id="name" type="text" class="w-full rounded-2xl border-white/70 bg-sand px-4 py-3 focus:border-brand-400 focus:ring-brand-300" />
+					<input id="name" type="text" class="field-input" />
 				</div>
 				<div>
 					<label for="email" class="mb-2 block text-sm font-semibold text-ink">Email</label>
-					<input id="email" type="email" class="w-full rounded-2xl border-white/70 bg-sand px-4 py-3 focus:border-brand-400 focus:ring-brand-300" />
+					<input id="email" type="email" class="field-input" />
 				</div>
 				<div>
 					<label for="subject" class="mb-2 block text-sm font-semibold text-ink">Enquiry type</label>
-					<select id="subject" class="w-full rounded-2xl border-white/70 bg-sand px-4 py-3 focus:border-brand-400 focus:ring-brand-300">
+					<select id="subject" class="field-input">
 						<option>Add my business</option>
 						<option>Submit an event</option>
 						<option>Partnership enquiry</option>
@@ -61,9 +61,9 @@
 				</div>
 				<div>
 					<label for="message" class="mb-2 block text-sm font-semibold text-ink">Message</label>
-					<textarea id="message" rows="6" class="w-full rounded-2xl border-white/70 bg-sand px-4 py-3 focus:border-brand-400 focus:ring-brand-300"></textarea>
+					<textarea id="message" rows="6" class="field-input"></textarea>
 				</div>
-				<button type="submit" class="inline-flex rounded-full bg-brand-700 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-800">
+				<button type="submit" class="button-primary">
 					Send enquiry
 				</button>
 				<p class="text-sm text-ink/55">This form is currently for layout only and can be connected to form handling later.</p>

@@ -8,14 +8,24 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #ede7de;
 }
 
 body {
   @apply bg-sand font-sans text-ink antialiased;
+  background-image:
+    linear-gradient(rgba(22, 22, 22, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 22, 22, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, #e8e2d8 0%, #f4efe7 42%, #ddd4c9 100%);
+  background-size: 24px 24px, 24px 24px, 100% 100%;
 }
 
 a {
   @apply transition duration-200 ease-out;
+}
+
+::selection {
+  @apply bg-brand-700 text-white;
 }
 
 .container-shell {
@@ -27,9 +37,29 @@ a {
 }
 
 .surface-card {
-  @apply rounded-3xl border border-white/70 bg-white/90 shadow-card backdrop-blur-sm;
+  @apply rounded-md border border-ink/15 bg-white/90 shadow-card;
 }
 
 .chip {
-  @apply inline-flex items-center rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold tracking-wide text-brand-800;
+  @apply inline-flex items-center rounded-sm border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-brand-800;
+}
+
+.button-primary {
+  @apply inline-flex items-center justify-center rounded-sm border border-brand-700 bg-brand-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-800 hover:border-brand-800;
+}
+
+.button-secondary {
+  @apply inline-flex items-center justify-center rounded-sm border border-ink/15 bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:border-brand-300 hover:bg-brand-50;
+}
+
+.button-dark {
+  @apply inline-flex items-center justify-center rounded-sm border border-ink bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-black;
+}
+
+.field-input {
+  @apply w-full rounded-sm border-ink/15 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink/45 focus:border-brand-400 focus:ring-brand-200;
+}
+
+.inset-panel {
+  @apply rounded-sm border border-ink/10 bg-sand/70;
 }

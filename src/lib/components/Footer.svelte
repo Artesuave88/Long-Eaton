@@ -2,10 +2,10 @@
 	import { navLinks, site } from '$data/site';
 </script>
 
-<footer class="border-t border-brand-100 bg-white/85">
+<footer class="border-t border-ink/10 bg-[#f5f0e8]/90">
 	<div class="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
 		<div>
-			<a href="/" class="font-display text-2xl text-ink">Love Long Eaton</a>
+			<a href="/" class="font-display text-2xl uppercase tracking-[0.08em] text-ink">Love Long Eaton</a>
 			<p class="mt-4 max-w-md text-sm leading-7 text-ink/70">
 				Local events, businesses and everyday places worth knowing about in Long Eaton.
 			</p>

@@ -7,10 +7,10 @@ const events = [
     time: "10:00 AM - 3:00 PM",
     location: "Market Place",
     category: "Markets",
-    excerpt: "Browse local food, handmade gifts and homegrown creative businesses in the town centre.",
+    excerpt: "A town-centre market with local food, handmade goods and independent stalls.",
     description: [
-      "The Makers Market brings together independent traders, bakers, artists and small makers for a lively weekend event in the heart of Long Eaton.",
-      "Expect stalls packed with fresh produce, locally made gifts, coffee on the go and plenty of reasons to shop local while you explore the town."
+      "The Makers Market brings together bakers, artists and small local traders for a busy Saturday in the centre of town.",
+      "Expect produce, gifts, coffee and a good excuse to spend a bit longer browsing nearby shops."
     ],
     imageLabel: "Market day",
     imageStyle: "from-brand-300 via-brand-100 to-sun/60",
@@ -24,10 +24,10 @@ const events = [
     time: "11:00 AM - 4:00 PM",
     location: "West Park",
     category: "Family",
-    excerpt: "A relaxed afternoon of games, face painting, food stalls and outdoor activities for all ages.",
+    excerpt: "An easy afternoon of games, food stalls and outdoor activities at West Park.",
     description: [
-      "West Park comes alive with easy-going family entertainment, picnic space and activities designed to make the most of a spring weekend.",
-      "Bring a blanket, meet local community groups and let the kids enjoy crafts, trail games and live performances."
+      "West Park hosts a simple family day with space for picnics, informal activities and local groups running small pop-ups.",
+      "It's the kind of event you can drop into for an hour or stay at for most of the afternoon."
     ],
     imageLabel: "Park festival",
     imageStyle: "from-sun/80 via-sand to-brand-100",
@@ -43,8 +43,8 @@ const events = [
     category: "Outdoors",
     excerpt: "Join a guided evening walk and hear stories about the canal, wildlife and Long Eaton history.",
     description: [
-      "This gentle guided walk follows one of Long Eaton’s best-loved waterside routes with local volunteers sharing stories along the way.",
-      "It is a great choice for visitors, photographers and anyone looking to see a quieter side of the town."
+      "This guided evening walk follows one of Long Eaton's best-known waterside routes, with local volunteers sharing stories as you go.",
+      "It's a good option for anyone who wants a quieter view of the town after work."
     ],
     imageLabel: "Canal walk",
     imageStyle: "from-brand-700 via-brand-400 to-sand"
@@ -59,8 +59,8 @@ const events = [
     category: "Food & Drink",
     excerpt: "Special menus, tastings and late openings from local cafes, bakeries and restaurants.",
     description: [
-      "Food Weekend highlights the town’s best independent places to eat with pop-ups, tasting menus and one-off offers across the centre.",
-      "It is designed to encourage visitors to spend a full day discovering the local food scene."
+      "Food Weekend gives cafes, bakeries and restaurants a reason to put on special menus, tastings and a few one-off extras.",
+      "It works best as a slow day in town rather than a rushed stop between errands."
     ],
     imageLabel: "Food weekend",
     imageStyle: "from-coral/80 via-sun/70 to-white"
@@ -73,10 +73,10 @@ const events = [
     time: "1:00 PM - 5:00 PM",
     location: "West Park Bandstand",
     category: "Live Music",
-    excerpt: "Local performers, community choirs and feel-good live music in an easy Sunday setting.",
+    excerpt: "Local performers and choirs at the bandstand on a relaxed Sunday afternoon.",
     description: [
-      "The bandstand sessions celebrate local talent and invite residents to spend an afternoon outdoors with music and refreshments.",
-      "Expect a rotating mix of acoustic sets, choirs and upbeat performances."
+      "The bandstand sessions bring together local performers for a laid-back afternoon in the park.",
+      "Expect a mix of acoustic sets, choirs and plenty of people stopping by with a coffee in hand."
     ],
     imageLabel: "Live music",
     imageStyle: "from-brand-500 via-coral/70 to-sun/60"
@@ -91,8 +91,8 @@ const events = [
     category: "Shopping",
     excerpt: "Independent shops stay open later with in-store treats, demos and special one-night offers.",
     description: [
-      "Shop Small Late Night gives visitors extra time to browse local boutiques, gift shops and lifestyle stores after work.",
-      "It is a simple but effective way to discover businesses you might normally miss during the day."
+      "Shop Small Late Night gives people more time to browse after work, with several independents staying open into the evening.",
+      "A few shops add demos or small in-store treats, but the main draw is simply having time to look properly."
     ],
     imageLabel: "Late shopping",
     imageStyle: "from-ink via-brand-700 to-coral/80"

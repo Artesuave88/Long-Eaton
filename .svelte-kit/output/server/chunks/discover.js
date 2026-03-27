@@ -9,13 +9,13 @@ function DiscoverCard($$renderer, $$props) {
       style: category.imageStyle,
       className: "h-44 w-full"
     });
-    $$renderer2.push(`<!----> <div class="px-1 pb-2 pt-5"><h3 class="font-display text-2xl text-ink">${escape_html(category.title)}</h3> <p class="mt-3 text-sm leading-7 text-ink/72">${escape_html(category.description)}</p> <div class="mt-4 flex flex-wrap gap-2"><!--[-->`);
+    $$renderer2.push(`<!----> <div class="px-1 pb-2 pt-5"><h3 class="font-display text-[1.7rem] leading-tight text-ink">${escape_html(category.title)}</h3> <p class="mt-3 text-sm leading-7 text-ink/72">${escape_html(category.description)}</p> <div class="mt-4 flex flex-wrap gap-2"><!--[-->`);
     const each_array = ensure_array_like(category.highlights);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
       let highlight = each_array[$$index];
-      $$renderer2.push(`<span class="rounded-full bg-sand px-3 py-1 text-xs font-semibold text-ink/70">${escape_html(highlight)}</span>`);
+      $$renderer2.push(`<span class="chip">${escape_html(highlight)}</span>`);
     }
-    $$renderer2.push(`<!--]--></div> <a${attr("href", category.link)} class="mt-5 inline-flex items-center text-sm font-semibold text-brand-700 hover:text-brand-900">Explore</a></div></article>`);
+    $$renderer2.push(`<!--]--></div> <a${attr("href", category.link)} class="mt-5 inline-flex items-center text-sm font-semibold text-brand-700 hover:text-brand-900">See more</a></div></article>`);
     bind_props($$props, { category });
   });
 }
@@ -24,7 +24,7 @@ const discoverCategories = [
     id: "discover-1",
     slug: "eat-and-drink",
     title: "Eat & Drink",
-    description: "Find friendly brunch spots, casual dinners, takeaway favourites and independent coffee stops.",
+    description: "Coffee stops, brunch places, casual dinners and reliable takeaways.",
     highlights: ["Local cafes", "Evening dining", "Sweet treats"],
     imageLabel: "Food trail",
     imageStyle: "from-coral/80 via-sun/60 to-white",
@@ -34,7 +34,7 @@ const discoverCategories = [
     id: "discover-2",
     slug: "shop-independents",
     title: "Shop Independents",
-    description: "Explore gifts, books, homewares, services and everyday businesses that give the town real character.",
+    description: "Gift shops, books, home bits and the everyday independents people return to.",
     highlights: ["Lifestyle stores", "Books & gifts", "Personal service"],
     imageLabel: "Independent shops",
     imageStyle: "from-brand-700 via-brand-300 to-sand",
@@ -44,7 +44,7 @@ const discoverCategories = [
     id: "discover-3",
     slug: "walks-and-green-spaces",
     title: "Walks & Green Spaces",
-    description: "Slow down with canal paths, park afternoons and easy routes that make Long Eaton feel close to nature.",
+    description: "Canal paths, park afternoons and easy walks when you want a slower pace.",
     highlights: ["Canal walks", "West Park", "Family-friendly routes"],
     imageLabel: "Canal and park",
     imageStyle: "from-brand-500 via-brand-100 to-white",
@@ -54,7 +54,7 @@ const discoverCategories = [
     id: "discover-4",
     slug: "community-and-events",
     title: "Community & Events",
-    description: "Discover markets, seasonal festivals, music, family days and reasons to come back often.",
+    description: "Markets, local events and weekend plans that give the town a bit of life.",
     highlights: ["Town events", "Community feel", "Weekend ideas"],
     imageLabel: "Community events",
     imageStyle: "from-sun/80 via-coral/70 to-white",
