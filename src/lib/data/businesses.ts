@@ -3,6 +3,27 @@ import { optionalImportedBusinesses } from "$data/imported";
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-8",
+    slug: "long-eaton-art-room",
+    name: "Long Eaton Art Room",
+    category: "Arts & Culture",
+    location: "29-31 Lime Grove, Long Eaton, NG10 4LD",
+    description:
+      "Community arts centre running workshops, creative classes, events and studio activity in Long Eaton.",
+    about: [
+      "Long Eaton Art Room is a community arts centre between Derby and Nottingham, based on Lime Grove in Long Eaton.",
+      "The space hosts workshops, courses, events and artist studios, with regular creative sessions running through the week.",
+      "It also offers accessible teaching spaces, accessible toilet facilities and free parking on site.",
+    ],
+    website: "https://www.longeatonartroom.co.uk/",
+    imageSrc: "/art-room.png",
+    imageAlt: "Long Eaton Art Room logo",
+    imageLabel: "Community arts centre",
+    imageStyle: "bg-brand-primaryDark/10",
+    featured: true,
+    isReal: true,
+  },
+  {
     id: "business-7",
     slug: "long-eaton-bjj",
     name: "Long Eaton BJJ",

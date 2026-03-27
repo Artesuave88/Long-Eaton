@@ -77,13 +77,7 @@
 						className="h-[24rem] w-full"
 					/>
 				{/if}
-				<div class="surface-card p-6">
-					<h2 class="text-2xl text-brand-text">At a glance</h2>
-					<p class="body-copy-sm mt-4">
-						This profile keeps the essentials easy to scan, with location, category and a direct route to the business website.
-					</p>
-					<a href="/contact" class="button-primary mt-5">Get your business listed</a>
-				</div>
+		
 			</div>
 		</div>
 

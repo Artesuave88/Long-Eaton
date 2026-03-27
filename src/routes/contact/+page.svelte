@@ -27,16 +27,7 @@
 							{site.email}
 						</a>
 					</div>
-					<div class="surface-card p-6">
-						<p class="eyebrow">Phone</p>
-						<a href={`tel:${site.phone}`} class="mt-2 inline-flex text-lg font-semibold text-brand-text hover:text-brand-accent">
-							{site.phone}
-						</a>
-					</div>
-					<div class="surface-card p-6">
-						<p class="eyebrow">Town base</p>
-						<p class="mt-2 text-lg font-semibold text-brand-text">{site.address}</p>
-					</div>
+
 				</div>
 			</div>
 
