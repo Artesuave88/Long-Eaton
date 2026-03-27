@@ -1,5 +1,96 @@
 import type { EventItem } from "$types/content";
-import { optionalImportedEvents } from "$data/imported";
+import duchessTheatre from "$data/imported/duchess-theatre.json";
+import duchessTheatreEvents from "$data/imported/duchess-theatre-events.json";
+
+type ImportedShow = {
+  title: string;
+  url: string | null;
+  imageUrl?: string | null;
+  startDate?: string;
+  endDate?: string;
+};
+
+type ImportedVenue = {
+  name: string;
+  address: string;
+  sourceUrl: string;
+  volunteerRun: boolean;
+};
+
+const includeDuchessEvents = true;
+
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function isShowCurrent(show: ImportedShow): boolean {
+  if (!show.endDate && !show.startDate) {
+    return true;
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const endDate = new Date(show.endDate ?? show.startDate ?? "");
+  endDate.setHours(0, 0, 0, 0);
+
+  return Number.isNaN(endDate.getTime()) ? true : endDate >= today;
+}
+
+function formatDateLabel(show: ImportedShow): string | undefined {
+  if (!show.startDate || !show.endDate || show.startDate === show.endDate) {
+    return undefined;
+  }
+
+  return `${show.startDate} to ${show.endDate}`;
+}
+
+function createImportedEvent(
+  show: ImportedShow,
+  index: number,
+  venue: ImportedVenue,
+): EventItem {
+  const venueName = venue.name || "Duchess Theatre & Chatsworth Arts Centre";
+
+  return {
+    id: `event-imported-duchess-theatre-${index + 1}`,
+    slug: `duchess-theatre-${slugify(show.title)}`,
+    title: show.title,
+    date: show.startDate,
+    dateLabel:
+      formatDateLabel(show) ??
+      (!show.startDate ? "See source listing" : undefined),
+    time: "See source listing",
+    location: venue.address || "West Gate, Long Eaton, Derbyshire, NG10 1EF",
+    organiser: venueName,
+    ticketUrl: show.url ?? undefined,
+    category: "Arts & Entertainment",
+    excerpt: show.title,
+    description: [],
+    imageSrc: show.imageUrl ?? "/duchess-theatre.webp",
+    imageAlt: show.title,
+    imageLabel: show.title,
+    imageStyle: "bg-brand-accent/10",
+    sourceName: "Duchess Theatre TicketSource page",
+    sourceUrl: venue.sourceUrl,
+    volunteerRun: venue.volunteerRun,
+    relatedDates:
+      show.endDate && show.startDate && show.endDate !== show.startDate
+        ? [{ title: "Final listed date", date: show.endDate }]
+        : undefined,
+    featured: false,
+  };
+}
+
+const optionalImportedEvents: EventItem[] = includeDuchessEvents
+  ? duchessTheatreEvents
+      .filter((show) => show.title && show.url)
+      .filter((show) => isShowCurrent(show))
+      .map((show, index) => createImportedEvent(show, index, duchessTheatre))
+  : [];
 
 const longEatonArtRoomLogo = "/art-room.png";
 

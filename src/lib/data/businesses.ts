@@ -1,5 +1,47 @@
 import type { BusinessItem } from "$types/content";
-import { optionalImportedBusinesses } from "$data/imported";
+import duchessTheatre from "$data/imported/duchess-theatre.json";
+
+type ImportedVenue = {
+  name: string;
+  slug: string;
+  category: string;
+  address: string;
+  summary: string;
+  description: string[];
+  sourceUrl: string;
+};
+
+const includeDuchessInBusinesses = true;
+
+function hasImportedVenueContent(venue: ImportedVenue): boolean {
+  return Boolean(venue.name && venue.summary);
+}
+
+function buildImportedBusiness(venue: ImportedVenue): BusinessItem {
+  return {
+    id: "business-imported-duchess-theatre",
+    slug: venue.slug,
+    name: venue.name,
+    category: venue.category,
+    location: venue.address,
+    description: venue.summary,
+    about: venue.description.length
+      ? venue.description
+      : [venue.summary].filter(Boolean),
+    website: venue.sourceUrl,
+    imageSrc: "/duchess-theatre.webp",
+    imageAlt: `${venue.name} exterior`,
+    imageLabel: "Arts venue",
+    imageStyle: "bg-brand-accent/10",
+    featured: false,
+    isReal: true,
+  };
+}
+
+const optionalImportedBusinesses: BusinessItem[] =
+  hasImportedVenueContent(duchessTheatre) && includeDuchessInBusinesses
+    ? [buildImportedBusiness(duchessTheatre)]
+    : [];
 
 const baseBusinesses: BusinessItem[] = [
   {
