@@ -14,9 +14,11 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "import:duchess-theatre": "node --experimental-strip-types scripts/import-duchess-theatre.ts"
   },
+  "dependencies": {
+    "@sveltejs/kit": "^2.17.0"
+  },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^5.4.0",
-    "@sveltejs/kit": "^2.17.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "@tailwindcss/forms": "^0.5.9",
     "@types/node": "^22.10.2",
