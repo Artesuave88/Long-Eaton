@@ -1,9 +1,9 @@
 import { e as ensure_array_like, a as attr, b as escape_html, f as fallback, c as bind_props, h as head, s as slot } from "../../chunks/index.js";
 import { n as navLinks, s as site } from "../../chunks/site.js";
-/* empty css                                              */
+/* empty css                                                   */
 function Footer($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
-    $$renderer2.push(`<footer class="border-t border-brand-border bg-brand-surface"><div class="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]"><div><a href="/" class="font-display text-2xl tracking-[-0.03em] text-brand-text">Love Long Eaton</a> <p class="body-copy-sm mt-4 max-w-md">Local events, businesses and everyday places worth knowing about in Long Eaton.</p></div> <div><h2 class="eyebrow">Explore</h2> <div class="mt-4 flex flex-col gap-3"><!--[-->`);
+    $$renderer2.push(`<footer class="border-t border-brand-border bg-brand-surface"><div class="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]"><div><a href="/" class="inline-flex items-center" aria-label="Love Long Eaton home"><img src="/le-logo.png" alt="Love Long Eaton" class="h-14 w-auto sm:h-16"/></a> <p class="body-copy-sm mt-4 max-w-md">Local events, businesses and everyday places worth knowing about in Long Eaton.</p></div> <div><h2 class="eyebrow">Explore</h2> <div class="mt-4 flex flex-col gap-3"><!--[-->`);
     const each_array = ensure_array_like(navLinks);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
       let link = each_array[$$index];
@@ -34,7 +34,7 @@ function Header($$renderer) {
   let $$settled = true;
   let $$inner_renderer;
   function $$render_inner($$renderer2) {
-    $$renderer2.push(`<header class="sticky top-0 z-50 bg-brand-primaryDark text-white shadow-sm"><div class="container-shell flex items-center justify-between gap-4 py-4"><a href="/" class="flex flex-col leading-none text-white"><span class="font-display text-[1.65rem] tracking-[-0.03em]">Love Long Eaton</span> <span class="mt-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/80">Town guide</span></a> <nav class="hidden items-center gap-2 lg:flex" aria-label="Primary"><!--[-->`);
+    $$renderer2.push(`<header class="sticky top-0 z-50 bg-brand-primaryDark text-white shadow-sm"><div class="container-shell flex items-center justify-between gap-4 py-3"><a href="/" class="flex items-center" aria-label="Love Long Eaton home"><img src="/le-logo.png" alt="Love Long Eaton" class="h-16 w-auto brightness-0 invert [filter:brightness(0)_invert(1)_drop-shadow(0_2px_10px_rgba(7,18,41,0.35))] sm:h-20"/></a> <nav class="hidden items-center gap-2 lg:flex" aria-label="Primary"><!--[-->`);
     const each_array = ensure_array_like(navLinks);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
       let link = each_array[$$index];
@@ -65,7 +65,7 @@ function _layout($$renderer, $$props) {
       $$renderer3.title(($$renderer4) => {
         $$renderer4.push(`<title>${escape_html(site.name)}</title>`);
       });
-      $$renderer3.push(`<meta name="description"${attr("content", site.tagline)}/> <meta property="og:title"${attr("content", site.name)}/> <meta property="og:description"${attr("content", site.tagline)}/> <meta property="og:type" content="website"/> <meta property="og:url"${attr("content", site.url)}/>`);
+      $$renderer3.push(`<meta name="description"${attr("content", site.tagline)}/> <meta property="og:title"${attr("content", site.name)}/> <meta property="og:description"${attr("content", site.tagline)}/> <meta property="og:type" content="website"/> <meta property="og:url"${attr("content", site.url)}/> <meta property="og:image"${attr("content", `${site.url}/le-logo.png`)}/> <meta name="twitter:card" content="summary_large_image"/> <meta name="twitter:title"${attr("content", site.name)}/> <meta name="twitter:description"${attr("content", site.tagline)}/> <meta name="twitter:image"${attr("content", `${site.url}/le-logo.png`)}/> <link rel="icon" type="image/png" href="/favicon.png"/> <link rel="apple-touch-icon" href="/favicon.png"/>`);
     });
     $$renderer2.push(`<div class="min-h-screen bg-brand-background text-brand-text">`);
     Header($$renderer2);

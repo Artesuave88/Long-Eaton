@@ -70,44 +70,7 @@
 	</div>
 </section>
 
-<section class="section-muted">
-	<div class="container-shell section-space">
-		<div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-			<div class="surface-card p-6">
-				<p class="eyebrow">What’s On</p>
-				<h2 class="mt-3 text-2xl text-brand-text">Events and dates</h2>
-				<p class="body-copy-sm mt-3">
-					Currently led by Long Eaton Carnival, with the main carnival date and seasonal car boots listed with the practical details people usually need.
-				</p>
-				<a href="/events" class="button-subtle mt-5">View events</a>
-			</div>
-			<div class="surface-card p-6">
-				<p class="eyebrow">Businesses</p>
-				<h2 class="mt-3 text-2xl text-brand-text">Find a business</h2>
-				<p class="body-copy-sm mt-3">
-					Browse dependable local listings, services and places that are worth keeping close to hand.
-				</p>
-				<a href="/businesses" class="button-subtle mt-5">Browse businesses</a>
-			</div>
-			<div class="surface-card p-6">
-				<p class="eyebrow">About</p>
-				<h2 class="mt-3 text-2xl text-brand-text">Why the guide exists</h2>
-				<p class="body-copy-sm mt-3">
-					A simple local guide built around useful event and business information for Long Eaton.
-				</p>
-				<a href="/about" class="button-subtle mt-5">About Love Long Eaton</a>
-			</div>
-			<div class="surface-card p-6">
-				<p class="eyebrow">Contact</p>
-				<h2 class="mt-3 text-2xl text-brand-text">Send in details</h2>
-				<p class="body-copy-sm mt-3">
-					Use the contact page to send an event or add a business that should be included in the guide.
-				</p>
-				<a href="/contact" class="button-subtle mt-5">Contact us</a>
-			</div>
-		</div>
-	</div>
-</section>
+
 
 <section class="section-muted">
 	<div class="container-shell section-space">
