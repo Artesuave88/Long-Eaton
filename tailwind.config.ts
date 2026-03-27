@@ -7,32 +7,36 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          50: "#f8f4ef",
-          100: "#eadfd1",
-          200: "#d9c2aa",
-          300: "#c59f7b",
-          400: "#b37d53",
-          500: "#965c36",
-          600: "#784629",
-          700: "#5f341d",
-          800: "#482514",
-          900: "#30170c",
+          primary: "#2F5D7C",
+          primaryDark: "#1F3E55",
+          primaryLight: "#4F7FA3",
+          accent: "#38BDF8",
+          background: "#F8FAFC",
+          surface: "#FFFFFF",
+          section: "#F1F5F9",
+          border: "#E2E8F0",
+          text: "#0F172A",
+          muted: "#64748B",
         },
-        ink: "#161616",
-        sand: "#ede7de",
-        sun: "#c5943f",
-        coral: "#b4492d",
       },
       fontFamily: {
-        display: ['"Fraunces"', "Georgia", "serif"],
-        sans: ['"Manrope"', "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Inter"', '"Segoe UI"', "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ['"Inter"', '"Segoe UI"', "ui-sans-serif", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        card: "0 22px 40px -28px rgba(18, 18, 18, 0.34)",
+        sm: "0 2px 10px rgba(15, 23, 42, 0.05)",
+        card: "0 8px 24px rgba(15, 23, 42, 0.06)",
+        lift: "0 12px 28px rgba(15, 23, 42, 0.1)",
       },
-      backgroundImage: {
-        "hero-glow":
-          "linear-gradient(135deg, rgba(24,24,24,0.98) 0%, rgba(58,31,16,0.96) 52%, rgba(123,69,35,0.92) 100%)",
+      borderRadius: {
+        xl: "0.875rem",
+        "2xl": "1rem",
+      },
+      spacing: {
+        18: "4.5rem",
+      },
+      maxWidth: {
+        shell: "80rem",
       },
     },
   },

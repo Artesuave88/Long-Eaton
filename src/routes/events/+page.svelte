@@ -26,28 +26,30 @@
 	/>
 </svelte:head>
 
-<section class="container-shell section-space">
-	<SectionHeading
-		eyebrow="Events"
-		title="What’s on in Long Eaton"
-		copy="Long Eaton Carnival now leads the listings, alongside markets, family days and smaller local events across town."
-	/>
-
-	<div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">
-		<SearchBar bind:value={query} placeholder="Search events, locations or ideas" />
-		<CategoryFilter categories={eventCategories} bind:selected={selectedCategory} />
-	</div>
-
-	{#if filteredEvents.length}
-		<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-			{#each filteredEvents as event}
-				<EventCard {event} />
-			{/each}
-		</div>
-	{:else}
-		<EmptyState
-			title="No events matched your search"
-			message="Try a broader search term or switch back to all categories to see more happening across Long Eaton."
+<section class="section-surface">
+	<div class="container-shell section-space">
+		<SectionHeading
+			eyebrow="Events"
+			title="What’s on in Long Eaton"
+			copy="Markets, family days, live music, waterside walks and established town events across the year."
 		/>
-	{/if}
+
+		<div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">
+			<SearchBar bind:value={query} placeholder="Search events, locations or ideas" />
+			<CategoryFilter categories={eventCategories} bind:selected={selectedCategory} />
+		</div>
+
+		{#if filteredEvents.length}
+			<div class="section-grid">
+				{#each filteredEvents as event}
+					<EventCard {event} />
+				{/each}
+			</div>
+		{:else}
+			<EmptyState
+				title="No events matched your search"
+				message="Try a broader search term or switch categories to see more events happening across Long Eaton."
+			/>
+		{/if}
+	</div>
 </section>

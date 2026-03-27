@@ -30,7 +30,7 @@ function _page($$renderer, $$props) {
       const each_array_1 = ensure_array_like(newsItems);
       for (let $$index_2 = 0, $$length = each_array_1.length; $$index_2 < $$length; $$index_2++) {
         let item = each_array_1[$$index_2];
-        $$renderer2.push(`<article class="surface-card p-6"><p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">${escape_html(formatDisplayDate(item.date))}</p> <h2 class="mt-3 font-display text-2xl text-ink">${escape_html(item.title)}</h2> <div class="mt-4 space-y-4 text-sm leading-7 text-ink/72"><!--[-->`);
+        $$renderer2.push(`<article class="surface-card p-6"><p class="eyebrow">${escape_html(formatDisplayDate(item.date))}</p> <h2 class="mt-3 text-2xl text-ink">${escape_html(item.title)}</h2> <div class="body-copy-sm mt-4 space-y-4"><!--[-->`);
         const each_array_2 = ensure_array_like(item.content);
         for (let $$index_1 = 0, $$length2 = each_array_2.length; $$index_1 < $$length2; $$index_1++) {
           let paragraph = each_array_2[$$index_1];

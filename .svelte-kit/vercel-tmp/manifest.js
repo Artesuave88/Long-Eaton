@@ -10,7 +10,7 @@ return {
 	assets: new Set(["favicon.svg","lebjj-logo.png"]),
 	mimeTypes: {".svg":"image/svg+xml",".png":"image/png"},
 	_: {
-		client: {start:"_app/immutable/entry/start.BLNvKnDw.js",app:"_app/immutable/entry/app.wg8u4wtE.js",imports:["_app/immutable/entry/start.BLNvKnDw.js","_app/immutable/chunks/BYIochOE.js","_app/immutable/chunks/BZjYtM9O.js","_app/immutable/chunks/BUApaBEI.js","_app/immutable/chunks/CVoNdbWc.js","_app/immutable/entry/app.wg8u4wtE.js","_app/immutable/chunks/BZjYtM9O.js","_app/immutable/chunks/CZ6WYy7q.js","_app/immutable/chunks/CVoNdbWc.js","_app/immutable/chunks/DH8z07AK.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.nIDGeviM.js",app:"_app/immutable/entry/app.DMa22Fxz.js",imports:["_app/immutable/entry/start.nIDGeviM.js","_app/immutable/chunks/CRW9H20f.js","_app/immutable/chunks/BZjYtM9O.js","_app/immutable/chunks/BUApaBEI.js","_app/immutable/chunks/CVoNdbWc.js","_app/immutable/entry/app.DMa22Fxz.js","_app/immutable/chunks/BZjYtM9O.js","_app/immutable/chunks/CZ6WYy7q.js","_app/immutable/chunks/CVoNdbWc.js","_app/immutable/chunks/DH8z07AK.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('../output/server/nodes/0.js')),
 			__memo(() => import('../output/server/nodes/1.js'))

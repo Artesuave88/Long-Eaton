@@ -13,9 +13,9 @@
 	<meta property="og:url" content={site.url} />
 </svelte:head>
 
-<div class="min-h-screen bg-transparent">
+<div class="min-h-screen bg-brand-background text-brand-text">
 	<Header />
-	<main>
+	<main class="mx-auto w-full">
 		<slot />
 	</main>
 	<Footer />

@@ -30,7 +30,7 @@ function _page($$renderer, $$props) {
         title: "What’s on in Long Eaton",
         copy: "Long Eaton Carnival now leads the listings, alongside markets, family days and smaller local events across town."
       });
-      $$renderer3.push(`<!----> <div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">`);
+      $$renderer3.push(`<!----> <div class="section-band-muted mb-8 p-3 sm:p-4"><div class="surface-card grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">`);
       SearchBar($$renderer3, {
         placeholder: "Search events, locations or ideas",
         get value() {
@@ -52,10 +52,10 @@ function _page($$renderer, $$props) {
           $$settled = false;
         }
       });
-      $$renderer3.push(`<!----></div> `);
+      $$renderer3.push(`<!----></div></div> `);
       if (filteredEvents.length) {
         $$renderer3.push("<!--[0-->");
-        $$renderer3.push(`<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"><!--[-->`);
+        $$renderer3.push(`<div class="section-grid"><!--[-->`);
         const each_array = ensure_array_like(filteredEvents);
         for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
           let event = each_array[$$index];

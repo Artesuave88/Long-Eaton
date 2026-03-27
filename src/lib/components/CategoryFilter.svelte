@@ -7,10 +7,10 @@
 	{#each categories as category}
 		<button
 			type="button"
-			class={`rounded-sm border px-4 py-2 text-sm font-semibold uppercase tracking-[0.08em] transition ${
+			class={`rounded-lg border px-4 py-2 text-sm font-medium transition ${
 				selected === category
-					? 'border-brand-700 bg-brand-700 text-white shadow-lg shadow-brand-900/15'
-					: 'border-ink/10 bg-white text-ink hover:border-brand-300 hover:bg-brand-50'
+					? 'border-brand-primary bg-brand-primary text-white'
+					: 'border-brand-border bg-brand-surface text-brand-text hover:bg-brand-section'
 			}`}
 			on:click={() => (selected = category)}
 		>

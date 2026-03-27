@@ -5,12 +5,12 @@
 </script>
 
 {#if open}
-	<div class="border-t border-ink/10 bg-[#f4eee6] shadow-lg lg:hidden">
+	<div class="border-t border-white/10 bg-brand-primaryDark shadow-sm lg:hidden">
 		<nav class="container-shell flex flex-col py-4" aria-label="Mobile">
 			{#each navLinks as link}
 				<a
 					href={link.href}
-					class="rounded-sm px-4 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-ink hover:bg-white"
+					class="rounded-lg px-4 py-3 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
 				>
 					{link.label}
 				</a>

@@ -4,13 +4,13 @@ import { I as ImagePlaceholder } from "./ImagePlaceholder.js";
 function NewsCard($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let item = $$props["item"];
-    $$renderer2.push(`<article class="surface-card overflow-hidden">`);
+    $$renderer2.push(`<article class="surface-card surface-card-hover overflow-hidden">`);
     ImagePlaceholder($$renderer2, {
       label: item.imageLabel,
       style: item.imageStyle,
       className: "h-44 w-full rounded-none"
     });
-    $$renderer2.push(`<!----> <div class="p-5"><p class="text-sm text-ink/55">${escape_html(formatDisplayDate(item.date))}</p> <h3 class="mt-3 font-display text-[1.7rem] leading-tight text-ink">${escape_html(item.title)}</h3> <p class="mt-4 text-sm leading-7 text-ink/72">${escape_html(item.excerpt)}</p> <a href="/news" class="mt-5 inline-flex items-center text-sm font-semibold text-brand-700 hover:text-brand-900">Read update</a></div></article>`);
+    $$renderer2.push(`<!----> <div class="p-5"><p class="text-sm text-ink/55">${escape_html(formatDisplayDate(item.date))}</p> <h3 class="mt-3 text-[1.55rem] leading-tight text-ink">${escape_html(item.title)}</h3> <p class="body-copy-sm mt-4">${escape_html(item.excerpt)}</p> <a href="/news" class="link-subtle mt-5">Read update</a></div></article>`);
     bind_props($$props, { item });
   });
 }

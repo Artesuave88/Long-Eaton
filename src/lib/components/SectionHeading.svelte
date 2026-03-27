@@ -7,10 +7,10 @@
 
 <div class:text-center={align === 'center'} class="mb-8 max-w-2xl">
 	{#if eyebrow}
-		<p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-brand-700">{eyebrow}</p>
+		<p class="eyebrow mb-3">{eyebrow}</p>
 	{/if}
-	<h2 class="font-display text-3xl uppercase leading-tight text-ink sm:text-4xl">{title}</h2>
+	<h2 class="max-w-xl text-brand-text">{title}</h2>
 	{#if copy}
-		<p class="mt-4 text-base leading-7 text-ink/75 sm:text-lg">{copy}</p>
+		<p class="mt-4 max-w-xl text-base leading-8 text-brand-muted sm:text-[1.05rem]">{copy}</p>
 	{/if}
 </div>

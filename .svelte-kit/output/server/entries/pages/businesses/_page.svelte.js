@@ -8,10 +8,10 @@ import { b as businesses, a as businessCategories } from "../../../chunks/busine
 function BusinessCard($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let business = $$props["business"];
-    $$renderer2.push(`<article${attr_class(`surface-card overflow-hidden ${business.isReal ? "ring-1 ring-brand-300" : ""}`)}>`);
+    $$renderer2.push(`<article${attr_class(`surface-card surface-card-hover overflow-hidden ${business.isReal ? "ring-1 ring-brand-200" : ""}`)}>`);
     if (business.imageSrc) {
       $$renderer2.push("<!--[0-->");
-      $$renderer2.push(`<div class="flex h-48 w-full items-center justify-center bg-[#0b0b0b] p-6"><img${attr("src", business.imageSrc)}${attr("alt", business.imageAlt ?? business.name)} class="max-h-full max-w-full object-contain"/></div>`);
+      $$renderer2.push(`<div class="flex h-48 w-full items-center justify-center bg-brand-900 p-6"><img${attr("src", business.imageSrc)}${attr("alt", business.imageAlt ?? business.name)} class="max-h-full max-w-full object-contain"/></div>`);
     } else {
       $$renderer2.push("<!--[-1-->");
       ImagePlaceholder($$renderer2, {
@@ -20,14 +20,14 @@ function BusinessCard($$renderer, $$props) {
         className: "h-48 w-full rounded-none"
       });
     }
-    $$renderer2.push(`<!--]--> <div class="p-5"><div class="flex flex-wrap items-center gap-2"><p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">${escape_html(business.category)}</p> `);
+    $$renderer2.push(`<!--]--> <div class="p-5"><div class="flex flex-wrap items-center gap-2"><p class="eyebrow">${escape_html(business.category)}</p> `);
     if (business.isReal) {
       $$renderer2.push("<!--[0-->");
       $$renderer2.push(`<span class="chip">Featured local business</span>`);
     } else {
       $$renderer2.push("<!--[-1-->");
     }
-    $$renderer2.push(`<!--]--></div> <h3 class="mt-3 font-display text-[1.7rem] leading-tight text-ink">${escape_html(business.name)}</h3> <p class="mt-2 text-sm font-medium text-ink/55">${escape_html(business.location)}</p> <p class="mt-4 text-sm leading-7 text-ink/72">${escape_html(business.description)}</p> <div class="mt-5 flex flex-wrap gap-4"><a${attr("href", `/businesses/${business.slug}`)} class="inline-flex items-center text-sm font-semibold text-brand-700 hover:text-brand-900">View details</a> `);
+    $$renderer2.push(`<!--]--></div> <h3 class="mt-3 text-[1.55rem] leading-tight text-ink">${escape_html(business.name)}</h3> <p class="mt-2 text-sm font-medium text-ink/55">${escape_html(business.location)}</p> <p class="body-copy-sm mt-4">${escape_html(business.description)}</p> <div class="mt-5 flex flex-wrap gap-4"><a${attr("href", `/businesses/${business.slug}`)} class="link-subtle">View details</a> `);
     if (business.website) {
       $$renderer2.push("<!--[0-->");
       $$renderer2.push(`<a${attr("href", business.website)} target="_blank" rel="noreferrer" class="inline-flex items-center text-sm font-semibold text-ink/65 hover:text-ink">Visit website</a>`);
@@ -64,7 +64,7 @@ function _page($$renderer, $$props) {
         title: "Browse local businesses in Long Eaton",
         copy: "Only verified local listings are shown here."
       });
-      $$renderer3.push(`<!----> <div class="surface-card mb-6 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5"><p class="text-sm leading-7 text-ink/72">Currently listed: <span class="font-semibold text-ink">Long Eaton BJJ</span>.</p> <a href="/businesses/long-eaton-bjj" class="text-sm font-semibold text-brand-700 hover:text-brand-900">View business</a></div> <div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">`);
+      $$renderer3.push(`<!----> <div class="surface-card mb-6 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5"><p class="body-copy-sm">Currently listed: <span class="font-semibold text-ink">Long Eaton BJJ</span>.</p> <a href="/businesses/long-eaton-bjj" class="button-subtle">View business</a></div> <div class="section-band-muted mb-8 p-3 sm:p-4"><div class="surface-card grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">`);
       SearchBar($$renderer3, {
         placeholder: "Search businesses, categories or streets",
         get value() {
@@ -86,10 +86,10 @@ function _page($$renderer, $$props) {
           $$settled = false;
         }
       });
-      $$renderer3.push(`<!----></div> `);
+      $$renderer3.push(`<!----></div></div> `);
       if (filteredBusinesses.length) {
         $$renderer3.push("<!--[0-->");
-        $$renderer3.push(`<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"><!--[-->`);
+        $$renderer3.push(`<div class="section-grid"><!--[-->`);
         const each_array = ensure_array_like(filteredBusinesses);
         for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
           let business = each_array[$$index];

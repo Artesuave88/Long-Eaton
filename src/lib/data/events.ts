@@ -22,10 +22,10 @@ export const events: EventItem[] = [
       "The parade starts at 11am and returns to the carnival site at around 12:30pm to 1:00pm. The main carnival site is free to enter.",
     ],
     imageLabel: "Carnival parade",
-    imageStyle: "from-coral/90 via-brand-200 to-sand",
+    imageStyle: "bg-brand-section",
     image: {
       label: "Carnival parade",
-      style: "from-coral/90 via-brand-200 to-sand",
+      style: "bg-brand-section",
     },
     sourceName: "Long Eaton Carnival homepage",
     volunteerRun: true,
@@ -60,10 +60,10 @@ export const events: EventItem[] = [
       "Expect produce, gifts, coffee and a good excuse to spend a bit longer browsing nearby shops.",
     ],
     imageLabel: "Market day",
-    imageStyle: "from-brand-300 via-brand-100 to-sun/60",
+    imageStyle: "bg-brand-section",
     image: {
       label: "Market day",
-      style: "from-brand-300 via-brand-100 to-sun/60",
+      style: "bg-brand-section",
     },
     featured: true,
   },
@@ -87,10 +87,10 @@ export const events: EventItem[] = [
       "It's the kind of event you can drop into for an hour or stay at for most of the afternoon.",
     ],
     imageLabel: "Park festival",
-    imageStyle: "from-sun/80 via-sand to-brand-100",
+    imageStyle: "bg-brand-surface",
     image: {
       label: "Park festival",
-      style: "from-sun/80 via-sand to-brand-100",
+      style: "bg-brand-surface",
     },
     featured: true,
   },
@@ -114,10 +114,10 @@ export const events: EventItem[] = [
       "It's a good option for anyone who wants a quieter view of the town after work.",
     ],
     imageLabel: "Canal walk",
-    imageStyle: "from-brand-700 via-brand-400 to-sand",
+    imageStyle: "bg-brand-section",
     image: {
       label: "Canal walk",
-      style: "from-brand-700 via-brand-400 to-sand",
+      style: "bg-brand-section",
     },
   },
   {
@@ -137,10 +137,10 @@ export const events: EventItem[] = [
       "It works best as a slow day in town rather than a rushed stop between errands.",
     ],
     imageLabel: "Food weekend",
-    imageStyle: "from-coral/80 via-sun/70 to-white",
+    imageStyle: "bg-brand-surface",
     image: {
       label: "Food weekend",
-      style: "from-coral/80 via-sun/70 to-white",
+      style: "bg-brand-surface",
     },
   },
   {
@@ -163,10 +163,10 @@ export const events: EventItem[] = [
       "Expect a mix of acoustic sets, choirs and plenty of people stopping by with a coffee in hand.",
     ],
     imageLabel: "Live music",
-    imageStyle: "from-brand-500 via-coral/70 to-sun/60",
+    imageStyle: "bg-brand-section",
     image: {
       label: "Live music",
-      style: "from-brand-500 via-coral/70 to-sun/60",
+      style: "bg-brand-section",
     },
   },
   {
@@ -189,10 +189,10 @@ export const events: EventItem[] = [
       "A few shops add demos or small in-store treats, but the main draw is simply having time to look properly.",
     ],
     imageLabel: "Late shopping",
-    imageStyle: "from-ink via-brand-700 to-coral/80",
+    imageStyle: "bg-brand-primaryDark/10",
     image: {
       label: "Late shopping",
-      style: "from-ink via-brand-700 to-coral/80",
+      style: "bg-brand-primaryDark/10",
     },
   },
 ];
