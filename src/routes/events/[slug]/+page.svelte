@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ImagePlaceholder from '$components/ImagePlaceholder.svelte';
-	import { formatDisplayDate } from '$utils/format';
+	import { formatDisplayDate, formatEventDate } from '$utils/format';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -8,6 +8,8 @@
 	const formatRelatedDate = (date?: string, dateLabel?: string) =>
 		date ? formatDisplayDate(date) : dateLabel ?? '';
 	const isCarnival = data.event.slug === 'long-eaton-carnival';
+	const hasVisitDetails =
+		Boolean(data.event.priceSummary) || Boolean(data.event.locationNote) || Boolean(data.event.fundraisingNote);
 </script>
 
 <svelte:head>
@@ -33,7 +35,7 @@
 				<div class="surface-card mt-8 grid gap-4 p-6 sm:grid-cols-2 lg:grid-cols-4">
 					<div>
 						<p class="eyebrow">Date</p>
-						<p class="mt-2 text-base font-semibold text-brand-text">{formatDisplayDate(data.event.date)}</p>
+						<p class="mt-2 text-base font-semibold text-brand-text">{formatEventDate(data.event)}</p>
 					</div>
 					<div>
 						<p class="eyebrow">Start</p>
@@ -62,11 +64,17 @@
 
 				<div class="surface-card mt-8 p-6">
 					<h2 class="text-2xl text-brand-text">Timing details</h2>
-					<div class="mt-5 grid gap-4 sm:grid-cols-2">
+					<div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 						<div class="inset-panel p-4">
 							<p class="eyebrow">Starts</p>
 							<p class="mt-2 text-base font-semibold text-brand-text">{data.event.startTime ?? data.event.time}</p>
 						</div>
+						{#if data.event.time !== data.event.startTime}
+							<div class="inset-panel p-4">
+								<p class="eyebrow">At a glance</p>
+								<p class="mt-2 text-base font-semibold text-brand-text">{data.event.time}</p>
+							</div>
+						{/if}
 						{#if data.event.endTime || data.event.approximateReturnTime}
 							<div class="inset-panel p-4">
 								<p class="eyebrow">{data.event.approximateReturnTime ? 'Approximate return' : 'Ends'}</p>
@@ -78,11 +86,66 @@
 					</div>
 				</div>
 
-				{#if data.event.volunteerRun}
+				{#if data.event.sellerInfo?.length || data.event.buyerInfo?.length}
+					<div class="mt-8 grid gap-6 lg:grid-cols-2">
+						{#if data.event.sellerInfo?.length}
+							<div class="surface-card p-6">
+								<h2 class="text-2xl text-brand-text">Sellers</h2>
+								<ul class="mt-4 space-y-3 text-base leading-7 text-brand-muted">
+									{#each data.event.sellerInfo as item}
+										<li>{item}</li>
+									{/each}
+								</ul>
+							</div>
+						{/if}
+
+						{#if data.event.buyerInfo?.length}
+							<div class="surface-card p-6">
+								<h2 class="text-2xl text-brand-text">Buyers</h2>
+								<ul class="mt-4 space-y-3 text-base leading-7 text-brand-muted">
+									{#each data.event.buyerInfo as item}
+										<li>{item}</li>
+									{/each}
+								</ul>
+							</div>
+						{/if}
+					</div>
+				{/if}
+
+				{#if hasVisitDetails}
+					<div class="surface-card mt-8 p-6">
+						<h2 class="text-2xl text-brand-text">What to know</h2>
+						<div class="mt-5 grid gap-4 sm:grid-cols-2">
+							{#if data.event.priceSummary}
+								<div class="inset-panel p-4">
+									<p class="eyebrow">Pricing</p>
+									<p class="mt-2 text-base leading-7 text-brand-muted">{data.event.priceSummary}</p>
+								</div>
+							{/if}
+							{#if data.event.locationNote}
+								<div class="inset-panel p-4">
+									<p class="eyebrow">Location note</p>
+									<p class="mt-2 text-base leading-7 text-brand-muted">{data.event.locationNote}</p>
+								</div>
+							{/if}
+							{#if data.event.fundraisingNote}
+								<div class="inset-panel p-4 sm:col-span-2">
+									<p class="eyebrow">Fundraising</p>
+									<p class="mt-2 text-base leading-7 text-brand-muted">{data.event.fundraisingNote}</p>
+								</div>
+							{/if}
+						</div>
+					</div>
+				{/if}
+
+				{#if data.event.organiser}
 					<div class="surface-card mt-8 p-6">
 						<h2 class="text-2xl text-brand-text">Organiser</h2>
 						<p class="mt-4 text-base leading-8 text-brand-muted">
-							{data.event.organiser}. The event is run entirely by volunteers.
+							{data.event.organiser}
+							{#if data.event.volunteerRun}
+								. The event is run entirely by volunteers.
+							{/if}
 						</p>
 					</div>
 				{/if}
@@ -112,17 +175,6 @@
 						{/each}
 					</div>
 				{/if}
-
-				{#if data.event.sourceName}
-					<p class="mt-8 text-sm text-brand-muted">
-						Source: {data.event.sourceName}
-						{#if data.event.sourceUrl}
-							<a href={data.event.sourceUrl} target="_blank" rel="noreferrer" class="ml-2 font-semibold text-brand-accent hover:underline">
-								Visit source
-							</a>
-						{/if}
-					</p>
-				{/if}
 			</div>
 
 			<div class="space-y-6">
@@ -136,6 +188,8 @@
 					<p class="body-copy-sm mt-4">
 						{#if isCarnival}
 							For the carnival, the day starts with the road parade before the main site activity continues on West Park. The main site is free to enter.
+						{:else if data.event.category === 'Markets'}
+							West Park car boots are simple to plan for: sellers arrive from 7am, buyers from 8am, and all proceeds support the Carnival fund.
 						{:else}
 							Pair this event with a stop at a local cafe, a browse through the town centre or a walk through one of Long Eaton’s green spaces.
 						{/if}

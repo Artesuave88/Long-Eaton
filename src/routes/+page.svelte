@@ -6,9 +6,9 @@
 		SectionHeading
 	} from '$components';
 	import { businesses } from '$data/businesses';
-	import { events } from '$data/events';
+	import { sortedEvents } from '$data/events';
 
-	const featuredEvents = events.filter((event) => event.featured).slice(0, 3);
+	const featuredEvents = sortedEvents.filter((event) => event.featured).slice(0, 3);
 	const featuredBusiness = businesses[0];
 </script>
 
@@ -30,7 +30,7 @@
 		<Hero
 			title="Find local events, shops and places around Long Eaton."
 			copy="A calm local guide to what’s on, where to browse, where to stop and which businesses are worth knowing about in Long Eaton."
-			events={featuredEvents.length ? featuredEvents : events.slice(0, 5)}
+			events={featuredEvents.length ? featuredEvents : sortedEvents.slice(0, 5)}
 			primaryHref="/events"
 			primaryLabel="See what's on"
 			secondaryHref="/businesses"
@@ -46,7 +46,7 @@
 				<p class="eyebrow">What’s On</p>
 				<h2 class="mt-3 text-2xl text-brand-text">Events and dates</h2>
 				<p class="body-copy-sm mt-3">
-					Currently led by Long Eaton Carnival, with timings, location and key details easy to scan.
+					Currently led by Long Eaton Carnival, with the main carnival date and seasonal car boots listed with the practical details people usually need.
 				</p>
 				<a href="/events" class="button-subtle mt-5">View events</a>
 			</div>

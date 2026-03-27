@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { EventItem } from '$types/content';
-	import { formatDisplayDate } from '$utils/format';
+	import { formatEventDate } from '$utils/format';
 
 	export let eyebrow = 'Love Long Eaton';
 	export let title: string;
@@ -50,7 +50,7 @@
 									<p class="eyebrow">{event.category}</p>
 									<h2 class="mt-3 text-xl text-brand-text">{event.title}</h2>
 									<p class="mt-3 text-sm font-medium text-brand-muted">
-										{formatDisplayDate(event.date)} • {event.location}
+										{formatEventDate(event)} • {event.location}
 									</p>
 									<p class="body-copy-sm mt-4">{event.excerpt}</p>
 								</div>
@@ -69,7 +69,7 @@
 					<p class="eyebrow">{events[0].category}</p>
 					<h2 class="mt-3 text-xl text-brand-text">{events[0].title}</h2>
 					<p class="mt-3 text-sm font-medium text-brand-muted">
-						{formatDisplayDate(events[0].date)} • {events[0].location}
+						{formatEventDate(events[0])} • {events[0].location}
 					</p>
 					<p class="body-copy-sm mt-4">{events[0].excerpt}</p>
 					<a href={`/events/${events[0].slug}`} class="button-subtle mt-5">See event details</a>

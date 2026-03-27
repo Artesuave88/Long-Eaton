@@ -68,6 +68,17 @@
 			}
 		},
 		{
+			"src": "/events/long-eaton-carnival-car-boot-sale-12-april-2026",
+			"dest": "/events/long-eaton-carnival-car-boot-sale-12-april-2026/"
+		},
+		{
+			"src": "/events/long-eaton-carnival-car-boot-sale-12-april-2026/",
+			"status": 308,
+			"headers": {
+				"Location": "/events/long-eaton-carnival-car-boot-sale-12-april-2026"
+			}
+		},
+		{
 			"src": "/events/long-eaton-carnival",
 			"dest": "/events/long-eaton-carnival/"
 		},
@@ -76,28 +87,6 @@
 			"status": 308,
 			"headers": {
 				"Location": "/events/long-eaton-carnival"
-			}
-		},
-		{
-			"src": "/events/long-eaton-makers-market",
-			"dest": "/events/long-eaton-makers-market/"
-		},
-		{
-			"src": "/events/long-eaton-makers-market/",
-			"status": 308,
-			"headers": {
-				"Location": "/events/long-eaton-makers-market"
-			}
-		},
-		{
-			"src": "/events/family-fun-at-west-park",
-			"dest": "/events/family-fun-at-west-park/"
-		},
-		{
-			"src": "/events/family-fun-at-west-park/",
-			"status": 308,
-			"headers": {
-				"Location": "/events/family-fun-at-west-park"
 			}
 		},
 		{
@@ -112,47 +101,69 @@
 			}
 		},
 		{
-			"src": "/events/twilight-canal-walk",
-			"dest": "/events/twilight-canal-walk/"
+			"src": "/events/long-eaton-carnival-car-boot-sale-17-may-2026",
+			"dest": "/events/long-eaton-carnival-car-boot-sale-17-may-2026/"
 		},
 		{
-			"src": "/events/twilight-canal-walk/",
+			"src": "/events/long-eaton-carnival-car-boot-sale-17-may-2026/",
 			"status": 308,
 			"headers": {
-				"Location": "/events/twilight-canal-walk"
+				"Location": "/events/long-eaton-carnival-car-boot-sale-17-may-2026"
 			}
 		},
 		{
-			"src": "/events/independent-food-weekend",
-			"dest": "/events/independent-food-weekend/"
+			"src": "/events/long-eaton-carnival-car-boot-sale-21-june-2026",
+			"dest": "/events/long-eaton-carnival-car-boot-sale-21-june-2026/"
 		},
 		{
-			"src": "/events/independent-food-weekend/",
+			"src": "/events/long-eaton-carnival-car-boot-sale-21-june-2026/",
 			"status": 308,
 			"headers": {
-				"Location": "/events/independent-food-weekend"
+				"Location": "/events/long-eaton-carnival-car-boot-sale-21-june-2026"
 			}
 		},
 		{
-			"src": "/events/summer-bandstand-sessions",
-			"dest": "/events/summer-bandstand-sessions/"
+			"src": "/events/long-eaton-carnival-car-boot-sale-19-july-2026",
+			"dest": "/events/long-eaton-carnival-car-boot-sale-19-july-2026/"
 		},
 		{
-			"src": "/events/summer-bandstand-sessions/",
+			"src": "/events/long-eaton-carnival-car-boot-sale-19-july-2026/",
 			"status": 308,
 			"headers": {
-				"Location": "/events/summer-bandstand-sessions"
+				"Location": "/events/long-eaton-carnival-car-boot-sale-19-july-2026"
 			}
 		},
 		{
-			"src": "/events/shop-small-late-night",
-			"dest": "/events/shop-small-late-night/"
+			"src": "/events/long-eaton-carnival-car-boot-sale-16-august-2026",
+			"dest": "/events/long-eaton-carnival-car-boot-sale-16-august-2026/"
 		},
 		{
-			"src": "/events/shop-small-late-night/",
+			"src": "/events/long-eaton-carnival-car-boot-sale-16-august-2026/",
 			"status": 308,
 			"headers": {
-				"Location": "/events/shop-small-late-night"
+				"Location": "/events/long-eaton-carnival-car-boot-sale-16-august-2026"
+			}
+		},
+		{
+			"src": "/events/long-eaton-carnival-car-boot-sale-20-september-2026",
+			"dest": "/events/long-eaton-carnival-car-boot-sale-20-september-2026/"
+		},
+		{
+			"src": "/events/long-eaton-carnival-car-boot-sale-20-september-2026/",
+			"status": 308,
+			"headers": {
+				"Location": "/events/long-eaton-carnival-car-boot-sale-20-september-2026"
+			}
+		},
+		{
+			"src": "/events/long-eaton-carnival-car-boot-sale-october-2026-tbc",
+			"dest": "/events/long-eaton-carnival-car-boot-sale-october-2026-tbc/"
+		},
+		{
+			"src": "/events/long-eaton-carnival-car-boot-sale-october-2026-tbc/",
+			"status": 308,
+			"headers": {
+				"Location": "/events/long-eaton-carnival-car-boot-sale-october-2026-tbc"
 			}
 		},
 		{
@@ -191,29 +202,32 @@
 		"news.html": {
 			"path": "news"
 		},
+		"events/long-eaton-carnival-car-boot-sale-12-april-2026.html": {
+			"path": "events/long-eaton-carnival-car-boot-sale-12-april-2026"
+		},
 		"events/long-eaton-carnival.html": {
 			"path": "events/long-eaton-carnival"
-		},
-		"events/long-eaton-makers-market.html": {
-			"path": "events/long-eaton-makers-market"
-		},
-		"events/family-fun-at-west-park.html": {
-			"path": "events/family-fun-at-west-park"
 		},
 		"businesses/long-eaton-bjj.html": {
 			"path": "businesses/long-eaton-bjj"
 		},
-		"events/twilight-canal-walk.html": {
-			"path": "events/twilight-canal-walk"
+		"events/long-eaton-carnival-car-boot-sale-17-may-2026.html": {
+			"path": "events/long-eaton-carnival-car-boot-sale-17-may-2026"
 		},
-		"events/independent-food-weekend.html": {
-			"path": "events/independent-food-weekend"
+		"events/long-eaton-carnival-car-boot-sale-21-june-2026.html": {
+			"path": "events/long-eaton-carnival-car-boot-sale-21-june-2026"
 		},
-		"events/summer-bandstand-sessions.html": {
-			"path": "events/summer-bandstand-sessions"
+		"events/long-eaton-carnival-car-boot-sale-19-july-2026.html": {
+			"path": "events/long-eaton-carnival-car-boot-sale-19-july-2026"
 		},
-		"events/shop-small-late-night.html": {
-			"path": "events/shop-small-late-night"
+		"events/long-eaton-carnival-car-boot-sale-16-august-2026.html": {
+			"path": "events/long-eaton-carnival-car-boot-sale-16-august-2026"
+		},
+		"events/long-eaton-carnival-car-boot-sale-20-september-2026.html": {
+			"path": "events/long-eaton-carnival-car-boot-sale-20-september-2026"
+		},
+		"events/long-eaton-carnival-car-boot-sale-october-2026-tbc.html": {
+			"path": "events/long-eaton-carnival-car-boot-sale-october-2026-tbc"
 		}
 	}
 }

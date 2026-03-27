@@ -3,14 +3,15 @@ import { S as SearchBar, C as CategoryFilter } from "../../../chunks/SearchBar.j
 import { E as EmptyState } from "../../../chunks/EmptyState.js";
 import { E as EventCard } from "../../../chunks/EventCard.js";
 import { s as slugMatches } from "../../../chunks/format.js";
+/* empty css                                                 */
 import { S as SectionHeading } from "../../../chunks/SectionHeading.js";
-import { e as events, a as eventCategories } from "../../../chunks/events.js";
+import { s as sortedEvents, e as eventCategories } from "../../../chunks/events.js";
 function _page($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let filteredEvents;
     let query = "";
     let selectedCategory = "All";
-    filteredEvents = events.filter((event) => {
+    filteredEvents = sortedEvents.filter((event) => {
       const matchesQuery = slugMatches(event.title, query) || slugMatches(event.excerpt, query) || slugMatches(event.location, query);
       const matchesCategory = selectedCategory === "All" || event.category === selectedCategory;
       return matchesQuery && matchesCategory;
@@ -24,13 +25,13 @@ function _page($$renderer, $$props) {
         });
         $$renderer4.push(`<meta name="description" content="See upcoming events in Long Eaton, from markets and family days to walks and live music."/>`);
       });
-      $$renderer3.push(`<section class="container-shell section-space">`);
+      $$renderer3.push(`<section class="section-surface"><div class="container-shell section-space">`);
       SectionHeading($$renderer3, {
         eyebrow: "Events",
         title: "What’s on in Long Eaton",
-        copy: "Long Eaton Carnival now leads the listings, alongside markets, family days and smaller local events across town."
+        copy: "Markets, family days, live music, waterside walks and established town events across the year."
       });
-      $$renderer3.push(`<!----> <div class="section-band-muted mb-8 p-3 sm:p-4"><div class="surface-card grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">`);
+      $$renderer3.push(`<!----> <div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">`);
       SearchBar($$renderer3, {
         placeholder: "Search events, locations or ideas",
         get value() {
@@ -52,7 +53,7 @@ function _page($$renderer, $$props) {
           $$settled = false;
         }
       });
-      $$renderer3.push(`<!----></div></div> `);
+      $$renderer3.push(`<!----></div> `);
       if (filteredEvents.length) {
         $$renderer3.push("<!--[0-->");
         $$renderer3.push(`<div class="section-grid"><!--[-->`);
@@ -66,10 +67,10 @@ function _page($$renderer, $$props) {
         $$renderer3.push("<!--[-1-->");
         EmptyState($$renderer3, {
           title: "No events matched your search",
-          message: "Try a broader search term or switch back to all categories to see more happening across Long Eaton."
+          message: "Try a broader search term or switch categories to see more events happening across Long Eaton."
         });
       }
-      $$renderer3.push(`<!--]--></section>`);
+      $$renderer3.push(`<!--]--></div></section>`);
     }
     do {
       $$settled = true;

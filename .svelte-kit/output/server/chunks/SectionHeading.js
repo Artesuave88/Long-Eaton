@@ -11,10 +11,10 @@ function SectionHeading($$renderer, $$props) {
   } else {
     $$renderer.push("<!--[-1-->");
   }
-  $$renderer.push(`<!--]--> <h2 class="max-w-xl text-3xl leading-tight text-ink sm:text-[2.15rem]">${escape_html(title)}</h2> `);
+  $$renderer.push(`<!--]--> <h2 class="max-w-xl text-brand-text">${escape_html(title)}</h2> `);
   if (copy) {
     $$renderer.push("<!--[0-->");
-    $$renderer.push(`<p class="mt-4 max-w-xl text-base leading-8 text-ink/74 sm:text-[1.05rem]">${escape_html(copy)}</p>`);
+    $$renderer.push(`<p class="mt-4 max-w-xl text-base leading-8 text-brand-muted sm:text-[1.05rem]">${escape_html(copy)}</p>`);
   } else {
     $$renderer.push("<!--[-1-->");
   }

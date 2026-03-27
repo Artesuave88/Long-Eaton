@@ -2,19 +2,26 @@ export type EventItem = {
   id: string;
   slug: string;
   title: string;
-  date: string;
+  date?: string;
+  dateLabel?: string;
+  isTbc?: boolean;
   time: string;
   startTime?: string;
   endTime?: string;
   approximateReturnTime?: string;
   location: string;
   price?: string;
+  priceSummary?: string;
   organiser?: string;
   strapline?: string;
   tags?: string[];
   category: string;
   excerpt: string;
   description: string[];
+  sellerInfo?: string[];
+  buyerInfo?: string[];
+  fundraisingNote?: string;
+  locationNote?: string;
   imageLabel: string;
   imageStyle: string;
   image?: {

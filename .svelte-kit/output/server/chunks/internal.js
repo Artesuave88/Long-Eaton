@@ -30,7 +30,7 @@ const options = {
   service_worker_options: void 0,
   server_error_boundaries: false,
   templates: {
-    app: ({ head, body, assets, nonce, env }) => '<!doctype html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <link rel="icon" href="' + assets + '/favicon.svg" />\n    <link rel="preconnect" href="https://fonts.googleapis.com" />\n    <link\n      rel="preconnect"\n      href="https://fonts.gstatic.com"\n      crossorigin="anonymous"\n    />\n    <link\n      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"\n      rel="stylesheet"\n    />\n    ' + head + '\n  </head>\n  <body data-sveltekit-preload-data="hover" class="bg-sand text-ink">\n    <div style="display: contents">' + body + "</div>\n  </body>\n</html>\n",
+    app: ({ head, body, assets, nonce, env }) => '<!doctype html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <link rel="icon" href="' + assets + '/favicon.svg" />\n    <link rel="preconnect" href="https://fonts.googleapis.com" />\n    <link\n      rel="preconnect"\n      href="https://fonts.gstatic.com"\n      crossorigin="anonymous"\n    />\n    <link\n      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"\n      rel="stylesheet"\n    />\n    ' + head + '\n  </head>\n  <body data-sveltekit-preload-data="hover" class="bg-brand-background text-brand-text">\n    <div style="display: contents">' + body + "</div>\n  </body>\n</html>\n",
     error: ({ status, message }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -102,7 +102,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "93wxoz"
+  version_hash: "1kzicmx"
 };
 async function get_hooks() {
   let handle;

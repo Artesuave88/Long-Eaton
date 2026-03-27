@@ -1,4 +1,65 @@
+const carBootBase = {
+  title: "Long Eaton Carnival Car Boot Sale",
+  time: "Sellers from 7:00 AM, buyers from 8:00 AM",
+  startTime: "7:00 AM seller setup",
+  location: "Event Field, West Park, Long Eaton",
+  price: "Free entry on foot",
+  priceSummary: "Sellers: Car £8, car plus trailer or large van £11. Buyers on foot free, on-site parking £1.",
+  organiser: "Long Eaton Carnival committee",
+  tags: ["Car Boot", "West Park", "Fundraising", "Community"],
+  category: "Markets",
+  description: [
+    "Long Eaton Carnival's car boot sales return to West Park on selected Sundays through spring and summer.",
+    "Sellers can set up from 7am and there is no booking required. Buyers can come in from 8am, with free entry on foot and on-site parking for £1.",
+    "All proceeds go to the Carnival fund."
+  ],
+  sellerInfo: [
+    "Setup from 7am.",
+    "No booking required.",
+    "Car: £8.",
+    "Car plus trailer or large van: £11."
+  ],
+  buyerInfo: [
+    "Gates open at 8am.",
+    "Free entry on foot.",
+    "On-site parking: £1."
+  ],
+  fundraisingNote: "All proceeds go to the Carnival fund.",
+  locationNote: "The field is opposite George's Fish and Chip shop.",
+  relatedDates: [
+    { title: "Planned car boot sale", date: "2026-04-12" },
+    { title: "Planned car boot sale", date: "2026-05-17" },
+    { title: "Planned car boot sale", date: "2026-06-21" },
+    { title: "Planned car boot sale", date: "2026-07-19" },
+    { title: "Planned car boot sale", date: "2026-08-16" },
+    { title: "Planned car boot sale", date: "2026-09-20" },
+    { title: "Planned car boot sale", dateLabel: "October 2026", note: "TBC" }
+  ],
+  imageLabel: "Car boot stalls on West Park",
+  imageStyle: "bg-brand-section",
+  image: {
+    label: "Car boot stalls on West Park",
+    style: "bg-brand-section"
+  },
+  sourceName: "Long Eaton Carnival car boots page",
+  sourceUrl: "https://www.longeatoncarnival.org.uk/car-boots/"
+};
 const events = [
+  {
+    id: "event-long-eaton-carnival-car-boot-2026-04-12",
+    slug: "long-eaton-carnival-car-boot-sale-12-april-2026",
+    excerpt: "The first planned 2026 Long Eaton Carnival car boot sale is due at West Park on Sunday 12 April.",
+    date: "2026-04-12",
+    featured: true,
+    ...carBootBase
+  },
+  {
+    id: "event-long-eaton-carnival-car-boot-2026-05-17",
+    slug: "long-eaton-carnival-car-boot-sale-17-may-2026",
+    excerpt: "Long Eaton Carnival's May car boot sale is planned for Sunday 17 May at West Park.",
+    date: "2026-05-17",
+    ...carBootBase
+  },
   {
     id: "event-long-eaton-carnival",
     slug: "long-eaton-carnival",
@@ -19,10 +80,10 @@ const events = [
       "The parade starts at 11am and returns to the carnival site at around 12:30pm to 1:00pm. The main carnival site is free to enter."
     ],
     imageLabel: "Carnival parade",
-    imageStyle: "from-coral/90 via-brand-200 to-sand",
+    imageStyle: "bg-brand-section",
     image: {
       label: "Carnival parade",
-      style: "from-coral/90 via-brand-200 to-sand"
+      style: "bg-brand-section"
     },
     sourceName: "Long Eaton Carnival homepage",
     volunteerRun: true,
@@ -38,160 +99,58 @@ const events = [
     featured: true
   },
   {
-    id: "event-1",
-    slug: "long-eaton-makers-market",
-    title: "Long Eaton Makers Market",
-    date: "2026-04-12",
-    time: "10:00 AM - 3:00 PM",
-    startTime: "10:00 AM",
-    endTime: "3:00 PM",
-    location: "Market Place",
-    price: "Free to browse",
-    organiser: "Local traders",
-    tags: ["Market", "Shopping", "Food"],
-    category: "Markets",
-    excerpt: "A town-centre market with local food, handmade goods and independent stalls.",
-    description: [
-      "The Makers Market brings together bakers, artists and small local traders for a busy Saturday in the centre of town.",
-      "Expect produce, gifts, coffee and a good excuse to spend a bit longer browsing nearby shops."
-    ],
-    imageLabel: "Market day",
-    imageStyle: "from-brand-300 via-brand-100 to-sun/60",
-    image: {
-      label: "Market day",
-      style: "from-brand-300 via-brand-100 to-sun/60"
-    },
-    featured: true
+    id: "event-long-eaton-carnival-car-boot-2026-06-21",
+    slug: "long-eaton-carnival-car-boot-sale-21-june-2026",
+    excerpt: "The June Long Eaton Carnival car boot sale is planned for Sunday 21 June at West Park.",
+    date: "2026-06-21",
+    ...carBootBase
   },
   {
-    id: "event-2",
-    slug: "family-fun-at-west-park",
-    title: "Family Fun at West Park",
-    date: "2026-04-19",
-    time: "11:00 AM - 4:00 PM",
-    startTime: "11:00 AM",
-    endTime: "4:00 PM",
-    location: "West Park",
-    price: "Free entry",
-    organiser: "Local groups",
-    tags: ["Family", "West Park", "Community"],
-    category: "Family",
-    excerpt: "An easy afternoon of games, food stalls and outdoor activities at West Park.",
-    description: [
-      "West Park hosts a simple family day with space for picnics, informal activities and local groups running small pop-ups.",
-      "It's the kind of event you can drop into for an hour or stay at for most of the afternoon."
-    ],
-    imageLabel: "Park festival",
-    imageStyle: "from-sun/80 via-sand to-brand-100",
-    image: {
-      label: "Park festival",
-      style: "from-sun/80 via-sand to-brand-100"
-    },
-    featured: true
+    id: "event-long-eaton-carnival-car-boot-2026-07-19",
+    slug: "long-eaton-carnival-car-boot-sale-19-july-2026",
+    excerpt: "Long Eaton Carnival's July car boot sale is due on Sunday 19 July at West Park.",
+    date: "2026-07-19",
+    ...carBootBase
   },
   {
-    id: "event-3",
-    slug: "twilight-canal-walk",
-    title: "Twilight Canal Walk",
-    date: "2026-04-24",
-    time: "6:30 PM - 8:00 PM",
-    startTime: "6:30 PM",
-    endTime: "8:00 PM",
-    location: "Erewash Canal",
-    price: "Free",
-    organiser: "Local volunteers",
-    tags: ["Outdoors", "Canal", "Walking"],
-    category: "Outdoors",
-    excerpt: "Join a guided evening walk and hear stories about the canal, wildlife and Long Eaton history.",
-    description: [
-      "This guided evening walk follows one of Long Eaton's best-known waterside routes, with local volunteers sharing stories as you go.",
-      "It's a good option for anyone who wants a quieter view of the town after work."
-    ],
-    imageLabel: "Canal walk",
-    imageStyle: "from-brand-700 via-brand-400 to-sand",
-    image: {
-      label: "Canal walk",
-      style: "from-brand-700 via-brand-400 to-sand"
-    }
+    id: "event-long-eaton-carnival-car-boot-2026-08-16",
+    slug: "long-eaton-carnival-car-boot-sale-16-august-2026",
+    excerpt: "Long Eaton Carnival's August car boot sale is planned for Sunday 16 August at West Park.",
+    date: "2026-08-16",
+    ...carBootBase
   },
   {
-    id: "event-4",
-    slug: "independent-food-weekend",
-    title: "Independent Food Weekend",
-    date: "2026-05-02",
-    time: "All day",
-    location: "Across Long Eaton",
-    organiser: "Independent businesses across Long Eaton",
-    tags: ["Food & Drink", "Town Centre", "Weekend"],
-    category: "Food & Drink",
-    excerpt: "Special menus, tastings and late openings from local cafes, bakeries and restaurants.",
-    description: [
-      "Food Weekend gives cafes, bakeries and restaurants a reason to put on special menus, tastings and a few one-off extras.",
-      "It works best as a slow day in town rather than a rushed stop between errands."
-    ],
-    imageLabel: "Food weekend",
-    imageStyle: "from-coral/80 via-sun/70 to-white",
-    image: {
-      label: "Food weekend",
-      style: "from-coral/80 via-sun/70 to-white"
-    }
+    id: "event-long-eaton-carnival-car-boot-2026-09-20",
+    slug: "long-eaton-carnival-car-boot-sale-20-september-2026",
+    excerpt: "The September Long Eaton Carnival car boot sale is planned for Sunday 20 September at West Park.",
+    date: "2026-09-20",
+    ...carBootBase
   },
   {
-    id: "event-5",
-    slug: "summer-bandstand-sessions",
-    title: "Summer Bandstand Sessions",
-    date: "2026-05-10",
-    time: "1:00 PM - 5:00 PM",
-    startTime: "1:00 PM",
-    endTime: "5:00 PM",
-    location: "West Park Bandstand",
-    price: "Free",
-    organiser: "Local performers",
-    tags: ["Live Music", "West Park", "Sunday"],
-    category: "Live Music",
-    excerpt: "Local performers and choirs at the bandstand on a relaxed Sunday afternoon.",
-    description: [
-      "The bandstand sessions bring together local performers for a laid-back afternoon in the park.",
-      "Expect a mix of acoustic sets, choirs and plenty of people stopping by with a coffee in hand."
-    ],
-    imageLabel: "Live music",
-    imageStyle: "from-brand-500 via-coral/70 to-sun/60",
-    image: {
-      label: "Live music",
-      style: "from-brand-500 via-coral/70 to-sun/60"
-    }
-  },
-  {
-    id: "event-6",
-    slug: "shop-small-late-night",
-    title: "Shop Small Late Night",
-    date: "2026-05-21",
-    time: "5:00 PM - 8:30 PM",
-    startTime: "5:00 PM",
-    endTime: "8:30 PM",
-    location: "Town Centre",
-    price: "Free to attend",
-    organiser: "Independent shops",
-    tags: ["Shopping", "Town Centre", "Late Opening"],
-    category: "Shopping",
-    excerpt: "Independent shops stay open later with in-store treats, demos and special one-night offers.",
-    description: [
-      "Shop Small Late Night gives people more time to browse after work, with several independents staying open into the evening.",
-      "A few shops add demos or small in-store treats, but the main draw is simply having time to look properly."
-    ],
-    imageLabel: "Late shopping",
-    imageStyle: "from-ink via-brand-700 to-coral/80",
-    image: {
-      label: "Late shopping",
-      style: "from-ink via-brand-700 to-coral/80"
-    }
+    id: "event-long-eaton-carnival-car-boot-2026-10",
+    slug: "long-eaton-carnival-car-boot-sale-october-2026-tbc",
+    excerpt: "A further Long Eaton Carnival car boot sale is listed for October 2026, with the date still to be confirmed.",
+    dateLabel: "October 2026",
+    isTbc: true,
+    ...carBootBase,
+    time: "Date to be confirmed"
   }
 ];
+const getEventSortValue = (event) => {
+  if (event.date) {
+    return new Date(event.date).getTime();
+  }
+  if (event.dateLabel?.includes("October 2026")) {
+    return (/* @__PURE__ */ new Date("2026-10-01")).getTime();
+  }
+  return Number.MAX_SAFE_INTEGER;
+};
+const sortedEvents = [...events].sort((a, b) => getEventSortValue(a) - getEventSortValue(b));
 const eventCategories = [
   "All",
-  ...new Set(events.map((event) => event.category))
+  ...new Set(sortedEvents.map((event) => event.category))
 ];
 export {
-  eventCategories as a,
-  events as e
+  eventCategories as e,
+  sortedEvents as s
 };

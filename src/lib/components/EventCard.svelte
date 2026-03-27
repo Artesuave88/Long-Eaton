@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { EventItem } from '$types/content';
-	import { formatDisplayDate } from '$utils/format';
+	import { formatEventDate } from '$utils/format';
 	import ImagePlaceholder from './ImagePlaceholder.svelte';
 
 	export let event: EventItem;
@@ -15,7 +15,7 @@
 	<div class="p-5">
 		<div class="flex flex-wrap items-center gap-2">
 			<span class="chip">{event.category}</span>
-			<span class="text-sm text-brand-muted">{formatDisplayDate(event.date)}</span>
+			<span class="text-sm text-brand-muted">{formatEventDate(event)}</span>
 		</div>
 		<h3 class="mt-4 text-[1.45rem] leading-tight text-brand-text">{event.title}</h3>
 		<p class="mt-2 text-sm font-medium text-brand-muted">{event.location} • {event.time}</p>

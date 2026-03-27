@@ -6,7 +6,7 @@ function CategoryFilter($$renderer, $$props) {
   const each_array = ensure_array_like(categories);
   for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
     let category = each_array[$$index];
-    $$renderer.push(`<button type="button"${attr_class(`rounded-full border px-4 py-2 text-sm font-medium transition ${selected === category ? "border-brand-700 bg-brand-700 text-white shadow-soft" : "border-line bg-white text-ink hover:border-brand-300 hover:bg-brand-50"}`)}>${escape_html(category)}</button>`);
+    $$renderer.push(`<button type="button"${attr_class(`rounded-lg border px-4 py-2 text-sm font-medium transition ${selected === category ? "border-brand-primary bg-brand-primary text-white" : "border-brand-border bg-brand-surface text-brand-text hover:bg-brand-section"}`)}>${escape_html(category)}</button>`);
   }
   $$renderer.push(`<!--]--></div>`);
   bind_props($$props, { categories, selected });
@@ -14,7 +14,7 @@ function CategoryFilter($$renderer, $$props) {
 function SearchBar($$renderer, $$props) {
   let value = fallback($$props["value"], "");
   let placeholder = fallback($$props["placeholder"], "Search");
-  $$renderer.push(`<label class="block"><span class="sr-only">${escape_html(placeholder)}</span> <div class="relative"><input${attr("value", value)} type="search"${attr("placeholder", placeholder)} class="field-input pr-20"/> <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-ink/40">Search</span></div></label>`);
+  $$renderer.push(`<label class="block"><span class="sr-only">${escape_html(placeholder)}</span> <div class="relative"><input${attr("value", value)} type="search"${attr("placeholder", placeholder)} class="field-input pr-20"/> <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-brand-muted">Search</span></div></label>`);
   bind_props($$props, { value, placeholder });
 }
 export {

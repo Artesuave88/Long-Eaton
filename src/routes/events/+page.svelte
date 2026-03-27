@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { CategoryFilter, EmptyState, EventCard, SearchBar, SectionHeading } from '$components';
-	import { eventCategories, events } from '$data/events';
+	import { eventCategories, sortedEvents } from '$data/events';
 	import { slugMatches } from '$utils/format';
 
 	let query = '';
 	let selectedCategory = 'All';
 
-	$: filteredEvents = events.filter((event) => {
+	$: filteredEvents = sortedEvents.filter((event) => {
 		const matchesQuery =
 			slugMatches(event.title, query) ||
 			slugMatches(event.excerpt, query) ||

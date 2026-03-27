@@ -7,8 +7,8 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "#2F5D7C",
-          primaryDark: "#1F3E55",
+          primary: "#073dff",
+          primaryDark: "#0124be",
           primaryLight: "#4F7FA3",
           accent: "#38BDF8",
           background: "#F8FAFC",
@@ -20,8 +20,20 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ['"Inter"', '"Segoe UI"', "ui-sans-serif", "system-ui", "sans-serif"],
-        sans: ['"Inter"', '"Segoe UI"', "ui-sans-serif", "system-ui", "sans-serif"],
+        display: [
+          '"Inter"',
+          '"Segoe UI"',
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
+        sans: [
+          '"Inter"',
+          '"Segoe UI"',
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
       },
       boxShadow: {
         sm: "0 2px 10px rgba(15, 23, 42, 0.05)",

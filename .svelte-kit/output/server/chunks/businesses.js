@@ -14,7 +14,7 @@ const businesses = [
     imageSrc: "/lebjj-logo.png",
     imageAlt: "Long Eaton BJJ logo",
     imageLabel: "BJJ academy",
-    imageStyle: "from-ink via-brand-700 to-sun/70",
+    imageStyle: "bg-brand-primaryDark/10",
     featured: true,
     isReal: true
   }
