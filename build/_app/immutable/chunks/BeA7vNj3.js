@@ -1,0 +1,1 @@
+import{z as y,A as u,af as _,ag as g,q as t,M as o,a9 as i,J as l,B as d,K as p,C as m}from"./Cmn9UCS_.js";function C(n,r){let a=null,f=t;var s;if(t){a=p;for(var e=m(document.head);e!==null&&(e.nodeType!==o||e.data!==n);)e=i(e);if(e===null)l(!1);else{var E=i(e);e.remove(),d(E)}}t||(s=document.head.appendChild(y()));try{u(()=>r(s),_|g)}finally{f&&(l(!0),d(a))}}export{C as h};
