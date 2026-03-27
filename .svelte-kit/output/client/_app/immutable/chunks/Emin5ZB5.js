@@ -1,1 +1,0 @@
-const e=a=>new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"long",year:"numeric"}).format(new Date(a)),r=a=>a.date?e(a.date):a.dateLabel?a.isTbc?`${a.dateLabel} (TBC)`:a.dateLabel:"Date to be confirmed",o=(a,t)=>a.toLowerCase().includes(t.trim().toLowerCase());export{e as a,r as f,o as s};
