@@ -61,7 +61,7 @@ function buildImportedBusiness(venue: ImportedVenue): BusinessItem {
     imageAlt: `${venue.name} exterior`,
     imageLabel: "Arts venue",
     imageStyle: "bg-brand-accent/10",
-    featured: importedContentSettings.featureDuchessInBusinesses,
+    featured: false,
     isReal: true,
   };
 }

@@ -254,14 +254,18 @@ const baseEvents: EventItem[] = [
       "Evening shows run from Tuesday to Saturday, with a Saturday matinee included.",
     ],
     relatedDates: [
-      { title: "Evening performances", date: "2026-04-14", note: "19:30 from Tuesday to Saturday" },
+      {
+        title: "Evening performances",
+        date: "2026-04-14",
+        note: "19:30 from Tuesday to Saturday",
+      },
       { title: "Saturday matinee", date: "2026-04-18", note: "14:30" },
     ],
     imageSrc: "/wedding-singer.png",
     imageAlt: "Poster artwork for The Wedding Singer musical",
     imageLabel: "The Wedding Singer poster",
     imageStyle: "bg-brand-section",
-    featured: false,
+    featured: true,
   },
   {
     id: "event-long-eaton-carnival-car-boot-2026-04-12",

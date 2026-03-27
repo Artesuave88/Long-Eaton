@@ -20,7 +20,7 @@ const baseBusinesses: BusinessItem[] = [
     imageAlt: "Long Eaton Art Room logo",
     imageLabel: "Community arts centre",
     imageStyle: "bg-brand-primaryDark/10",
-    featured: true,
+    featured: false,
     isReal: true,
   },
   {
