@@ -7,6 +7,8 @@ export { default as EventCard } from "./EventCard.svelte";
 export { default as Footer } from "./Footer.svelte";
 export { default as Header } from "./Header.svelte";
 export { default as Hero } from "./Hero.svelte";
+export { default as HeroCarousel } from "./HeroCarousel.svelte";
+export { default as HeroSlide } from "./HeroSlide.svelte";
 export { default as MobileNav } from "./MobileNav.svelte";
 export { default as NewsCard } from "./NewsCard.svelte";
 export { default as SearchBar } from "./SearchBar.svelte";

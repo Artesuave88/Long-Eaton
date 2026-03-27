@@ -2,13 +2,14 @@
 	import {
 		CTASection,
 		EventCard,
-		Hero,
+		HeroCarousel,
 		SectionHeading
 	} from '$components';
 	import { businesses } from '$data/businesses';
 	import { sortedEvents } from '$data/events';
 
-	const featuredEvents = sortedEvents.filter((event) => event.featured).slice(0, 3);
+	const featuredEvents = sortedEvents.filter((event) => event.featured).slice(0, 5);
+	const heroEvents = featuredEvents.length ? featuredEvents : sortedEvents.slice(0, 5);
 	const featuredBusiness = businesses[0];
 </script>
 
@@ -27,15 +28,7 @@
 
 <section class="section-surface">
 	<div class="container-shell section-space">
-		<Hero
-			title="Find local events, shops and places around Long Eaton."
-			copy="A calm local guide to what’s on, where to browse, where to stop and which businesses are worth knowing about in Long Eaton."
-			events={featuredEvents.length ? featuredEvents : sortedEvents.slice(0, 5)}
-			primaryHref="/events"
-			primaryLabel="See what's on"
-			secondaryHref="/businesses"
-			secondaryLabel="Browse businesses"
-		/>
+		<HeroCarousel events={heroEvents} />
 	</div>
 </section>
 
