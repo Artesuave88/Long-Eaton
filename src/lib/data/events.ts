@@ -4,7 +4,7 @@ import { optionalImportedEvents } from "$data/imported";
 const longEatonArtRoomLogo = "/art-room.png";
 
 const carBootBase = {
-  title: "Long Eaton Carnival Car Boot Sale",
+  title: "Long Eaton Car Boot Sale",
   time: "Sellers from 7:00 AM, buyers from 8:00 AM",
   startTime: "7:00 AM seller setup",
   location: "Event Field, West Park, Long Eaton",
@@ -44,13 +44,12 @@ const carBootBase = {
   imageLabel: "Car boot stalls on West Park",
   imageStyle: "bg-brand-section",
   imageSrc: "/carboot.jpg",
-  imageAlt:
-    "Cars and stalls at the Long Eaton Carnival car boot sale on West Park",
+  imageAlt: "Cars and stalls at the Long Eaton Car boot sale on West Park",
   image: {
     label: "Car boot stalls on West Park",
     style: "bg-brand-section",
   },
-  sourceName: "Long Eaton Carnival car boots page",
+  sourceName: "Long Eaton Car boots page",
   sourceUrl: "https://www.longeatoncarnival.org.uk/car-boots/",
 } satisfies Partial<EventItem>;
 
@@ -240,7 +239,7 @@ const baseEvents: EventItem[] = [
     id: "event-long-eaton-carnival-car-boot-2026-04-12",
     slug: "long-eaton-carnival-car-boot-sale-12-april-2026",
     excerpt:
-      "The first planned 2026 Long Eaton Carnival car boot sale is due at West Park on Sunday 12 April.",
+      "The first planned 2026 Long Eaton Car boot sale is due at West Park on Sunday 12 April.",
     date: "2026-04-12",
     featured: true,
     ...carBootBase,
@@ -318,7 +317,7 @@ const baseEvents: EventItem[] = [
     id: "event-long-eaton-carnival-car-boot-2026-06-21",
     slug: "long-eaton-carnival-car-boot-sale-21-june-2026",
     excerpt:
-      "The June Long Eaton Carnival car boot sale is planned for Sunday 21 June at West Park.",
+      "The June Long Eaton Car boot sale is planned for Sunday 21 June at West Park.",
     date: "2026-06-21",
     ...carBootBase,
   },
@@ -342,7 +341,7 @@ const baseEvents: EventItem[] = [
     id: "event-long-eaton-carnival-car-boot-2026-09-20",
     slug: "long-eaton-carnival-car-boot-sale-20-september-2026",
     excerpt:
-      "The September Long Eaton Carnival car boot sale is planned for Sunday 20 September at West Park.",
+      "The September Long Eaton Car boot sale is planned for Sunday 20 September at West Park.",
     date: "2026-09-20",
     ...carBootBase,
   },
@@ -350,7 +349,7 @@ const baseEvents: EventItem[] = [
     id: "event-long-eaton-carnival-car-boot-2026-10",
     slug: "long-eaton-carnival-car-boot-sale-october-2026-tbc",
     excerpt:
-      "A further Long Eaton Carnival car boot sale is listed for October 2026, with the date still to be confirmed.",
+      "A further Long Eaton Car boot sale is listed for October 2026, with the date still to be confirmed.",
     dateLabel: "October 2026",
     isTbc: true,
     ...carBootBase,
