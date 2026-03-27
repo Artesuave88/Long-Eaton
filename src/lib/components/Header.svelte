@@ -7,7 +7,10 @@
 
 <header class="sticky top-0 z-50 border-b border-white/60 bg-sand/90 backdrop-blur-lg">
 	<div class="container-shell flex items-center justify-between gap-4 py-4">
-		<a href="/" class="font-display text-2xl text-ink">Love Long Eaton</a>
+		<a href="/" class="flex flex-col leading-none text-ink">
+			<span class="font-display text-2xl">Love Long Eaton</span>
+			<span class="mt-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-ink/45">Town guide</span>
+		</a>
 
 		<nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
 			{#each navLinks as link}

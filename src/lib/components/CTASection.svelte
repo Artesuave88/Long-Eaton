@@ -10,7 +10,7 @@
 <section class="overflow-hidden rounded-[2rem] bg-brand-800 px-6 py-10 text-white shadow-card sm:px-8 lg:px-12">
 	<div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
 		<div class="max-w-2xl">
-			<p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand-200">Join the town story</p>
+			<p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand-200">Get listed</p>
 			<h2 class="mt-3 font-display text-3xl sm:text-4xl">{title}</h2>
 			<p class="mt-4 text-base leading-8 text-white/80">{copy}</p>
 		</div>

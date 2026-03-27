@@ -7,15 +7,15 @@
 	<title>Discover | Love Long Eaton</title>
 	<meta
 		name="description"
-		content="Discover the best of Long Eaton, from independent shopping and food spots to canal walks and community favourites."
+		content="Explore food, shops, walks and everyday places around Long Eaton."
 	/>
 </svelte:head>
 
 <section class="container-shell section-space">
 	<SectionHeading
 		eyebrow="Discover"
-		title="Explore Long Eaton by mood, interest or time of day"
-		copy="This MVP keeps discovery simple: local food, independent shopping, green space and community life."
+		title="A few easy ways into Long Eaton"
+		copy="Start with food, shops, walks or local events."
 	/>
 
 	<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -28,21 +28,21 @@
 <section class="container-shell section-space pt-0">
 	<div class="grid gap-6 lg:grid-cols-3">
 		<div class="surface-card p-7">
-			<h2 class="font-display text-2xl text-ink">Start with the town centre</h2>
+			<h2 class="font-display text-2xl text-ink">Start in the centre</h2>
 			<p class="mt-4 text-sm leading-7 text-ink/72">
-				Long Eaton’s centre is easy to browse on foot, making it perfect for a low-pressure half-day visit with coffee, shopping and a few spontaneous stops.
+				The town centre is easy to cover on foot, so it works well for a short browse, a coffee stop and a couple of errands in one go.
 			</p>
 		</div>
 		<div class="surface-card p-7">
 			<h2 class="font-display text-2xl text-ink">Mix local with outdoors</h2>
 			<p class="mt-4 text-sm leading-7 text-ink/72">
-				One of the town’s strengths is how naturally local businesses connect with canals, parks and family-friendly routes.
+				One of the nicer things about Long Eaton is how easy it is to combine shops and cafes with the canal or West Park.
 			</p>
 		</div>
 		<div class="surface-card p-7">
-			<h2 class="font-display text-2xl text-ink">Come back often</h2>
+			<h2 class="font-display text-2xl text-ink">Check back regularly</h2>
 			<p class="mt-4 text-sm leading-7 text-ink/72">
-				Seasonal markets, changing menus and one-off community events mean there is always another reason to return.
+				The best reasons to come back tend to be simple: a market weekend, a new menu or an event you nearly missed last time.
 			</p>
 		</div>
 	</div>
@@ -50,11 +50,11 @@
 
 <section class="container-shell section-space pt-0">
 	<CTASection
-		title="Want to feature a trail, guide or local recommendation?"
-		copy="The discover section is designed to grow into themed guides, maps and seasonal itineraries as the site develops."
+		title="Want to suggest a local route or recommendation?"
+		copy="If there's a walk, shop trail or useful local tip we should add, send it over."
 		primaryHref="/contact"
-		primaryLabel="Suggest local content"
+		primaryLabel="Suggest an idea"
 		secondaryHref="/businesses"
-		secondaryLabel="See local businesses"
+		secondaryLabel="Browse businesses"
 	/>
 </section>

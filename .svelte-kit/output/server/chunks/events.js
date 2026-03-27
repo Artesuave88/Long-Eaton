@@ -98,7 +98,10 @@ const events = [
     imageStyle: "from-ink via-brand-700 to-coral/80"
   }
 ];
-const eventCategories = ["All", ...new Set(events.map((event) => event.category))];
+const eventCategories = [
+  "All",
+  ...new Set(events.map((event) => event.category))
+];
 export {
   eventCategories as a,
   events as e

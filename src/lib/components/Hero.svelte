@@ -9,7 +9,7 @@
 </script>
 
 <section class="overflow-hidden rounded-[2rem] bg-hero-glow px-6 py-10 shadow-card sm:px-8 sm:py-14 lg:px-12 lg:py-16">
-	<div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+	<div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
 		<div class="max-w-2xl">
 			<p class="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-brand-700">{eyebrow}</p>
 			<h1 class="font-display text-4xl leading-tight text-ink sm:text-5xl lg:text-6xl">
@@ -34,22 +34,22 @@
 
 		<div class="surface-card relative overflow-hidden p-5 sm:p-6">
 			<div class="absolute inset-x-8 top-0 h-24 rounded-b-full bg-sun/20 blur-3xl"></div>
-			<div class="grid gap-4 sm:grid-cols-2">
+			<div class="space-y-4">
 				<div class="rounded-[1.5rem] bg-brand-700 p-5 text-white">
 					<p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-100">This week</p>
-					<p class="mt-3 font-display text-2xl">Markets, park days and canal walks</p>
+					<p class="mt-3 font-display text-2xl">Markets, walks and a few good reasons to stay local</p>
 					<p class="mt-3 text-sm leading-6 text-white/80">
-						Easy reasons to spend more time local and discover what’s happening next.
+						Check what's on, pick a stop for lunch and make a proper afternoon of it.
 					</p>
 				</div>
-				<div class="space-y-4">
+				<div class="grid gap-4 sm:grid-cols-2">
 					<div class="rounded-[1.5rem] bg-sand p-5">
-						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-700">Independent town</p>
-						<p class="mt-2 text-lg font-semibold text-ink">Food, shopping and friendly local service</p>
+						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-700">Local guide</p>
+						<p class="mt-2 text-lg font-semibold text-ink">Shops, events and places worth knowing about</p>
 					</div>
 					<div class="rounded-[1.5rem] bg-white p-5">
-						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-coral">Make a day of it</p>
-						<p class="mt-2 text-lg font-semibold text-ink">Explore green spaces, high street finds and community events</p>
+						<p class="text-xs font-semibold uppercase tracking-[0.24em] text-coral">Growing listings</p>
+						<p class="mt-2 text-lg font-semibold text-ink">Real local businesses are starting to be added</p>
 					</div>
 				</div>
 			</div>

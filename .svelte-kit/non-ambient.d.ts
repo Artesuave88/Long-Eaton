@@ -47,6 +47,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/" | "/about" | "/businesses" | `/businesses/${string}` & {} | "/contact" | "/discover" | "/events" | `/events/${string}` & {} | "/news";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/favicon.svg" | string & {};
+		Asset(): "/favicon.svg" | "/lebjj-logo.png" | string & {};
 	}
 }

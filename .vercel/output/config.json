@@ -156,6 +156,17 @@
 			}
 		},
 		{
+			"src": "/businesses/long-eaton-bjj",
+			"dest": "/businesses/long-eaton-bjj/"
+		},
+		{
+			"src": "/businesses/long-eaton-bjj/",
+			"status": 308,
+			"headers": {
+				"Location": "/businesses/long-eaton-bjj"
+			}
+		},
+		{
 			"src": "/events/twilight-canal-walk",
 			"dest": "/events/twilight-canal-walk/"
 		},
@@ -258,6 +269,9 @@
 		},
 		"businesses/park-view-florist.html": {
 			"path": "businesses/park-view-florist"
+		},
+		"businesses/long-eaton-bjj.html": {
+			"path": "businesses/long-eaton-bjj"
 		},
 		"events/twilight-canal-walk.html": {
 			"path": "events/twilight-canal-walk"

@@ -22,7 +22,7 @@
 	<title>Events | Love Long Eaton</title>
 	<meta
 		name="description"
-		content="Browse upcoming events in Long Eaton, from markets and family activities to food weekends and live music."
+		content="See upcoming events in Long Eaton, from markets and family days to walks and live music."
 	/>
 </svelte:head>
 
@@ -30,7 +30,7 @@
 	<SectionHeading
 		eyebrow="Events"
 		title="What’s on in Long Eaton"
-		copy="Browse upcoming events, seasonal favourites and community-led reasons to spend more time in town."
+		copy="Markets, family days, local music and a few straightforward reasons to head into town."
 	/>
 
 	<div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">

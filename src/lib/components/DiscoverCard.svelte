@@ -8,7 +8,7 @@
 <article class="surface-card overflow-hidden p-4">
 	<ImagePlaceholder label={category.imageLabel} style={category.imageStyle} className="h-44 w-full" />
 	<div class="px-1 pb-2 pt-5">
-		<h3 class="font-display text-2xl text-ink">{category.title}</h3>
+		<h3 class="font-display text-[1.7rem] leading-tight text-ink">{category.title}</h3>
 		<p class="mt-3 text-sm leading-7 text-ink/72">{category.description}</p>
 		<div class="mt-4 flex flex-wrap gap-2">
 			{#each category.highlights as highlight}
@@ -16,7 +16,7 @@
 			{/each}
 		</div>
 		<a href={category.link} class="mt-5 inline-flex items-center text-sm font-semibold text-brand-700 hover:text-brand-900">
-			Explore
+			See more
 		</a>
 	</div>
 </article>

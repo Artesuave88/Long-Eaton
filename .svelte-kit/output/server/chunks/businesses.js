@@ -10,6 +10,7 @@ const businesses = [
       "Station Street Kitchen is a bright, friendly independent cafe with a menu built around brunch favourites, seasonal specials and great coffee.",
       "It is the kind of place people return to for a relaxed catch-up, a quick breakfast or an easy lunch in town."
     ],
+    website: "https://stationstreetkitchen.example",
     imageLabel: "Cafe",
     imageStyle: "from-sun/80 via-white to-coral/50",
     featured: true
@@ -25,6 +26,7 @@ const businesses = [
       "Canal Side Cycles supports everyday riders, family outings and local commuters with approachable expertise and quality servicing.",
       "The shop is especially popular with people heading toward canal paths and green routes around Long Eaton."
     ],
+    website: "https://canalsidecycles.example",
     imageLabel: "Cycle shop",
     imageStyle: "from-brand-700 via-brand-200 to-sand",
     featured: true
@@ -40,6 +42,7 @@ const businesses = [
       "The Curated Corner champions thoughtful gifting with a mix of local makers and carefully selected brands.",
       "It is a popular stop for birthdays, home updates and those small purchases that make the town centre feel special."
     ],
+    website: "https://thecuratedcorner.example",
     imageLabel: "Gift shop",
     imageStyle: "from-coral/90 via-white to-brand-100"
   },
@@ -54,6 +57,7 @@ const businesses = [
       "Erewash Wellness Studio offers flexible classes for beginners and regulars, with a welcoming atmosphere and experienced instructors.",
       "It adds another reason to stay local for health, wellbeing and community connection."
     ],
+    website: "https://erewashwellness.example",
     imageLabel: "Wellness studio",
     imageStyle: "from-brand-100 via-white to-sun/60"
   },
@@ -68,6 +72,7 @@ const businesses = [
       "Long Eaton Books Co. mixes bestselling reads with local interest titles, gifts and community events.",
       "It is a calm, characterful shop that invites visitors to slow down and spend time in town."
     ],
+    website: "https://longeatonbooks.example",
     imageLabel: "Bookshop",
     imageStyle: "from-ink via-brand-600 to-brand-100",
     featured: true
@@ -83,11 +88,33 @@ const businesses = [
       "Park View Florist is a trusted local favourite for fresh flowers, event styling and personal service.",
       "It is one of those businesses that quietly helps mark special moments right across the town."
     ],
+    website: "https://parkviewflorist.example",
     imageLabel: "Florist",
     imageStyle: "from-coral/80 via-brand-100 to-white"
+  },
+  {
+    id: "business-7",
+    slug: "long-eaton-bjj",
+    name: "Long Eaton BJJ",
+    category: "Fitness & Martial Arts",
+    location: "Unit A2 & A3 West End Mills, Leopold Street",
+    description: "Brazilian Jiu-Jitsu academy in Long Eaton with daily classes, a welcoming atmosphere and programmes for adults and children.",
+    about: [
+      "Long Eaton BJJ is a real local academy based at West End Mills, offering Brazilian Jiu-Jitsu training in a friendly, community-led setting.",
+      "The academy describes itself as fully open with classes daily and highlights fitness, self-defence, confidence and flexibility as part of the experience."
+    ],
+    website: "https://www.longeatonbjj.co.uk",
+    imageSrc: "/lebjj-logo.png",
+    imageAlt: "Long Eaton BJJ logo",
+    imageLabel: "BJJ academy",
+    imageStyle: "from-ink via-brand-700 to-sun/70",
+    featured: true
   }
 ];
-const businessCategories = ["All", ...new Set(businesses.map((business) => business.category))];
+const businessCategories = [
+  "All",
+  ...new Set(businesses.map((business) => business.category))
+];
 export {
   businessCategories as a,
   businesses as b

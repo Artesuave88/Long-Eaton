@@ -6,7 +6,7 @@
 	<title>Contact | Love Long Eaton</title>
 	<meta
 		name="description"
-		content="Get in touch about featuring a business, submitting an event or supporting Love Long Eaton."
+		content="Get in touch to add a business, send in an event or ask about Love Long Eaton."
 	/>
 </svelte:head>
 
@@ -14,9 +14,9 @@
 	<div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
 		<div>
 			<p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand-700">Contact</p>
-			<h1 class="mt-3 font-display text-4xl text-ink sm:text-5xl">Let’s put more of Long Eaton on the map</h1>
+			<h1 class="mt-3 font-display text-4xl text-ink sm:text-5xl">Get in touch</h1>
 			<p class="mt-5 max-w-xl text-lg leading-8 text-ink/72">
-				Use this starter contact page for business submissions, event enquiries and partnership conversations.
+				Use this page to send in a business, share an event or ask a general question about the site.
 			</p>
 
 			<div class="mt-8 space-y-5">
@@ -66,7 +66,7 @@
 				<button type="submit" class="inline-flex rounded-full bg-brand-700 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-800">
 					Send enquiry
 				</button>
-				<p class="text-sm text-ink/55">This is a presentational MVP form and is ready to connect to your preferred form handling later.</p>
+				<p class="text-sm text-ink/55">This form is currently for layout only and can be connected to form handling later.</p>
 			</form>
 		</div>
 	</div>

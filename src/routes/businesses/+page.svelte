@@ -6,7 +6,9 @@
 	let query = '';
 	let selectedCategory = 'All';
 
-	$: filteredBusinesses = businesses.filter((business) => {
+	const orderedBusinesses = [...businesses].sort((a, b) => Number(Boolean(b.isReal)) - Number(Boolean(a.isReal)));
+
+	$: filteredBusinesses = orderedBusinesses.filter((business) => {
 		const matchesQuery =
 			slugMatches(business.name, query) ||
 			slugMatches(business.description, query) ||
@@ -22,16 +24,25 @@
 	<title>Businesses | Love Long Eaton</title>
 	<meta
 		name="description"
-		content="Find independent businesses, local services and food spots across Long Eaton."
+		content="Browse businesses, local services and food spots in and around Long Eaton."
 	/>
 </svelte:head>
 
 <section class="container-shell section-space">
 	<SectionHeading
 		eyebrow="Businesses"
-		title="Find the businesses that give Long Eaton its local character"
-		copy="Browse a curated starter set of independents, services and everyday favourites."
+		title="Browse local businesses in Long Eaton"
+		copy="One real listing has been added so far, with the wider directory still being built up."
 	/>
+
+	<div class="surface-card mb-6 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5">
+		<p class="text-sm leading-7 text-ink/72">
+			Featured first: <span class="font-semibold text-ink">Long Eaton BJJ</span> is the first live business now in the directory.
+		</p>
+		<a href="/businesses/long-eaton-bjj" class="text-sm font-semibold text-brand-700 hover:text-brand-900">
+			View featured business
+		</a>
+	</div>
 
 	<div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">
 		<SearchBar bind:value={query} placeholder="Search businesses, categories or streets" />

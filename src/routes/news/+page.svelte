@@ -8,34 +8,35 @@
 	<title>News | Love Long Eaton</title>
 	<meta
 		name="description"
-		content="Read the latest Long Eaton stories, seasonal updates and featured local offers."
+		content="Read local updates, seasonal notes and business news from around Long Eaton."
 	/>
 </svelte:head>
 
 <section class="container-shell section-space">
 	<SectionHeading
 		eyebrow="News"
-		title="Fresh stories and local updates"
-		copy="A simple news page for town highlights, offers and community stories."
+		title="Local updates and short reads"
+		copy="A running feed of town news, seasonal changes and business updates."
 	/>
+	<div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+		<div class="grid gap-6">
+			{#each newsItems as item}
+				<NewsCard {item} />
+			{/each}
+		</div>
 
-	<div class="grid gap-6 lg:grid-cols-3">
-		{#each newsItems as item}
-			<NewsCard {item} />
-		{/each}
-	</div>
-
-	<div class="mt-12 grid gap-6 lg:grid-cols-3">
-		{#each newsItems as item}
-			<article class="surface-card p-6 lg:col-span-1">
-				<p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">{formatDisplayDate(item.date)}</p>
-				<h2 class="mt-3 font-display text-2xl text-ink">{item.title}</h2>
-				<div class="mt-4 space-y-4 text-sm leading-7 text-ink/72">
-					{#each item.content as paragraph}
-						<p>{paragraph}</p>
-					{/each}
-				</div>
-			</article>
-		{/each}
+		<div class="space-y-6">
+			{#each newsItems as item}
+				<article class="surface-card p-6">
+					<p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">{formatDisplayDate(item.date)}</p>
+					<h2 class="mt-3 font-display text-2xl text-ink">{item.title}</h2>
+					<div class="mt-4 space-y-4 text-sm leading-7 text-ink/72">
+						{#each item.content as paragraph}
+							<p>{paragraph}</p>
+						{/each}
+					</div>
+				</article>
+			{/each}
+		</div>
 	</div>
 </section>

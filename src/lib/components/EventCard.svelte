@@ -19,14 +19,14 @@
 			</span>
 			<span class="text-sm text-ink/55">{formatDisplayDate(event.date)}</span>
 		</div>
-		<h3 class="mt-4 font-display text-2xl text-ink">{event.title}</h3>
+		<h3 class="mt-4 font-display text-[1.7rem] leading-tight text-ink">{event.title}</h3>
 		<p class="mt-2 text-sm font-medium text-ink/60">{event.location} • {event.time}</p>
 		<p class="mt-4 text-sm leading-7 text-ink/72">{event.excerpt}</p>
 		<a
 			href={`/events/${event.slug}`}
 			class="mt-5 inline-flex items-center text-sm font-semibold text-brand-700 hover:text-brand-900"
 		>
-			View event
+			See details
 		</a>
 	</div>
 </article>

@@ -7,7 +7,7 @@
 		<div>
 			<a href="/" class="font-display text-2xl text-ink">Love Long Eaton</a>
 			<p class="mt-4 max-w-md text-sm leading-7 text-ink/70">
-				A friendly guide to discovering local events, independent businesses and everyday reasons to spend time in Long Eaton.
+				Local events, businesses and everyday places worth knowing about in Long Eaton.
 			</p>
 		</div>
 
@@ -30,11 +30,7 @@
 				<p>
 					<a href={`tel:${site.phone}`} class="hover:text-brand-700">{site.phone}</a>
 				</p>
-				<div class="flex gap-4 pt-2">
-					<a href="/" class="hover:text-brand-700">Instagram</a>
-					<a href="/" class="hover:text-brand-700">Facebook</a>
-					<a href="/" class="hover:text-brand-700">LinkedIn</a>
-				</div>
+				<p class="pt-2 text-ink/55">Social links can be added here once live accounts are ready.</p>
 			</div>
 		</div>
 	</div>
