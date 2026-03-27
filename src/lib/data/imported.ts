@@ -147,7 +147,7 @@ function createImportedEvent(show: ImportedShow, index: number): EventItem {
       show.endDate && show.startDate && show.endDate !== show.startDate
         ? [{ title: "Final listed date", date: show.endDate }]
         : undefined,
-    featured: importedContentSettings.featureDuchessEvents,
+    featured: false,
   };
 }
 

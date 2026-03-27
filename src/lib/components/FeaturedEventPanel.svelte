@@ -13,7 +13,7 @@
         <img
           src={event.imageSrc}
           alt={event.imageAlt ?? event.title}
-          class="h-full max-h-48 w-full object-contain sm:max-h-56 lg:max-h-56"
+          class="h-full max-full w-full object-cover"
         />
       </div>
     {:else}
