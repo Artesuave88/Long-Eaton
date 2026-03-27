@@ -1,10 +1,14 @@
 export { default as BusinessCard } from "./BusinessCard.svelte";
+export { default as BusinessAZNav } from "./BusinessAZNav.svelte";
+export { default as BusinessCategoryGrid } from "./BusinessCategoryGrid.svelte";
 export { default as CategoryFilter } from "./CategoryFilter.svelte";
 export { default as CTASection } from "./CTASection.svelte";
 export { default as DiscoverCard } from "./DiscoverCard.svelte";
 export { default as EmptyState } from "./EmptyState.svelte";
 export { default as EventCard } from "./EventCard.svelte";
 export { default as Footer } from "./Footer.svelte";
+export { default as FeaturedBusinessPanel } from "./FeaturedBusinessPanel.svelte";
+export { default as FeaturedEventPanel } from "./FeaturedEventPanel.svelte";
 export { default as Header } from "./Header.svelte";
 export { default as Hero } from "./Hero.svelte";
 export { default as HeroCarousel } from "./HeroCarousel.svelte";

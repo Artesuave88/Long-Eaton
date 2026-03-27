@@ -34,3 +34,50 @@ export const businessCategories = [
   "All",
   ...new Set(businesses.map((business) => business.category)),
 ];
+
+export const businessBrowseGroups = [
+  { label: "Food & Drink", slug: "food-drink" },
+  { label: "Shopping", slug: "shopping" },
+  { label: "Fitness", slug: "fitness" },
+  { label: "Services", slug: "services" },
+  { label: "Arts & Culture", slug: "arts-culture" },
+  { label: "Family", slug: "family" },
+] as const;
+
+export type BusinessBrowseGroupSlug =
+  (typeof businessBrowseGroups)[number]["slug"];
+
+const businessGroupMatchers: Record<BusinessBrowseGroupSlug, RegExp> = {
+  "food-drink": /food|drink|cafe|restaurant|pub|bar|bakery|coffee/i,
+  shopping: /shop|retail|boutique|store|market/i,
+  fitness: /fitness|gym|martial arts|bjj|jiu-jitsu|sport|wellness/i,
+  services:
+    /service|repair|trade|professional|estate|account|studio|salon|beauty/i,
+  "arts-culture": /arts|culture|entertainment|theatre|gallery|music|creative/i,
+  family: /family|children|kids|nursery|school|play|community/i,
+};
+
+export function getBusinessBrowseGroup(
+  business: Pick<BusinessItem, "category" | "name" | "description">,
+): BusinessBrowseGroupSlug | null {
+  const haystack = `${business.category} ${business.name} ${business.description}`;
+
+  for (const group of businessBrowseGroups) {
+    if (businessGroupMatchers[group.slug].test(haystack)) {
+      return group.slug;
+    }
+  }
+
+  return null;
+}
+
+export function matchesBusinessBrowseGroup(
+  business: Pick<BusinessItem, "category" | "name" | "description">,
+  group: string | null,
+): boolean {
+  if (!group) {
+    return true;
+  }
+
+  return getBusinessBrowseGroup(business) === group;
+}

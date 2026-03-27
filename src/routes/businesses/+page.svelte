@@ -1,13 +1,34 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { BusinessCard, CategoryFilter, EmptyState, SearchBar, SectionHeading } from '$components';
-	import { businessCategories, businesses } from '$data/businesses';
+	import {
+		businessCategories,
+		businessBrowseGroups,
+		businesses,
+		matchesBusinessBrowseGroup
+	} from '$data/businesses';
 	import { slugMatches } from '$utils/format';
 
 	let query = '';
 	let selectedCategory = 'All';
+	let previousSearch = '';
 
 	const orderedBusinesses = [...businesses];
 	const featuredBusiness = businesses.find((business) => business.featured) ?? businesses[0];
+
+	const getInitialCategory = () => {
+		const category = page.url.searchParams.get('category');
+		return category && businessCategories.includes(category) ? category : 'All';
+	};
+
+	$: selectedGroup = page.url.searchParams.get('group');
+	$: selectedLetter = page.url.searchParams.get('letter')?.toUpperCase() ?? '';
+	$: selectedBrowseGroupLabel =
+		businessBrowseGroups.find((group) => group.slug === selectedGroup)?.label ?? '';
+	$: if (page.url.search !== previousSearch) {
+		selectedCategory = getInitialCategory();
+		previousSearch = page.url.search;
+	}
 
 	$: filteredBusinesses = orderedBusinesses.filter((business) => {
 		const matchesQuery =
@@ -16,8 +37,11 @@
 			slugMatches(business.location, query);
 		const matchesCategory =
 			selectedCategory === 'All' || business.category === selectedCategory;
+		const matchesGroup = matchesBusinessBrowseGroup(business, selectedGroup);
+		const matchesLetter =
+			!selectedLetter || business.name.trim().toUpperCase().startsWith(selectedLetter);
 
-		return matchesQuery && matchesCategory;
+		return matchesQuery && matchesCategory && matchesGroup && matchesLetter;
 	});
 </script>
 
@@ -37,10 +61,32 @@
 			copy="Independent businesses, local services and useful town listings in one place."
 		/>
 
+		{#if selectedBrowseGroupLabel || selectedLetter}
+			<div class="surface-card mb-6 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5">
+				<p class="body-copy-sm">
+					{#if selectedBrowseGroupLabel}
+						Showing <span class="font-semibold text-brand-text">{selectedBrowseGroupLabel}</span> businesses.
+					{/if}
+					{#if selectedBrowseGroupLabel && selectedLetter}
+						{' '}
+					{/if}
+					{#if selectedLetter}
+						{#if selectedBrowseGroupLabel}
+							Also filtered to names starting with
+						{:else}
+							Showing businesses starting with
+						{/if}
+						<span class="font-semibold text-brand-text">{selectedLetter}</span>.
+					{/if}
+				</p>
+				<a href="/businesses" class="button-subtle">Clear filters</a>
+			</div>
+		{/if}
+
 		{#if featuredBusiness}
 			<div class="surface-card mb-6 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5">
 				<p class="body-copy-sm">
-					Featured now: <span class="font-semibold text-brand-text">{featuredBusiness.name}</span>.
+					Spotlight: <span class="font-semibold text-brand-text">{featuredBusiness.name}</span>.
 				</p>
 				<a href={`/businesses/${featuredBusiness.slug}`} class="button-subtle">View business</a>
 			</div>

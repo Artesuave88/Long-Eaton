@@ -23,12 +23,7 @@
 
 		<div class="mt-6 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
 			<div>
-				<div class="flex flex-wrap items-center gap-2">
-					<p class="eyebrow">{data.business.category}</p>
-					{#if data.business.isReal}
-						<span class="chip">Featured listing</span>
-					{/if}
-				</div>
+				<p class="eyebrow">{data.business.category}</p>
 				<h1 class="mt-3 text-brand-text">{data.business.name}</h1>
 				<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted">{data.business.description}</p>
 
