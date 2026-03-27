@@ -12,9 +12,9 @@
 
 <section class="section-surface">
 	<div class="container-shell section-space">
-		<article class="surface-card overflow-hidden border border-brand-border/80 bg-white shadow-[0_24px_70px_rgba(7,18,41,0.08)]">
+		<article class="panel-card">
 			<div class="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-				<div class="flex h-full flex-col justify-center p-6 sm:p-8 lg:p-10">
+				<div class="panel-content flex h-full flex-col justify-center">
 					<SectionHeading
 						eyebrow="About"
 						title="Built to make local life easier to find"
@@ -39,9 +39,10 @@
 					<img
 						src="/band-camp.jpg"
 						alt="A local band camp activity in Long Eaton"
+						loading="lazy"
+						decoding="async"
 						class="h-full w-full object-cover"
 					/>
-		
 				</div>
 			</div>
 		</article>

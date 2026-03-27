@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { EventItem } from '$types/content';
 	import { formatEventDate } from '$utils/format';
-	import ImagePlaceholder from './ImagePlaceholder.svelte';
+	import ImagePlaceholder from '../../ui/ImagePlaceholder.svelte';
 
 	export let event: EventItem;
 </script>
@@ -12,6 +12,8 @@
 			<img
 				src={event.imageSrc}
 				alt={event.imageAlt ?? event.title}
+				loading="lazy"
+				decoding="async"
 				class={`h-full w-full ${event.imageFit === 'contain' ? 'bg-white p-4 object-contain' : 'object-cover'}`}
 			/>
 		</div>
@@ -22,7 +24,7 @@
 			className="h-48 w-full rounded-none"
 		/>
 	{/if}
-	<div class="p-5">
+	<div class="card-content">
 		<div class="flex flex-wrap items-center gap-2">
 			<span class="chip">{event.category}</span>
 			<span class="text-sm text-brand-muted">{formatEventDate(event)}</span>

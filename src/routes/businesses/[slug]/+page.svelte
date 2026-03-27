@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ImagePlaceholder from '$components/ImagePlaceholder.svelte';
+	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
 	import { businesses } from '$data/businesses';
 	import type { PageData } from './$types';
 

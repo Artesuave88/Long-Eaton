@@ -1,6 +1,7 @@
 import type { EventItem } from "$types/content";
 import duchessTheatre from "$data/imported/duchess-theatre.json";
 import duchessTheatreEvents from "$data/imported/duchess-theatre-events.json";
+import { getCategories, sortEvents } from "$data/listings";
 
 type ImportedShow = {
   title: string;
@@ -74,7 +75,6 @@ function createImportedEvent(
     imageAlt: show.title,
     imageLabel: show.title,
     imageStyle: "bg-brand-accent/10",
-    sourceName: "Duchess Theatre TicketSource page",
     sourceUrl: venue.sourceUrl,
     volunteerRun: venue.volunteerRun,
     relatedDates:
@@ -140,7 +140,6 @@ const carBootBase = {
     label: "Car boot stalls on West Park",
     style: "bg-brand-section",
   },
-  sourceName: "Long Eaton Car boots page",
   sourceUrl: "https://www.longeatoncarnival.org.uk/car-boots/",
 } satisfies Partial<EventItem>;
 
@@ -171,7 +170,6 @@ const baseEvents: EventItem[] = [
       label: "Alternative race night at Long Eaton Art Room",
       style: "bg-brand-section",
     },
-    sourceName: "Long Eaton Art Room events page",
     sourceUrl: "https://www.longeatonartroom.co.uk/whats-available/events/",
   },
   {
@@ -203,7 +201,6 @@ const baseEvents: EventItem[] = [
       { title: "Fabric sale date", date: "2026-06-27" },
       { title: "Fabric sale date", date: "2026-10-17" },
     ],
-    sourceName: "Long Eaton Art Room events page",
     sourceUrl: "https://www.longeatonartroom.co.uk/whats-available/events/",
   },
   {
@@ -235,7 +232,6 @@ const baseEvents: EventItem[] = [
       { title: "Fabric sale date", date: "2026-06-27" },
       { title: "Fabric sale date", date: "2026-10-17" },
     ],
-    sourceName: "Long Eaton Art Room events page",
     sourceUrl: "https://www.longeatonartroom.co.uk/whats-available/events/",
   },
   {
@@ -267,7 +263,6 @@ const baseEvents: EventItem[] = [
       { title: "Fabric sale date", date: "2026-06-27" },
       { title: "Fabric sale date", date: "2026-10-17" },
     ],
-    sourceName: "Long Eaton Art Room events page",
     sourceUrl: "https://www.longeatonartroom.co.uk/whats-available/events/",
   },
   {
@@ -297,7 +292,6 @@ const baseEvents: EventItem[] = [
       label: "Open studios weekend at Long Eaton Art Room",
       style: "bg-brand-section",
     },
-    sourceName: "Long Eaton Art Room events page",
     sourceUrl: "https://www.longeatonartroom.co.uk/whats-available/events/",
   },
   {
@@ -323,7 +317,6 @@ const baseEvents: EventItem[] = [
       label: "Ceramic fair at Long Eaton Art Room",
       style: "bg-brand-section",
     },
-    sourceName: "Long Eaton Art Room events page",
     sourceUrl: "https://www.longeatonartroom.co.uk/whats-available/events/",
   },
   {
@@ -423,7 +416,6 @@ const baseEvents: EventItem[] = [
         alt: "Families and fairground rides on West Park during Long Eaton Carnival",
       },
     ],
-    sourceName: "Long Eaton Carnival homepage",
     volunteerRun: true,
     relatedDates: [
       { title: "Car boot sale", date: "2026-04-12" },
@@ -451,6 +443,50 @@ const baseEvents: EventItem[] = [
       "Long Eaton Carnival's July car boot sale is due on Sunday 19 July at West Park.",
     date: "2026-07-19",
     ...carBootBase,
+  },
+  {
+    id: "event-long-eaton-music-festival-2026-07-04",
+    slug: "long-eaton-music-festival-4-july-2026",
+    title: "Long Eaton Music Festival",
+    date: "2026-07-04",
+    time: "14:00-23:00",
+    startTime: "14:00",
+    endTime: "23:00",
+    location:
+      "Soldiers and Sailors Club, 421 Tamworth Rd, Long Eaton, Nottingham, NG10 3JS",
+    price: "Prices to be confirmed",
+    priceSummary:
+      "Two ticketed sessions are planned for the day, with pricing still to be confirmed.",
+    organiser: "Long Eaton Music Festival",
+    category: "Music",
+    excerpt:
+      "A new local music festival raising funds for the Canaan Trust and showcasing emerging local talent.",
+    description: [
+      "Long Eaton Music Festival is a new local event raising funds for the Canaan Trust while showcasing emerging music talent from across the area.",
+      "The festival is split into two ticketed sessions: an all-ages afternoon session from 2pm to 6pm, and an adults-only evening session from 7pm to 11pm. Each session features eight acts across two stages.",
+      "The line-up currently includes St Blush, Luna & the Lime Slices, Romy, Fools & Sages, The Plush Method, Rain Age, Super Burner, Jessie Dipper, Silvabak Wail, Belt, Melting Composure and Casi Rosa, with others still to be confirmed.",
+    ],
+    fundraisingNote:
+      "The event is raising funds for the Canaan Trust.",
+    sessions: [
+      {
+        title: "Afternoon Session",
+        time: "14:00-18:00",
+        note: "All ages welcome.",
+      },
+      {
+        title: "Evening Session",
+        time: "19:00-23:00",
+        note: "Adults only.",
+      },
+    ],
+    tags: ["Music", "Fundraiser", "Local talent"],
+    imageSrc: "/long-eaton-music-festival-2026.png",
+    imageAlt: "Poster for Long Eaton Music Festival 2026",
+    imageFit: "contain",
+    imageLabel: "Long Eaton Music Festival 2026",
+    imageStyle: "bg-brand-accent/10",
+    featured: true,
   },
   {
     id: "event-long-eaton-carnival-car-boot-2026-08-16",
@@ -482,23 +518,6 @@ const baseEvents: EventItem[] = [
 
 export const events: EventItem[] = [...baseEvents, ...optionalImportedEvents];
 
-const getEventSortValue = (event: EventItem) => {
-  if (event.date) {
-    return new Date(event.date).getTime();
-  }
+export const sortedEvents = sortEvents(events);
 
-  if (event.dateLabel?.includes("October 2026")) {
-    return new Date("2026-10-01").getTime();
-  }
-
-  return Number.MAX_SAFE_INTEGER;
-};
-
-export const sortedEvents = [...events].sort(
-  (a, b) => getEventSortValue(a) - getEventSortValue(b),
-);
-
-export const eventCategories = [
-  "All",
-  ...new Set(sortedEvents.map((event) => event.category)),
-];
+export const eventCategories = getCategories(sortedEvents);

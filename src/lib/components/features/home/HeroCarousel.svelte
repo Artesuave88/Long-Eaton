@@ -165,7 +165,7 @@
 </script>
 
 <section
-	class="relative overflow-hidden rounded-[1.9rem] border border-brand-border bg-brand-primaryDark text-white shadow-[0_28px_90px_rgba(7,18,41,0.24)]"
+	class="hero-panel relative overflow-hidden text-white"
 	aria-label="Featured events"
 	aria-roledescription="carousel"
 >

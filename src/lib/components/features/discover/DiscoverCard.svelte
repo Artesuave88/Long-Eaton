@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { DiscoverCategory } from '$types/content';
-	import ImagePlaceholder from './ImagePlaceholder.svelte';
+	import ImagePlaceholder from '../../ui/ImagePlaceholder.svelte';
 
 	export let category: DiscoverCategory;
 </script>

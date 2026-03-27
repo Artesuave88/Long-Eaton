@@ -3,7 +3,7 @@
 	export let message: string;
 </script>
 
-<div class="surface-card p-8 text-center sm:p-10">
+<div class="panel-card p-8 text-center sm:p-10">
 	<div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-brand-border bg-brand-section text-brand-primary">
 		<span class="text-sm font-bold uppercase tracking-[0.2em]">Info</span>
 	</div>

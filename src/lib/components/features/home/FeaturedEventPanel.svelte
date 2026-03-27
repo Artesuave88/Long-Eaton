@@ -1,30 +1,31 @@
 <script lang="ts">
   import type { EventItem } from "$types/content";
   import { formatEventDate } from "$utils/format";
-  import ImagePlaceholder from "./ImagePlaceholder.svelte";
+  import ImagePlaceholder from "../../ui/ImagePlaceholder.svelte";
 
   export let event: EventItem;
 </script>
 
-<article class="surface-card overflow-hidden border border-brand-border/80 bg-white shadow-[0_24px_70px_rgba(7,18,41,0.08)]">
+<article class="panel-card">
   <div class="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
     {#if event.imageSrc}
-      <div class="flex  items-center justify-center border-b border-brand-border lg:border-b-0 lg:border-l ">
+      <div class="flex items-center justify-center border-b border-brand-border lg:border-b-0 lg:border-l">
         <img
           src={event.imageSrc}
           alt={event.imageAlt ?? event.title}
-          class="h-full max-full w-full object-cover"
+          decoding="async"
+          class="h-full w-full object-cover"
         />
       </div>
     {:else}
       <ImagePlaceholder
         label={event.image?.label ?? event.imageLabel}
         style={event.image?.style ?? event.imageStyle}
-        className=" rounded-none border-b border-brand-border lg:order-2  lg:border-b-0 lg:border-l"
+        className="rounded-none border-b border-brand-border lg:order-2 lg:border-b-0 lg:border-l"
       />
     {/if}
 
-    <div class="flex h-full flex-col justify-between p-6 sm:p-8 lg:order-1 lg:p-10">
+    <div class="panel-content flex h-full flex-col justify-between lg:order-1">
       <div>
         <p class="eyebrow">Featured event</p>
         <h2 class="mt-3 max-w-[14ch] text-brand-text">{event.title}</h2>

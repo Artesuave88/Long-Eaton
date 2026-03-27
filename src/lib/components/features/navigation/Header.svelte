@@ -5,7 +5,7 @@
 	let open = false;
 </script>
 
-<header class="sticky top-0 z-50 bg-brand-primaryDark text-white shadow-sm">
+<header class="sticky top-0 z-50 border-b border-white/10 bg-brand-primaryDark text-white shadow-sm">
 	<div class="container-shell flex items-center justify-between gap-4 py-3">
 		<a
 			href="/"
@@ -23,7 +23,7 @@
 			{#each navLinks as link}
 				<a
 					href={link.href}
-					class="rounded-lg px-4 py-2 text-sm font-medium text-white/80 hover:text-white"
+					class="rounded-xl px-4 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
 				>
 					{link.label}
 				</a>

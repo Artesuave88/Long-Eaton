@@ -20,8 +20,8 @@
       href={`/businesses?group=${group.slug}`}
       class={`surface-card group block p-5 transition duration-200 ${
         count > 0
-          ? "surface-card-hover border-brand-border/80 bg-white"
-          : "border-dashed border-brand-border/70 bg-brand-surface/55"
+          ? "surface-card-hover border-brand-border/80 bg-brand-surface"
+          : "border-dashed border-brand-border/70 bg-brand-surface/70"
       }`}
       aria-label={`Browse ${group.label} businesses`}
     >
@@ -38,7 +38,7 @@
           class={`inline-flex min-w-10 items-center justify-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] ${
             count > 0
               ? "bg-brand-accent/10 text-brand-accent"
-              : "bg-white text-brand-muted"
+              : "bg-brand-surface text-brand-muted"
           }`}
         >
           {count}

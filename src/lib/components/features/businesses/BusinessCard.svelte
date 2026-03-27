@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { BusinessItem } from '$types/content';
-	import ImagePlaceholder from './ImagePlaceholder.svelte';
+	import ImagePlaceholder from '../../ui/ImagePlaceholder.svelte';
 
 	export let business: BusinessItem;
 </script>
 
 <article
-	class={`surface-card surface-card-hover group relative overflow-hidden ${business.isReal ? 'ring-1 ring-brand-accent/25' : ''}`}
+	class={`surface-card surface-card-hover group relative overflow-hidden ${business.isReal ? 'ring-1 ring-brand-accent/20' : ''}`}
 >
 	<a
 		href={`/businesses/${business.slug}`}
@@ -21,6 +21,8 @@
 			<img
 				src={business.imageSrc}
 				alt={business.imageAlt ?? business.name}
+				loading="lazy"
+				decoding="async"
 				class="h-full w-full object-contain object-center transition duration-200 group-hover:scale-[1.02]"
 			/>
 		</div>
@@ -32,7 +34,7 @@
 		/>
 	{/if}
 
-	<div class="relative p-5">
+	<div class="card-content relative">
 		<p class="eyebrow">{business.category}</p>
 
 		<h3 class="mt-3 text-[1.45rem] leading-tight text-brand-text transition duration-200 group-hover:text-brand-accent">

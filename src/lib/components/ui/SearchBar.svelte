@@ -1,10 +1,11 @@
 <script lang="ts">
 	export let value = '';
 	export let placeholder = 'Search';
+	export let label = placeholder;
 </script>
 
 <label class="block">
-	<span class="sr-only">{placeholder}</span>
+	<span class="sr-only">{label}</span>
 	<div class="relative">
 		<input bind:value type="search" placeholder={placeholder} class="field-input pr-12" />
 		{#if value}

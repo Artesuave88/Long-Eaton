@@ -1,6 +1,5 @@
 <script lang="ts">
   import {
-    BusinessAZNav,
     BusinessCategoryGrid,
     FeaturedBusinessPanel,
     FeaturedEventPanel,
@@ -9,27 +8,10 @@
   } from "$components";
   import { businesses } from "$data/businesses";
   import { sortedEvents } from "$data/events";
+  import { getFeaturedBusiness, getHomepageEventSelection } from "$data/listings";
 
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const isUpcomingEvent = (event: (typeof sortedEvents)[number]) => {
-    if (!event.date) {
-      return false;
-    }
-
-    const eventDate = new Date(event.endDate ?? event.date);
-    eventDate.setHours(0, 0, 0, 0);
-
-    return eventDate >= today;
-  };
-
-  const upcomingEvents = sortedEvents.filter(isUpcomingEvent);
-  const upcomingFeaturedEvents = upcomingEvents.filter((event) => event.featured);
-  const heroEvents = (upcomingFeaturedEvents.length ? upcomingFeaturedEvents : upcomingEvents).slice(0, 5);
-  const featuredEvent = upcomingFeaturedEvents[0] ?? upcomingEvents[0];
-  const featuredBusinesses = businesses.filter((business) => business.featured);
-  const featuredBusiness = featuredBusinesses[0] ?? businesses[0];
+  const { featuredEvent, heroEvents } = getHomepageEventSelection(sortedEvents);
+  const featuredBusiness = getFeaturedBusiness(businesses);
 </script>
 
 <svelte:head>
@@ -76,7 +58,6 @@
 {#if featuredEvent}
   <section class="section-surface">
     <div class="container-shell section-space pt-0">
-
       <FeaturedEventPanel event={featuredEvent} />
     </div>
   </section>
@@ -85,7 +66,6 @@
 {#if featuredBusiness}
   <section class="section-muted">
     <div class="container-shell section-space">
-
       <FeaturedBusinessPanel business={featuredBusiness} />
     </div>
   </section>
@@ -101,16 +81,3 @@
     <BusinessCategoryGrid />
   </div>
 </section>
-
-<!-- <section class="section-muted">
-  <div class="container-shell section-space">
-    <SectionHeading
-      eyebrow="Businesses"
-      title="Browse businesses A–Z"
-      copy="Use the alphabet to jump into the directory by business name."
-    />
-    <div class="surface-card p-5 sm:p-6">
-      <BusinessAZNav />
-    </div>
-  </div>
-</section> -->

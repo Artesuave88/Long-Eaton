@@ -37,19 +37,19 @@
 <section class="section-muted">
 	<div class="container-shell section-space">
 		<div class="grid gap-6 lg:grid-cols-3">
-			<div class="surface-card p-7">
+			<div class="surface-card p-6 sm:p-7">
 				<h2 class="text-2xl text-brand-text">Start with the town centre</h2>
 				<p class="body-copy-sm mt-4">
 					Use Discover to pick up ideas for food, independent shops, waterside walks and easy stops around town.
 				</p>
 			</div>
-			<div class="surface-card p-7">
+			<div class="surface-card p-6 sm:p-7">
 				<h2 class="text-2xl text-brand-text">Built for everyday plans</h2>
 				<p class="body-copy-sm mt-4">
 					Short local guides help with afternoons out, weekend browsing and familiar routes through Long Eaton.
 				</p>
 			</div>
-			<div class="surface-card p-7">
+			<div class="surface-card p-6 sm:p-7">
 				<h2 class="text-2xl text-brand-text">Linked to the wider guide</h2>
 				<p class="body-copy-sm mt-4">
 					Move between places to visit, events to catch and businesses to know without losing the thread of the day.

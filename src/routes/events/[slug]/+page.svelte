@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ImagePlaceholder from '$components/ImagePlaceholder.svelte';
+	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
 	import { formatDisplayDate, formatEventDate } from '$utils/format';
 	import type { PageData } from './$types';
 
@@ -112,6 +112,24 @@
 								</ul>
 							</div>
 						{/if}
+					</div>
+				{/if}
+
+				{#if data.event.sessions?.length}
+					<div class="surface-card mt-8 p-6">
+						<h2 class="text-2xl text-brand-text">Sessions</h2>
+						<p class="body-copy-sm mt-4">Session times and entry details for the day.</p>
+						<div class="mt-5 grid gap-4 sm:grid-cols-2">
+							{#each data.event.sessions as session}
+								<div class="inset-panel p-4">
+									<p class="eyebrow">{session.title}</p>
+									<p class="mt-2 text-base font-semibold text-brand-text">{session.time}</p>
+									{#if session.note}
+										<p class="mt-2 text-sm leading-7 text-brand-muted">{session.note}</p>
+									{/if}
+								</div>
+							{/each}
+						</div>
 					</div>
 				{/if}
 

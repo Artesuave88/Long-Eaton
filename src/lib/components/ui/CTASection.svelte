@@ -1,4 +1,5 @@
 <script lang="ts">
+	export let eyebrow = 'Get in touch';
 	export let title: string;
 	export let copy: string;
 	export let primaryHref = '/contact';
@@ -7,10 +8,10 @@
 	export let secondaryLabel = 'See what’s on';
 </script>
 
-<section class="overflow-hidden rounded-xl border border-brand-border bg-brand-surface">
-	<div class="grid gap-8 px-6 py-10 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center lg:px-12">
+<section class="panel-card">
+	<div class="grid gap-8 px-6 py-10 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center lg:px-10">
 		<div class="max-w-2xl">
-			<p class="eyebrow">Get in touch</p>
+			<p class="eyebrow">{eyebrow}</p>
 			<h2 class="mt-3 text-brand-text">{title}</h2>
 			<p class="body-copy mt-4">{copy}</p>
 		</div>

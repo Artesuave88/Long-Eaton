@@ -1,21 +1,12 @@
 <script lang="ts">
 	import { CategoryFilter, EmptyState, EventCard, SearchBar, SectionHeading } from '$components';
 	import { eventCategories, sortedEvents } from '$data/events';
-	import { slugMatches } from '$utils/format';
+	import { filterEvents } from '$data/listings';
 
 	let query = '';
 	let selectedCategory = 'All';
 
-	$: filteredEvents = sortedEvents.filter((event) => {
-		const matchesQuery =
-			slugMatches(event.title, query) ||
-			slugMatches(event.excerpt, query) ||
-			slugMatches(event.location, query);
-		const matchesCategory =
-			selectedCategory === 'All' || event.category === selectedCategory;
-
-		return matchesQuery && matchesCategory;
-	});
+	$: filteredEvents = filterEvents(sortedEvents, { query, category: selectedCategory });
 </script>
 
 <svelte:head>
@@ -34,9 +25,9 @@
 			copy="Markets, family days, live music, waterside walks and established town events across the year."
 		/>
 
-		<div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">
+		<div class="listing-toolbar">
 			<SearchBar bind:value={query} placeholder="Search events, locations or ideas" />
-			<CategoryFilter categories={eventCategories} bind:selected={selectedCategory} />
+			<CategoryFilter categories={eventCategories} bind:value={selectedCategory} />
 		</div>
 
 		{#if filteredEvents.length}

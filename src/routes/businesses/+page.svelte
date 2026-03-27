@@ -2,13 +2,8 @@
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
 	import { BusinessCard, CategoryFilter, EmptyState, SearchBar, SectionHeading } from '$components';
-	import {
-		businessCategories,
-		businessBrowseGroups,
-		businesses,
-		matchesBusinessBrowseGroup
-	} from '$data/businesses';
-	import { slugMatches } from '$utils/format';
+	import { businessCategories, businessBrowseGroups, businesses } from '$data/businesses';
+	import { filterBusinesses } from '$data/listings';
 
 	let query = '';
 	let selectedCategory = 'All';
@@ -31,18 +26,11 @@
 		previousSearch = currentSearch;
 	}
 
-	$: filteredBusinesses = orderedBusinesses.filter((business) => {
-		const matchesQuery =
-			slugMatches(business.name, query) ||
-			slugMatches(business.description, query) ||
-			slugMatches(business.location, query);
-		const matchesCategory =
-			selectedCategory === 'All' || business.category === selectedCategory;
-		const matchesGroup = matchesBusinessBrowseGroup(business, selectedGroup);
-		const matchesLetter =
-			!selectedLetter || business.name.trim().toUpperCase().startsWith(selectedLetter);
-
-		return matchesQuery && matchesCategory && matchesGroup && matchesLetter;
+	$: filteredBusinesses = filterBusinesses(orderedBusinesses, {
+		query,
+		category: selectedCategory,
+		group: selectedGroup,
+		letter: selectedLetter
 	});
 </script>
 
@@ -86,9 +74,9 @@
 
 
 
-		<div class="surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[1fr_auto] lg:items-center">
+		<div class="listing-toolbar">
 			<SearchBar bind:value={query} placeholder="Search businesses, categories or streets" />
-			<CategoryFilter categories={businessCategories} bind:selected={selectedCategory} />
+			<CategoryFilter categories={businessCategories} bind:value={selectedCategory} />
 		</div>
 
 		{#if filteredBusinesses.length}

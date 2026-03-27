@@ -33,7 +33,7 @@
 
 			<div class="surface-card p-6 sm:p-8">
 				<h2 class="text-brand-text">Send an enquiry</h2>
-				<form class="mt-6 space-y-5">
+				<form class="mt-6 space-y-5" on:submit|preventDefault>
 					<div>
 						<label for="name" class="mb-2 block text-sm font-semibold text-brand-text">Name</label>
 						<input id="name" type="text" class="field-input" />

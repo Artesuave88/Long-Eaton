@@ -37,13 +37,17 @@ export type EventItem = {
     src: string;
     alt: string;
   }[];
-  sourceName?: string;
   sourceUrl?: string;
   volunteerRun?: boolean;
   relatedDates?: {
     title: string;
     date?: string;
     dateLabel?: string;
+    note?: string;
+  }[];
+  sessions?: {
+    title: string;
+    time: string;
     note?: string;
   }[];
   featured?: boolean;
@@ -67,8 +71,6 @@ export type BusinessItem = {
 };
 
 export type NewsItem = {
-  id: string;
-  slug: string;
   title: string;
   date: string;
   excerpt: string;

@@ -3,7 +3,7 @@
 </script>
 
 <footer class="border-t border-brand-border bg-brand-surface">
-	<div class="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+	<div class="container-shell grid gap-10 py-12 sm:py-14 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
 		<div>
 			<a href="/" class="inline-flex items-center" aria-label="Love Long Eaton home">
 				<img

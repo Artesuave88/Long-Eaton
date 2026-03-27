@@ -107,8 +107,7 @@ export const businessBrowseGroups = [
   { label: "Family", slug: "family" },
 ] as const;
 
-export type BusinessBrowseGroupSlug =
-  (typeof businessBrowseGroups)[number]["slug"];
+type BusinessBrowseGroupSlug = (typeof businessBrowseGroups)[number]["slug"];
 
 const businessGroupMatchers: Record<BusinessBrowseGroupSlug, RegExp> = {
   "food-drink": /food|drink|cafe|restaurant|pub|bar|bakery|coffee/i,

@@ -5,7 +5,7 @@
 	export let align: 'left' | 'center' = 'left';
 </script>
 
-<div class:text-center={align === 'center'} class="mb-8 max-w-2xl">
+<div class:text-center={align === 'center'} class="section-heading max-w-2xl">
 	{#if eyebrow}
 		<p class="eyebrow mb-3">{eyebrow}</p>
 	{/if}

@@ -54,6 +54,10 @@ a {
   @apply py-12 sm:py-16;
 }
 
+.section-heading {
+  @apply mb-8 sm:mb-10;
+}
+
 .section-surface {
   @apply bg-brand-surface;
 }
@@ -63,15 +67,27 @@ a {
 }
 
 .surface-card {
-  @apply rounded-xl border border-brand-border bg-brand-surface shadow-sm;
+  @apply rounded-2xl border border-brand-border bg-brand-surface shadow-sm;
 }
 
 .surface-card-hover {
   @apply transition duration-200 hover:-translate-y-0.5 hover:shadow-card;
 }
 
+.panel-card {
+  @apply surface-card overflow-hidden border-brand-border/80 shadow-card;
+}
+
+.panel-content {
+  @apply p-6 sm:p-8 lg:p-10;
+}
+
 .section-grid {
   @apply grid gap-6 md:grid-cols-2 xl:grid-cols-3;
+}
+
+.listing-toolbar {
+  @apply surface-card mb-8 grid gap-4 p-4 sm:p-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center;
 }
 
 .eyebrow {
@@ -95,11 +111,11 @@ a {
 }
 
 .button-primary {
-  @apply inline-flex items-center justify-center rounded-lg bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-primaryLight;
+  @apply inline-flex items-center justify-center rounded-xl bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-primaryLight;
 }
 
 .button-secondary {
-  @apply inline-flex items-center justify-center rounded-lg border border-brand-border bg-brand-surface px-4 py-2 text-sm font-semibold text-brand-text transition hover:bg-brand-section;
+  @apply inline-flex items-center justify-center rounded-xl border border-brand-border bg-brand-surface px-4 py-2 text-sm font-semibold text-brand-text transition hover:bg-brand-section;
 }
 
 .button-subtle {
@@ -107,13 +123,21 @@ a {
 }
 
 .field-input {
-  @apply w-full rounded-lg border-brand-border bg-brand-surface px-4 py-3 text-sm text-brand-text placeholder:text-brand-muted focus:border-brand-primaryLight focus:ring-brand-primaryLight;
+  @apply w-full rounded-xl border-brand-border bg-brand-surface px-4 py-3 text-sm text-brand-text placeholder:text-brand-muted focus:border-brand-primary focus:ring-brand-primary/20;
 }
 
 .inset-panel {
-  @apply rounded-xl border border-brand-border bg-brand-section;
+  @apply rounded-2xl border border-brand-border bg-brand-section;
 }
 
 .section-link-row {
   @apply flex items-end justify-between gap-4;
+}
+
+.card-content {
+  @apply p-5 sm:p-6;
+}
+
+.hero-panel {
+  @apply rounded-[1.9rem] border border-brand-border bg-brand-primaryDark shadow-[0_28px_90px_rgba(7,18,41,0.24)];
 }
