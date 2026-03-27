@@ -95,11 +95,8 @@ const baseEvents: EventItem[] = [
     location: "Long Eaton Art Room, 29–31 Lime Grove, NG10 4LD",
     price: "Free",
     category: "Markets",
-    excerpt:
-      "Fabric sale with textiles, craft materials and supplies.",
-    description: [
-      "Fabric sale with textiles, craft materials and supplies.",
-    ],
+    excerpt: "Fabric sale with textiles, craft materials and supplies.",
+    description: ["Fabric sale with textiles, craft materials and supplies."],
     fundraisingNote: "This sale is a fundraising event.",
     locationNote: "Free parking available. Cash preferred.",
     imageSrc: longEatonArtRoomLogo,
@@ -130,11 +127,8 @@ const baseEvents: EventItem[] = [
     location: "Long Eaton Art Room, 29–31 Lime Grove, NG10 4LD",
     price: "Free",
     category: "Markets",
-    excerpt:
-      "Fabric sale with textiles, craft materials and supplies.",
-    description: [
-      "Fabric sale with textiles, craft materials and supplies.",
-    ],
+    excerpt: "Fabric sale with textiles, craft materials and supplies.",
+    description: ["Fabric sale with textiles, craft materials and supplies."],
     fundraisingNote: "This sale is a fundraising event.",
     locationNote: "Free parking available. Cash preferred.",
     imageSrc: longEatonArtRoomLogo,
@@ -165,11 +159,8 @@ const baseEvents: EventItem[] = [
     location: "Long Eaton Art Room, 29–31 Lime Grove, NG10 4LD",
     price: "Free",
     category: "Markets",
-    excerpt:
-      "Fabric sale with textiles, craft materials and supplies.",
-    description: [
-      "Fabric sale with textiles, craft materials and supplies.",
-    ],
+    excerpt: "Fabric sale with textiles, craft materials and supplies.",
+    description: ["Fabric sale with textiles, craft materials and supplies."],
     fundraisingNote: "This sale is a fundraising event.",
     locationNote: "Free parking available. Cash preferred.",
     imageSrc: longEatonArtRoomLogo,
@@ -230,11 +221,8 @@ const baseEvents: EventItem[] = [
     location: "Long Eaton Art Room",
     price: "Free",
     category: "Arts & Culture",
-    excerpt:
-      "Ceramic fair featuring 20+ potters.",
-    description: [
-      "Ceramic fair featuring 20+ potters.",
-    ],
+    excerpt: "Ceramic fair featuring 20+ potters.",
+    description: ["Ceramic fair featuring 20+ potters."],
     featured: true,
     imageSrc: longEatonArtRoomLogo,
     imageAlt: "Long Eaton Art Room logo banner",

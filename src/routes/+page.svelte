@@ -27,7 +27,11 @@
   const upcomingEvents = sortedEvents.filter(isUpcomingEvent);
   const upcomingFeaturedEvents = upcomingEvents.filter((event) => event.featured);
   const heroEvents = (upcomingFeaturedEvents.length ? upcomingFeaturedEvents : upcomingEvents).slice(0, 5);
-  const featuredEvent = upcomingFeaturedEvents[0] ?? upcomingEvents[0];
+  const featuredEvent =
+    upcomingFeaturedEvents.find((event) => event.location?.includes("Art Room")) ??
+    upcomingFeaturedEvents[0] ??
+    upcomingEvents.find((event) => event.location?.includes("Art Room")) ??
+    upcomingEvents[0];
   const featuredBusiness =
     businesses.find((business) => business.slug === "long-eaton-bjj") ?? businesses[0];
 </script>
@@ -114,4 +118,3 @@
     </div>
   </div>
 </section> -->
-
