@@ -6,6 +6,7 @@ export { default as SearchBar } from "./ui/SearchBar.svelte";
 export { default as SectionHeading } from "./ui/SectionHeading.svelte";
 
 export { default as DiscoverCard } from "./features/discover/DiscoverCard.svelte";
+export { default as DiscoverPlaceCard } from "./features/discover/DiscoverPlaceCard.svelte";
 export { default as BusinessCard } from "./features/businesses/BusinessCard.svelte";
 export { default as BusinessCategoryGrid } from "./features/businesses/BusinessCategoryGrid.svelte";
 export { default as EventCard } from "./features/events/EventCard.svelte";

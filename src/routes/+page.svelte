@@ -7,11 +7,13 @@
     SectionHeading,
   } from "$components";
   import { businesses } from "$data/businesses";
+  import { discoverPlaces } from "$data/discover";
   import { sortedEvents } from "$data/events";
   import { getFeaturedBusiness, getHomepageEventSelection } from "$data/listings";
 
   const { featuredEvent, heroEvents } = getHomepageEventSelection(sortedEvents);
   const featuredBusiness = getFeaturedBusiness(businesses);
+  const homepageDiscoverPlaces = discoverPlaces.slice(0, 3);
 </script>
 
 <svelte:head>
@@ -70,6 +72,38 @@
     </div>
   </section>
 {/if}
+
+<section class="section-surface">
+	<div class="container-shell section-space">
+		<article class="panel-card overflow-hidden">
+			<div class="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+				<div class="panel-content flex flex-col justify-center">
+					<p class="eyebrow">Local places</p>
+					<h1 class="mt-3 text-brand-text">Discover Long Eaton</h1>
+					<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted sm:text-[1.08rem]">
+						Explore three of the town’s easiest local favourites, from West Park and Trent Lock
+						to the Erewash Canal for walking, cycling and slower afternoons outdoors.
+					</p>
+					<div class="mt-7 flex flex-wrap gap-3">
+						<a href="/discover-long-eaton" class="button-primary">Explore places</a>
+					</div>
+				</div>
+
+        <div class="relative min-h-[18rem] overflow-hidden border-t border-brand-border bg-brand-primaryDark lg:min-h-full lg:border-l lg:border-t-0">
+					<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.2),transparent_34%),linear-gradient(135deg,rgba(8,25,55,0.96),rgba(40,89,116,0.82))]"></div>
+					<div class="relative flex h-full min-h-[18rem] flex-col justify-end p-6 text-white sm:p-8">
+						<p class="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/72">
+              Parks, waterside and canal walks
+						</p>
+						<p class="mt-4 max-w-sm text-2xl leading-tight sm:text-[2rem]">
+              Local spots that are easy to get to and fit everything from family time to bike rides.
+						</p>
+					</div>
+				</div>
+			</div>
+		</article>
+	</div>
+</section>
 
 <section class="section-surface">
   <div class="container-shell section-space">

@@ -89,3 +89,18 @@ export type DiscoverCategory = {
   imageStyle: string;
   link: string;
 };
+
+export type DiscoverPlace = {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  whatItIs: string;
+  whyVisit: string;
+  idealFor: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageLabel: string;
+  imageStyle: string;
+  href: string;
+};
