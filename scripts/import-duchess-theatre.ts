@@ -270,7 +270,7 @@ function extractShowsFromTicketSource($: CheerioAPI): ImportedShow[] {
           imageUrl: imageUrl || null,
           startDate: startDate || undefined,
           endDate: endDate || undefined,
-        };
+        } as ImportedShow;
       })
       .filter((value): value is ImportedShow => Boolean(value)),
     (show) => `${show.title}:${show.startDate ?? ""}:${show.url ?? ""}`,
