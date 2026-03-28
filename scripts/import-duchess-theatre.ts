@@ -170,7 +170,7 @@ function extractVenue($: CheerioAPI): ImportedVenue {
       normalizeWhitespace($('meta[property="og:site_name"]').attr("content")) ||
       "Duchess Theatre & Chatsworth Arts Centre",
     slug: "duchess-theatre-chatsworth-arts-centre",
-    category: "Arts & Entertainment",
+    category: "Entertainment",
     address:
       normalizeWhitespace(
         pageText.match(

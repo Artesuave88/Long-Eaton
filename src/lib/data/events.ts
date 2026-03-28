@@ -68,7 +68,7 @@ function createImportedEvent(
     location: venue.address || "West Gate, Long Eaton, Derbyshire, NG10 1EF",
     organiser: venueName,
     ticketUrl: show.url ?? undefined,
-    category: "Arts & Entertainment",
+    category: "Entertainment",
     excerpt: show.title,
     description: [],
     imageSrc: show.imageUrl ?? "/duchess-theatre.webp",
@@ -276,7 +276,7 @@ const baseEvents: EventItem[] = [
     endTime: "16:00",
     location: "Long Eaton Art Room",
     price: "Free",
-    category: "Arts & Culture",
+    category: "Crafts",
     excerpt:
       "Open studios event with local artists, stalls and handmade goods.",
     description: [
@@ -304,7 +304,7 @@ const baseEvents: EventItem[] = [
     endTime: "16:00",
     location: "Long Eaton Art Room",
     price: "Free",
-    category: "Arts & Culture",
+    category: "Crafts",
     excerpt: "Ceramic fair featuring 20+ potters.",
     description: ["Ceramic fair featuring 20+ potters."],
     featured: true,
@@ -330,7 +330,7 @@ const baseEvents: EventItem[] = [
     location: "May Hall, Trent College, Long Eaton",
     organiser: "LEOS Musical Theatre Company",
     ticketUrl: "https://www.ticketsource.co.uk/leos",
-    category: "Arts & Culture",
+    category: "Entertainment",
     excerpt:
       "Live musical comedy from LEOS Musical Theatre Company, with evening performances and a Saturday matinee.",
     description: [

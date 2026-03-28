@@ -48,7 +48,7 @@ const baseBusinesses: BusinessItem[] = [
     id: "business-8",
     slug: "long-eaton-art-room",
     name: "Long Eaton Art Room",
-    category: "Arts & Culture",
+    category: "Crafts",
     location: "29-31 Lime Grove, Long Eaton, NG10 4LD",
     description:
       "Community arts centre running workshops, creative classes, events and studio activity in Long Eaton.",
@@ -103,7 +103,8 @@ export const businessBrowseGroups = [
   { label: "Shopping", slug: "shopping" },
   { label: "Fitness", slug: "fitness" },
   { label: "Services", slug: "services" },
-  { label: "Arts & Culture", slug: "arts-culture" },
+  { label: "Entertainment", slug: "entertainment" },
+  { label: "Crafts", slug: "crafts" },
   { label: "Family", slug: "family" },
 ] as const;
 
@@ -115,7 +116,8 @@ const businessGroupMatchers: Record<BusinessBrowseGroupSlug, RegExp> = {
   fitness: /fitness|gym|martial arts|bjj|jiu-jitsu|sport|wellness/i,
   services:
     /service|repair|trade|professional|estate|account|studio|salon|beauty/i,
-  "arts-culture": /arts|culture|entertainment|theatre|gallery|music|creative/i,
+  entertainment: /entertainment|theatre|music|performance|show|cinema|comedy/i,
+  crafts: /craft|arts|culture|creative|workshop|maker|textile/i,
   family: /family|children|kids|nursery|school|play|community/i,
 };
 
