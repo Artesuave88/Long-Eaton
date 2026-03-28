@@ -9,6 +9,7 @@ export const site = {
 
 export const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/discover-long-eaton", label: "Discover" },
   { href: "/events", label: "Events" },
   { href: "/businesses", label: "Businesses" },
   { href: "/about", label: "About" },
