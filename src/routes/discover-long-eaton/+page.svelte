@@ -40,7 +40,7 @@
 		<CTASection
 			eyebrow="Keep exploring"
 			title="Looking for more local ideas after your walk?"
-			copy="Move from places to visit into town events and useful local listings without losing the thread of the day."
+			copy="Find local events, businesses and everyday places worth knowing about in Long Eaton."
 			primaryHref="/events"
 			primaryLabel="Browse events"
 			secondaryHref="/businesses"
