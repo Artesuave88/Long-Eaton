@@ -1,7 +1,11 @@
 <script lang="ts">
+	import { dev } from '$app/environment';
 	import '../app.css';
 	import { Footer, Header } from '$components';
 	import { site } from '$data/site';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
 </script>
 
 <svelte:head>

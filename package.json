@@ -15,7 +15,8 @@
     "import:duchess-theatre": "node --experimental-strip-types scripts/import-duchess-theatre.ts"
   },
   "dependencies": {
-    "@sveltejs/kit": "^2.17.0"
+    "@sveltejs/kit": "^2.17.0",
+    "@vercel/analytics": "^2.0.1"
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^5.6.1",
