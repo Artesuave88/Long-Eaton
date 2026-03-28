@@ -64,8 +64,12 @@ export function isUpcomingEvent(
   return eventDate >= comparisonDate;
 }
 
+export function getUpcomingEvents(events: EventItem[], today = new Date()) {
+  return events.filter((event) => isUpcomingEvent(event, today));
+}
+
 export function getHomepageEventSelection(events: EventItem[]) {
-  const upcomingEvents = events.filter((event) => isUpcomingEvent(event));
+  const upcomingEvents = getUpcomingEvents(events);
   const featuredEvents = upcomingEvents.filter((event) => event.featured);
   const heroEvents = (
     featuredEvents.length ? featuredEvents : upcomingEvents

@@ -1,7 +1,7 @@
 import type { EventItem } from "$types/content";
 import duchessTheatre from "$data/imported/duchess-theatre.json";
 import duchessTheatreEvents from "$data/imported/duchess-theatre-events.json";
-import { getCategories, sortEvents } from "$data/listings";
+import { getCategories, getUpcomingEvents, sortEvents } from "$data/listings";
 
 type ImportedShow = {
   title: string;
@@ -520,4 +520,6 @@ export const events: EventItem[] = [...baseEvents, ...optionalImportedEvents];
 
 export const sortedEvents = sortEvents(events);
 
-export const eventCategories = getCategories(sortedEvents);
+export const upcomingEvents = getUpcomingEvents(sortedEvents);
+
+export const eventCategories = getCategories(upcomingEvents);

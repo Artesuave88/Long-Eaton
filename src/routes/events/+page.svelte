@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { CategoryFilter, EmptyState, EventCard, SearchBar, SectionHeading } from '$components';
-	import { eventCategories, sortedEvents } from '$data/events';
+	import { eventCategories, upcomingEvents } from '$data/events';
 	import { filterEvents } from '$data/listings';
 
 	let query = '';
 	let selectedCategory = 'All';
 
-	$: filteredEvents = filterEvents(sortedEvents, { query, category: selectedCategory });
+	$: filteredEvents = filterEvents(upcomingEvents, { query, category: selectedCategory });
 </script>
 
 <svelte:head>
