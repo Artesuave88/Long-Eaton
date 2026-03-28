@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { EventItem } from '$types/content';
-	import { formatEventDate } from '$utils/format';
+	import { formatEventDate, formatRecurringLabel } from '$utils/format';
 	import ImagePlaceholder from '../../ui/ImagePlaceholder.svelte';
 
 	export let event: EventItem;
@@ -25,14 +25,22 @@
 		/>
 	{/if}
 	<div class="card-content">
-		<div class="flex flex-wrap items-center gap-2">
-			<span class="chip">{event.category}</span>
-			<span class="text-sm text-brand-muted">{formatEventDate(event)}</span>
-		</div>
+		<p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">{event.category}</p>
+		{#if event.ongoing || event.date || event.dateLabel}
+			<p class="mt-2 text-sm text-brand-muted">
+				{event.ongoing ? formatRecurringLabel(event) : formatEventDate(event)}
+				{#if event.price}
+					• {event.price}
+				{/if}
+			</p>
+		{/if}
 		<h3 class="mt-4 text-[1.45rem] leading-tight text-brand-text">{event.title}</h3>
-		<p class="mt-2 text-sm font-medium text-brand-muted">{event.location} • {event.time}</p>
-		{#if event.tags?.length}
-			<p class="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-muted">{event.tags.slice(0, 2).join(' • ')}</p>
+		{#if event.time || event.location}
+			<p class="mt-2 text-sm font-medium text-brand-muted">
+				{#if event.time}{event.time}{/if}
+				{#if event.time && event.location} • {/if}
+				{#if event.location}{event.location}{/if}
+			</p>
 		{/if}
 		<p class="body-copy-sm mt-4">{event.excerpt}</p>
 		<a href={`/events/${event.slug}`} class="link-subtle mt-5">See details</a>

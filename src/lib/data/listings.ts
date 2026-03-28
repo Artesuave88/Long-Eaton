@@ -4,12 +4,81 @@ import { matchesBusinessBrowseGroup } from "$data/businesses";
 
 export const ALL_CATEGORIES = "All";
 const UNKNOWN_DATE_SORT_VALUE = Number.MAX_SAFE_INTEGER;
+const DAY_INDEX: Record<NonNullable<EventItem["dayOfWeek"]>, number> = {
+  Sunday: 0,
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+};
+
+function getRecurringDays(event: Pick<EventItem, "dayOfWeek" | "daysOfWeek">) {
+  if (event.daysOfWeek?.length) {
+    return event.daysOfWeek;
+  }
+
+  return event.dayOfWeek ? [event.dayOfWeek] : [];
+}
+
+function getNextRecurringDate(
+  event: Pick<EventItem, "recurrence" | "dayOfWeek" | "daysOfWeek">,
+  today = new Date(),
+) {
+  if (!event.recurrence) {
+    return null;
+  }
+
+  const comparisonDate = new Date(today);
+  comparisonDate.setHours(0, 0, 0, 0);
+
+  const recurringDays = getRecurringDays(event);
+
+  if (!recurringDays.length) {
+    return null;
+  }
+
+  const nextDate = recurringDays
+    .map((day) => {
+      const targetDay = DAY_INDEX[day];
+      const currentDay = comparisonDate.getDay();
+      const daysUntilNext = (targetDay - currentDay + 7) % 7;
+      const candidate = new Date(comparisonDate);
+      candidate.setDate(comparisonDate.getDate() + daysUntilNext);
+      return candidate;
+    })
+    .sort((left, right) => left.getTime() - right.getTime())[0];
+
+  return nextDate ?? null;
+}
 
 export function getEventSortValue(
-  event: Pick<EventItem, "date" | "dateLabel">,
+  event: Pick<
+    EventItem,
+    | "date"
+    | "dateLabel"
+    | "recurrence"
+    | "dayOfWeek"
+    | "daysOfWeek"
+    | "ongoing"
+  >,
+  today = new Date(),
 ) {
   if (event.date) {
     return new Date(event.date).getTime();
+  }
+
+  const recurringDate = getNextRecurringDate(event, today);
+
+  if (recurringDate) {
+    return recurringDate.getTime();
+  }
+
+  if (event.ongoing) {
+    const comparisonDate = new Date(today);
+    comparisonDate.setHours(0, 0, 0, 0);
+    return comparisonDate.getTime();
   }
 
   if (event.dateLabel?.includes("October 2026")) {
@@ -39,7 +108,7 @@ export function filterEvents(
     const matchesQuery =
       slugMatches(event.title, query) ||
       slugMatches(event.excerpt, query) ||
-      slugMatches(event.location, query);
+      slugMatches(event.location ?? "", query);
     const matchesCategory =
       category === ALL_CATEGORIES || event.category === category;
 
@@ -48,9 +117,16 @@ export function filterEvents(
 }
 
 export function isUpcomingEvent(
-  event: Pick<EventItem, "date" | "endDate">,
+  event: Pick<
+    EventItem,
+    "date" | "endDate" | "recurrence" | "dayOfWeek" | "daysOfWeek" | "ongoing"
+  >,
   today = new Date(),
 ) {
+  if (event.ongoing || getNextRecurringDate(event, today)) {
+    return true;
+  }
+
   if (!event.date) {
     return false;
   }
@@ -66,6 +142,16 @@ export function isUpcomingEvent(
 
 export function getUpcomingEvents(events: EventItem[], today = new Date()) {
   return events.filter((event) => isUpcomingEvent(event, today));
+}
+
+export function isRegularEvent(
+  event: Pick<EventItem, "recurrence" | "ongoing" | "dayOfWeek" | "daysOfWeek">,
+) {
+  return Boolean(event.ongoing || getRecurringDays(event).length || event.recurrence);
+}
+
+export function getRegularEvents(events: EventItem[]) {
+  return events.filter((event) => isRegularEvent(event));
 }
 
 export function getHomepageEventSelection(events: EventItem[]) {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
-	import { formatDisplayDate, formatEventDate } from '$utils/format';
+	import { formatDisplayDate, formatEventDate, formatRecurringLabel } from '$utils/format';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -8,9 +8,46 @@
 	const formatRelatedDate = (date?: string, dateLabel?: string) =>
 		date ? formatDisplayDate(date) : dateLabel ?? '';
 	const isCarnival = data.event.slug === 'long-eaton-carnival';
+	const isParkrun = data.event.slug === 'long-eaton-parkrun';
+	const isJuniorParkrun = data.event.slug === 'long-eaton-junior-parkrun';
+	const isActivity = data.event.type === 'activity';
 	const isArtRoomEvent = data.event.sourceUrl === 'https://www.longeatonartroom.co.uk/whats-available/events/';
 	const hasVisitDetails =
 		Boolean(data.event.priceSummary) || Boolean(data.event.locationNote) || Boolean(data.event.fundraisingNote);
+	type SummaryItem = {
+		label: string;
+		value: string;
+	};
+	const summaryItems = [
+		data.event.status
+			? {
+					label: 'Status',
+					value: data.event.status
+				}
+			: null,
+		{
+			label: data.event.ongoing ? (data.event.recurrence ? 'When' : 'Status') : 'Date',
+			value: data.event.ongoing ? formatRecurringLabel(data.event) : formatEventDate(data.event)
+		},
+		data.event.startTime ?? data.event.time
+			? {
+					label: 'Time',
+					value: data.event.startTime ?? data.event.time
+				}
+			: null,
+		data.event.location
+			? {
+					label: 'Location',
+					value: data.event.location
+				}
+			: null,
+		data.event.price
+			? {
+					label: 'Entry',
+					value: data.event.price
+				}
+			: null
+	].filter((item): item is SummaryItem => Boolean(item));
 </script>
 
 <svelte:head>
@@ -33,37 +70,53 @@
 				{/if}
 				<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted">{data.event.excerpt}</p>
 
+				{#if isParkrun}
+					<p class="mt-4 text-sm text-brand-muted">Weekly community event with free entry.</p>
+				{/if}
+
 				<div class="surface-card mt-8 grid gap-4 p-6 sm:grid-cols-2 lg:grid-cols-4">
-					<div>
-						<p class="eyebrow">Date</p>
-						<p class="mt-2 text-base font-semibold text-brand-text">{formatEventDate(data.event)}</p>
-					</div>
-					<div>
-						<p class="eyebrow">Time</p>
-						<p class="mt-2 text-base font-semibold text-brand-text">{data.event.time}</p>
-					</div>
-					<div>
-						<p class="eyebrow">Location</p>
-						<p class="mt-2 text-base font-semibold text-brand-text">{data.event.location}</p>
-					</div>
-					{#if data.event.price}
+					{#each summaryItems as item}
 						<div>
-							<p class="eyebrow">Entry</p>
-							<p class="mt-2 text-base font-semibold text-brand-text">{data.event.price}</p>
+							<p class="eyebrow">{item.label}</p>
+							<p class="mt-2 text-base font-semibold text-brand-text">{item.value}</p>
 						</div>
-					{/if}
+					{/each}
 				</div>
 
 				<div class="mt-8">
-					<h2 class="text-2xl text-brand-text">About this event</h2>
+					<h2 class="text-2xl text-brand-text">{isActivity ? 'About this group' : 'About this event'}</h2>
 					<div class="mt-4 space-y-5 text-base leading-8 text-brand-muted">
 						{#each data.event.description as paragraph}
 							<p>{paragraph}</p>
 						{/each}
 					</div>
+					{#if isParkrun || isJuniorParkrun}
+						<div class="surface-card mt-6 p-6">
+							<h3 class="text-xl text-brand-text">What parkrun is</h3>
+							<p class="mt-4 text-base leading-8 text-brand-muted">
+								{#if isJuniorParkrun}
+									junior parkrun is a weekly 2k event for children aged 4 to 14. Families can come along to take part, volunteer or spectate.
+								{:else}
+									parkrun is a weekly 5k community event. People can walk, jog, run, volunteer or spectate.
+								{/if}
+							</p>
+						</div>
+					{/if}
+					{#if data.event.audience}
+						<div class="surface-card mt-6 p-6">
+							<h3 class="text-xl text-brand-text">Who it is for</h3>
+							<p class="mt-4 text-base leading-8 text-brand-muted">{data.event.audience}</p>
+						</div>
+					{/if}
+					{#if data.event.contactName}
+						<div class="surface-card mt-6 p-6">
+							<h3 class="text-xl text-brand-text">Group contact</h3>
+							<p class="mt-4 text-base leading-8 text-brand-muted">{data.event.contactName}</p>
+						</div>
+					{/if}
 				</div>
 
-				{#if !isArtRoomEvent}
+				{#if !isArtRoomEvent && (data.event.startTime || data.event.time || data.event.endTime || data.event.approximateReturnTime)}
 					<div class="surface-card mt-8 p-6">
 						<h2 class="text-2xl text-brand-text">Timing details</h2>
 						<div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -204,13 +257,6 @@
 					</div>
 				{/if}
 
-				{#if data.event.tags?.length}
-					<div class="mt-8 flex flex-wrap gap-2">
-						{#each data.event.tags as tag}
-							<span class="chip">{tag}</span>
-						{/each}
-					</div>
-				{/if}
 			</div>
 
 			<div class="space-y-6">
@@ -249,6 +295,10 @@
 								For the carnival, the day starts with the road parade before the main site activity continues on West Park. The main site is free to enter.
 							{:else if data.event.category === 'Markets'}
 								West Park car boots are simple to plan for: sellers arrive from 7am, buyers from 8am, and all proceeds support the Carnival fund.
+							{:else if isParkrun}
+								Long Eaton parkrun starts at 9am every Saturday morning at West Park Leisure Centre, with people welcome to walk, jog, run, volunteer or spectate.
+							{:else if isActivity}
+								Check the source page for the latest meeting details before you go, as ongoing groups can change times and venues.
 							{:else}
 								Pair this event with a stop at a local cafe, a browse through the town centre or a walk through one of Long Eaton’s green spaces.
 							{/if}

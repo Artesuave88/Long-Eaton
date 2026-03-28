@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { CategoryFilter, EmptyState, EventCard, SearchBar, SectionHeading } from '$components';
-	import { eventCategories, upcomingEvents } from '$data/events';
+	import { eventCategories, regularEvents, upcomingEvents } from '$data/events';
 	import { filterEvents } from '$data/listings';
 
 	let query = '';
 	let selectedCategory = 'All';
+	let viewMode: 'upcoming' | 'regular' = 'upcoming';
 
-	$: filteredEvents = filterEvents(upcomingEvents, { query, category: selectedCategory });
+	$: activeEvents = viewMode === 'regular' ? regularEvents : upcomingEvents;
+	$: filteredEvents = filterEvents(activeEvents, { query, category: selectedCategory });
 </script>
 
 <svelte:head>
@@ -22,10 +24,26 @@
 		<SectionHeading
 			eyebrow="Events"
 			title="What’s on in Long Eaton"
-			copy="Markets, family days, live music, waterside walks and established town events across the year."
+			copy="One-off dates, weekly activities and regular local events across Long Eaton."
 		/>
 
 		<div class="listing-toolbar">
+			<div class="flex flex-wrap gap-3">
+				<button
+					type="button"
+					class={viewMode === 'upcoming' ? 'button-primary' : 'button-secondary'}
+					on:click={() => (viewMode = 'upcoming')}
+				>
+					Upcoming events
+				</button>
+				<button
+					type="button"
+					class={viewMode === 'regular' ? 'button-primary' : 'button-secondary'}
+					on:click={() => (viewMode = 'regular')}
+				>
+					Regular events
+				</button>
+			</div>
 			<SearchBar bind:value={query} placeholder="Search events, locations or ideas" />
 			<CategoryFilter categories={eventCategories} bind:value={selectedCategory} />
 		</div>

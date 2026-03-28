@@ -1,7 +1,12 @@
 import type { EventItem } from "$types/content";
 import duchessTheatre from "$data/imported/duchess-theatre.json";
 import duchessTheatreEvents from "$data/imported/duchess-theatre-events.json";
-import { getCategories, getUpcomingEvents, sortEvents } from "$data/listings";
+import {
+  getCategories,
+  getRegularEvents,
+  getUpcomingEvents,
+  sortEvents,
+} from "$data/listings";
 
 type ImportedShow = {
   title: string;
@@ -145,9 +150,143 @@ const carBootBase = {
 
 const baseEvents: EventItem[] = [
   {
+    id: "event-long-eaton-parkrun",
+    slug: "long-eaton-parkrun",
+    title: "Long Eaton parkrun",
+    type: "recurringEvent",
+    excerpt:
+      "A free weekly 5k community event in Long Eaton. Walk, jog, run, volunteer or spectate.",
+    description: [
+      "Long Eaton parkrun takes place every Saturday morning at West Park Leisure Centre.",
+      "It is a free weekly 5k community event. People can walk, jog, run, volunteer or spectate.",
+      "The event is organised by volunteers.",
+    ],
+    ongoing: true,
+    recurrence: "weekly",
+    dayOfWeek: "Saturday",
+    daysOfWeek: ["Saturday"],
+    time: "09:00",
+    startTime: "09:00",
+    location: "West Park Leisure Centre, Wilsthorpe Road, Long Eaton, NG10 4AA",
+    price: "Free",
+    organiser: "Long Eaton parkrun volunteers",
+    category: "Fitness / Community",
+    tags: ["Weekly", "Free", "Community"],
+    featured: false,
+    imageSrc: "/park-run.jpg",
+    imageAlt: "Participants taking part in Long Eaton parkrun",
+    imageLabel: "Long Eaton parkrun at West Park",
+    imageStyle: "bg-brand-section",
+    image: {
+      label: "Long Eaton parkrun at West Park",
+      style: "bg-brand-section",
+    },
+    volunteerRun: true,
+    sourceUrl: "https://www.parkrun.org.uk/longeaton/",
+  },
+  {
+    id: "event-long-eaton-junior-parkrun",
+    slug: "long-eaton-junior-parkrun",
+    title: "Long Eaton junior parkrun",
+    type: "recurringEvent",
+    excerpt:
+      "A free weekly 2k event for children aged 4 to 14 at West Park.",
+    description: [
+      "Long Eaton junior parkrun takes place every Sunday morning at West Park.",
+      "It is a weekly parkrun event for children aged 4 to 14.",
+      "Families can come along to take part, volunteer or watch from the sidelines.",
+    ],
+    ongoing: true,
+    recurrence: "weekly",
+    dayOfWeek: "Sunday",
+    daysOfWeek: ["Sunday"],
+    time: "09:00",
+    startTime: "09:00",
+    location: "West Park, Long Eaton",
+    price: "Free",
+    organiser: "Long Eaton junior parkrun volunteers",
+    audience: "Children aged 4 to 14",
+    category: "Fitness / Community",
+    tags: ["Weekly", "Free", "Children"],
+    imageSrc: "/jnr-park-run.jpg",
+    imageAlt: "Children taking part in Long Eaton junior parkrun",
+    imageLabel: "Long Eaton junior parkrun at West Park",
+    imageStyle: "bg-brand-section",
+    image: {
+      label: "Long Eaton junior parkrun at West Park",
+      style: "bg-brand-section",
+    },
+    volunteerRun: true,
+    sourceUrl: "https://www.parkrun.org.uk/longeaton-juniors/",
+  },
+  {
+    id: "activity-family-history",
+    slug: "family-history",
+    title: "Family History",
+    type: "activity",
+    excerpt:
+      "A regular group for people interested in researching their family history.",
+    description: [
+      "A group focused on helping members research their own family history.",
+    ],
+    ongoing: true,
+    recurrence: "monthly",
+    recurrenceLabel: "Third Monday in the month",
+    dayOfWeek: "Monday",
+    time: "13:30-15:15",
+    startTime: "Monday afternoons, 13:30-15:15",
+    location: "Long Eaton Library",
+    status: "Active, open to new members",
+    contactName: "Family History group",
+    category: "Community / Learning",
+    imageSrc: "/family-tree.jpg",
+    imageAlt: "Family history notes and records",
+    imageLabel: "Family history group",
+    imageStyle: "bg-brand-section",
+    image: {
+      label: "Family history group",
+      style: "bg-brand-section",
+    },
+    organiser: "Family History group",
+    sourceUrl: "https://longeaton.u3asite.uk/u3a_groups/family-history/",
+  },
+  {
+    id: "activity-craft-in-a-bag",
+    slug: "craft-in-a-bag",
+    title: "Craft in a Bag",
+    type: "activity",
+    excerpt:
+      "A regular craft group for portable projects like knitting, crochet, embroidery, and paper crafts.",
+    description: [
+      "A group for people interested in crafts that can be carried in a bag, such as knitting, crochet, cross-stitch, embroidery, paper cutting, and colouring.",
+    ],
+    ongoing: true,
+    recurrence: "monthly",
+    recurrenceLabel: "First and fourth Thursday in the month",
+    dayOfWeek: "Thursday",
+    time: "10:30-12:30",
+    startTime: "Thursday mornings, 10:30-12:30",
+    location: "Cleavers Coffee Shop, Long Eaton",
+    price: "Buy a drink",
+    status: "Active, open to new members",
+    contactName: "Craft in a Bag group",
+    category: "Crafts / Community",
+    imageSrc: "/craft-in-a-bag.jpg",
+    imageAlt: "Portable craft materials laid out for a group session",
+    imageLabel: "Craft in a Bag group",
+    imageStyle: "bg-brand-section",
+    image: {
+      label: "Craft in a Bag group",
+      style: "bg-brand-section",
+    },
+    organiser: "Craft in a Bag group",
+    sourceUrl: "https://longeaton.u3asite.uk/u3a_groups/craft-in-a-bag/",
+  },
+  {
     id: "event-long-eaton-art-room-alternative-night-at-the-races-2026-02-28",
     slug: "alternative-night-at-the-races-28-february-2026",
     title: "Alternative Night at the Races",
+    type: "event",
     date: "2026-02-28",
     time: "18:00-22:00",
     startTime: "18:00",
@@ -176,6 +315,7 @@ const baseEvents: EventItem[] = [
     id: "event-long-eaton-art-room-fabric-sales-2026-03-21",
     slug: "fabric-sales-21-march-2026",
     title: "Fabric Sales 2026",
+    type: "event",
     date: "2026-03-21",
     time: "09:30-12:00",
     startTime: "09:30",
@@ -520,5 +660,7 @@ export const events: EventItem[] = [...baseEvents, ...optionalImportedEvents];
 export const sortedEvents = sortEvents(events);
 
 export const upcomingEvents = getUpcomingEvents(sortedEvents);
+
+export const regularEvents = getRegularEvents(sortedEvents);
 
 export const eventCategories = getCategories(upcomingEvents);

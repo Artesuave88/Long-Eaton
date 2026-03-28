@@ -2,18 +2,42 @@ export type EventItem = {
   id: string;
   slug: string;
   title: string;
+  type?: "event" | "recurringEvent" | "activity";
   date?: string;
   endDate?: string;
   dateLabel?: string;
+  recurrence?: "weekly" | "monthly";
+  recurrenceLabel?: string;
+  ongoing?: boolean;
+  dayOfWeek?:
+    | "Sunday"
+    | "Monday"
+    | "Tuesday"
+    | "Wednesday"
+    | "Thursday"
+    | "Friday"
+    | "Saturday";
+  daysOfWeek?: (
+    | "Sunday"
+    | "Monday"
+    | "Tuesday"
+    | "Wednesday"
+    | "Thursday"
+    | "Friday"
+    | "Saturday"
+  )[];
   isTbc?: boolean;
-  time: string;
+  time?: string;
   startTime?: string;
   endTime?: string;
   approximateReturnTime?: string;
-  location: string;
+  location?: string;
   price?: string;
   priceSummary?: string;
+  status?: string;
   organiser?: string;
+  contactName?: string;
+  audience?: string;
   ticketUrl?: string;
   strapline?: string;
   tags?: string[];

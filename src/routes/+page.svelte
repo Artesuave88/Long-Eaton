@@ -8,12 +8,14 @@
   } from "$components";
   import { businesses } from "$data/businesses";
   import { discoverPlaces } from "$data/discover";
-  import { sortedEvents } from "$data/events";
+  import { regularEvents, sortedEvents } from "$data/events";
   import { getFeaturedBusiness, getHomepageEventSelection } from "$data/listings";
+  import { formatRecurringLabel } from "$utils/format";
 
   const { featuredEvent, heroEvents } = getHomepageEventSelection(sortedEvents);
   const featuredBusiness = getFeaturedBusiness(businesses);
   const homepageDiscoverPlaces = discoverPlaces.slice(0, 3);
+  const homepageRegularEvents = regularEvents.slice(0, 6);
 </script>
 
 <svelte:head>
@@ -61,6 +63,47 @@
   <section class="section-surface">
     <div class="container-shell section-space pt-0">
       <FeaturedEventPanel event={featuredEvent} />
+    </div>
+  </section>
+{/if}
+
+{#if homepageRegularEvents.length}
+  <section class="section-surface">
+    <div class="container-shell section-space pt-0">
+      <SectionHeading
+        eyebrow="Regular activities"
+        title="Ongoing groups and weekly events"
+        copy="Regular local groups, activities and weekly meet-ups that help the town feel active week to week."
+      />
+      <div class="section-grid">
+        {#each homepageRegularEvents as event}
+          <a href={`/events/${event.slug}`} class="surface-card surface-card-hover p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">
+              {event.category}
+            </p>
+            <h3 class="mt-4 text-2xl leading-tight text-brand-text">{event.title}</h3>
+            {#if event.recurrence || event.time || event.price}
+              <p class="mt-3 text-sm text-brand-muted">
+                {#if event.recurrence}
+                  {formatRecurringLabel(event)}
+                {:else}
+                  Ongoing group
+                {/if}
+                {#if event.time}
+                  • {event.time}
+                {/if}
+                {#if event.price}
+                  • {event.price}
+                {/if}
+              </p>
+            {/if}
+            {#if event.location}
+              <p class="mt-3 text-sm leading-7 text-brand-muted">{event.location}</p>
+            {/if}
+            <p class="body-copy-sm mt-4">{event.excerpt}</p>
+          </a>
+        {/each}
+      </div>
     </div>
   </section>
 {/if}
