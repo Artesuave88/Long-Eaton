@@ -466,8 +466,7 @@ const baseEvents: EventItem[] = [
       "The festival is split into two ticketed sessions: an all-ages afternoon session from 2pm to 6pm, and an adults-only evening session from 7pm to 11pm. Each session features eight acts across two stages.",
       "The line-up currently includes St Blush, Luna & the Lime Slices, Romy, Fools & Sages, The Plush Method, Rain Age, Super Burner, Jessie Dipper, Silvabak Wail, Belt, Melting Composure and Casi Rosa, with others still to be confirmed.",
     ],
-    fundraisingNote:
-      "The event is raising funds for the Canaan Trust.",
+    fundraisingNote: "The event is raising funds for the Canaan Trust.",
     sessions: [
       {
         title: "Afternoon Session",

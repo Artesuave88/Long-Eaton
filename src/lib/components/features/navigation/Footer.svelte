@@ -12,14 +12,21 @@
 					class="h-14 w-auto sm:h-16"
 				/>
 			</a>
-			<p class="body-copy-sm mt-4 max-w-md">
-				Local events, businesses and everyday places worth knowing about in Long Eaton.
+		
+			<p class="mt-4 text-sm text-brand-muted">
+				Site built by
+				<a
+					href="https://www.midasweb.org/"
+					class="underline decoration-brand-border underline-offset-4 hover:text-brand-accent"
+				>
+					Midas Web
+				</a>.
 			</p>
 		</div>
 
 		<div>
 			<h2 class="eyebrow">Explore</h2>
-			<div class="mt-4 flex flex-col gap-3">
+			<div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3">
 				{#each navLinks as link}
 					<a href={link.href} class="text-sm text-brand-muted hover:text-brand-accent">{link.label}</a>
 				{/each}
