@@ -81,7 +81,7 @@
 					<p class="eyebrow">Local places</p>
 					<h1 class="mt-3 text-brand-text">Discover Long Eaton</h1>
 					<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted sm:text-[1.08rem]">
-						Explore town’s easiest local favourites, from parks to walking, cycling and slower afternoons outdoors.
+						Explore the town’s easiest local favourites, from parks to walking, cycling and slower afternoons outdoors.
 					</p>
 					<div class="mt-7 flex flex-wrap gap-3">
 						<a href="/discover-long-eaton" class="button-primary">Explore places</a>
