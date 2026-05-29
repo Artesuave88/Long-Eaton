@@ -1,6 +1,7 @@
 <script lang="ts">
   import {
     BusinessCategoryGrid,
+    CTASection,
     FeaturedBusinessPanel,
     FeaturedEventPanel,
     HeroCarousel,
@@ -57,6 +58,19 @@
       </section>
     {/if}
   </div>
+</section>
+
+<section class="section-surface">
+	<div class="container-shell section-space pt-0">
+		<CTASection
+			title="Want to add a listing or suggest an update?"
+			copy="If you've got a business, event or useful local detail to add, get in touch."
+			primaryHref="/contact"
+			primaryLabel="Get in touch"
+			secondaryHref="/businesses"
+			secondaryLabel="Browse listings"
+		/>
+	</div>
 </section>
 
 {#if featuredEvent}
