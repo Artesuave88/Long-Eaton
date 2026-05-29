@@ -36,13 +36,20 @@
 		<div>
 			<h2 class="eyebrow">Contact</h2>
 			<div class="mt-4 space-y-3 text-sm text-brand-muted">
-				<p>{site.address}</p>
-				<p>
-					<a href={`mailto:${site.email}`} class="hover:text-brand-accent">{site.email}</a>
-				</p>
-				<p>
-					<a href={`tel:${site.phone}`} class="hover:text-brand-accent">{site.phone}</a>
-				</p>
+				<a href="/contact" class="hover:text-brand-accent">Send an enquiry</a>
+				{#if site.address}
+					<p>{site.address}</p>
+				{/if}
+				{#if site.email}
+					<p>
+						<a href={`mailto:${site.email}`} class="hover:text-brand-accent">{site.email}</a>
+					</p>
+				{/if}
+				{#if site.phone}
+					<p>
+						<a href={`tel:${site.phone}`} class="hover:text-brand-accent">{site.phone}</a>
+					</p>
+				{/if}
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,14 @@
 <script lang="ts">
-	import { site } from '$data/site';
+	import type { ActionData } from './$types';
+
+	export let form: ActionData;
+
+	const enquiryTypes = [
+		'Add my business',
+		'Submit an event',
+		'Partnership enquiry',
+		'General message'
+	];
 </script>
 
 <svelte:head>
@@ -22,10 +31,11 @@
 
 				<div class="mt-8 space-y-5">
 					<div class="surface-card p-6">
-						<p class="eyebrow">Email</p>
-						<a href={`mailto:${site.email}`} class="mt-2 inline-flex text-lg font-semibold text-brand-text hover:text-brand-accent">
-							{site.email}
-						</a>
+						<p class="eyebrow">Fastest route</p>
+						<h2 class="mt-2 text-2xl text-brand-text">Use the enquiry form</h2>
+						<p class="mt-3 text-sm leading-7 text-brand-muted">
+							Messages are sent straight to the Love Long Eaton team at Midas Web.
+						</p>
 					</div>
 
 				</div>
@@ -33,27 +43,39 @@
 
 			<div class="surface-card p-6 sm:p-8">
 				<h2 class="text-brand-text">Send an enquiry</h2>
-				<form class="mt-6 space-y-5" on:submit|preventDefault>
+				{#if form?.success}
+					<div class="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-800">
+						Thanks, your message has been sent.
+					</div>
+				{:else if form?.error}
+					<div class="mt-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800">
+						{form.error}
+					</div>
+				{/if}
+				<form class="mt-6 space-y-5" method="POST">
+					<div class="hidden" aria-hidden="true">
+						<label for="website">Website</label>
+						<input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+					</div>
 					<div>
 						<label for="name" class="mb-2 block text-sm font-semibold text-brand-text">Name</label>
-						<input id="name" type="text" class="field-input" />
+						<input id="name" name="name" type="text" class="field-input" value={form?.values?.name ?? ''} required />
 					</div>
 					<div>
 						<label for="email" class="mb-2 block text-sm font-semibold text-brand-text">Email</label>
-						<input id="email" type="email" class="field-input" />
+						<input id="email" name="email" type="email" class="field-input" value={form?.values?.email ?? ''} required />
 					</div>
 					<div>
 						<label for="subject" class="mb-2 block text-sm font-semibold text-brand-text">Enquiry type</label>
-						<select id="subject" class="field-input">
-							<option>Add my business</option>
-							<option>Submit an event</option>
-							<option>Partnership enquiry</option>
-							<option>General message</option>
+						<select id="subject" name="subject" class="field-input" required>
+							{#each enquiryTypes as enquiryType}
+								<option selected={(form?.values?.subject ?? 'Add my business') === enquiryType}>{enquiryType}</option>
+							{/each}
 						</select>
 					</div>
 					<div>
 						<label for="message" class="mb-2 block text-sm font-semibold text-brand-text">Message</label>
-						<textarea id="message" rows="6" class="field-input"></textarea>
+						<textarea id="message" name="message" rows="6" class="field-input" required>{form?.values?.message ?? ''}</textarea>
 					</div>
 					<button type="submit" class="button-primary">Send enquiry</button>
 					<p class="text-sm text-brand-muted">We read every message and use enquiries to keep the guide accurate and useful.</p>
