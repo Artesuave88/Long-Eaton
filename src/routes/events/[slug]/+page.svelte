@@ -233,7 +233,7 @@
 						{/if}
 						{#if data.event.sourceUrl && data.event.sourceUrl !== data.event.ticketUrl}
 							<a href={data.event.sourceUrl} target="_blank" rel="noreferrer" class="button-secondary">
-								View source
+								More information
 							</a>
 						{/if}
 					</div>

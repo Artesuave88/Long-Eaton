@@ -518,7 +518,7 @@ const baseEvents: EventItem[] = [
     approximateReturnTime: "Around 12:30 PM to 1:00 PM",
     location: "Road parade through Long Eaton, followed by events on West Park",
     price: "Free entry to the main carnival site",
-    organiser: "Long Eaton Carnival volunteers",
+    organiser: "Long Eaton Community Carnival Association",
     strapline: "Bringing Long Eaton people together as a community",
     tags: [
       "Carnival",
@@ -556,6 +556,7 @@ const baseEvents: EventItem[] = [
         alt: "Families and fairground rides on West Park during Long Eaton Carnival",
       },
     ],
+    sourceUrl: "https://www.longeatoncarnival.org.uk/",
     volunteerRun: true,
     relatedDates: [
       { title: "Car boot sale", date: "2026-04-12" },
