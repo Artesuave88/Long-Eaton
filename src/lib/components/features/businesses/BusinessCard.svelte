@@ -23,7 +23,9 @@
 				alt={business.imageAlt ?? business.name}
 				loading="lazy"
 				decoding="async"
-				class="h-full w-full object-contain object-center transition duration-200 group-hover:scale-[1.02]"
+				class={`h-full w-full object-center transition duration-200 group-hover:scale-[1.02] ${
+					business.imageFit === 'cover' ? 'object-cover' : 'object-contain'
+				}`}
 			/>
 		</div>
 	{:else}

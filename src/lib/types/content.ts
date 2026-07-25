@@ -88,6 +88,7 @@ export type BusinessItem = {
   website?: string;
   imageSrc?: string;
   imageAlt?: string;
+  imageFit?: "cover" | "contain";
   imageLabel: string;
   imageStyle: string;
   featured?: boolean;

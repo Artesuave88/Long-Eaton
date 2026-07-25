@@ -67,7 +67,9 @@
 						<img
 							src={data.business.imageSrc}
 							alt={data.business.imageAlt ?? data.business.name}
-							class="max-h-full max-w-full object-contain"
+							class={data.business.imageFit === 'cover'
+								? 'h-full w-full object-cover'
+								: 'max-h-full max-w-full object-contain'}
 						/>
 					</div>
 				{:else}

@@ -45,6 +45,50 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-10",
+    slug: "dudl-coffee",
+    name: "DÜDL",
+    category: "Café & Creative Workshops",
+    location: "79 College Street, Long Eaton, NG10 4NN",
+    description:
+      "A creative café bringing together great coffee, hands-on crafts, workshops and community events.",
+    about: [
+      "DÜDL is a creative café on College Street where coffee and making things come together.",
+      "Alongside its café offering, DÜDL hosts hands-on workshops, craft activities, creative evenings and community gatherings.",
+      "The programme offers a welcoming way to try something creative, meet other people and enjoy a coffee in the heart of Long Eaton.",
+    ],
+    website: "https://www.dudlcoffee.co.uk/",
+    imageSrc: "/dudl-coffee.webp",
+    imageAlt: "Illustration of the colourful DÜDL creative café",
+    imageFit: "contain",
+    imageLabel: "Creative café",
+    imageStyle: "bg-[#efb8c6]",
+    featured: false,
+    isReal: true,
+  },
+  {
+    id: "business-9",
+    slug: "transform-hub-long-eaton",
+    name: "Transform Hub Long Eaton",
+    category: "Fitness & Wellness",
+    location: "4 Toton Close, Long Eaton, NG10",
+    description:
+      "Group personal training, nutrition guidance and accountability built around a supportive fitness community.",
+    about: [
+      "Transform Hub Long Eaton is a group training and body transformation gym based on Toton Close.",
+      "Its coaching combines group personal training with straightforward nutrition guidance, ongoing support and accountability.",
+      "New members can join the signature six-week transformation programme, with morning and evening coached sessions designed to help build fitness, confidence and sustainable habits.",
+    ],
+    website: "https://thetransformhub.co.uk/",
+    imageSrc: "/transform-hub.webp",
+    imageAlt: "Transform Hub member in a gym beneath the Be More wall graphic",
+    imageFit: "cover",
+    imageLabel: "Group training gym",
+    imageStyle: "bg-brand-accent/10",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-8",
     slug: "long-eaton-art-room",
     name: "Long Eaton Art Room",
