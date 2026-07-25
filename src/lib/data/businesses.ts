@@ -46,6 +46,29 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-11",
+    slug: "long-eaton-market",
+    name: "Long Eaton Market",
+    category: "Shopping & Markets",
+    location: "High Street and Market Place, Long Eaton",
+    description:
+      "Traditional town-centre market supporting independent traders with food, clothing, books, crafts and household goods.",
+    about: [
+      "Long Eaton Market brings a changing selection of independent traders into the town centre throughout the week.",
+      "Regular stalls sell products including cheese, meat and preserves, clothing, greetings cards, books, haberdashery and household goods.",
+      "The main market runs on Wednesdays, Fridays and Saturdays, with a smaller flea market on Tuesdays. Markets usually operate from 9am to 3pm, subject to weather conditions.",
+    ],
+    website:
+      "https://www.erewash.gov.uk/businesses-and-licensing/markets-and-car-boot-sales/erewash-markets",
+    imageSrc: "/long-eaton-market.jpg",
+    imageAlt: "Market stalls and shoppers on Long Eaton High Street",
+    imageFit: "cover",
+    imageLabel: "Long Eaton town-centre market",
+    imageStyle: "bg-brand-section",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-10",
     slug: "dudl-coffee",
     name: "DÜDL",
