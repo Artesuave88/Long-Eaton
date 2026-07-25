@@ -76,7 +76,7 @@ function createImportedEvent(
     category: "Entertainment",
     excerpt: show.title,
     description: [],
-    imageSrc: show.imageUrl ?? "/duchess-theatre.webp",
+    imageSrc: show.imageUrl ?? "/duchess-theatre-exterior.jpg",
     imageAlt: show.title,
     imageLabel: show.title,
     imageStyle: "bg-brand-accent/10",

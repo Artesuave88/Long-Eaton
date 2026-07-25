@@ -29,8 +29,9 @@ function buildImportedBusiness(venue: ImportedVenue): BusinessItem {
       ? venue.description
       : [venue.summary].filter(Boolean),
     website: venue.sourceUrl,
-    imageSrc: "/duchess-theatre.webp",
-    imageAlt: `${venue.name} exterior`,
+    imageSrc: "/duchess-theatre-exterior.jpg",
+    imageAlt: `${venue.name} entrance and original theatre frontage`,
+    imageFit: "cover",
     imageLabel: "Arts venue",
     imageStyle: "bg-brand-accent/10",
     featured: false,
