@@ -46,6 +46,53 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-15",
+    slug: "bethany-rose-bridal",
+    name: "Bethany Rose Bridal",
+    category: "Shopping & Bridal",
+    location: "59 Market Place, Long Eaton, NG10 1JQ",
+    description:
+      "Relaxed Long Eaton bridal boutique offering designer wedding dresses, accessories and personal appointments for a wide range of styles, sizes and budgets.",
+    about: [
+      "Bethany Rose Bridal is an appointment-only wedding dress boutique on Market Place, welcoming brides from across the Derby and Nottingham area.",
+      "The boutique carries more than 100 gowns from designers including Dando London, Ellis Bridal, Jean Fox and Gilded Rose, with samples in sizes 8 to 26 and styles available to order in sizes 4 to 32.",
+      "Brides can book a free consultation, browse bridal accessories or explore the Sale Room for off-the-peg dresses.",
+    ],
+    website: "https://bethanyrosebridal.co.uk/",
+    instagram: "https://www.instagram.com/bethany.rose.bridal/",
+    imageSrc: "/bethany-rose-bridal.jpg",
+    imageAlt:
+      "Bethany Rose Bridal label hanging from the lace of a wedding dress",
+    imageFit: "cover",
+    imageLabel: "Wedding dress boutique",
+    imageStyle: "bg-[#edf7f1]",
+    featured: false,
+    isReal: true,
+  },
+  {
+    id: "business-14",
+    slug: "mo-mo-italian-dining",
+    name: "Mo' Mo'",
+    category: "Food & Drink",
+    location: "71 Derby Road, Long Eaton, NG10 1LU",
+    description:
+      "An intimate Italian café and restaurant bringing the flavours of Puglia to Long Eaton through breakfast, brunch, pizza and relaxed evening dining.",
+    about: [
+      "Mo' Mo' is an Italian dining, coffee and bakery venue on Derby Road, inspired by the food and hospitality of Puglia.",
+      "The weekly menu includes Friday and Saturday breakfast and brunch, Thursday pizza and aperitivo evenings, Friday and Saturday night dining, and Sunday Italian lunch.",
+      "With just six tables, the restaurant offers a small and relaxed setting. Advance booking is recommended, particularly for evening service.",
+    ],
+    website: "https://www.momonottingham.co.uk/",
+    imageSrc:
+      "https://c55c196f71.clvaw-cdnwnd.com/752fb2f0601c5362d82ff43101d9ebf7/200000039-9215192153/700/Momo_cartolina-0.webp?ph=c55c196f71",
+    imageAlt: "Mo' Mo' Italian dining, coffee and bakery",
+    imageFit: "contain",
+    imageLabel: "Italian café and restaurant",
+    imageStyle: "bg-[#f4eadc]",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-13",
     slug: "the-butchers-long-eaton",
     name: "The Butchers Long Eaton",

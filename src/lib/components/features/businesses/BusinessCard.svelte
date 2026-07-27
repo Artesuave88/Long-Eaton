@@ -16,8 +16,12 @@
 
 	{#if business.imageSrc}
 		<div
-			class={`relative flex h-56 w-full items-center justify-center overflow-hidden border-b border-brand-border p-6 ${
-				business.slug === 'the-butchers-long-eaton' ? 'bg-[#f7f2ed]' : 'bg-brand-surface'
+			class={`relative flex h-56 w-full items-center justify-center overflow-hidden border-b border-brand-border ${
+				business.imageFit === 'cover' || business.slug === 'mo-mo-italian-dining' ? 'p-0' : 'p-6'
+			} ${
+				business.slug === 'the-butchers-long-eaton'
+					? 'bg-[#f7f2ed]'
+					: 'bg-brand-surface'
 			}`}
 		>
 			<img

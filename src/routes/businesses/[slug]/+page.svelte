@@ -79,10 +79,15 @@
 			<div class="space-y-6">
 				{#if data.business.imageSrc}
 					<div
-						class={`flex h-[24rem] w-full items-center justify-center overflow-hidden rounded-xl border border-brand-border p-10 shadow-sm ${
+						class={`flex h-[24rem] w-full items-center justify-center overflow-hidden rounded-xl border border-brand-border shadow-sm ${
+							data.business.imageFit === 'cover' ||
+							data.business.slug === 'mo-mo-italian-dining'
+								? 'p-0'
+								: 'p-10'
+						} ${
 							data.business.slug === 'the-butchers-long-eaton'
 								? 'bg-[#f7f2ed]'
-								: 'bg-brand-primaryDark'
+								: 'bg-brand-surface'
 						}`}
 					>
 						<img
