@@ -28,6 +28,12 @@
 					{link.label}
 				</a>
 			{/each}
+			<a
+				href="/donate"
+				class="ml-2 inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-primaryDark shadow-sm hover:bg-brand-section"
+			>
+				Donate
+			</a>
 		</nav>
 
 		<button

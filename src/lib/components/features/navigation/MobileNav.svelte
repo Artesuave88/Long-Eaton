@@ -15,6 +15,12 @@
 					{link.label}
 				</a>
 			{/each}
+			<a
+				href="/donate"
+				class="mt-2 inline-flex items-center justify-center rounded-lg bg-white px-4 py-3 text-sm font-semibold text-brand-primaryDark"
+			>
+				Donate
+			</a>
 		</nav>
 	</div>
 {/if}

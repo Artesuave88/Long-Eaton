@@ -14,6 +14,9 @@ importers:
       '@vercel/analytics':
         specifier: ^2.0.1
         version: 2.0.1(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.55.0)(vite@6.4.1(@types/node@22.19.15)(jiti@1.21.7)))(svelte@5.55.0)(typescript@5.9.3)(vite@6.4.1(@types/node@22.19.15)(jiti@1.21.7)))(svelte@5.55.0)
+      stripe:
+        specifier: ^22.3.2
+        version: 22.3.2(@types/node@22.19.15)
     devDependencies:
       '@sveltejs/adapter-vercel':
         specifier: ^5.6.1
@@ -1140,6 +1143,15 @@ packages:
     resolution: {integrity: sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==}
     engines: {node: '>=12'}
 
+  stripe@22.3.2:
+    resolution: {integrity: sha512-O13QOvgEIQvDlTy6Ubb5kB980wpbhmoZNsgCXKILjCMZS67f+bW+6w99k3gnSi/N1lkryoj1WYdpGT5Wc5edjg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@types/node': '>=18'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+
   sucrase@3.35.1:
     resolution: {integrity: sha512-DhuTmvZWux4H1UOnWMB3sk0sbaCVOoQZjv8u1rDoTV0HTdGem9hkAZtl4JZy8P2z4Bg0nT+YMeOFyVr4zcG5Tw==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -2219,6 +2231,10 @@ snapshots:
   strip-ansi@7.2.0:
     dependencies:
       ansi-regex: 6.2.2
+
+  stripe@22.3.2(@types/node@22.19.15):
+    optionalDependencies:
+      '@types/node': 22.19.15
 
   sucrase@3.35.1:
     dependencies:

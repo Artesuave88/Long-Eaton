@@ -30,6 +30,7 @@
 				{#each navLinks as link}
 					<a href={link.href} class="text-sm text-brand-muted hover:text-brand-accent">{link.label}</a>
 				{/each}
+				<a href="/donate" class="font-semibold text-brand-primary hover:text-brand-accent">Donate</a>
 			</div>
 		</div>
 
