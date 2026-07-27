@@ -2,12 +2,31 @@
 	export let value = '';
 	export let placeholder = 'Search';
 	export let label = placeholder;
+	export let id: string | undefined = undefined;
 </script>
 
 <label class="block">
 	<span class="sr-only">{label}</span>
 	<div class="relative">
-		<input bind:value type="search" placeholder={placeholder} class="field-input pr-12" />
+		<svg
+			class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-brand-muted"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			aria-hidden="true"
+		>
+			<circle cx="11" cy="11" r="7"></circle>
+			<path d="m20 20-4-4"></path>
+		</svg>
+		<input
+			{id}
+			bind:value
+			type="search"
+			placeholder={placeholder}
+			class="field-input"
+			style="padding-left: 3rem; padding-right: 3rem;"
+		/>
 		{#if value}
 			<button
 				type="button"

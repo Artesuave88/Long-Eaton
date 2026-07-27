@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
-	import { BusinessCard, CategoryFilter, EmptyState, SearchBar, SectionHeading } from '$components';
+	import { BusinessCard, EmptyState, SearchBar, SectionHeading } from '$components';
 	import { businessCategories, businessBrowseGroups, businesses } from '$data/businesses';
 	import { filterBusinesses } from '$data/listings';
 
@@ -71,12 +71,42 @@
 				<a href="/businesses" class="button-subtle">Clear filters</a>
 			</div>
 		{/if}
+		<div class="surface-card mb-8 bg-brand-section/60 p-5 sm:p-6">
+			<div class="grid gap-4 md:grid-cols-[minmax(0,1fr)_20rem] md:items-end">
+					<div>
+						<label for="business-search" class="text-sm font-semibold text-brand-text">
+							Search local businesses
+						</label>
+						<div class="mt-2">
+							<SearchBar
+								id="business-search"
+								bind:value={query}
+								placeholder="Try a business name, category or street…"
+							/>
+						</div>
+					</div>
 
-
-
-		<div class="listing-toolbar">
-			<SearchBar bind:value={query} placeholder="Search businesses, categories or streets" />
-			<CategoryFilter categories={businessCategories} bind:value={selectedCategory} />
+					<div>
+						<label for="business-category" class="text-sm font-semibold text-brand-text">
+							Category
+						</label>
+						<select
+							id="business-category"
+							bind:value={selectedCategory}
+							class="field-input mt-2 cursor-pointer"
+						>
+							{#each businessCategories as category}
+								<option value={category}>
+									{category === 'All' ? 'All categories' : category}
+								</option>
+							{/each}
+						</select>
+					</div>
+			</div>
+			<p class="mt-4 text-sm font-medium text-brand-muted" aria-live="polite">
+				Showing {filteredBusinesses.length}
+				{filteredBusinesses.length === 1 ? 'business' : 'businesses'}
+			</p>
 		</div>
 
 		{#if filteredBusinesses.length}
