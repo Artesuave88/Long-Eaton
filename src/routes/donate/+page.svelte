@@ -78,8 +78,10 @@
 							max="10000"
 							step="0.01"
 							required
-							class="field-input pl-9"
+							class="field-input"
+							style="padding-left: 2.75rem;"
 							aria-describedby="amount-help"
+							on:focus={(event) => event.currentTarget.select()}
 						/>
 					</div>
 					<p id="amount-help" class="mt-2 text-xs text-brand-muted">Minimum donation £1.</p>
