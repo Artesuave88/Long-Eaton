@@ -78,7 +78,12 @@
 					{#each summaryItems as item}
 						<div>
 							<p class="eyebrow">{item.label}</p>
-							<p class="mt-2 text-base font-semibold text-brand-text">{item.value}</p>
+							<p
+								class:text-brand-primary={item.value === 'On-foot entry: FREE'}
+								class="mt-2 text-base font-semibold text-brand-text"
+							>
+								{item.value}
+							</p>
 						</div>
 					{/each}
 				</div>

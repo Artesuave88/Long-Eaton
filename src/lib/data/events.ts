@@ -104,16 +104,16 @@ const carBootBase = {
   time: "Sellers from 7:00 AM, buyers from 8:00 AM",
   startTime: "7:00 AM seller setup",
   location: "Event Field, West Park, Long Eaton",
-  price: "Free entry on foot",
+  price: "On-foot entry: FREE",
   priceSummary:
-    "Sellers: Car £8, car plus trailer or large van £11. Buyers on foot free, on-site parking £1.",
+    "Sellers: Car £8, car plus trailer or large van £11. Buyers arriving on foot enter FREE; on-site parking is £1.",
   organiser: "Long Eaton Carnival committee",
   tags: ["Car Boot", "West Park", "Fundraising", "Community"],
   category: "Markets",
   description: [
     "Long Eaton Carnival's car boot sales return to West Park on selected Sundays through spring and summer.",
-    "Sellers can set up from 7am and there is no booking required. Buyers can come in from 8am, with free entry on foot and on-site parking for £1.",
-    "All proceeds go to the Carnival fund.",
+    "Sellers can set up from 7am and there is no booking required. Buyers can come in from 8am. Entry is FREE when arriving on foot, while on-site parking is £1.",
+    "All proceeds go towards future Long Eaton Carnival events. Donations are appreciated.",
   ],
   sellerInfo: [
     "Setup from 7am.",
@@ -123,10 +123,11 @@ const carBootBase = {
   ],
   buyerInfo: [
     "Gates open at 8am.",
-    "Free entry on foot.",
+    "Arriving on foot: FREE entry.",
     "On-site parking: £1.",
   ],
-  fundraisingNote: "All proceeds go to the Carnival fund.",
+  fundraisingNote:
+    "All proceeds go towards future Long Eaton Carnival events. Donations are appreciated.",
   locationNote: "The field is opposite George's Fish and Chip shop.",
   relatedDates: [
     { title: "Planned car boot sale", date: "2026-04-12" },

@@ -16,7 +16,9 @@
 
 	{#if business.imageSrc}
 		<div
-			class="relative flex h-56 w-full items-center justify-center overflow-hidden border-b border-brand-border bg-brand-surface p-6"
+			class={`relative flex h-56 w-full items-center justify-center overflow-hidden border-b border-brand-border p-6 ${
+				business.slug === 'the-butchers-long-eaton' ? 'bg-[#f7f2ed]' : 'bg-brand-surface'
+			}`}
 		>
 			<img
 				src={business.imageSrc}

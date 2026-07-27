@@ -46,6 +46,29 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-13",
+    slug: "the-butchers-long-eaton",
+    name: "The Butchers Long Eaton",
+    category: "Food & Drink",
+    location: "The Beeches, Market Place, Long Eaton, NG10 1LJ",
+    description:
+      "Traditional Long Eaton butcher and farm shop offering locally sourced meat, handcrafted products, meat packs and catering.",
+    about: [
+      "The Butchers Long Eaton combines traditional butchery skills with modern food standards, preparing fresh cuts, sausages, deli products and family meat packs.",
+      "The team works with farmers and suppliers as close to Long Eaton as possible, with an emphasis on quality, traceability and knowledgeable service.",
+      "Products are available from the Market Place shop and online, with wholesale and event catering enquiries also welcomed.",
+    ],
+    website: "https://www.thebutchers.co.uk/",
+    imageSrc:
+      "https://www.thebutchers.co.uk/cdn/shop/files/EC_29.png?v=1759748744&width=500",
+    imageAlt: "The Butchers Long Eaton logo",
+    imageFit: "contain",
+    imageLabel: "Traditional Long Eaton butcher and farm shop",
+    imageStyle: "bg-brand-primaryDark/10",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-12",
     slug: "fleek-studio-aesthetics",
     name: "Fleek Studio Aesthetics",

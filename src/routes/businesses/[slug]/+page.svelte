@@ -78,7 +78,13 @@
 
 			<div class="space-y-6">
 				{#if data.business.imageSrc}
-					<div class="flex h-[24rem] w-full items-center justify-center overflow-hidden rounded-xl border border-brand-border bg-brand-primaryDark p-10 shadow-sm">
+					<div
+						class={`flex h-[24rem] w-full items-center justify-center overflow-hidden rounded-xl border border-brand-border p-10 shadow-sm ${
+							data.business.slug === 'the-butchers-long-eaton'
+								? 'bg-[#f7f2ed]'
+								: 'bg-brand-primaryDark'
+						}`}
+					>
 						<img
 							src={data.business.imageSrc}
 							alt={data.business.imageAlt ?? data.business.name}
