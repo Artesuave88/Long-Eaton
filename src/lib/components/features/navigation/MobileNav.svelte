@@ -10,6 +10,7 @@
 			{#each navLinks as link}
 				<a
 					href={link.href}
+					on:click={() => (open = false)}
 					class="rounded-lg px-4 py-3 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
 				>
 					{link.label}
@@ -17,6 +18,7 @@
 			{/each}
 			<a
 				href="/donate"
+				on:click={() => (open = false)}
 				class="mt-2 inline-flex items-center justify-center rounded-lg bg-white px-4 py-3 text-sm font-semibold text-brand-primaryDark"
 			>
 				Donate
