@@ -86,6 +86,7 @@ export type BusinessItem = {
   description: string;
   about: string[];
   website?: string;
+  instagram?: string;
   imageSrc?: string;
   imageAlt?: string;
   imageFit?: "cover" | "contain";

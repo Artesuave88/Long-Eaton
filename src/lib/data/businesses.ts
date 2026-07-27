@@ -46,6 +46,30 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-12",
+    slug: "fleek-studio-aesthetics",
+    name: "Fleek Studio Aesthetics",
+    category: "Beauty & Aesthetics",
+    location: "57 Curzon Street, Long Eaton, NG10 4FG",
+    description:
+      "Luxury aesthetics and semi-permanent make-up studio offering tailored treatments in the heart of Long Eaton.",
+    about: [
+      "Fleek Studio Aesthetics is a Long Eaton beauty studio founded in 2013 by Sarah Gilmour.",
+      "The studio specialises in semi-permanent make-up and aesthetic treatments, including microblading, dermal fillers, anti-wrinkle injections and fat-dissolving treatments.",
+      "Appointments are designed around each client's preferred look, with an emphasis on natural results, comfort and careful consultation.",
+    ],
+    website: "https://www.fleek.studio/",
+    instagram: "https://www.instagram.com/fleek.studio.aesthetics/",
+    imageSrc: "/fleek-studio.jpg",
+    imageAlt:
+      "Fleek Studio founder Sarah Gilmour inside the Long Eaton aesthetics studio",
+    imageFit: "cover",
+    imageLabel: "Beauty and aesthetics studio",
+    imageStyle: "bg-brand-accent/10",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-11",
     slug: "long-eaton-market",
     name: "Long Eaton Market",

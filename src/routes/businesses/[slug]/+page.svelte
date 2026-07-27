@@ -44,6 +44,14 @@
 							</a>
 						</div>
 					{/if}
+					{#if data.business.instagram}
+						<div>
+							<p class="eyebrow">Instagram</p>
+							<a href={data.business.instagram} target="_blank" rel="noreferrer" class="mt-2 inline-flex text-base font-semibold text-brand-accent hover:underline">
+								View profile
+							</a>
+						</div>
+					{/if}
 				</div>
 
 				<div class="mt-8 space-y-5 text-base leading-8 text-brand-muted">
@@ -56,6 +64,13 @@
 					<div class="mt-8">
 						<a href={data.business.website} target="_blank" rel="noreferrer" class="button-primary">
 							Visit website
+						</a>
+					</div>
+				{/if}
+				{#if data.business.instagram}
+					<div class="mt-8">
+						<a href={data.business.instagram} target="_blank" rel="noreferrer" class="button-primary">
+							Visit Instagram
 						</a>
 					</div>
 				{/if}
