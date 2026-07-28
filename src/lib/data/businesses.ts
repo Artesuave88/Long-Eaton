@@ -52,11 +52,11 @@ const baseBusinesses: BusinessItem[] = [
     category: "Shopping & Bridal",
     location: "59 Market Place, Long Eaton, NG10 1JQ",
     description:
-      "Relaxed Long Eaton bridal boutique offering designer wedding dresses, accessories and personal appointments for a wide range of styles, sizes and budgets.",
+      "Relaxed Long Eaton boutique offering designer wedding dresses, prom dresses, accessories and personal appointments for a wide range of styles, sizes and budgets.",
     about: [
-      "Bethany Rose Bridal is an appointment-only wedding dress boutique on Market Place, welcoming brides from across the Derby and Nottingham area.",
+      "Bethany Rose Bridal is an appointment-only bridal and prom dress boutique on Market Place, welcoming customers from across the Derby and Nottingham area.",
       "The boutique carries more than 100 gowns from designers including Dando London, Ellis Bridal, Jean Fox and Gilded Rose, with samples in sizes 8 to 26 and styles available to order in sizes 4 to 32.",
-      "Brides can book a free consultation, browse bridal accessories or explore the Sale Room for off-the-peg dresses.",
+      "Customers can book a free consultation, shop for a prom dress, browse bridal accessories or explore the Sale Room for off-the-peg dresses.",
     ],
     website: "https://bethanyrosebridal.co.uk/",
     instagram: "https://www.instagram.com/bethany.rose.bridal/",
@@ -64,7 +64,7 @@ const baseBusinesses: BusinessItem[] = [
     imageAlt:
       "Bethany Rose Bridal label hanging from the lace of a wedding dress",
     imageFit: "cover",
-    imageLabel: "Wedding dress boutique",
+    imageLabel: "Bridal and prom dress boutique",
     imageStyle: "bg-[#edf7f1]",
     featured: false,
     isReal: true,
@@ -89,6 +89,29 @@ const baseBusinesses: BusinessItem[] = [
     imageFit: "contain",
     imageLabel: "Italian café and restaurant",
     imageStyle: "bg-[#f4eadc]",
+    featured: false,
+    isReal: true,
+  },
+  {
+    id: "business-16",
+    slug: "the-looking-glass-long-eaton",
+    name: "The Looking Glass",
+    category: "Food & Drink",
+    location: "123–125 Derby Road, Long Eaton, NG10 4LA",
+    description:
+      "A relaxed, independent micropub inspired by Lewis Carroll’s Through the Looking-Glass, serving cask ales and a varied selection of other drinks.",
+    about: [
+      "The Looking Glass is an independent micropub on Derby Road, which opened in April 2026.",
+      "Its spacious, glass-fronted interior takes inspiration from Lewis Carroll’s Through the Looking-Glass and offers a calm, comfortable setting.",
+      "The bar serves changing gravity-fed cask ales alongside craft beer, cider, wine, prosecco, spirits, soft drinks and hot drinks.",
+    ],
+    instagram: "https://www.instagram.com/thelookingglassl.e/",
+    imageSrc: "/the-looking-glass.png",
+    imageAlt:
+      "The Looking Glass logo with a yellow mirror and the words we’re all mad here on a green background",
+    imageFit: "contain",
+    imageLabel: "Independent micropub",
+    imageStyle: "bg-[#21894c]",
     featured: false,
     isReal: true,
   },
