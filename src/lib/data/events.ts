@@ -384,7 +384,7 @@ const baseEvents: EventItem[] = [
     location: "DÜDL, 79 College Street, Long Eaton, NG10 4NN",
     price: "£7.50",
     organiser: "DÜDL",
-    category: "Community / Crafts",
+    category: "Crafts / Community",
     excerpt:
       "Meet new people through quick drawing challenges in a relaxed speed-friending format.",
     description: [

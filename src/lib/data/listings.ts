@@ -95,7 +95,21 @@ export function sortEvents(events: EventItem[]) {
 }
 
 export function getCategories<T extends { category: string }>(items: T[]) {
-  return [ALL_CATEGORIES, ...new Set(items.map((item) => item.category))];
+  const categories = new Set(
+    items.flatMap((item) => getCategoryFacets(item.category)),
+  );
+
+  return [
+    ALL_CATEGORIES,
+    ...[...categories].sort((left, right) => left.localeCompare(right)),
+  ];
+}
+
+function getCategoryFacets(category: string) {
+  return category
+    .split("/")
+    .map((facet) => facet.trim())
+    .filter(Boolean);
 }
 
 export function filterEvents(
@@ -110,7 +124,8 @@ export function filterEvents(
       slugMatches(event.excerpt, query) ||
       slugMatches(event.location ?? "", query);
     const matchesCategory =
-      category === ALL_CATEGORIES || event.category === category;
+      category === ALL_CATEGORIES ||
+      getCategoryFacets(event.category).includes(category);
 
     return matchesQuery && matchesCategory;
   });
