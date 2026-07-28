@@ -403,6 +403,38 @@ const baseEvents: EventItem[] = [
       "https://www.dudlcoffee.co.uk/whatson-store/p/5fuzde8ucogdjw9p7tbuqc5j746l34-nkzwf-77sgn-7dh22",
   },
   {
+    id: "event-dead-dads-mums-club-autumn-meet-2026-10-21",
+    slug: "dead-dads-mums-club-autumn-meet-21-october-2026",
+    title: "The Dead Dads & Mums Club Autumn Meet",
+    type: "event",
+    date: "2026-10-21",
+    time: "18:30-20:00",
+    startTime: "18:30",
+    endTime: "20:00",
+    location: "Forum Speciality Coffee, Draycott",
+    locationNote:
+      "This event is in the neighbouring village of Draycott, not Long Eaton.",
+    price: "Free",
+    organiser: "Ali Naylor",
+    category: "Community / Wellbeing",
+    tags: ["Grief support", "Community", "Free", "Draycott"],
+    audience:
+      "Anyone affected by the death of a mum or dad who would value a relaxed, understanding space.",
+    excerpt:
+      "A relaxed, supportive meet-up in nearby Draycott for people affected by the death of a mum or dad.",
+    description: [
+      "Grief and loss can feel lonely and difficult to talk about. This informal meet-up offers a space to talk about death and bereavement, listen to others, or simply spend time with people who understand.",
+      "The evening is intended to be relaxed and conversational, with drinks and snacks available at the venue.",
+    ],
+    ticketUrl: "https://luma.com/syasl7yr",
+    imageSrc: "/dead-dads-mums-club-autumn-meet.jpg",
+    imageAlt: "Artwork for The Dead Dads & Mums Club Autumn Meet",
+    imageFit: "contain",
+    imageLabel: "The Dead Dads & Mums Club Autumn Meet",
+    imageStyle: "bg-brand-section",
+    sourceUrl: "https://luma.com/syasl7yr",
+  },
+  {
     id: "event-long-eaton-art-room-alternative-night-at-the-races-2026-02-28",
     slug: "alternative-night-at-the-races-28-february-2026",
     title: "Alternative Night at the Races",
