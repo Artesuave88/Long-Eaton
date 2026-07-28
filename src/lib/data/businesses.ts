@@ -99,7 +99,7 @@ const baseBusinesses: BusinessItem[] = [
     category: "Food & Drink",
     location: "123–125 Derby Road, Long Eaton, NG10 4LA",
     description:
-      "A relaxed, independent micropub inspired by Lewis Carroll’s Through the Looking-Glass, serving cask ales and a varied selection of other drinks.",
+      "A relaxed, independent micropub, serving cask ales and a varied selection of other drinks.",
     about: [
       "The Looking Glass is an independent micropub on Derby Road, which opened in April 2026.",
       "Its spacious, glass-fronted interior takes inspiration from Lewis Carroll’s Through the Looking-Glass and offers a calm, comfortable setting.",
