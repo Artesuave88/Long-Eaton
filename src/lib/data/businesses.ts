@@ -46,6 +46,29 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-17",
+    slug: "caffe-inna",
+    name: "Caffe-Inna",
+    category: "Food & Drink",
+    location: "21 Market Place, Long Eaton, NG10 1JL",
+    description:
+      "A Long Eaton café and Greek deli serving coffee, café food, Greek dishes and takeaway options from Market Place.",
+    about: [
+      "Caffe-Inna is an independent café and Greek deli at 21 Market Place in Long Eaton.",
+      "Its offering includes coffee and café favourites alongside Greek food, with takeaway and delivery options available.",
+      "Follow Caffe-Inna on Instagram for current menus, opening times and updates.",
+    ],
+    instagram: "https://www.instagram.com/caffeinna2025/",
+    imageSrc: "/caffe-inna.png",
+    imageAlt:
+      "Illustration of musicians gathered around a table with the Caffe-Inna logo",
+    imageFit: "cover",
+    imageLabel: "Caffe-Inna café illustration",
+    imageStyle: "bg-[#171717]",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-15",
     slug: "bethany-rose-bridal",
     name: "Bethany Rose Bridal",
