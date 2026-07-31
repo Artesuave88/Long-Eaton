@@ -46,6 +46,50 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-19",
+    slug: "books-on-the-bridge",
+    name: "Books on the Bridge",
+    category: "Shopping & Books",
+    location: "Long Eaton",
+    description:
+      "An independent local bookseller sharing books, recommendations and updates with readers in Long Eaton.",
+    about: [
+      "Books on the Bridge is an independent bookseller for the Long Eaton community.",
+      "Follow Books on the Bridge on Instagram for its latest books, recommendations and updates.",
+    ],
+    instagram: "https://www.instagram.com/booksonthebridge",
+    imageSrc: "/books-on-the-bridge.png",
+    imageAlt: "Books on the Bridge logo with an open book and bridge",
+    imageFit: "contain",
+    imageLabel: "Independent bookseller",
+    imageStyle: "bg-[#d9e8df]",
+    featured: false,
+    isReal: true,
+  },
+  {
+    id: "business-18",
+    slug: "limas-long-eaton",
+    name: "Limas",
+    category: "Food & Drink",
+    location: "115 Derby Road, Long Eaton, NG10 4LA",
+    description:
+      "A relaxed, social restaurant and bar serving freshly prepared small plates, with a dedicated coeliac-safe menu.",
+    about: [
+      "Limas is a restaurant and bar on Derby Road where freshly prepared small plates are designed to be shared around the table.",
+      "Dishes are cooked to order and served as they are ready, giving guests the chance to explore a variety of flavours in a relaxed setting.",
+      "The restaurant offers carefully prepared gluten-free dishes in a dedicated coeliac-safe environment and was awarded two AA Rosettes in October 2025.",
+    ],
+    website: "https://limas.uk/",
+    instagram: "https://www.instagram.com/limas_restaurant_bar/",
+    imageSrc: "/limas-logo.png",
+    imageAlt: "Limas Restaurant and Bar logo",
+    imageFit: "contain",
+    imageLabel: "Small-plates restaurant and bar",
+    imageStyle: "bg-[#f5f0e8]",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-17",
     slug: "caffe-inna",
     name: "Caffe-Inna",
