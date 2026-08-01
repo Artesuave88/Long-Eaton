@@ -17,6 +17,29 @@
   const featuredBusiness = getFeaturedBusiness(businesses);
   const homepageDiscoverPlaces = discoverPlaces.slice(0, 3);
   const homepageRegularEvents = regularEvents.slice(0, 6);
+
+  let shareStatus = "";
+
+  async function shareSite() {
+    const shareData = {
+      title: "Love Long Eaton",
+      text: "A handy local guide to events, businesses and places around Long Eaton.",
+      url: window.location.origin,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        shareStatus = "Thanks for sharing!";
+      } else {
+        await navigator.clipboard.writeText(shareData.url);
+        shareStatus = "Link copied — ready to share!";
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      shareStatus = "Copy the address from your browser to share it.";
+    }
+  }
 </script>
 
 <svelte:head>
@@ -31,6 +54,27 @@
     content="A calm local guide to what's on, where to go and who to know in Long Eaton."
   />
 </svelte:head>
+
+<section class="border-b border-sky-200 bg-sky-50" aria-labelledby="welcome-heading">
+  <div class="container-shell flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
+    <div class="max-w-3xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-primary">A warm local welcome</p>
+      <h1 id="welcome-heading" class="mt-2 text-2xl text-brand-text sm:text-3xl">
+        Thanks for visiting, Long Eaton!
+      </h1>
+      <p class="mt-2 text-sm leading-6 text-brand-muted sm:text-base">
+        It’s lovely to see so many new visitors. Bookmark Love Long Eaton so you can easily find
+        local events, independent businesses and places to visit—and please share it with someone nearby.
+      </p>
+    </div>
+    <div class="flex shrink-0 flex-col items-start gap-2 sm:items-end">
+      <button type="button" class="button-primary whitespace-nowrap" on:click={shareSite}>
+        Share Love Long Eaton
+      </button>
+
+    </div>
+  </div>
+</section>
 
 <section class="section-surface">
   <div class="container-shell section-space">
