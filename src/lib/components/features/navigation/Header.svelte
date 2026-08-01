@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { navLinks } from '$data/site';
 	import MobileNav from './MobileNav.svelte';
+	import WeatherWidget from './WeatherWidget.svelte';
 
 	let open = false;
 </script>
@@ -18,6 +19,9 @@
 				class="h-16 w-auto brightness-0 invert [filter:brightness(0)_invert(1)_drop-shadow(0_2px_10px_rgba(7,18,41,0.35))] sm:h-20"
 			/>
 		</a>
+
+		<div class="ml-auto flex items-center gap-2">
+			<WeatherWidget />
 
 		<nav class="hidden items-center gap-2 lg:flex" aria-label="Primary">
 			{#each navLinks as link}
@@ -49,6 +53,7 @@
 				<span class="block h-0.5 w-5 bg-current"></span>
 			</div>
 		</button>
+		</div>
 	</div>
 
 	<MobileNav bind:open />
