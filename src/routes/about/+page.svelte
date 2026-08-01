@@ -19,6 +19,7 @@
 						eyebrow="About"
 						title="Built to make local life easier to find"
 						copy="Love Long Eaton is built to highlight what’s going on locally, from events and activities to the businesses that make the town what it is."
+						headingLevel="h1"
 					/>
 					<div class="mt-8 max-w-2xl space-y-5 text-base leading-8 text-brand-muted sm:text-[1.05rem]">
 						<p>

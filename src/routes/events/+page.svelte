@@ -25,6 +25,7 @@
 			eyebrow="Events"
 			title="What’s on in Long Eaton"
 			copy="One-off dates, weekly activities and regular local events across Long Eaton."
+			headingLevel="h1"
 		/>
 
 		<div class="mb-8">

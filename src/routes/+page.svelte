@@ -136,7 +136,7 @@
 			<div class="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
 				<div class="panel-content flex flex-col justify-center">
 					<p class="eyebrow">Local places</p>
-					<h1 class="mt-3 text-brand-text">Discover Long Eaton</h1>
+					<h2 class="mt-3 text-brand-text">Discover Long Eaton</h2>
 					<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted sm:text-[1.08rem]">
 						Explore the town’s favourite hidden gems and parks with our guide to the best places in Long Eaton.
 					</p>

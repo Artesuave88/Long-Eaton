@@ -48,6 +48,7 @@
 			eyebrow="Businesses"
 			title="Browse local businesses in Long Eaton"
 			copy="Independent businesses, local services and useful town listings in one place."
+			headingLevel="h1"
 		/>
 
 		{#if selectedBrowseGroupLabel || selectedLetter}

@@ -18,6 +18,7 @@
 			eyebrow="News"
 			title="Local updates and short reads"
 			copy="News, notices and useful updates from around Long Eaton."
+			headingLevel="h1"
 		/>
 		{#if newsItems.length}
 			<div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">

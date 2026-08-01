@@ -17,6 +17,7 @@
 			eyebrow="Discover"
 			title="A few easy ways into Long Eaton"
 			copy="Food, shops, walks and useful local suggestions gathered in one place."
+			headingLevel="h1"
 		/>
 
 		{#if discoverCategories.length}
