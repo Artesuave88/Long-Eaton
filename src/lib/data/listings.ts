@@ -1,4 +1,4 @@
-import type { BusinessItem, EventItem } from "$types/content";
+import type { BusinessItem, DiscoverPlace, EventItem } from "$types/content";
 import { slugMatches } from "$utils/format";
 import { matchesBusinessBrowseGroup } from "$data/businesses";
 
@@ -157,6 +157,34 @@ export function isUpcomingEvent(
 
 export function getUpcomingEvents(events: EventItem[], today = new Date()) {
   return events.filter((event) => isUpcomingEvent(event, today));
+}
+
+function includesName(value: string | undefined, name: string) {
+  return value?.toLocaleLowerCase().includes(name.toLocaleLowerCase()) ?? false;
+}
+
+export function getEventsForBusiness(
+  events: EventItem[],
+  business: Pick<BusinessItem, "name">,
+) {
+  return getUpcomingEvents(events).filter(
+    (event) =>
+      includesName(event.organiser, business.name) ||
+      includesName(event.location, business.name),
+  );
+}
+
+export function getEventsForPlace(
+  events: EventItem[],
+  place: Pick<DiscoverPlace, "title">,
+) {
+  return getUpcomingEvents(events).filter(
+    (event) =>
+      includesName(event.location, place.title) ||
+      event.tags?.some(
+        (tag) => tag.toLocaleLowerCase() === place.title.toLocaleLowerCase(),
+      ),
+  );
 }
 
 export function isRegularEvent(

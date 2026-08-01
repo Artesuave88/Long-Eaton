@@ -16,6 +16,21 @@ export type SeasonalGuide = {
   }[];
 };
 
+export type SearchGuide = {
+  slug: string;
+  title: string;
+  eyebrow: string;
+  description: string;
+  intro: string[];
+  sections: {
+    title: string;
+    copy: string;
+    href: string;
+    linkLabel: string;
+  }[];
+  relatedSlugs: string[];
+};
+
 export const seasonalGuides: SeasonalGuide[] = [
   {
     slug: "spring-in-long-eaton",
@@ -150,3 +165,90 @@ export const seasonalGuides: SeasonalGuide[] = [
     ],
   },
 ];
+
+export const searchGuides: SearchGuide[] = [
+  {
+    slug: "best-cafes-in-long-eaton",
+    title: "Best cafés in Long Eaton",
+    eyebrow: "Local food and drink guide",
+    description:
+      "Discover independent cafés in Long Eaton for coffee, café food, creative activities and relaxed daytime visits.",
+    intro: [
+      "Long Eaton’s independent café choices include a Greek deli in Market Place, an Italian café and bakery on Derby Road, and a creative café on College Street.",
+      "This guide only includes venues already listed in the Love Long Eaton directory. Check each venue’s own website or social pages for current menus, opening hours and booking details before visiting.",
+    ],
+    sections: [
+      {
+        title: "Caffe-Inna",
+        copy: "An independent café and Greek deli in Market Place serving coffee, café favourites and Greek food, with takeaway and delivery options available.",
+        href: "/businesses/caffe-inna",
+        linkLabel: "View Caffe-Inna",
+      },
+      {
+        title: "Mo' Mo'",
+        copy: "An intimate Italian café, restaurant and bakery on Derby Road offering coffee alongside Friday and Saturday breakfast and brunch, plus selected evening and Sunday dining.",
+        href: "/businesses/mo-mo-italian-dining",
+        linkLabel: "View Mo' Mo'",
+      },
+      {
+        title: "DÜDL",
+        copy: "A creative café on College Street combining coffee with hands-on crafts, workshops, creative evenings and community events.",
+        href: "/businesses/dudl-coffee",
+        linkLabel: "View DÜDL",
+      },
+    ],
+    relatedSlugs: ["independent-shops-in-long-eaton"],
+  },
+  {
+    slug: "independent-shops-in-long-eaton",
+    title: "Independent shops in Long Eaton",
+    eyebrow: "Shop local guide",
+    description:
+      "Find independent shops and traders in Long Eaton, including books, bridalwear, local food, crafts and the town-centre market.",
+    intro: [
+      "Long Eaton has independent specialists and traders across Market Place, the High Street and surrounding streets. This selection is drawn directly from businesses already listed on Love Long Eaton.",
+      "Opening arrangements and market traders can change, so follow the links for current information before making a special journey.",
+    ],
+    sections: [
+      {
+        title: "Books on the Bridge",
+        copy: "An independent local bookseller sharing books, recommendations and updates with readers in Long Eaton.",
+        href: "/businesses/books-on-the-bridge",
+        linkLabel: "View Books on the Bridge",
+      },
+      {
+        title: "Long Eaton Market",
+        copy: "A traditional town-centre market with a changing selection of independent traders selling food, clothing, books, crafts and household goods.",
+        href: "/businesses/long-eaton-market",
+        linkLabel: "View Long Eaton Market",
+      },
+      {
+        title: "Bethany Rose Bridal",
+        copy: "An appointment-only Market Place boutique offering designer wedding dresses, prom dresses, accessories and an off-the-peg sale room.",
+        href: "/businesses/bethany-rose-bridal",
+        linkLabel: "View Bethany Rose Bridal",
+      },
+      {
+        title: "The Butchers Long Eaton",
+        copy: "A traditional butcher and farm shop in Market Place offering locally sourced meat, deli products, family meat packs and catering.",
+        href: "/businesses/the-butchers-long-eaton",
+        linkLabel: "View The Butchers",
+      },
+      {
+        title: "Chefs Cut Butchery",
+        copy: "A Long Eaton retail butcher supplying regional meat, handmade pies, pastries, terrines and meat boxes from Fields Farm Road.",
+        href: "/businesses/chefs-cut-butchery",
+        linkLabel: "View Chefs Cut Butchery",
+      },
+      {
+        title: "DÜDL",
+        copy: "A creative café and workshop space where visitors can combine coffee with crafts, classes and community events.",
+        href: "/businesses/dudl-coffee",
+        linkLabel: "View DÜDL",
+      },
+    ],
+    relatedSlugs: ["best-cafes-in-long-eaton"],
+  },
+];
+
+export const guides = [...seasonalGuides, ...searchGuides];

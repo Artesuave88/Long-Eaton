@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { EventCard } from '$components';
-	import { seasonalGuides } from '$data/guides';
+	import { EventCard, SectionHeading } from '$components';
+	import { searchGuides, seasonalGuides } from '$data/guides';
 	import { sortedEvents } from '$data/events';
 	import { getUpcomingEvents } from '$data/listings';
 	import { getCurrentSeasonEvents, getEventsForSeason, getSeasonFromDate, type Season } from '$utils/seasons';
@@ -98,6 +98,26 @@
 					<p class="body-copy">No upcoming events have been added for this season yet.</p>
 				{/if}
 				<a href="/events" class="button-primary mt-7">View all events</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="section-muted" aria-label="Local recommendation guides">
+		<div class="container-shell section-space">
+			<SectionHeading
+				eyebrow="Local recommendations"
+				title="Guides to eating, shopping and exploring"
+				copy="Focused local guides built from verified places and businesses in the Love Long Eaton directory."
+			/>
+			<div class="section-grid mt-8">
+				{#each searchGuides as guide}
+					<a href={`/guides/${guide.slug}`} class="surface-card surface-card-hover p-6">
+						<p class="eyebrow">{guide.eyebrow}</p>
+						<h2 class="mt-3 text-2xl text-brand-text">{guide.title}</h2>
+						<p class="body-copy-sm mt-4">{guide.description}</p>
+						<span class="link-subtle mt-5">Read guide</span>
+					</a>
+				{/each}
 			</div>
 		</div>
 	</section>

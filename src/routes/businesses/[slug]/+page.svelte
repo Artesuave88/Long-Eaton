@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
+	import EventCard from '$components/features/events/EventCard.svelte';
 	import { businesses } from '$data/businesses';
 	import type { PageData } from './$types';
 
@@ -108,6 +109,18 @@
 		
 			</div>
 		</div>
+
+		{#if data.events.length}
+			<section class="mt-14" aria-labelledby="business-events-heading">
+				<div class="mb-6 max-w-2xl">
+					<p class="eyebrow">Coming up</p>
+					<h2 id="business-events-heading" class="mt-3 text-brand-text">Events at {data.business.name}</h2>
+				</div>
+				<div class="section-grid">
+					{#each data.events as event}<EventCard {event} />{/each}
+				</div>
+			</section>
+		{/if}
 
 		{#if relatedBusinesses.length}
 			<section class="mt-14">
