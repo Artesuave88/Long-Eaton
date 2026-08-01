@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { primaryNavLinks } from '$data/site';
+	import { navigation } from '$data/site';
 	import MobileNav from './MobileNav.svelte';
 	import WeatherWidget from './WeatherWidget.svelte';
 
@@ -24,7 +24,7 @@
 			<WeatherWidget />
 
 		<nav class="hidden items-center gap-2 lg:flex" aria-label="Primary">
-			{#each primaryNavLinks as link}
+			{#each navigation.primary as link}
 				<a
 					href={link.href}
 					class="rounded-xl px-4 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
@@ -33,10 +33,10 @@
 				</a>
 			{/each}
 			<a
-				href="/donate"
+				href={navigation.donate.href}
 				class="ml-2 inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-primaryDark shadow-sm hover:bg-brand-section"
 			>
-				Donate
+				{navigation.donate.label}
 			</a>
 		</nav>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { EventItem } from "$types/content";
   import { formatEventDate } from "$utils/format";
+  import { isRepeatedEventText } from "$data/listings";
   import ImagePlaceholder from "../../ui/ImagePlaceholder.svelte";
 
   export let event: EventItem;
@@ -32,9 +33,9 @@
         <p class="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">
           {formatEventDate(event)}
         </p>
-        <p class="mt-5 max-w-2xl text-base leading-8 text-brand-muted sm:text-[1.05rem]">
-          {event.excerpt}
-        </p>
+        {#if !isRepeatedEventText(event.excerpt, event.title)}
+          <p class="mt-5 max-w-2xl text-base leading-8 text-brand-muted sm:text-[1.05rem]">{event.excerpt}</p>
+        {/if}
         <p class="mt-4 text-sm font-medium text-brand-muted">{event.location}</p>
       </div>
 

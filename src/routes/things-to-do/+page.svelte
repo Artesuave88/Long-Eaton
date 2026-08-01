@@ -2,10 +2,12 @@
 	import { BusinessCard, DiscoverPlaceCard, EventCard, SectionHeading } from '$components';
 	import { businesses } from '$data/businesses';
 	import { discoverPlaces } from '$data/discover';
-	import { upcomingEvents } from '$data/events';
+	import { sortedEvents } from '$data/events';
+	import { getUpcomingEvents } from '$data/listings';
 	import { seasonalGuides } from '$data/guides';
 	import { getSeasonFromDate } from '$utils/seasons';
 
+	const upcomingEvents = getUpcomingEvents(sortedEvents);
 	const featuredEvents = upcomingEvents.slice(0, 3);
 	const familyEvents = upcomingEvents
 		.filter((event) =>

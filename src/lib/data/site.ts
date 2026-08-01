@@ -7,12 +7,12 @@ export const site = {
   address: "",
 };
 
-export const navLinks = [
+const links = [
   { href: "/", label: "Home" },
   { href: "/things-to-do", label: "Things to do" },
   { href: "/events", label: "Events" },
   { href: "/discover-long-eaton", label: "Places" },
-  { href: "/guides", label: "Seasonal guides" },
+  { href: "/guides", label: "Guides" },
   { href: "/businesses", label: "Businesses" },
   { href: "/jobs", label: "Jobs" },
   { href: "/about", label: "About" },
@@ -28,6 +28,9 @@ const primaryNavHrefs = new Set([
   "/contact",
 ]);
 
-export const primaryNavLinks = navLinks.filter((link) =>
-  primaryNavHrefs.has(link.href),
-);
+export const navigation = {
+  all: links,
+  primary: links.filter((link) => primaryNavHrefs.has(link.href)),
+  footer: links,
+  donate: { href: "/donate", label: "Donate" },
+};

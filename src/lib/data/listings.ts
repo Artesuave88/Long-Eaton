@@ -14,6 +14,19 @@ const DAY_INDEX: Record<NonNullable<EventItem["dayOfWeek"]>, number> = {
   Saturday: 6,
 };
 
+function getLondonCalendarDate(value: Date) {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(value);
+  const part = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((item) => item.type === type)?.value ?? "";
+
+  return `${part("year")}-${part("month")}-${part("day")}`;
+}
+
 function getRecurringDays(event: Pick<EventItem, "dayOfWeek" | "daysOfWeek">) {
   if (event.daysOfWeek?.length) {
     return event.daysOfWeek;
@@ -30,8 +43,7 @@ function getNextRecurringDate(
     return null;
   }
 
-  const comparisonDate = new Date(today);
-  comparisonDate.setHours(0, 0, 0, 0);
+  const comparisonDate = new Date(`${getLondonCalendarDate(today)}T12:00:00Z`);
 
   const recurringDays = getRecurringDays(event);
 
@@ -42,10 +54,10 @@ function getNextRecurringDate(
   const nextDate = recurringDays
     .map((day) => {
       const targetDay = DAY_INDEX[day];
-      const currentDay = comparisonDate.getDay();
+      const currentDay = comparisonDate.getUTCDay();
       const daysUntilNext = (targetDay - currentDay + 7) % 7;
       const candidate = new Date(comparisonDate);
-      candidate.setDate(comparisonDate.getDate() + daysUntilNext);
+      candidate.setUTCDate(comparisonDate.getUTCDate() + daysUntilNext);
       return candidate;
     })
     .sort((left, right) => left.getTime() - right.getTime())[0];
@@ -76,8 +88,7 @@ export function getEventSortValue(
   }
 
   if (event.ongoing) {
-    const comparisonDate = new Date(today);
-    comparisonDate.setHours(0, 0, 0, 0);
+    const comparisonDate = new Date(`${getLondonCalendarDate(today)}T12:00:00Z`);
     return comparisonDate.getTime();
   }
 
@@ -146,17 +157,20 @@ export function isUpcomingEvent(
     return false;
   }
 
-  const comparisonDate = new Date(today);
-  comparisonDate.setHours(0, 0, 0, 0);
+  const londonDate = getLondonCalendarDate(today);
 
-  const eventDate = new Date(event.endDate ?? event.date);
-  eventDate.setHours(0, 0, 0, 0);
-
-  return eventDate >= comparisonDate;
+  return (event.endDate ?? event.date).slice(0, 10) >= londonDate;
 }
 
 export function getUpcomingEvents(events: EventItem[], today = new Date()) {
   return events.filter((event) => isUpcomingEvent(event, today));
+}
+
+export function isRepeatedEventText(text: string | undefined, title: string) {
+  const normalise = (value: string) =>
+    value.toLocaleLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+  return Boolean(text && normalise(text) === normalise(title));
 }
 
 function includesName(value: string | undefined, name: string) {
@@ -185,6 +199,21 @@ export function getEventsForPlace(
         (tag) => tag.toLocaleLowerCase() === place.title.toLocaleLowerCase(),
       ),
   );
+}
+
+export function getEventsForTopics(events: EventItem[], topics: string[]) {
+  const normalisedTopics = topics.map((topic) => topic.toLocaleLowerCase());
+
+  return getUpcomingEvents(events).filter((event) => {
+    const searchable = [
+      event.title,
+      event.category,
+      event.excerpt,
+      ...(event.tags ?? []),
+    ].join(" ").toLocaleLowerCase();
+
+    return normalisedTopics.some((topic) => searchable.includes(topic));
+  });
 }
 
 export function isRegularEvent(

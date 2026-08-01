@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { navLinks, site } from '$data/site';
+	import { navigation, site } from '$data/site';
 </script>
 
 <footer class="border-t border-brand-border bg-brand-surface">
@@ -27,10 +27,10 @@
 		<div>
 			<h2 class="eyebrow">Explore</h2>
 			<div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3">
-				{#each navLinks as link}
+				{#each navigation.footer as link}
 					<a href={link.href} class="text-sm text-brand-muted hover:text-brand-accent">{link.label}</a>
 				{/each}
-				<a href="/donate" class="font-semibold text-brand-primary hover:text-brand-accent">Donate</a>
+				<a href={navigation.donate.href} class="font-semibold text-brand-primary hover:text-brand-accent">{navigation.donate.label}</a>
 			</div>
 		</div>
 

@@ -1,8 +1,9 @@
 import { error } from "@sveltejs/kit";
-import { upcomingEvents } from "$data/events";
+import { sortedEvents } from "$data/events";
+import { getUpcomingEvents } from "$data/listings";
 
 export const load = ({ params }) => {
-  const event = upcomingEvents.find((item) => item.slug === params.slug);
+  const event = getUpcomingEvents(sortedEvents).find((item) => item.slug === params.slug);
 
   if (!event) {
     throw error(404, "Event not found");

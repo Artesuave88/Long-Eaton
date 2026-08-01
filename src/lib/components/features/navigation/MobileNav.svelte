@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { primaryNavLinks } from '$data/site';
+	import { navigation } from '$data/site';
 
 	export let open = false;
 </script>
@@ -7,7 +7,7 @@
 {#if open}
 	<div class="border-t border-white/10 bg-brand-primaryDark shadow-sm lg:hidden">
 		<nav class="container-shell flex flex-col gap-1 py-4" aria-label="Mobile">
-			{#each primaryNavLinks as link}
+			{#each navigation.primary as link}
 				<a
 					href={link.href}
 					on:click={() => (open = false)}
@@ -17,11 +17,11 @@
 				</a>
 			{/each}
 			<a
-				href="/donate"
+				href={navigation.donate.href}
 				on:click={() => (open = false)}
 				class="mt-2 inline-flex items-center justify-center rounded-lg bg-white px-4 py-3 text-sm font-semibold text-brand-primaryDark"
 			>
-				Donate
+				{navigation.donate.label}
 			</a>
 		</nav>
 	</div>

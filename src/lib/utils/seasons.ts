@@ -11,7 +11,10 @@ export const seasonMonths: Record<Season, readonly number[]> = {
 };
 
 export function getSeasonFromDate(date: Date): Season {
-  const month = date.getMonth() + 1;
+  const month = Number(new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    month: "numeric",
+  }).format(date));
 
   if (month >= 3 && month <= 5) return "spring";
   if (month >= 6 && month <= 8) return "summer";

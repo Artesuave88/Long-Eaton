@@ -68,8 +68,8 @@ function createImportedEvent(
     date: show.startDate,
     dateLabel:
       formatDateLabel(show) ??
-      (!show.startDate ? "See source listing" : undefined),
-    time: "See source listing",
+      (!show.startDate ? "Dates available from organiser" : undefined),
+    time: "Times available from organiser",
     location: venue.address || "West Gate, Long Eaton, Derbyshire, NG10 1EF",
     organiser: venueName,
     ticketUrl: show.url ?? undefined,

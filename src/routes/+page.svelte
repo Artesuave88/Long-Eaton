@@ -10,7 +10,7 @@
   import { businesses } from "$data/businesses";
   import { discoverPlaces } from "$data/discover";
   import { regularEvents, sortedEvents } from "$data/events";
-  import { getFeaturedBusiness, getHomepageEventSelection } from "$data/listings";
+  import { getFeaturedBusiness, getHomepageEventSelection, isRepeatedEventText } from "$data/listings";
   import { formatRecurringLabel } from "$utils/format";
 
   const { featuredEvent, heroEvents } = getHomepageEventSelection(sortedEvents);
@@ -114,7 +114,9 @@
             {#if event.location}
               <p class="mt-3 text-sm leading-7 text-brand-muted">{event.location}</p>
             {/if}
-            <p class="body-copy-sm mt-4">{event.excerpt}</p>
+            {#if !isRepeatedEventText(event.excerpt, event.title)}
+              <p class="body-copy-sm mt-4">{event.excerpt}</p>
+            {/if}
           </a>
         {/each}
       </div>

@@ -29,6 +29,7 @@ export type SearchGuide = {
     linkLabel: string;
   }[];
   relatedSlugs: string[];
+  eventTopics: string[];
 };
 
 export const seasonalGuides: SeasonalGuide[] = [
@@ -198,6 +199,7 @@ export const searchGuides: SearchGuide[] = [
       },
     ],
     relatedSlugs: ["independent-shops-in-long-eaton"],
+    eventTopics: ["cafe", "coffee", "food", "drink", "brunch", "workshop"],
   },
   {
     slug: "independent-shops-in-long-eaton",
@@ -248,6 +250,7 @@ export const searchGuides: SearchGuide[] = [
       },
     ],
     relatedSlugs: ["best-cafes-in-long-eaton"],
+    eventTopics: ["market", "shopping", "shop local", "books", "crafts", "makers"],
   },
 ];
 

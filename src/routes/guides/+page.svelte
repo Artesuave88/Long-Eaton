@@ -15,6 +15,7 @@
 	const now = new Date();
 	const currentSeason = getSeasonFromDate(now);
 	const currentSeasonEvents = getCurrentSeasonEvents(sortedEvents, now).slice(0, 6);
+	const currentSeasonEventIds = new Set(currentSeasonEvents.map((event) => event.id));
 	const upcomingDatedEvents = getUpcomingEvents(sortedEvents, now);
 	const seasons: Season[] = ['spring', 'summer', 'autumn', 'winter'];
 	const presentation: Record<Season, SeasonPresentation> = {
@@ -48,7 +49,12 @@
 		seasonalGuides.map((guide) => [guide.season, guide])
 	);
 	const eventsBySeason = new Map(
-		seasons.map((season) => [season, getEventsForSeason(upcomingDatedEvents, season).slice(0, 3)])
+		seasons.map((season) => [
+			season,
+			getEventsForSeason(upcomingDatedEvents, season)
+				.filter((event) => season !== currentSeason || !currentSeasonEventIds.has(event.id))
+				.slice(0, 3)
+		])
 	);
 </script>
 
@@ -65,7 +71,7 @@
 		<div class="hero-panel relative overflow-hidden px-6 py-12 text-white sm:px-10 sm:py-16 lg:px-14 lg:py-20">
 			<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.28),transparent_35%),linear-gradient(125deg,rgba(1,36,190,0.96),rgba(7,61,255,0.82))]"></div>
 			<div class="relative max-w-3xl">
-				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-white/80">Seasonal guides</p>
+				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-white/80">Guides</p>
 				<h1 class="mt-4 max-w-2xl text-white">Explore Long Eaton through the seasons</h1>
 				<p class="mt-5 max-w-2xl text-lg leading-8 text-white/85">
 					Useful starting points for local events, outdoor time and flexible days out throughout the year.

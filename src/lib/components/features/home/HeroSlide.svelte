@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { EventItem } from '$types/content';
 	import { formatEventDate } from '$utils/format';
+	import { isRepeatedEventText } from '$data/listings';
 
 	export let event: EventItem;
 
@@ -66,9 +67,9 @@
 				<h1 class="mt-4 max-w-[13ch] text-[1.85rem] leading-[0.98] text-white sm:text-[2.55rem] lg:text-[3rem]">
 					{event.title}
 				</h1>
-				<p class="hero-excerpt mt-4 max-w-[34ch] text-sm leading-7 text-white/84 sm:text-base">
-					{event.excerpt}
-				</p>
+				{#if !isRepeatedEventText(event.excerpt, event.title)}
+					<p class="hero-excerpt mt-4 max-w-[34ch] text-sm leading-7 text-white/84 sm:text-base">{event.excerpt}</p>
+				{/if}
 				<div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
 					<a href={`/events/${event.slug}`} class="button-primary w-full sm:w-auto">View Event</a>
 				</div>

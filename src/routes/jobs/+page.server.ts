@@ -39,6 +39,49 @@ const salary = (minimum?: number, maximum?: number) => {
   return `${minimum ? "From" : "Up to"} ${pounds(minimum || maximum || 0)} a year`;
 };
 
+const normaliseJobField = (value: string) =>
+  value
+    .toLocaleLowerCase("en-GB")
+    .replace(/&amp;/g, "and")
+    .replace(/\b(?:limited|ltd|plc|llp)\b/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+const normaliseJobUrl = (value: string) => {
+  try {
+    const url = new URL(value);
+    url.hash = "";
+    for (const key of [...url.searchParams.keys()]) {
+      if (key.startsWith("utm_") || ["source", "ref", "referrer"].includes(key)) {
+        url.searchParams.delete(key);
+      }
+    }
+    return url.toString().replace(/\/$/, "");
+  } catch {
+    return value.trim().toLocaleLowerCase();
+  }
+};
+
+function deduplicateJobs(jobs: Job[]) {
+  const sourceIds = new Set<string>();
+  const urls = new Set<string>();
+  const details = new Set<string>();
+
+  return jobs.filter((job) => {
+    const sourceId = `${job.source}:${job.id}`;
+    const url = normaliseJobUrl(job.url);
+    const detailKey = [job.employer, job.title, job.location]
+      .map(normaliseJobField)
+      .join("|");
+    const duplicate = sourceIds.has(sourceId) || urls.has(url) || details.has(detailKey);
+
+    sourceIds.add(sourceId);
+    urls.add(url);
+    details.add(detailKey);
+    return !duplicate;
+  });
+}
+
 async function getAdzunaJobs(fetcher: typeof fetch): Promise<Job[]> {
   if (!env.ADZUNA_APP_ID || !env.ADZUNA_APP_KEY) return [];
 
@@ -174,7 +217,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
   ]);
 
   return {
-    jobs: [...adzunaJobs, ...derbyshireJobs, ...reedJobs],
+    jobs: deduplicateJobs([...adzunaJobs, ...derbyshireJobs, ...reedJobs]),
     liveLocalJobsEnabled: Boolean(env.ADZUNA_APP_ID && env.ADZUNA_APP_KEY),
     reedEnabled: Boolean(env.REED_API_KEY),
   };

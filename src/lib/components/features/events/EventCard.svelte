@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { EventItem } from '$types/content';
 	import { formatEventDate, formatRecurringLabel } from '$utils/format';
+	import { isRepeatedEventText } from '$data/listings';
 	import ImagePlaceholder from '../../ui/ImagePlaceholder.svelte';
 
 	export let event: EventItem;
@@ -42,7 +43,9 @@
 				{#if event.location}{event.location}{/if}
 			</p>
 		{/if}
-		<p class="body-copy-sm mt-4">{event.excerpt}</p>
+		{#if !isRepeatedEventText(event.excerpt, event.title)}
+			<p class="body-copy-sm mt-4">{event.excerpt}</p>
+		{/if}
 		<a href={`/events/${event.slug}`} class="link-subtle mt-5">See details</a>
 	</div>
 </article>

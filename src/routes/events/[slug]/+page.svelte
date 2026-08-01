@@ -2,6 +2,7 @@
 	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
 	import { formatDisplayDate, formatEventDate, formatRecurringLabel } from '$utils/format';
 	import { eventJsonLd } from '$utils/seo';
+	import { isRepeatedEventText } from '$data/listings';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -73,7 +74,9 @@
 				{#if data.event.strapline}
 					<p class="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">{data.event.strapline}</p>
 				{/if}
-				<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted">{data.event.excerpt}</p>
+				{#if !isRepeatedEventText(data.event.excerpt, data.event.title)}
+					<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted">{data.event.excerpt}</p>
+				{/if}
 
 				{#if isParkrun}
 					<p class="mt-4 text-sm text-brand-muted">Weekly community event with free entry.</p>
@@ -93,11 +96,12 @@
 					{/each}
 				</div>
 
+				{#if data.event.description.some((paragraph) => !isRepeatedEventText(paragraph, data.event.title))}
 				<div class="mt-8">
 					<h2 class="text-2xl text-brand-text">{isActivity ? 'About this group' : 'About this event'}</h2>
 					<div class="mt-4 space-y-5 text-base leading-8 text-brand-muted">
 						{#each data.event.description as paragraph}
-							<p>{paragraph}</p>
+							{#if !isRepeatedEventText(paragraph, data.event.title)}<p>{paragraph}</p>{/if}
 						{/each}
 					</div>
 					{#if isParkrun || isJuniorParkrun}
@@ -125,6 +129,7 @@
 						</div>
 					{/if}
 				</div>
+				{/if}
 
 				{#if !isArtRoomEvent && (data.event.startTime || data.event.time || data.event.endTime || data.event.approximateReturnTime)}
 					<div class="surface-card mt-8 p-6">
