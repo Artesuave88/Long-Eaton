@@ -1,7 +1,7 @@
 export const site = {
   name: "Love Long Eaton",
   tagline: "A local guide to what's on, where to go and who's in Long Eaton.",
-  url: "https://long-eaton.vercel.app",
+  url: "https://www.lovelongeaton.com",
   email: "",
   phone: "",
   address: "",
