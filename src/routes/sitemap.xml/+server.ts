@@ -4,7 +4,7 @@ import { seasonalGuides } from '$data/guides';
 import { site } from '$data/site';
 
 export const prerender = true;
-const fixed = ['', '/events', '/whats-on-this-weekend', '/businesses', '/discover-long-eaton', '/jobs', '/about', '/contact', '/guides'];
+const fixed = ['', '/things-to-do', '/events', '/whats-on-this-weekend', '/businesses', '/discover-long-eaton', '/jobs', '/about', '/contact', '/guides'];
 const escapeXml = (value: string) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
 export const GET = () => {

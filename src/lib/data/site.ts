@@ -9,15 +9,25 @@ export const site = {
 
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/discover-long-eaton", label: "Discover" },
+  { href: "/things-to-do", label: "Things to do" },
   { href: "/events", label: "Events" },
-  { href: "/guides", label: "Guides" },
+  { href: "/discover-long-eaton", label: "Places" },
+  { href: "/guides", label: "Seasonal guides" },
   { href: "/businesses", label: "Businesses" },
   { href: "/jobs", label: "Jobs" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
-export const primaryNavLinks = navLinks.filter(
-  (link) => link.href !== "/about",
+const primaryNavHrefs = new Set([
+  "/",
+  "/things-to-do",
+  "/events",
+  "/businesses",
+  "/jobs",
+  "/contact",
+]);
+
+export const primaryNavLinks = navLinks.filter((link) =>
+  primaryNavHrefs.has(link.href),
 );
