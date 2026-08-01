@@ -27,6 +27,12 @@
 			copy="One-off dates, weekly activities and regular local events across Long Eaton."
 		/>
 
+		<div class="mb-8">
+			<a href="/whats-on-this-weekend" class="button-primary">
+				See what’s on this weekend
+			</a>
+		</div>
+
 		<div class="surface-card mb-8 overflow-hidden">
 			<div class="flex flex-wrap gap-3 border-b border-brand-border bg-brand-surface p-5 sm:p-6">
 				<button

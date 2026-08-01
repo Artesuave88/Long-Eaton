@@ -11,6 +11,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/discover-long-eaton", label: "Discover" },
   { href: "/events", label: "Events" },
+  { href: "/guides", label: "Guides" },
   { href: "/businesses", label: "Businesses" },
   { href: "/jobs", label: "Jobs" },
   { href: "/about", label: "About" },

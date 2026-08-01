@@ -1,9 +1,11 @@
 <script lang="ts">
 	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
 	import { formatDisplayDate, formatEventDate, formatRecurringLabel } from '$utils/format';
+	import { eventJsonLd } from '$utils/seo';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+	const structuredData = eventJsonLd(data.event);
 
 	const formatRelatedDate = (date?: string, dateLabel?: string) =>
 		date ? formatDisplayDate(date) : dateLabel ?? '';
@@ -55,6 +57,9 @@
 	<meta name="description" content={data.event.excerpt} />
 	<meta property="og:title" content={`${data.event.title} | Love Long Eaton`} />
 	<meta property="og:description" content={data.event.excerpt} />
+	{#if structuredData}
+		{@html `<script type="application/ld+json">${structuredData}</script>`}
+	{/if}
 </svelte:head>
 
 <article class="section-surface">
