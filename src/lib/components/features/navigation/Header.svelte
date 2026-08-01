@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { navLinks } from '$data/site';
+	import { primaryNavLinks } from '$data/site';
 	import MobileNav from './MobileNav.svelte';
 	import WeatherWidget from './WeatherWidget.svelte';
 
@@ -24,7 +24,7 @@
 			<WeatherWidget />
 
 		<nav class="hidden items-center gap-2 lg:flex" aria-label="Primary">
-			{#each navLinks as link}
+			{#each primaryNavLinks as link}
 				<a
 					href={link.href}
 					class="rounded-xl px-4 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"

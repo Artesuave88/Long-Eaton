@@ -17,3 +17,7 @@ export const navLinks = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
+
+export const primaryNavLinks = navLinks.filter(
+  (link) => link.href !== "/about",
+);

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { navLinks } from '$data/site';
+	import { primaryNavLinks } from '$data/site';
 
 	export let open = false;
 </script>
@@ -7,7 +7,7 @@
 {#if open}
 	<div class="border-t border-white/10 bg-brand-primaryDark shadow-sm lg:hidden">
 		<nav class="container-shell flex flex-col gap-1 py-4" aria-label="Mobile">
-			{#each navLinks as link}
+			{#each primaryNavLinks as link}
 				<a
 					href={link.href}
 					on:click={() => (open = false)}
