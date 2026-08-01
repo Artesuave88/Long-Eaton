@@ -46,6 +46,30 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-20",
+    slug: "chefs-cut-butchery",
+    name: "Chefs Cut Butchery",
+    category: "Food & Drink",
+    location:
+      "Unit 11, Sheet Stores Industrial Estate, Fields Farm Road, Long Eaton, NG10 1AU",
+    description:
+      "Long Eaton retail and catering butcher supplying quality meat, handmade pies, pastries, terrines and meat boxes to homes and hospitality businesses.",
+    about: [
+      "Chefs Cut Butchery is a retail and catering butcher based in a purpose-built, five-star food-hygiene-rated unit in Long Eaton.",
+      "The team combines traditional butchery with professional kitchen experience, supplying regional meat to online customers and restaurants across Nottinghamshire and Derbyshire.",
+      "Its in-house kitchen also produces handmade pies, pastries, terrines and other cooked goods, while meat boxes and gift cards can be ordered online.",
+    ],
+    website: "https://www.chefscut.co.uk/",
+    instagram: "https://www.instagram.com/chefscutbutchery/",
+    imageSrc: "/chefs-cut.png",
+    imageAlt: "Chefs Cut Butchery logo",
+    imageFit: "contain",
+    imageLabel: "Retail and catering butcher",
+    imageStyle: "bg-[#f4f1eb]",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-19",
     slug: "books-on-the-bridge",
     name: "Books on the Bridge",
