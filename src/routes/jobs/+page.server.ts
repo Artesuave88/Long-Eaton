@@ -232,7 +232,7 @@ export const actions = {
     const title = text(formData.get("title"));
     const location = text(formData.get("location"));
     const closingDate = text(formData.get("closingDate"));
-    const applyUrl = text(formData.get("applyUrl"));
+    const applyInstructions = text(formData.get("applyInstructions"));
     const details = text(formData.get("details"));
     const website = text(formData.get("website"));
     const values = {
@@ -242,12 +242,12 @@ export const actions = {
       title,
       location,
       closingDate,
-      applyUrl,
+      applyInstructions,
       details,
     };
 
     if (website) return { submitted: true };
-    if (!contactName || !email || !employer || !title || !location || !applyUrl) {
+    if (!contactName || !email || !employer || !title || !location || !applyInstructions) {
       return fail(400, {
         values,
         submitError: "Please complete all required fields.",
@@ -257,15 +257,6 @@ export const actions = {
       return fail(400, {
         values,
         submitError: "Please enter a valid contact email address.",
-      });
-    }
-    try {
-      const url = new URL(applyUrl);
-      if (!["http:", "https:"].includes(url.protocol)) throw new Error();
-    } catch {
-      return fail(400, {
-        values,
-        submitError: "Please enter a complete application URL beginning with https://.",
       });
     }
     if (!env.RESEND_API_KEY) {
@@ -282,7 +273,7 @@ export const actions = {
       ["Job title", title],
       ["Location", location],
       ["Closing date", closingDate || "Not supplied"],
-      ["Application URL", applyUrl],
+      ["How to apply", applyInstructions],
       ["Details", details || "Not supplied"],
     ];
     const response = await fetch("https://api.resend.com/emails", {

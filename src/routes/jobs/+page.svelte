@@ -134,7 +134,7 @@
         <p class="eyebrow">For employers</p>
         <h2 class="mt-2">Submit a local vacancy</h2>
         <p class="mt-4 body-copy">
-          Long Eaton employers can send us a role for review. Submission is free, and applications remain on your own website.
+          Long Eaton employers can send us a role for review. Submission is free, and applicants will follow the application instructions you provide.
         </p>
         <p class="mt-4 text-sm text-brand-muted">
           We review submissions before publication and may edit them for clarity.
@@ -181,8 +181,8 @@
               <input id="closingDate" name="closingDate" type="date" class="field-input" value={form?.values?.closingDate ?? ""} />
             </div>
             <div class="sm:col-span-2">
-              <label for="applyUrl" class="mb-2 block text-sm font-semibold">Application link *</label>
-              <input id="applyUrl" name="applyUrl" type="url" required class="field-input" placeholder="https://" value={form?.values?.applyUrl ?? ""} />
+              <label for="applyInstructions" class="mb-2 block text-sm font-semibold">How to apply *</label>
+              <textarea id="applyInstructions" name="applyInstructions" rows="3" required class="field-input" placeholder="Add a website link, phone number, email address or in-person instructions">{form?.values?.applyInstructions ?? ""}</textarea>
             </div>
             <div class="sm:col-span-2">
               <label for="details" class="mb-2 block text-sm font-semibold">Salary and other details</label>
