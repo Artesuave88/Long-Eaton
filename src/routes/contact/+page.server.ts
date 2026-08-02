@@ -5,6 +5,7 @@ import type { Actions } from "./$types";
 export const prerender = false;
 
 const contactRecipient = "info@midasweb.org";
+const defaultFromEmail = "Love Long Eaton <website@midasweb.org>";
 const enquiryTypes = new Set([
   "Add my business",
   "Submit an event",
@@ -62,7 +63,14 @@ export const actions = {
       });
     }
 
-    const fromEmail = env.CONTACT_FROM_EMAIL || "Love Long Eaton <onboarding@resend.dev>";
+    // Resend's onboarding address is sandbox-only and cannot deliver contact
+    // enquiries to arbitrary recipients. Always use our verified domain unless
+    // a different production sender has explicitly been configured.
+    const configuredFromEmail = env.CONTACT_FROM_EMAIL?.trim();
+    const fromEmail =
+      configuredFromEmail && !configuredFromEmail.includes("@resend.dev")
+        ? configuredFromEmail
+        : defaultFromEmail;
     const submittedAt = new Date().toLocaleString("en-GB", {
       dateStyle: "medium",
       timeStyle: "short",
@@ -102,7 +110,7 @@ export const actions = {
 
       if (!response.ok) {
         console.error("Resend contact form error:", await response.text());
-        return fail(500, {
+        return fail(502, {
           values,
           error: "Your message could not be sent. Please try again in a moment.",
         });
@@ -111,7 +119,7 @@ export const actions = {
       return { success: true };
     } catch (error) {
       console.error("Contact form submission failed:", error);
-      return fail(500, {
+      return fail(502, {
         values,
         error: "Your message could not be sent. Please try again in a moment.",
       });
