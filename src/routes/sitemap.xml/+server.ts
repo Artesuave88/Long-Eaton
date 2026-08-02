@@ -5,7 +5,21 @@ import { guides } from '$data/guides';
 import { site } from '$data/site';
 
 export const prerender = true;
-const fixed = ['', '/things-to-do', '/events', '/whats-on-this-weekend', '/businesses', '/discover-long-eaton', '/jobs', '/about', '/contact', '/guides'];
+const fixed = [
+	'',
+	'/things-to-do',
+	'/events',
+	'/whats-on-this-weekend',
+	'/businesses',
+	'/discover',
+	'/discover-long-eaton',
+	'/guides',
+	'/jobs',
+	'/news',
+	'/about',
+	'/contact',
+	'/donate'
+];
 const escapeXml = (value: string) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
 export const GET = () => {
