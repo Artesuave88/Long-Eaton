@@ -99,12 +99,18 @@ export type BusinessItem = {
 };
 
 export type NewsItem = {
+  id: string;
   title: string;
   date: string;
   excerpt: string;
   content: string[];
+  imageSrc?: string;
+  imageAlt?: string;
+  imageFit?: "cover" | "contain";
   imageLabel: string;
   imageStyle: string;
+  sourceUrl?: string;
+  sourceLabel?: string;
 };
 
 export type DiscoverCategory = {

@@ -11,6 +11,7 @@
   import { discoverPlaces } from "$data/discover";
   import { regularEvents, sortedEvents } from "$data/events";
   import { getFeaturedBusiness, getHomepageEventSelection, isRepeatedEventText } from "$data/listings";
+  import { newsItems } from "$data/news";
   import { formatRecurringLabel } from "$utils/format";
   import type { ActionData } from "./$types";
 
@@ -20,6 +21,7 @@
   const featuredBusiness = getFeaturedBusiness(businesses);
   const homepageDiscoverPlaces = discoverPlaces.slice(0, 3);
   const homepageRegularEvents = regularEvents.slice(0, 6);
+  const featuredNews = newsItems[0];
 
   let shareStatus = "";
 
@@ -166,14 +168,17 @@
 
 <section class="section-surface">
 	<div class="container-shell section-space pt-0">
-		<CTASection
-			title="Want to add a listing or suggest an update?"
-			copy="If you've got a business, event or useful local detail to add, get in touch."
-			primaryHref="/contact"
-			primaryLabel="Get in touch"
-			secondaryHref="/businesses"
-			secondaryLabel="Browse listings"
-		/>
+		{#if featuredNews}
+			<CTASection
+				eyebrow="Local news"
+				title={featuredNews.title}
+				copy={featuredNews.excerpt}
+				primaryHref={`/news#${featuredNews.id}`}
+				primaryLabel="Read update"
+				secondaryHref="/news"
+				secondaryLabel="Browse news"
+			/>
+		{/if}
 	</div>
 </section>
 

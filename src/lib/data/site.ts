@@ -15,6 +15,7 @@ const links = [
   { href: "/guides", label: "Guides" },
   { href: "/businesses", label: "Businesses" },
   { href: "/jobs", label: "Jobs" },
+  { href: "/news", label: "News" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -25,6 +26,7 @@ const primaryNavHrefs = new Set([
   "/events",
   "/businesses",
   "/jobs",
+  "/news",
   "/contact",
 ]);
 

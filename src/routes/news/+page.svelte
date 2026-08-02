@@ -30,7 +30,7 @@
 
 				<div class="space-y-6">
 					{#each newsItems as item}
-						<article class="surface-card p-6">
+						<article id={item.id} class="surface-card scroll-mt-32 p-6">
 							<p class="eyebrow">{formatDisplayDate(item.date)}</p>
 							<h2 class="mt-3 text-2xl text-brand-text">{item.title}</h2>
 							<div class="body-copy-sm mt-4 space-y-4">
@@ -38,6 +38,16 @@
 									<p>{paragraph}</p>
 								{/each}
 							</div>
+							{#if item.sourceUrl}
+								<a
+									href={item.sourceUrl}
+									target="_blank"
+									rel="noreferrer"
+									class="link-subtle mt-5"
+								>
+									{item.sourceLabel ?? 'Read the original update'}
+								</a>
+							{/if}
 						</article>
 					{/each}
 				</div>
