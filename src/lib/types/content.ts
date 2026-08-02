@@ -36,6 +36,8 @@ export type EventItem = {
   priceSummary?: string;
   status?: string;
   organiser?: string;
+  organiserUrl?: string;
+  performer?: string | string[];
   contactName?: string;
   audience?: string;
   ticketUrl?: string;
