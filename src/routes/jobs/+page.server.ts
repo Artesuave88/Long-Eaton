@@ -225,6 +225,8 @@ async function getReedJobs(fetcher: typeof fetch): Promise<Job[]> {
 async function getJoobleJobs(fetcher: typeof fetch): Promise<Job[]> {
   if (!env.JOOBLE_API_KEY) return [];
 
+  const localLocation = /long eaton|sawley|sandiacre|stapleford|breaston|toton|chilwell|ng10\b/i;
+
   try {
     const response = await fetcher(
       `https://uk.jooble.org/api/${encodeURIComponent(env.JOOBLE_API_KEY)}`,
@@ -246,6 +248,7 @@ async function getJoobleJobs(fetcher: typeof fetch): Promise<Job[]> {
     if (!response.ok) return [];
     const body = await response.json();
     return (body.jobs ?? [])
+      .filter((item: any) => localLocation.test(item.location || ""))
       .map((item: any) => ({
         id: `jooble-${item.id}`,
         title: item.title,
