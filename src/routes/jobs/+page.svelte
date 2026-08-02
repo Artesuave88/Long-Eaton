@@ -5,15 +5,51 @@
   export let form: ActionData;
 
   let query = "";
-  let source = "All";
+  let sortOrder = "Newest first";
 
-  $: filteredJobs = data.jobs.filter((job) => {
-    const text = `${job.title} ${job.employer} ${job.location}`.toLowerCase();
-    return (
-      text.includes(query.toLowerCase().trim()) &&
-      (source === "All" || job.source === source)
+  const annualSalary = (value: string) => {
+    const amounts = [...value.matchAll(/£\s*([\d,]+(?:\.\d+)?)/g)].map((match) =>
+      Number(match[1].replaceAll(",", ""))
     );
-  });
+    const amount = Math.max(...amounts, 0);
+    const period = value.toLowerCase();
+    if (period.includes("hour")) return amount * 37.5 * 52;
+    if (period.includes("day")) return amount * 5 * 52;
+    if (period.includes("week")) return amount * 52;
+    if (period.includes("month")) return amount * 12;
+    return amount;
+  };
+
+  const distanceFromLongEaton = (value: string) => {
+    const location = value.toLowerCase().replace(/\s+/g, " ");
+    const places: Array<[RegExp, number]> = [
+      [/long eaton|ng10|de72\s*2/, 0],
+      [/sawley/, 1.5],
+      [/toton|sandiacre/, 2],
+      [/stapleford|breaston|chilwell/, 3],
+      [/beeston/, 4],
+    ];
+    return places.find(([pattern]) => pattern.test(location))?.[1] ?? 99;
+  };
+
+  $: filteredJobs = data.jobs
+    .filter((job) => {
+      const text = `${job.title} ${job.employer} ${job.location}`.toLowerCase();
+      return text.includes(query.toLowerCase().trim());
+    })
+    .sort((a, b) => {
+      if (sortOrder === "Salary: high to low") return annualSalary(b.salary) - annualSalary(a.salary);
+      if (sortOrder === "Salary: low to high") return annualSalary(a.salary) - annualSalary(b.salary);
+      if (sortOrder === "Closest first") return distanceFromLongEaton(a.location) - distanceFromLongEaton(b.location);
+      const aDate = new Date(a.posted).getTime() || 0;
+      const bDate = new Date(b.posted).getTime() || 0;
+      return sortOrder === "Oldest first" ? aDate - bDate : bDate - aDate;
+    });
+
+  const clearFilters = () => {
+    query = "";
+    sortOrder = "Newest first";
+  };
 
   const dateLabel = (value: string) => {
     if (!value) return "";
@@ -60,28 +96,34 @@
         <p class="hidden text-sm text-brand-muted sm:block">Always apply on the source website</p>
       </div>
 
-      <div class="surface-card my-7 grid gap-4 bg-brand-section/60 p-5 md:grid-cols-[1fr_16rem]">
+      <div class="surface-card my-7 grid gap-4 bg-brand-section/60 p-5 md:grid-cols-[minmax(16rem,1fr)_14rem]">
         <div>
           <label for="job-search" class="text-sm font-semibold">Search vacancies</label>
           <input id="job-search" bind:value={query} class="field-input mt-2" placeholder="Job title, employer or location…" />
         </div>
         <div>
-          <label for="job-source" class="text-sm font-semibold">Source</label>
-          <select id="job-source" bind:value={source} class="field-input mt-2">
-            <option>All</option>
-            <option>Adzuna</option>
-            <option>Jobs Derbyshire</option>
-            <option>Reed</option>
-            <option>Jooble</option>
+          <label for="job-sort" class="text-sm font-semibold">Sort by</label>
+          <select id="job-sort" bind:value={sortOrder} class="field-input mt-2">
+            <option>Newest first</option>
+            <option>Oldest first</option>
+            <option>Salary: high to low</option>
+            <option>Salary: low to high</option>
+            <option>Closest first</option>
           </select>
         </div>
       </div>
 
-      <p class="mb-4 text-sm font-medium text-brand-muted" aria-live="polite">
-        Showing {filteredJobs.length} {filteredJobs.length === 1 ? "vacancy" : "vacancies"}
-      </p>
-      <div class="grid gap-4">
-        {#each filteredJobs as job}
+      <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <p class="text-sm font-medium text-brand-muted" aria-live="polite">
+          Showing {filteredJobs.length} {filteredJobs.length === 1 ? "vacancy" : "vacancies"}
+        </p>
+        {#if query || sortOrder !== "Newest first"}
+          <button type="button" class="button-link" onclick={clearFilters}>Reset search</button>
+        {/if}
+      </div>
+      {#if filteredJobs.length}
+        <div class="grid gap-4">
+          {#each filteredJobs as job}
           <article class="surface-card p-5 sm:p-6">
             <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
               <div>
@@ -103,17 +145,27 @@
               </a>
             </div>
           </article>
-        {/each}
-      </div>
+          {/each}
+        </div>
+      {:else}
+        <div class="surface-card p-6 text-center sm:p-8">
+          <h3>No vacancies match your search</h3>
+          <p class="mt-2 text-sm text-brand-muted">Try a broader job title, employer or location.</p>
+          <button type="button" class="button-secondary mt-4" onclick={clearFilters}>Reset search</button>
+        </div>
+      {/if}
 
-      {#if data.liveLocalJobsEnabled || data.reedEnabled}
+      {#if data.liveLocalJobsEnabled || data.reedEnabled || data.joobleEnabled}
         <p class="mt-5 text-xs text-brand-muted">
           General vacancy listings
           {#if data.liveLocalJobsEnabled}
             powered by <a class="underline" href="https://www.adzuna.co.uk/" target="_blank" rel="noopener noreferrer">Adzuna</a>{data.reedEnabled ? " and " : "."}
           {/if}
           {#if data.reedEnabled}
-            supplied by <a class="underline" href="https://www.reed.co.uk/" target="_blank" rel="noopener noreferrer">Reed</a>.
+            supplied by <a class="underline" href="https://www.reed.co.uk/" target="_blank" rel="noopener noreferrer">Reed</a>{data.joobleEnabled ? " and " : "."}
+          {/if}
+          {#if data.joobleEnabled}
+            <a class="underline" href="https://uk.jooble.org/" target="_blank" rel="noopener noreferrer">Jooble</a>.
           {/if}
         </p>
       {/if}

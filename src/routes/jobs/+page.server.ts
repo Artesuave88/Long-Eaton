@@ -35,8 +35,9 @@ const salary = (minimum?: number, maximum?: number) => {
       currency: "GBP",
       maximumFractionDigits: 0,
     }).format(value);
-  if (minimum && maximum) return `${pounds(minimum)}–${pounds(maximum)} a year`;
-  return `${minimum ? "From" : "Up to"} ${pounds(minimum || maximum || 0)} a year`;
+  const period = Math.max(minimum || 0, maximum || 0) <= 100 ? "an hour" : "a year";
+  if (minimum && maximum) return `${pounds(minimum)}–${pounds(maximum)} ${period}`;
+  return `${minimum ? "From" : "Up to"} ${pounds(minimum || maximum || 0)} ${period}`;
 };
 
 const reedDate = (value?: string) => {
@@ -200,16 +201,22 @@ async function getReedJobs(fetcher: typeof fetch): Promise<Job[]> {
     );
     if (!response.ok) return [];
     const body = await response.json();
-    return (body.results ?? []).map((item: any) => ({
-      id: `reed-${item.jobId}`,
-      title: item.jobTitle,
-      employer: item.employerName || "Employer not stated",
-      location: item.locationName || "Long Eaton area",
-      salary: salary(item.minimumSalary, item.maximumSalary),
-      posted: reedDate(item.date),
-      url: `https://www.reed.co.uk/jobs/${item.jobId}`,
-      source: "Reed" as const,
-    }));
+    return (body.results ?? [])
+      .filter((item: any) => {
+        const location = item.locationName?.trim().toLowerCase();
+        return location && !["united kingdom", "uk", "remote"].includes(location);
+      })
+      .map((item: any) => ({
+        id: `reed-${item.jobId}`,
+        title: item.jobTitle,
+        employer: item.employerName || "Employer not stated",
+        location: item.locationName,
+        salary: salary(item.minimumSalary, item.maximumSalary),
+        posted: reedDate(item.date),
+        url: item.jobUrl,
+        source: "Reed" as const,
+      }))
+      .filter((job: Job) => Boolean(job.title && job.url));
   } catch {
     return [];
   }
