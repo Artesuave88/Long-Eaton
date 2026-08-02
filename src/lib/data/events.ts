@@ -893,10 +893,10 @@ const baseEvents: EventItem[] = [
     time: "11:30-22:00",
     startTime: "11:30",
     endTime: "22:00",
-    location: "West Park Events Field, Wilsthorpe Road, Long Eaton, NG10 3NP",
-    price: "From free",
+    location: "West Park Events Field, Wilsthorpe Road, Long Eaton, NG10 4AA",
+    price: "From £14.50; under-5s free",
     priceSummary:
-      "Ages 5 and under free; children's tickets from £14.50 and adult tickets from £21.50 at the time of checking.",
+      "Ages 5 and under free; children's tickets from £14.50, adult tickets from £21.50, two-adult tickets £40 and Family Saver tickets £39.50 at the time of checking.",
     organiser: "Long Eaton Music Festival",
     category: "Music",
     excerpt:
