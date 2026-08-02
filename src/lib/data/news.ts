@@ -3,10 +3,10 @@ import type { NewsItem } from "$types/content";
 export const newsItems: NewsItem[] = [
   {
     id: "free-summer-bus-travel-2026",
-    title: "Free bus travel for young people this August",
+    title: "Free August bus travel for 5 to 18 year olds",
     date: "2026-07-28",
     excerpt:
-      "Children and young people can travel free on eligible trentbarton services throughout August 2026.",
+      "Free travel is available for ages 5–15 across eligible trentbarton services, with an EMCCA extension covering 16–18 year olds on qualifying routes.",
     content: [
       "Children aged 5 to 15 can travel free on trentbarton services from 1 to 31 August 2026 as part of the Government’s free bus travel scheme. The offer excludes red arrow and nightbus journeys.",
       "The East Midlands Combined County Authority has also extended free travel to 16 to 18 year olds on routes that enter Derbyshire, Nottinghamshire, Derby or Nottingham. Red arrow is excluded from this extension too.",
