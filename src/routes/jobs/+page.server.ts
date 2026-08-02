@@ -39,6 +39,12 @@ const salary = (minimum?: number, maximum?: number) => {
   return `${minimum ? "From" : "Up to"} ${pounds(minimum || maximum || 0)} a year`;
 };
 
+const reedDate = (value?: string) => {
+  if (!value) return "";
+  const match = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  return match ? `${match[3]}-${match[2]}-${match[1]}` : value;
+};
+
 const normaliseJobField = (value: string) =>
   value
     .toLocaleLowerCase("en-GB")
@@ -200,7 +206,7 @@ async function getReedJobs(fetcher: typeof fetch): Promise<Job[]> {
       employer: item.employerName || "Employer not stated",
       location: item.locationName || "Long Eaton area",
       salary: salary(item.minimumSalary, item.maximumSalary),
-      posted: item.date || "",
+      posted: reedDate(item.date),
       url: `https://www.reed.co.uk/jobs/${item.jobId}`,
       source: "Reed" as const,
     }));
