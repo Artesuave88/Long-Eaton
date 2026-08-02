@@ -13,7 +13,7 @@ type Job = {
   salary: string;
   posted: string;
   url: string;
-  source: "Adzuna" | "Jobs Derbyshire" | "Reed";
+  source: "Adzuna" | "Jobs Derbyshire" | "Reed" | "Jooble";
 };
 
 const text = (value: FormDataEntryValue | null) =>
@@ -209,17 +209,64 @@ async function getReedJobs(fetcher: typeof fetch): Promise<Job[]> {
   }
 }
 
+async function getJoobleJobs(fetcher: typeof fetch): Promise<Job[]> {
+  if (!env.JOOBLE_API_KEY) return [];
+
+  try {
+    const response = await fetcher(
+      `https://uk.jooble.org/api/${encodeURIComponent(env.JOOBLE_API_KEY)}`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          keywords: "",
+          location: "Long Eaton",
+          radius: "4",
+          page: "1",
+          ResultOnPage: "40",
+        }),
+      },
+    );
+    if (!response.ok) return [];
+    const body = await response.json();
+    return (body.jobs ?? [])
+      .map((item: any) => ({
+        id: `jooble-${item.id}`,
+        title: item.title,
+        employer: item.company || "Employer not stated",
+        location: item.location || "Long Eaton area",
+        salary: item.salary || "Salary not stated",
+        posted: item.updated || "",
+        url: item.link,
+        source: "Jooble" as const,
+      }))
+      .filter((job: Job) => Boolean(job.title && job.url));
+  } catch {
+    return [];
+  }
+}
+
 export const load: PageServerLoad = async ({ fetch }) => {
-  const [adzunaJobs, derbyshireJobs, reedJobs] = await Promise.all([
+  const [adzunaJobs, derbyshireJobs, reedJobs, joobleJobs] = await Promise.all([
     getAdzunaJobs(fetch),
     getDerbyshireJobs(fetch),
     getReedJobs(fetch),
+    getJoobleJobs(fetch),
   ]);
 
   return {
-    jobs: deduplicateJobs([...adzunaJobs, ...derbyshireJobs, ...reedJobs]),
+    jobs: deduplicateJobs([
+      ...adzunaJobs,
+      ...derbyshireJobs,
+      ...reedJobs,
+      ...joobleJobs,
+    ]),
     liveLocalJobsEnabled: Boolean(env.ADZUNA_APP_ID && env.ADZUNA_APP_KEY),
     reedEnabled: Boolean(env.REED_API_KEY),
+    joobleEnabled: Boolean(env.JOOBLE_API_KEY),
   };
 };
 
