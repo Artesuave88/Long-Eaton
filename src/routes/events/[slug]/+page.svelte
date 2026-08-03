@@ -231,7 +231,18 @@
 					<div class="surface-card mt-8 p-6">
 						<h2 class="text-2xl text-brand-text">Organiser</h2>
 						<p class="mt-4 text-base leading-8 text-brand-muted">
-							{data.event.organiser}
+							{#if data.event.organiserUrl}
+								<a
+									href={data.event.organiserUrl}
+									target="_blank"
+									rel="noreferrer"
+									class="font-semibold text-brand-accent hover:underline"
+								>
+									{data.event.organiser}
+								</a>
+							{:else}
+								{data.event.organiser}
+							{/if}
 							{#if data.event.volunteerRun}
 								. The event is run entirely by volunteers.
 							{/if}
