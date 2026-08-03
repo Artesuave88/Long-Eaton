@@ -8,7 +8,6 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "Work is underway on a £10 million transformation of Long Eaton town centre, bringing wider pedestrian areas, new paving, seating, planting and improved public spaces.",
     content: [
-      "Work is underway on the long-awaited £10 million transformation of Long Eaton town centre, marking one of the biggest investments the town has seen in decades.",
       "The project will focus on improving the High Street and Tamworth Road, creating a greener, more welcoming space with wider pedestrian areas, new paving, seating, planting and improved public spaces. The aim is to make the town centre a more attractive place to shop, visit and spend time.",
       "The market will return to its historic home in Long Eaton Market Place. New landscaping and seating areas will encourage people to spend more time in the town centre, while public artwork and design features will celebrate Long Eaton's rich furniture-making heritage. A trail honouring renowned artist Dame Laura Knight, who was born in the town, will also form part of the improvements.",
       "The regeneration is funded through the Government-backed Long Eaton Town Deal, which has secured £25 million for projects across the town. The High Street improvements account for £10 million of that investment.",
