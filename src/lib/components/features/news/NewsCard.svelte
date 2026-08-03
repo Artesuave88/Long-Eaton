@@ -22,6 +22,6 @@
 		<p class="text-sm text-brand-muted">{formatDisplayDate(item.date)}</p>
 		<h3 class="mt-3 text-[1.45rem] leading-tight text-brand-text">{item.title}</h3>
 		<p class="body-copy-sm mt-4">{item.excerpt}</p>
-		<a href={`/news#${item.id}`} class="link-subtle mt-5">Read update</a>
+
 	</div>
 </article>

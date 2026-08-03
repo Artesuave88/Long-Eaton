@@ -60,26 +60,6 @@
   />
 </svelte:head>
 
-<section class="border-b border-sky-200 bg-sky-50" aria-labelledby="welcome-heading">
-  <div class="container-shell flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
-    <div class="max-w-3xl">
-      <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-primary">A warm local welcome</p>
-      <h2 id="welcome-heading" class="mt-2 text-2xl text-brand-text sm:text-3xl">
-        Thanks for visiting, Long Eaton!
-      </h2>
-      <p class="mt-2 text-sm leading-6 text-brand-muted sm:text-base">
-        It’s lovely to see so many new visitors. Bookmark Love Long Eaton so you can easily find
-        local events, independent businesses and places to visit—and please share it with someone nearby.
-      </p>
-    </div>
-    <div class="flex shrink-0 flex-col items-start gap-2 sm:items-end">
-      <button type="button" class="button-primary whitespace-nowrap" on:click={shareSite}>
-        Share Love Long Eaton
-      </button>
-
-    </div>
-  </div>
-</section>
 
 <section class="section-surface" aria-labelledby="newsletter-heading">
   <div class="container-shell pt-8">
