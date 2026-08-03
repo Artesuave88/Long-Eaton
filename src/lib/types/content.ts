@@ -41,6 +41,7 @@ export type EventItem = {
   contactName?: string;
   audience?: string;
   ticketUrl?: string;
+  offerValidFrom?: string;
   strapline?: string;
   tags?: string[];
   category: string;

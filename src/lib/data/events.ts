@@ -452,6 +452,7 @@ const baseEvents: EventItem[] = [
     ],
     ticketUrl:
       "https://www.dudlcoffee.co.uk/whatson-store/p/5fuzde8ucogdjw9p7tbuqc5j746l34-nkzwf-77sgn-g8cg6",
+    offerValidFrom: "2026-07-25T00:00:00+01:00",
     imageSrc: "/dudl-social-sing.webp",
     imageAlt: "Poster for DÜDL Social Sing on 9 August 2026",
     imageFit: "contain",
@@ -513,6 +514,7 @@ const baseEvents: EventItem[] = [
     ],
     ticketUrl:
       "https://www.dudlcoffee.co.uk/whatson-store/p/5fuzde8ucogdjw9p7tbuqc5j746l34-nkzwf-77sgn-g8cg6-8c6cm",
+    offerValidFrom: "2026-07-25T00:00:00+01:00",
     imageSrc: "/dudl-craft-night.webp",
     imageAlt: "Poster for DÜDL Works in Progress Craft Night on 6 September 2026",
     imageFit: "contain",
@@ -575,6 +577,7 @@ const baseEvents: EventItem[] = [
       "The evening is intended to be relaxed and conversational, with drinks and snacks available at the venue.",
     ],
     ticketUrl: "https://luma.com/syasl7yr",
+    offerValidFrom: "2026-07-28T00:00:00+01:00",
     imageSrc: "/dead-dads-mums-club-autumn-meet.jpg",
     imageAlt: "Artwork for The Dead Dads & Mums Club Autumn Meet",
     imageFit: "contain",

@@ -41,7 +41,8 @@ export function eventJsonLd(event: EventItem) {
 		price: offerPrice,
 		priceCurrency: 'GBP',
 		url: event.ticketUrl ?? `${site.url}/events/${event.slug}`,
-		availability: 'https://schema.org/InStock'
+		availability: 'https://schema.org/InStock',
+		...(event.offerValidFrom ? { validFrom: event.offerValidFrom } : {})
 	};
 	if (event.performer) {
 		const performers = Array.isArray(event.performer) ? event.performer : [event.performer];
