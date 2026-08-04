@@ -46,6 +46,29 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-21",
+    slug: "impact-physio-long-eaton",
+    name: "Impact Physio",
+    category: "Health & Wellness",
+    location: "128 Derby Road, Long Eaton, NG10 4ER",
+    description:
+      "Long Eaton physiotherapy clinic offering personalised treatment, sports rehabilitation, massage, specialist therapies and movement classes.",
+    about: [
+      "Impact Physio's Long Eaton clinic is its main hub, providing individual appointments and small-group classes from its Derby Road clinic and Pilates studio.",
+      "The experienced team supports people managing pain, recovering from injury or surgery, returning to sport, and working towards strength and movement goals.",
+      "Services include physiotherapy, sports rehabilitation, massage, pelvic health, hand therapy, functional movement assessments, Pilates, yoga and Tai Chi.",
+    ],
+    website: "https://www.impactphysio.co.uk/",
+    imageSrc:
+      "https://www.impactphysio.co.uk/wp-content/uploads/2025/03/impactsquarelogo.png",
+    imageAlt: "Impact Physio logo",
+    imageFit: "contain",
+    imageLabel: "Physiotherapy and movement clinic",
+    imageStyle: "bg-[#f4f7f8]",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-20",
     slug: "chefs-cut-butchery",
     name: "Chefs Cut Butchery",
