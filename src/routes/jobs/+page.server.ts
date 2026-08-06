@@ -1,4 +1,5 @@
 import { env } from "$env/dynamic/private";
+import { getResendFromEmail } from "$lib/server/resend";
 import { fail } from "@sveltejs/kit";
 import { load as loadHtml } from "cheerio";
 import type { Actions, PageServerLoad } from "./$types";
@@ -346,7 +347,7 @@ export const actions = {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: env.CONTACT_FROM_EMAIL || "Love Long Eaton <onboarding@resend.dev>",
+        from: getResendFromEmail(env.CONTACT_FROM_EMAIL),
         to: "info@midasweb.org",
         reply_to: email,
         subject: `Local vacancy submission: ${title} at ${employer}`,

@@ -1,4 +1,5 @@
 import { env } from "$env/dynamic/private";
+import { getResendFromEmail } from "$lib/server/resend";
 import { buildWeeklyEmail } from "$lib/server/weekly-email";
 import { error, json } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
@@ -33,7 +34,7 @@ export const GET: RequestHandler = async ({ request }) => {
     return json({ skipped: true, reason: "Outside Thursday 18:00 Europe/London" });
   }
 
-  if (!env.RESEND_API_KEY || !env.RESEND_SEGMENT_ID || !env.CONTACT_FROM_EMAIL) {
+  if (!env.RESEND_API_KEY || !env.RESEND_SEGMENT_ID) {
     throw error(503, "Weekly email environment variables are incomplete");
   }
 
@@ -79,7 +80,7 @@ export const GET: RequestHandler = async ({ request }) => {
     body: JSON.stringify({
       name: email.campaignName,
       segment_id: env.RESEND_SEGMENT_ID,
-      from: env.CONTACT_FROM_EMAIL,
+      from: getResendFromEmail(env.CONTACT_FROM_EMAIL),
       subject: email.subject,
       preview_text: email.previewText,
       html: email.html,

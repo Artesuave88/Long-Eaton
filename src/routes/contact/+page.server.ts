@@ -1,11 +1,11 @@
 import { env } from "$env/dynamic/private";
+import { getResendFromEmail } from "$lib/server/resend";
 import { fail } from "@sveltejs/kit";
 import type { Actions } from "./$types";
 
 export const prerender = false;
 
 const contactRecipient = "info@midasweb.org";
-const defaultFromEmail = "Love Long Eaton <website@midasweb.org>";
 const enquiryTypes = new Set([
   "Add my business",
   "Submit an event",
@@ -66,11 +66,7 @@ export const actions = {
     // Resend's onboarding address is sandbox-only and cannot deliver contact
     // enquiries to arbitrary recipients. Always use our verified domain unless
     // a different production sender has explicitly been configured.
-    const configuredFromEmail = env.CONTACT_FROM_EMAIL?.trim();
-    const fromEmail =
-      configuredFromEmail && !configuredFromEmail.includes("@resend.dev")
-        ? configuredFromEmail
-        : defaultFromEmail;
+    const fromEmail = getResendFromEmail(env.CONTACT_FROM_EMAIL);
     const submittedAt = new Date().toLocaleString("en-GB", {
       dateStyle: "medium",
       timeStyle: "short",
