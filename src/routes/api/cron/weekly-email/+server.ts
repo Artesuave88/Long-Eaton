@@ -23,14 +23,15 @@ function londonScheduleParts(now: Date) {
   return { weekday: value("weekday"), hour: Number(value("hour")) };
 }
 
-export const GET: RequestHandler = async ({ request }) => {
+export const GET: RequestHandler = async ({ request, url }) => {
   if (!env.CRON_SECRET || request.headers.get("authorization") !== `Bearer ${env.CRON_SECRET}`) {
     throw error(401, "Unauthorized");
   }
 
   const now = new Date();
   const local = londonScheduleParts(now);
-  if (local.weekday !== "Thu" || local.hour !== 18) {
+  const manualSend = url.searchParams.get("send") === "now";
+  if (!manualSend && (local.weekday !== "Thu" || local.hour !== 18)) {
     return json({ skipped: true, reason: "Outside Thursday 18:00 Europe/London" });
   }
 
