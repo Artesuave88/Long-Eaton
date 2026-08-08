@@ -12,6 +12,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "seo:validate": "node scripts/validate-seo.mjs",
+    "test": "pnpm check && pnpm build && pnpm seo:validate",
     "import:duchess-theatre": "node --experimental-strip-types scripts/import-duchess-theatre.ts"
   },
   "dependencies": {
