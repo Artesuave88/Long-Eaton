@@ -2,6 +2,30 @@ import type { NewsItem } from "$types/content";
 
 export const newsItems: NewsItem[] = [
   {
+    id: "council-urges-drivers-not-to-pay-for-free-weekend-parking",
+    title: "Council urges drivers not to pay for free weekend parking",
+    date: "2026-08-08",
+    excerpt:
+      "Erewash Borough Council is reminding motorists that its car parks are free at weekends after drivers paid more than £12,500 unnecessarily.",
+    content: [
+      "Erewash Borough Council is appealing to motorists to stop paying for parking at weekends after drivers handed over more than £12,500 unnecessarily.",
+      "Parking is free on Saturdays and Sundays at all car parks operated by the council. However, an analysis of its income showed that about a quarter of motorists were still paying on Saturdays.",
+      "Since free parking was extended from Sundays to Saturdays at the beginning of April, drivers have paid £12,577 when no charge was required.",
+      "Councillor Curtis Howard, the authority’s lead member for town centres and regeneration, said he was “aghast” when he received the parking data.",
+      "To make the arrangement clearer, the council has installed yellow banners informing visitors that they do not need to pay or display a ticket on Saturdays or Sundays.",
+      "Charges apply only between 08:00 and 18:00 on weekdays. Motorists pay £1.50 for stays of up to three hours and £4 for longer visits.",
+      "Councillor Howard said Saturday parking was made free to help residents save money and to support town-centre businesses on their busiest day of the week.",
+      "The council cannot refund motorists who have already paid unnecessarily. Councillor Howard said: “It’s not possible to give refunds to those who have already paid unnecessarily—hence our plea to those parking in Ilkeston or Long Eaton at the weekend: Please do not pay!”",
+      "Free Saturday parking is being funded through the council’s £6.5m Erewash Investment Fund and is intended to encourage more people to visit shops and businesses across the borough.",
+    ],
+    imageSrc: "/free-weekend-parking.png",
+    imageAlt:
+      "A yellow sign beside a parking meter stating that parking is free on Saturdays and Sundays",
+    imageFit: "cover",
+    imageLabel: "Free weekend parking",
+    imageStyle: "bg-brand-accent/10",
+  },
+  {
     id: "long-eaton-town-centre-transformation-underway",
     title: "£10 million Long Eaton town centre transformation underway",
     date: "2026-08-03",
