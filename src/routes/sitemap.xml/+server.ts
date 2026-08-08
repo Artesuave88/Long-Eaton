@@ -11,7 +11,6 @@ const fixed = [
 	'/events',
 	'/whats-on-this-weekend',
 	'/businesses',
-	'/discover',
 	'/discover-long-eaton',
 	'/guides',
 	'/jobs',
