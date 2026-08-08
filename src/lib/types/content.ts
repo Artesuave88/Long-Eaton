@@ -102,6 +102,12 @@ export type BusinessItem = {
   about: string[];
   website?: string;
   instagram?: string;
+  telephone?: string;
+  email?: string;
+  openingHours?: {
+    label: string;
+    schema: string;
+  }[];
   imageSrc?: string;
   imageAlt?: string;
   imageFit?: "cover" | "contain";

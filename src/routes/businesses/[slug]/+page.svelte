@@ -3,14 +3,17 @@
 	import EventCard from '$components/features/events/EventCard.svelte';
 	import { businesses } from '$data/businesses';
 	import type { PageData } from './$types';
-	import { breadcrumbJsonLd, businessJsonLd } from '$utils/seo';
+	import { breadcrumbJsonLd, businessJsonLd, businessMetaDescription, businessSeoTitle } from '$utils/seo';
 	import { site } from '$data/site';
 
 	export let data: PageData;
 
 	const relatedBusinesses = businesses
 		.filter((business) => business.slug !== data.business.slug)
+		.sort((a, b) => Number(b.category === data.business.category) - Number(a.category === data.business.category))
 		.slice(0, 3);
+	const pageTitle = businessSeoTitle(data.business);
+	const pageDescription = businessMetaDescription(data.business);
 	const structuredData = businessJsonLd(data.business);
 	const breadcrumbs = breadcrumbJsonLd([
 		{ name: 'Home', path: '/' },
@@ -20,21 +23,31 @@
 </script>
 
 <svelte:head>
-	<title>{data.business.seoTitle ?? `${data.business.name} | Love Long Eaton`}</title>
-	<meta name="description" content={data.business.metaDescription ?? data.business.description} />
-	<meta property="og:title" content={data.business.seoTitle ?? `${data.business.name} | Love Long Eaton`} />
-	<meta property="og:description" content={data.business.metaDescription ?? data.business.description} />
+	<title>{pageTitle}</title>
+	<meta name="description" content={pageDescription} />
+	<link rel="canonical" href={`${site.url}/businesses/${data.business.slug}`} />
+	<meta property="og:title" content={pageTitle} />
+	<meta property="og:description" content={pageDescription} />
 	<meta property="og:type" content="website" />
+	<meta property="og:url" content={`${site.url}/businesses/${data.business.slug}`} />
 	{#if data.business.imageSrc}<meta property="og:image" content={data.business.imageSrc.startsWith('http') ? data.business.imageSrc : `${site.url}${data.business.imageSrc}`} />{/if}
-	<meta name="twitter:title" content={data.business.seoTitle ?? `${data.business.name} | Love Long Eaton`} />
-	<meta name="twitter:description" content={data.business.metaDescription ?? data.business.description} />
+	<meta name="twitter:title" content={pageTitle} />
+	<meta name="twitter:description" content={pageDescription} />
 	{@html `<script type="application/ld+json">${structuredData}</script>`}
 	{@html `<script type="application/ld+json">${breadcrumbs}</script>`}
 </svelte:head>
 
 <article class="section-surface">
 	<div class="container-shell section-space">
-		<a href="/businesses" class="button-subtle">Back to businesses</a>
+		<nav aria-label="Breadcrumb">
+			<ol class="flex flex-wrap items-center gap-2 text-sm font-medium text-brand-muted">
+				<li><a href="/" class="hover:text-brand-accent hover:underline">Home</a></li>
+				<li aria-hidden="true">/</li>
+				<li><a href="/businesses" class="hover:text-brand-accent hover:underline">Businesses</a></li>
+				<li aria-hidden="true">/</li>
+				<li aria-current="page" class="text-brand-text">{data.business.name}</li>
+			</ol>
+		</nav>
 
 		<div class="mt-6 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
 			<div>
@@ -48,9 +61,21 @@
 						<p class="mt-2 text-base font-semibold text-brand-text">{data.business.category}</p>
 					</div>
 					<div>
-						<p class="eyebrow">Location</p>
-						<p class="mt-2 text-base font-semibold text-brand-text">{data.business.location}</p>
+						<p class="eyebrow">Address</p>
+						<address class="mt-2 text-base font-semibold not-italic text-brand-text">{data.business.location}</address>
 					</div>
+					{#if data.business.telephone}
+						<div>
+							<p class="eyebrow">Phone</p>
+							<a href={`tel:${data.business.telephone.replace(/\s/g, '')}`} class="mt-2 inline-flex text-base font-semibold text-brand-accent hover:underline">{data.business.telephone}</a>
+						</div>
+					{/if}
+					{#if data.business.email}
+						<div>
+							<p class="eyebrow">Email</p>
+							<a href={`mailto:${data.business.email}`} class="mt-2 inline-flex break-all text-base font-semibold text-brand-accent hover:underline">{data.business.email}</a>
+						</div>
+					{/if}
 					{#if data.business.website}
 						<div>
 							<p class="eyebrow">Website</p>
@@ -69,6 +94,15 @@
 					{/if}
 				</div>
 
+				{#if data.business.openingHours?.length}
+					<section class="surface-card mt-6 p-6" aria-labelledby="opening-hours-heading">
+						<h2 id="opening-hours-heading" class="text-xl text-brand-text">Opening hours</h2>
+						<ul class="mt-3 space-y-2 text-base text-brand-muted">
+							{#each data.business.openingHours as hours}<li>{hours.label}</li>{/each}
+						</ul>
+					</section>
+				{/if}
+
 				<section class="mt-8" aria-labelledby="about-business-heading">
 					<h2 id="about-business-heading" class="text-2xl text-brand-text">About {data.business.name}</h2>
 				<div class="mt-4 space-y-5 text-base leading-8 text-brand-muted">
@@ -78,18 +112,20 @@
 				</div>
 				</section>
 
-				{#if data.business.website}
-					<div class="mt-8">
+				{#if data.business.website || data.business.instagram || data.business.telephone || data.business.email}
+					<div class="mt-8 flex flex-wrap gap-3" aria-label={`Contact ${data.business.name}`}>
+					{#if data.business.website}
 						<a href={data.business.website} target="_blank" rel="noreferrer" class="button-primary">
-							Visit website
+							Visit {data.business.name} website
 						</a>
-					</div>
-				{/if}
-				{#if data.business.instagram}
-					<div class="mt-8">
+					{/if}
+					{#if data.business.instagram}
 						<a href={data.business.instagram} target="_blank" rel="noreferrer" class="button-primary">
-							Visit Instagram
+							Follow {data.business.name} on Instagram
 						</a>
+					{/if}
+					{#if data.business.telephone}<a href={`tel:${data.business.telephone.replace(/\s/g, '')}`} class="button-primary">Call {data.business.name}</a>{/if}
+					{#if data.business.email}<a href={`mailto:${data.business.email}`} class="button-primary">Email {data.business.name}</a>{/if}
 					</div>
 				{/if}
 			</div>
@@ -110,7 +146,8 @@
 					>
 						<img
 							src={data.business.imageSrc}
-							alt={data.business.imageAlt ?? data.business.name}
+							alt={data.business.imageAlt ?? `${data.business.name} – ${data.business.imageLabel}`}
+							decoding="async"
 							class={data.business.imageFit === 'cover'
 								? 'h-full w-full object-cover'
 								: 'max-h-full max-w-full object-contain'}

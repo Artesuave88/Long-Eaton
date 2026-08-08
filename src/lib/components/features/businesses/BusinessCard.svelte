@@ -26,7 +26,7 @@
 		>
 			<img
 				src={business.imageSrc}
-				alt={business.imageAlt ?? business.name}
+				alt={business.imageAlt ?? `${business.name} – ${business.imageLabel}`}
 				loading="lazy"
 				decoding="async"
 				class={`h-full w-full object-center transition duration-200 group-hover:scale-[1.02] ${

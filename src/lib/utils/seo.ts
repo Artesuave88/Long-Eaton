@@ -30,26 +30,48 @@ export function websiteJsonLd() {
 }
 
 export function businessJsonLd(business: BusinessItem) {
+	const locationParts = business.location.split(',').map((part) => part.trim());
+	const postalCode = locationParts.find((part) => /[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}/i.test(part));
+	const streetParts = locationParts.filter(
+		(part) => part.toLowerCase() !== 'long eaton' && part !== postalCode
+	);
+	const address = {
+		'@type': 'PostalAddress',
+		...(streetParts.length ? { streetAddress: streetParts.join(', ') } : {}),
+		addressLocality: 'Long Eaton',
+		addressRegion: 'Derbyshire',
+		...(postalCode ? { postalCode } : {}),
+		addressCountry: 'GB'
+	};
+
 	return safeJsonLd({
 		'@context': 'https://schema.org',
 		'@type': 'LocalBusiness',
+		'@id': `${site.url}/businesses/${business.slug}#business`,
 		name: business.name,
 		description: business.description,
 		url: `${site.url}/businesses/${business.slug}`,
+		...(business.telephone ? { telephone: business.telephone } : {}),
+		...(business.email ? { email: business.email } : {}),
+		...(business.openingHours?.length
+			? { openingHours: business.openingHours.map((hours) => hours.schema) }
+			: {}),
 		...(business.website || business.instagram
 			? { sameAs: [business.website, business.instagram].filter(Boolean) }
 			: {}),
 		...(business.imageSrc
 			? { image: business.imageSrc.startsWith('http') ? business.imageSrc : `${site.url}${business.imageSrc}` }
 			: {}),
-		address: {
-			'@type': 'PostalAddress',
-			streetAddress: business.location,
-			addressLocality: 'Long Eaton',
-			addressRegion: 'Derbyshire',
-			addressCountry: 'GB'
-		}
+		address
 	});
+}
+
+export function businessSeoTitle(business: BusinessItem) {
+	return business.seoTitle ?? `${business.name}, Long Eaton | ${business.category}`;
+}
+
+export function businessMetaDescription(business: BusinessItem) {
+	return business.metaDescription ?? business.description;
 }
 
 export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {

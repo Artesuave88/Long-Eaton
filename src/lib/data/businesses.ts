@@ -291,6 +291,10 @@ const baseBusinesses: BusinessItem[] = [
     ],
     website:
       "https://www.erewash.gov.uk/businesses-and-licensing/markets-and-car-boot-sales/erewash-markets",
+    openingHours: [
+      { label: "Tuesday flea market, usually 9am–3pm", schema: "Tu 09:00-15:00" },
+      { label: "Wednesday, Friday and Saturday, usually 9am–3pm", schema: "We,Fr,Sa 09:00-15:00" },
+    ],
     imageSrc: "/long-eaton-market.jpg",
     imageAlt: "Market stalls and shoppers on Long Eaton High Street",
     imageFit: "cover",
