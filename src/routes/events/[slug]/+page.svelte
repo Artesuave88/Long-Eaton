@@ -62,7 +62,6 @@
 <svelte:head>
 	<title>{data.event.seoTitle ?? `${data.event.title} | Love Long Eaton`}</title>
 	<meta name="description" content={data.event.metaDescription ?? data.event.excerpt} />
-	<link rel="canonical" href={`${site.url}/events/${data.event.slug}`} />
 	<meta property="og:title" content={data.event.seoTitle ?? `${data.event.title} | Love Long Eaton`} />
 	<meta property="og:description" content={data.event.metaDescription ?? data.event.excerpt} />
 	<meta property="og:type" content="article" />

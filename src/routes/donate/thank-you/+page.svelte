@@ -1,6 +1,5 @@
 <svelte:head>
 	<title>Thank you | Love Long Eaton</title>
-	<meta name="robots" content="noindex" />
 </svelte:head>
 
 <section class="section-space">

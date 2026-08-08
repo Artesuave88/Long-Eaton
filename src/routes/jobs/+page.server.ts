@@ -1,4 +1,5 @@
 import { env } from "$env/dynamic/private";
+import { site } from "$data/site";
 import { getResendFromEmail } from "$lib/server/resend";
 import { fail } from "@sveltejs/kit";
 import { load as loadHtml } from "cheerio";
@@ -130,7 +131,7 @@ async function getDerbyshireJobs(fetcher: typeof fetch): Promise<Job[]> {
     const response = await fetcher("https://jobs.derbyshire.gov.uk/rss", {
       headers: {
         Accept: "application/rss+xml, application/xml, text/xml",
-        "User-Agent": "LoveLongEatonJobs/1.0 (+https://long-eaton.vercel.app/contact)",
+        "User-Agent": `LoveLongEatonJobs/1.0 (+${site.url}/contact)`,
       },
     });
     if (!response.ok) return [];
