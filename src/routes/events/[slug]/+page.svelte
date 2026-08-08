@@ -7,7 +7,7 @@
 	import { site } from '$data/site';
 
 	export let data: PageData;
-	const structuredData = eventJsonLd(data.event);
+	const structuredData = eventJsonLd(data.event, data.isPast);
 	const breadcrumbs = breadcrumbJsonLd([
 		{ name: 'Home', path: '/' },
 		{ name: 'Events', path: '/events' },
@@ -38,10 +38,10 @@
 			label: data.event.ongoing ? (data.event.recurrence ? 'When' : 'Status') : 'Date',
 			value: data.event.ongoing ? formatRecurringLabel(data.event) : formatEventDate(data.event)
 		},
-		data.event.startTime ?? data.event.time
+		data.event.time ?? data.event.startTime
 			? {
 					label: 'Time',
-					value: data.event.startTime ?? data.event.time
+					value: data.event.time ?? data.event.startTime
 				}
 			: null,
 		data.event.location
@@ -60,14 +60,15 @@
 </script>
 
 <svelte:head>
-	<title>{data.event.title} | Love Long Eaton</title>
-	<meta name="description" content={data.event.excerpt} />
-	<meta property="og:title" content={`${data.event.title} | Love Long Eaton`} />
-	<meta property="og:description" content={data.event.excerpt} />
+	<title>{data.event.seoTitle ?? `${data.event.title} | Love Long Eaton`}</title>
+	<meta name="description" content={data.event.metaDescription ?? data.event.excerpt} />
+	<link rel="canonical" href={`${site.url}/events/${data.event.slug}`} />
+	<meta property="og:title" content={data.event.seoTitle ?? `${data.event.title} | Love Long Eaton`} />
+	<meta property="og:description" content={data.event.metaDescription ?? data.event.excerpt} />
 	<meta property="og:type" content="article" />
 	{#if data.event.imageSrc}<meta property="og:image" content={data.event.imageSrc.startsWith('http') ? data.event.imageSrc : `${site.url}${data.event.imageSrc}`} />{/if}
-	<meta name="twitter:title" content={`${data.event.title} | Love Long Eaton`} />
-	<meta name="twitter:description" content={data.event.excerpt} />
+	<meta name="twitter:title" content={data.event.seoTitle ?? `${data.event.title} | Love Long Eaton`} />
+	<meta name="twitter:description" content={data.event.metaDescription ?? data.event.excerpt} />
 	{#if structuredData}
 		{@html `<script type="application/ld+json">${structuredData}</script>`}
 	{/if}
@@ -81,12 +82,19 @@
 		<div class="mt-6 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
 			<div>
 				<p class="eyebrow">{data.event.category}</p>
-				<h1 class="mt-3 text-brand-text">{data.event.title}</h1>
+				<h1 class="mt-3 text-brand-text">{data.event.heading ?? data.event.title}</h1>
 				{#if data.event.strapline}
 					<p class="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">{data.event.strapline}</p>
 				{/if}
 				{#if !isRepeatedEventText(data.event.excerpt, data.event.title)}
 					<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted">{data.event.excerpt}</p>
+				{/if}
+
+				{#if data.isPast && data.event.postEventMessage}
+					<div class="surface-card mt-6 border-l-4 border-l-brand-accent p-6">
+						<p class="eyebrow">Event archive</p>
+						<p class="mt-3 text-base leading-7 text-brand-muted">{data.event.postEventMessage}</p>
+					</div>
 				{/if}
 
 				{#if isParkrun}
@@ -261,9 +269,9 @@
 					</div>
 				{/if}
 
-				{#if data.event.ticketUrl || data.event.sourceUrl}
+				{#if (!data.isPast && data.event.ticketUrl) || (data.event.sourceUrl && data.event.sourceUrl !== data.event.ticketUrl)}
 					<div class="mt-8 flex flex-wrap gap-3">
-						{#if data.event.ticketUrl}
+						{#if !data.isPast && data.event.ticketUrl}
 							<a href={data.event.ticketUrl} target="_blank" rel="noreferrer" class="button-primary">
 								Book tickets
 							</a>
@@ -274,6 +282,17 @@
 							</a>
 						{/if}
 					</div>
+				{/if}
+
+				{#if data.event.relatedLinks?.length}
+					<nav class="surface-card mt-8 p-6" aria-label="Related Long Eaton pages">
+						<h2 class="text-2xl text-brand-text">More in Long Eaton</h2>
+						<div class="mt-5 flex flex-wrap gap-3">
+							{#each data.event.relatedLinks as link}
+								<a href={link.href} class="button-secondary">{link.label}</a>
+							{/each}
+						</div>
+					</nav>
 				{/if}
 
 				{#if data.event.relatedDates?.length}

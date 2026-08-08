@@ -78,14 +78,14 @@ function getOfferPrice(price?: string) {
 	return /^free(?:\s|$)/i.test(price.trim()) ? '0' : null;
 }
 
-export function eventJsonLd(event: EventItem) {
+export function eventJsonLd(event: EventItem, isPast = false) {
 	if (!event.date || event.ongoing || event.recurrence) return null;
 	const data: Record<string, unknown> = {
-		'@context': 'https://schema.org', '@type': 'Event', name: event.title,
+		'@context': 'https://schema.org', '@type': 'Event', name: event.heading ?? event.title,
 		startDate: toIsoDateTime(event.date, event.startTime ?? event.time),
 		eventStatus: 'https://schema.org/EventScheduled',
 		eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-		description: event.description.join(' ') || event.excerpt,
+		description: event.metaDescription ?? (event.description.join(' ') || event.excerpt),
 		url: `${site.url}/events/${event.slug}`
 	};
 	data.endDate = toIsoDateTime(event.endDate ?? event.date, event.endTime);
@@ -93,14 +93,14 @@ export function eventJsonLd(event: EventItem) {
 		'@type': 'Place', name: event.location.split(',')[0],
 		address: { '@type': 'PostalAddress', streetAddress: event.location, addressLocality: 'Long Eaton', addressRegion: 'Derbyshire', addressCountry: 'GB' }
 	};
-	if (event.imageSrc) data.image = [`${site.url}${event.imageSrc}`];
+	if (event.imageSrc) data.image = [event.imageSrc.startsWith('http') ? event.imageSrc : `${site.url}${event.imageSrc}`];
 	if (event.organiser) data.organizer = {
 		'@type': 'Organization',
 		name: event.organiser,
 		url: event.organiserUrl ?? event.sourceUrl ?? `${site.url}/events/${event.slug}`
 	};
 	const offerPrice = getOfferPrice(event.price);
-	if (offerPrice !== null) data.offers = {
+	if (!isPast && offerPrice !== null) data.offers = {
 		'@type': 'Offer',
 		price: offerPrice,
 		priceCurrency: 'GBP',

@@ -2,6 +2,9 @@ export type EventItem = {
   id: string;
   slug: string;
   title: string;
+  seoTitle?: string;
+  metaDescription?: string;
+  heading?: string;
   type?: "event" | "recurringEvent" | "activity";
   date?: string;
   endDate?: string;
@@ -78,6 +81,12 @@ export type EventItem = {
     note?: string;
   }[];
   featured?: boolean;
+  retainAfterEvent?: boolean;
+  postEventMessage?: string;
+  relatedLinks?: {
+    href: string;
+    label: string;
+  }[];
 };
 
 export type BusinessItem = {

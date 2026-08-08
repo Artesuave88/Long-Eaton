@@ -896,6 +896,10 @@ const baseEvents: EventItem[] = [
     id: "event-long-eaton-music-festival-2026-08-08",
     slug: "long-eaton-music-festival-8-august-2026",
     title: "Long Eaton Music Festival",
+    seoTitle: "Long Eaton Music Festival 2026 | 8 August, West Park",
+    metaDescription:
+      "Long Eaton Music Festival 2026 is at West Park on Saturday 8 August. See confirmed times, location and ticket information before you go.",
+    heading: "Long Eaton Music Festival 2026, West Park, Long Eaton",
     date: "2026-08-08",
     time: "11:30-22:00",
     startTime: "11:30",
@@ -925,6 +929,14 @@ const baseEvents: EventItem[] = [
     sourceUrl:
       "https://www.skiddle.com/whats-on/Nottingham/West-Park-Events-Field/Long-Eaton-Music-Festival/42482491/",
     featured: true,
+    retainAfterEvent: true,
+    postEventMessage:
+      "Long Eaton Music Festival 2026 took place on 8 August 2026. This page is being kept as a record of the event; browse the latest Long Eaton events below.",
+    relatedLinks: [
+      { href: "/events", label: "See upcoming Long Eaton events" },
+      { href: "/discover-long-eaton#west-park", label: "Explore West Park" },
+      { href: "/things-to-do", label: "Find more things to do in Long Eaton" },
+    ],
   },
   {
     id: "event-long-eaton-carnival-car-boot-2026-08-16",
