@@ -93,6 +93,9 @@ export type BusinessItem = {
   id: string;
   slug: string;
   name: string;
+  seoTitle?: string;
+  metaDescription?: string;
+  heading?: string;
   category: string;
   location: string;
   description: string;
@@ -106,6 +109,10 @@ export type BusinessItem = {
   imageStyle: string;
   featured?: boolean;
   isReal?: boolean;
+  relatedLinks?: {
+    href: string;
+    label: string;
+  }[];
 };
 
 export type NewsItem = {

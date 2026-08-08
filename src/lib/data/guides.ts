@@ -4,6 +4,8 @@ export type SeasonalGuide = {
   slug: string;
   season: Season;
   title: string;
+  seoTitle?: string;
+  heading?: string;
   eyebrow: string;
   description: string;
   intro: string[];
@@ -19,6 +21,8 @@ export type SeasonalGuide = {
 export type SearchGuide = {
   slug: string;
   title: string;
+  seoTitle?: string;
+  heading?: string;
   eyebrow: string;
   description: string;
   intro: string[];
@@ -171,9 +175,11 @@ export const searchGuides: SearchGuide[] = [
   {
     slug: "best-cafes-in-long-eaton",
     title: "Best cafés in Long Eaton",
+    seoTitle: "Best Cafés in Long Eaton: 3 Independent Places",
+    heading: "Best independent cafés in Long Eaton",
     eyebrow: "Local food and drink guide",
     description:
-      "Discover independent cafés in Long Eaton for coffee, café food, creative activities and relaxed daytime visits.",
+      "Compare three independent cafés in Long Eaton for coffee, Greek food, Italian brunch and creative workshops, with links to venue details.",
     intro: [
       "Long Eaton’s independent café choices include a Greek deli in Market Place, an Italian café and bakery on Derby Road, and a creative café on College Street.",
       "This guide only includes venues already listed in the Love Long Eaton directory. Check each venue’s own website or social pages for current menus, opening hours and booking details before visiting.",
@@ -204,9 +210,11 @@ export const searchGuides: SearchGuide[] = [
   {
     slug: "independent-shops-in-long-eaton",
     title: "Independent shops in Long Eaton",
+    seoTitle: "Independent Shops in Long Eaton: A Local Guide",
+    heading: "Independent shops and traders in Long Eaton",
     eyebrow: "Shop local guide",
     description:
-      "Find independent shops and traders in Long Eaton, including books, bridalwear, local food, crafts and the town-centre market.",
+      "Explore six independent shops and traders in Long Eaton for books, bridalwear, local food, crafts and town-centre market shopping.",
     intro: [
       "Long Eaton has independent specialists and traders across Market Place, the High Street and surrounding streets. This selection is drawn directly from businesses already listed on Love Long Eaton.",
       "Opening arrangements and market traders can change, so follow the links for current information before making a special journey.",

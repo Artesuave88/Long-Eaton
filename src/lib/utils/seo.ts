@@ -65,6 +65,33 @@ export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
 	});
 }
 
+export function guideJsonLd(guide: {
+	slug: string;
+	title: string;
+	description: string;
+	sections: Array<{ title: string; href?: string }>;
+}) {
+	return safeJsonLd({
+		'@context': 'https://schema.org',
+		'@type': 'CollectionPage',
+		name: guide.title,
+		description: guide.description,
+		url: `${site.url}/guides/${guide.slug}`,
+		isPartOf: { '@id': `${site.url}/#website` },
+		mainEntity: {
+			'@type': 'ItemList',
+			itemListElement: guide.sections
+				.filter((section) => section.href)
+				.map((section, index) => ({
+					'@type': 'ListItem',
+					position: index + 1,
+					name: section.title,
+					url: `${site.url}${section.href}`
+				}))
+		}
+	});
+}
+
 function toIsoDateTime(date: string, time?: string) {
 	if (!time) return date;
 	const match = time.match(/^(\d{1,2}):(\d{2})/);

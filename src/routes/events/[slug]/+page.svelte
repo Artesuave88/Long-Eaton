@@ -352,6 +352,8 @@
 								West Park car boots are simple to plan for: sellers arrive from 7am, buyers from 8am, and all proceeds support the Carnival fund.
 							{:else if isParkrun}
 								Long Eaton parkrun starts at 9am every Saturday morning at West Park Leisure Centre, with people welcome to walk, jog, run, volunteer or spectate.
+							{:else if isJuniorParkrun}
+								Long Eaton junior parkrun starts at 9am every Sunday at West Park. It is a free 2k event for children aged 4 to 14; use the organiser link to check current participation details before attending.
 							{:else if isActivity}
 								Check the source page for the latest meeting details before you go, as ongoing groups can change times and venues.
 							{:else}

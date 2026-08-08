@@ -20,14 +20,14 @@
 </script>
 
 <svelte:head>
-	<title>{data.business.name} | Love Long Eaton</title>
-	<meta name="description" content={data.business.description} />
-	<meta property="og:title" content={`${data.business.name} | Love Long Eaton`} />
-	<meta property="og:description" content={data.business.description} />
+	<title>{data.business.seoTitle ?? `${data.business.name} | Love Long Eaton`}</title>
+	<meta name="description" content={data.business.metaDescription ?? data.business.description} />
+	<meta property="og:title" content={data.business.seoTitle ?? `${data.business.name} | Love Long Eaton`} />
+	<meta property="og:description" content={data.business.metaDescription ?? data.business.description} />
 	<meta property="og:type" content="website" />
 	{#if data.business.imageSrc}<meta property="og:image" content={data.business.imageSrc.startsWith('http') ? data.business.imageSrc : `${site.url}${data.business.imageSrc}`} />{/if}
-	<meta name="twitter:title" content={`${data.business.name} | Love Long Eaton`} />
-	<meta name="twitter:description" content={data.business.description} />
+	<meta name="twitter:title" content={data.business.seoTitle ?? `${data.business.name} | Love Long Eaton`} />
+	<meta name="twitter:description" content={data.business.metaDescription ?? data.business.description} />
 	{@html `<script type="application/ld+json">${structuredData}</script>`}
 	{@html `<script type="application/ld+json">${breadcrumbs}</script>`}
 </svelte:head>
@@ -39,7 +39,7 @@
 		<div class="mt-6 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
 			<div>
 				<p class="eyebrow">{data.business.category}</p>
-				<h1 class="mt-3 text-brand-text">{data.business.name}</h1>
+				<h1 class="mt-3 text-brand-text">{data.business.heading ?? data.business.name}</h1>
 				<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted">{data.business.description}</p>
 
 				<div class="surface-card mt-8 grid gap-4 p-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -69,11 +69,14 @@
 					{/if}
 				</div>
 
-				<div class="mt-8 space-y-5 text-base leading-8 text-brand-muted">
+				<section class="mt-8" aria-labelledby="about-business-heading">
+					<h2 id="about-business-heading" class="text-2xl text-brand-text">About {data.business.name}</h2>
+				<div class="mt-4 space-y-5 text-base leading-8 text-brand-muted">
 					{#each data.business.about as paragraph}
 						<p>{paragraph}</p>
 					{/each}
 				</div>
+				</section>
 
 				{#if data.business.website}
 					<div class="mt-8">
@@ -153,6 +156,17 @@
 					{/each}
 				</div>
 			</section>
+		{/if}
+
+		{#if data.business.relatedLinks?.length}
+			<nav class="surface-card mt-12 p-6" aria-label={`More local guides related to ${data.business.name}`}>
+				<h2 class="text-2xl text-brand-text">Explore more of Long Eaton</h2>
+				<div class="mt-5 flex flex-wrap gap-3">
+					{#each data.business.relatedLinks as link}
+						<a href={link.href} class="button-secondary">{link.label}</a>
+					{/each}
+				</div>
+			</nav>
 		{/if}
 	</div>
 </article>

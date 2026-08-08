@@ -60,11 +60,20 @@ function createImportedEvent(
   venue: ImportedVenue,
 ): EventItem {
   const venueName = venue.name || "Duchess Theatre & Chatsworth Arts Centre";
+  const isSpamalot = show.title.toLocaleLowerCase() === "spamalot";
 
   return {
     id: `event-imported-duchess-theatre-${index + 1}`,
     slug: `duchess-theatre-${slugify(show.title)}`,
     title: show.title,
+    ...(isSpamalot
+      ? {
+          seoTitle: "Spamalot at Duchess Theatre, Long Eaton | December 2026",
+          metaDescription:
+            "Spamalot is at Duchess Theatre in Long Eaton from 2 to 5 December 2026. Find the confirmed dates, venue address and official ticket link.",
+          heading: "Spamalot at Duchess Theatre, Long Eaton",
+        }
+      : {}),
     date: show.startDate,
     dateLabel:
       formatDateLabel(show) ??
@@ -74,8 +83,15 @@ function createImportedEvent(
     organiser: venueName,
     ticketUrl: show.url ?? undefined,
     category: "Entertainment",
-    excerpt: show.title,
-    description: [],
+    excerpt: isSpamalot
+      ? "See Spamalot at the Duchess Theatre in Long Eaton from Wednesday 2 to Saturday 5 December 2026. Performance times are available from the organiser."
+      : show.title,
+    description: isSpamalot
+      ? [
+          "Spamalot is listed for four dates at the volunteer-run Duchess Theatre & Chatsworth Arts Centre on West Gate.",
+          "Use the official ticket link for performance times, availability and booking details before travelling.",
+        ]
+      : [],
     imageSrc: show.imageUrl ?? "/duchess-theatre-exterior.jpg",
     imageAlt: show.title,
     imageLabel: show.title,
@@ -87,6 +103,15 @@ function createImportedEvent(
         ? [{ title: "Final listed date", date: show.endDate }]
         : undefined,
     featured: false,
+    relatedLinks: isSpamalot
+      ? [
+          {
+            href: "/businesses/duchess-theatre-chatsworth-arts-centre",
+            label: "About Duchess Theatre",
+          },
+          { href: "/events", label: "More Long Eaton events" },
+        ]
+      : undefined,
   };
 }
 
@@ -189,9 +214,13 @@ const baseEvents: EventItem[] = [
     id: "event-long-eaton-junior-parkrun",
     slug: "long-eaton-junior-parkrun",
     title: "Long Eaton junior parkrun",
+    seoTitle: "Long Eaton Junior parkrun: Sundays at West Park",
+    metaDescription:
+      "Long Eaton junior parkrun is a free weekly 2k for children aged 4 to 14, held at 9am every Sunday at West Park. Check details before attending.",
+    heading: "Long Eaton junior parkrun at West Park",
     type: "recurringEvent",
     excerpt:
-      "A free weekly 2k event for children aged 4 to 14 at West Park.",
+      "A free weekly 2k event for children aged 4 to 14, starting at 9am every Sunday at West Park in Long Eaton.",
     description: [
       "Long Eaton junior parkrun takes place every Sunday morning at West Park.",
       "It is a weekly parkrun event for children aged 4 to 14.",
@@ -219,6 +248,14 @@ const baseEvents: EventItem[] = [
     },
     volunteerRun: true,
     sourceUrl: "https://www.parkrun.org.uk/longeaton-juniors/",
+    relatedLinks: [
+      { href: "/events/long-eaton-parkrun", label: "Long Eaton 5k parkrun" },
+      {
+        href: "/guides/best-cafes-in-long-eaton",
+        label: "Cafés in Long Eaton",
+      },
+      { href: "/events", label: "More local events" },
+    ],
   },
   {
     id: "activity-family-history",

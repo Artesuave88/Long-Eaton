@@ -303,6 +303,10 @@ const baseBusinesses: BusinessItem[] = [
     id: "business-10",
     slug: "dudl-coffee",
     name: "DÜDL",
+    seoTitle: "DÜDL Long Eaton: Creative Café & Workshops",
+    metaDescription:
+      "Discover DÜDL, a creative café at 79 College Street, Long Eaton, combining coffee with crafts, workshops, creative evenings and community events.",
+    heading: "DÜDL creative café in Long Eaton",
     category: "Café & Creative Workshops",
     location: "79 College Street, Long Eaton, NG10 4NN",
     description:
@@ -320,6 +324,17 @@ const baseBusinesses: BusinessItem[] = [
     imageStyle: "bg-[#efb8c6]",
     featured: false,
     isReal: true,
+    relatedLinks: [
+      {
+        href: "/guides/best-cafes-in-long-eaton",
+        label: "Best cafés in Long Eaton",
+      },
+      {
+        href: "/guides/independent-shops-in-long-eaton",
+        label: "Independent shops in Long Eaton",
+      },
+      { href: "/events", label: "Creative events in Long Eaton" },
+    ],
   },
   {
     id: "business-9",
