@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<title>Events | Love Long Eaton</title>
+	<title>What's On in Long Eaton | Events & Activities</title>
 	<meta
 		name="description"
 		content="See upcoming events in Long Eaton, from markets and family days to walks and live music."

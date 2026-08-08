@@ -3,12 +3,20 @@
 	import EventCard from '$components/features/events/EventCard.svelte';
 	import { businesses } from '$data/businesses';
 	import type { PageData } from './$types';
+	import { breadcrumbJsonLd, businessJsonLd } from '$utils/seo';
+	import { site } from '$data/site';
 
 	export let data: PageData;
 
 	const relatedBusinesses = businesses
 		.filter((business) => business.slug !== data.business.slug)
 		.slice(0, 3);
+	const structuredData = businessJsonLd(data.business);
+	const breadcrumbs = breadcrumbJsonLd([
+		{ name: 'Home', path: '/' },
+		{ name: 'Businesses', path: '/businesses' },
+		{ name: data.business.name, path: `/businesses/${data.business.slug}` }
+	]);
 </script>
 
 <svelte:head>
@@ -16,6 +24,12 @@
 	<meta name="description" content={data.business.description} />
 	<meta property="og:title" content={`${data.business.name} | Love Long Eaton`} />
 	<meta property="og:description" content={data.business.description} />
+	<meta property="og:type" content="website" />
+	{#if data.business.imageSrc}<meta property="og:image" content={data.business.imageSrc.startsWith('http') ? data.business.imageSrc : `${site.url}${data.business.imageSrc}`} />{/if}
+	<meta name="twitter:title" content={`${data.business.name} | Love Long Eaton`} />
+	<meta name="twitter:description" content={data.business.description} />
+	{@html `<script type="application/ld+json">${structuredData}</script>`}
+	{@html `<script type="application/ld+json">${breadcrumbs}</script>`}
 </svelte:head>
 
 <article class="section-surface">

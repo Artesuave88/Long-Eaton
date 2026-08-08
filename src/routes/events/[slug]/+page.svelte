@@ -1,12 +1,18 @@
 <script lang="ts">
 	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
 	import { formatDisplayDate, formatEventDate, formatRecurringLabel } from '$utils/format';
-	import { eventJsonLd } from '$utils/seo';
+	import { breadcrumbJsonLd, eventJsonLd } from '$utils/seo';
 	import { isRepeatedEventText } from '$data/listings';
 	import type { PageData } from './$types';
+	import { site } from '$data/site';
 
 	export let data: PageData;
 	const structuredData = eventJsonLd(data.event);
+	const breadcrumbs = breadcrumbJsonLd([
+		{ name: 'Home', path: '/' },
+		{ name: 'Events', path: '/events' },
+		{ name: data.event.title, path: `/events/${data.event.slug}` }
+	]);
 
 	const formatRelatedDate = (date?: string, dateLabel?: string) =>
 		date ? formatDisplayDate(date) : dateLabel ?? '';
@@ -58,9 +64,14 @@
 	<meta name="description" content={data.event.excerpt} />
 	<meta property="og:title" content={`${data.event.title} | Love Long Eaton`} />
 	<meta property="og:description" content={data.event.excerpt} />
+	<meta property="og:type" content="article" />
+	{#if data.event.imageSrc}<meta property="og:image" content={data.event.imageSrc.startsWith('http') ? data.event.imageSrc : `${site.url}${data.event.imageSrc}`} />{/if}
+	<meta name="twitter:title" content={`${data.event.title} | Love Long Eaton`} />
+	<meta name="twitter:description" content={data.event.excerpt} />
 	{#if structuredData}
 		{@html `<script type="application/ld+json">${structuredData}</script>`}
 	{/if}
+	{@html `<script type="application/ld+json">${breadcrumbs}</script>`}
 </svelte:head>
 
 <article class="section-surface">

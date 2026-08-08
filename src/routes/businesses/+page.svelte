@@ -35,7 +35,7 @@
 </script>
 
 <svelte:head>
-	<title>Businesses | Love Long Eaton</title>
+	<title>Long Eaton Business Directory | Shops, Food & Services</title>
 	<meta
 		name="description"
 		content="Browse businesses, local services and food spots in and around Long Eaton."

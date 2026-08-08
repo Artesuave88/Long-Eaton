@@ -1,5 +1,69 @@
 import { site } from '$data/site';
 import type { EventItem } from '$types/content';
+import type { BusinessItem } from '$types/content';
+
+const safeJsonLd = (data: unknown) => JSON.stringify(data).replace(/</g, '\\u003c');
+
+export function websiteJsonLd() {
+	return safeJsonLd({
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'Organization',
+				'@id': `${site.url}/#organization`,
+				name: site.name,
+				url: site.url,
+				logo: { '@type': 'ImageObject', url: `${site.url}/le-logo.png` },
+				description: site.tagline
+			},
+			{
+				'@type': 'WebSite',
+				'@id': `${site.url}/#website`,
+				url: site.url,
+				name: site.name,
+				description: site.tagline,
+				publisher: { '@id': `${site.url}/#organization` },
+				inLanguage: 'en-GB'
+			}
+		]
+	});
+}
+
+export function businessJsonLd(business: BusinessItem) {
+	return safeJsonLd({
+		'@context': 'https://schema.org',
+		'@type': 'LocalBusiness',
+		name: business.name,
+		description: business.description,
+		url: `${site.url}/businesses/${business.slug}`,
+		...(business.website || business.instagram
+			? { sameAs: [business.website, business.instagram].filter(Boolean) }
+			: {}),
+		...(business.imageSrc
+			? { image: business.imageSrc.startsWith('http') ? business.imageSrc : `${site.url}${business.imageSrc}` }
+			: {}),
+		address: {
+			'@type': 'PostalAddress',
+			streetAddress: business.location,
+			addressLocality: 'Long Eaton',
+			addressRegion: 'Derbyshire',
+			addressCountry: 'GB'
+		}
+	});
+}
+
+export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
+	return safeJsonLd({
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: items.map((item, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			name: item.name,
+			item: `${site.url}${item.path}`
+		}))
+	});
+}
 
 function toIsoDateTime(date: string, time?: string) {
 	if (!time) return date;
@@ -48,5 +112,5 @@ export function eventJsonLd(event: EventItem) {
 		const performers = Array.isArray(event.performer) ? event.performer : [event.performer];
 		data.performer = performers.map((name) => ({ '@type': 'PerformingGroup', name }));
 	}
-	return JSON.stringify(data).replace(/</g, '\\u003c');
+	return safeJsonLd(data);
 }

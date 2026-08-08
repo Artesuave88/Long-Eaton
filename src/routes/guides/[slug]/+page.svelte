@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { BusinessCard, EventCard, SectionHeading } from '$components';
 	import type { PageData } from './$types';
+	import { breadcrumbJsonLd } from '$utils/seo';
 	export let data: PageData;
+	const breadcrumbs = breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides' }, { name: data.guide.title, path: `/guides/${data.guide.slug}` }]);
 </script>
-<svelte:head><title>{data.guide.title} | Love Long Eaton</title><meta name="description" content={data.guide.description} /></svelte:head>
+<svelte:head><title>{data.guide.title} | Love Long Eaton</title><meta name="description" content={data.guide.description} /><meta property="og:title" content={`${data.guide.title} | Love Long Eaton`} /><meta property="og:description" content={data.guide.description} />{@html `<script type="application/ld+json">${breadcrumbs}</script>`}</svelte:head>
 <article class="section-surface"><div class="container-shell section-space">
 	<a href="/guides" class="button-subtle">Back to guides</a>
 	<div class="mt-8"><SectionHeading eyebrow={data.guide.eyebrow} title={data.guide.title} copy={data.guide.description} headingLevel="h1" /></div>

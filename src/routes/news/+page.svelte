@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>News | Love Long Eaton</title>
+	<title>Long Eaton News & Local Updates | Love Long Eaton</title>
 	<meta
 		name="description"
 		content="Read local updates, seasonal notes and business news from around Long Eaton."
