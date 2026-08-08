@@ -7,7 +7,13 @@
 	export let event: EventItem;
 </script>
 
-<article class="surface-card surface-card-hover overflow-hidden">
+<article class="surface-card surface-card-hover group relative overflow-hidden">
+	<a
+		href={`/events/${event.slug}`}
+		class="absolute inset-0 z-10 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+		aria-label={`View ${event.title}`}
+	></a>
+
 	{#if event.imageSrc}
 		<div class="h-48 w-full overflow-hidden bg-brand-primaryDark/10">
 			<img
@@ -35,7 +41,7 @@
 				{/if}
 			</p>
 		{/if}
-		<h3 class="mt-4 text-[1.45rem] leading-tight text-brand-text">{event.title}</h3>
+		<h3 class="mt-4 text-[1.45rem] leading-tight text-brand-text transition duration-200 group-hover:text-brand-accent">{event.title}</h3>
 		{#if event.time || event.location}
 			<p class="mt-2 text-sm font-medium text-brand-muted">
 				{#if event.time}{event.time}{/if}
@@ -46,6 +52,6 @@
 		{#if !isRepeatedEventText(event.excerpt, event.title)}
 			<p class="body-copy-sm mt-4">{event.excerpt}</p>
 		{/if}
-		<a href={`/events/${event.slug}`} class="link-subtle mt-5">See details</a>
+		<span class="link-subtle mt-5">See details</span>
 	</div>
 </article>
