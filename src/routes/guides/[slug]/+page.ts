@@ -9,9 +9,17 @@ export const load = ({ params }) => {
   const guide = guides.find((item) => item.slug === params.slug);
   if (!guide) throw error(404, "Guide not found");
   const upcomingEvents = getUpcomingEvents(sortedEvents);
-  const matchingEvents = "season" in guide
+  const matchingEventsForGuide = "season" in guide
     ? getEventsForSeason(upcomingEvents, guide.season)
     : getEventsForTopics(upcomingEvents, guide.eventTopics);
+  const featuredEventSlugs = new Set(
+    guide.sections
+      .map((section) => /^\/events\/([^/]+)$/.exec(section.href ?? "")?.[1])
+      .filter((slug) => slug !== undefined),
+  );
+  const matchingEvents = matchingEventsForGuide.filter(
+    (event) => !featuredEventSlugs.has(event.slug),
+  );
   const events = matchingEvents.slice(0, 3);
   const guideBusinesses = "eventTopics" in guide
     ? guide.sections

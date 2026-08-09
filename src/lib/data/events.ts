@@ -328,8 +328,11 @@ const baseEvents: EventItem[] = [
     id: "event-dudl-summer-art-club-tuesdays-2026",
     slug: "dudl-summer-art-club-tuesdays-2026",
     title: "DÜDL Summer Art Club — Tuesdays",
+    metaDescription:
+      "DÜDL Summer Art Club runs on Tuesdays in Long Eaton to 1 September 2026. See the verified price, venue, projects and official booking link.",
     type: "event",
     date: "2026-08-04",
+    endDate: "2026-09-01",
     time: "10:00",
     startTime: "10:00",
     location: "DÜDL, 79 College Street, Long Eaton, NG10 4NN",
@@ -366,8 +369,11 @@ const baseEvents: EventItem[] = [
     id: "event-dudl-summer-art-club-wednesdays-2026",
     slug: "dudl-summer-art-club-wednesdays-2026",
     title: "DÜDL Summer Art Club — Wednesdays",
+    metaDescription:
+      "DÜDL Summer Art Club runs on Wednesdays in Long Eaton to 2 September 2026. See the verified price, venue, projects and official booking link.",
     type: "event",
     date: "2026-08-05",
+    endDate: "2026-09-02",
     time: "10:00",
     startTime: "10:00",
     location: "DÜDL, 79 College Street, Long Eaton, NG10 4NN",

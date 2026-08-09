@@ -21,9 +21,9 @@ const links = [
 ];
 
 const primaryNavHrefs = new Set([
-  "/",
   "/things-to-do",
   "/events",
+  "/guides",
   "/businesses",
   "/jobs",
   "/news",

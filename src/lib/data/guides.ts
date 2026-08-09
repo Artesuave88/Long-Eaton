@@ -26,11 +26,13 @@ export type SearchGuide = {
   eyebrow: string;
   description: string;
   intro: string[];
+  lastUpdated?: string;
   sections: {
     title: string;
     copy: string;
     href: string;
     linkLabel: string;
+    group?: string;
   }[];
   relatedSlugs: string[];
   eventTopics: string[];
@@ -174,38 +176,112 @@ export const seasonalGuides: SeasonalGuide[] = [
 export const searchGuides: SearchGuide[] = [
   {
     slug: "best-cafes-in-long-eaton",
-    title: "Best cafés in Long Eaton",
-    seoTitle: "Best Cafés in Long Eaton: 3 Independent Places",
-    heading: "Best independent cafés in Long Eaton",
+    title: "Best Cafés in Long Eaton: Independent Places for Coffee and Food",
+    seoTitle: "Best Cafés in Long Eaton: Independent Coffee & Food",
+    heading: "Best cafés in Long Eaton: independent places for coffee and food",
     eyebrow: "Local food and drink guide",
     description:
-      "Compare three independent cafés in Long Eaton for coffee, Greek food, Italian brunch and creative workshops, with links to venue details.",
+      "Compare independent cafés in Long Eaton for Greek food, Italian brunch, creative activities and takeaway, with local addresses and listing links.",
     intro: [
-      "Long Eaton’s independent café choices include a Greek deli in Market Place, an Italian café and bakery on Derby Road, and a creative café on College Street.",
-      "This guide only includes venues already listed in the Love Long Eaton directory. Check each venue’s own website or social pages for current menus, opening hours and booking details before visiting.",
+      "Compare three independent cafés for Greek food, Italian brunch or a creative coffee stop. Check each listing’s official link for current menus and opening times.",
     ],
+    lastUpdated: "9 August 2026",
     sections: [
       {
         title: "Caffe-Inna",
-        copy: "An independent café and Greek deli in Market Place serving coffee, café favourites and Greek food, with takeaway and delivery options available.",
+        copy: "A café and Greek deli at 21 Market Place, with coffee, Greek food, takeaway and delivery options.",
         href: "/businesses/caffe-inna",
         linkLabel: "View Caffe-Inna",
       },
       {
         title: "Mo' Mo'",
-        copy: "An intimate Italian café, restaurant and bakery on Derby Road offering coffee alongside Friday and Saturday breakfast and brunch, plus selected evening and Sunday dining.",
+        copy: "A six-table Italian café and bakery at 71 Derby Road, serving breakfast and brunch on Fridays and Saturdays.",
         href: "/businesses/mo-mo-italian-dining",
         linkLabel: "View Mo' Mo'",
       },
       {
         title: "DÜDL",
-        copy: "A creative café on College Street combining coffee with hands-on crafts, workshops, creative evenings and community events.",
+        copy: "A creative café at 79 College Street combining coffee with crafts, workshops and community events.",
         href: "/businesses/dudl-coffee",
         linkLabel: "View DÜDL",
       },
     ],
-    relatedSlugs: ["independent-shops-in-long-eaton"],
+    relatedSlugs: ["restaurants-in-long-eaton", "childrens-activities-in-long-eaton", "independent-shops-in-long-eaton"],
     eventTopics: ["cafe", "coffee", "food", "drink", "brunch", "workshop"],
+  },
+  {
+    slug: "restaurants-in-long-eaton",
+    title: "Restaurants in Long Eaton: Independent Places to Eat",
+    seoTitle: "Restaurants in Long Eaton: Independent Places to Eat",
+    heading: "Restaurants in Long Eaton: independent places to eat",
+    eyebrow: "Independent restaurant guide",
+    description:
+      "Compare verified independent restaurants in Long Eaton for Italian dining, shared small plates, coeliac-safe food and daytime or evening service.",
+    intro: [
+      "Compare two verified independent restaurants: Limas for shared small plates and coeliac-safe dining, or Mo’ Mo’ for intimate Italian meals.",
+    ],
+    lastUpdated: "9 August 2026",
+    sections: [
+      {
+        title: "Limas",
+        copy: "A relaxed restaurant and bar at 115 Derby Road serving shared small plates, with a dedicated coeliac-safe menu.",
+        href: "/businesses/limas-long-eaton",
+        linkLabel: "View Limas",
+      },
+      {
+        title: "Mo' Mo'",
+        copy: "A six-table Italian restaurant at 71 Derby Road, with selected evening dining, Sunday lunch and daytime brunch service.",
+        href: "/businesses/mo-mo-italian-dining",
+        linkLabel: "View Mo' Mo'",
+      },
+    ],
+    relatedSlugs: ["best-cafes-in-long-eaton", "independent-shops-in-long-eaton"],
+    eventTopics: [],
+  },
+  {
+    slug: "childrens-activities-in-long-eaton",
+    title: "Children’s Activities in Long Eaton: Clubs, Parks and Days Out",
+    seoTitle: "Children’s Activities in Long Eaton: Clubs, Parks & Days Out",
+    heading: "Children’s activities in Long Eaton: clubs, parks and days out",
+    eyebrow: "Family activity guide",
+    description:
+      "Find verified children’s activities in Long Eaton, including recurring clubs, free outdoor options and upcoming family events with listing links.",
+    intro: [
+      "Find recurring clubs, free outdoor places and current children’s events. Ages, prices and schedules are included only where verified.",
+    ],
+    lastUpdated: "9 August 2026",
+    sections: [
+      {
+        title: "Long Eaton junior parkrun",
+        copy: "A free weekly 2k for ages 4 to 14, starting at 9am every Sunday at West Park.",
+        href: "/events/long-eaton-junior-parkrun",
+        linkLabel: "View junior parkrun details",
+        group: "Recurring activity",
+      },
+      {
+        title: "Long Eaton BJJ children’s classes",
+        copy: "Regular Brazilian Jiu-Jitsu classes for children at West End Mills. Check the academy’s website for ages, prices and times.",
+        href: "/businesses/long-eaton-bjj",
+        linkLabel: "View Long Eaton BJJ",
+        group: "Recurring activity",
+      },
+      {
+        title: "West Park",
+        copy: "A free-to-enter green space with open lawns, play areas and easy paths.",
+        href: "/discover-long-eaton#west-park",
+        linkLabel: "Explore West Park",
+        group: "Outdoor and free",
+      },
+      {
+        title: "Erewash Canal",
+        copy: "A free local option for a waterside walk or bike ride. Choose a suitable route and check conditions.",
+        href: "/discover-long-eaton#erewash-canal",
+        linkLabel: "Explore the Erewash Canal",
+        group: "Outdoor and free",
+      },
+    ],
+    relatedSlugs: ["best-cafes-in-long-eaton", "summer-in-long-eaton"],
+    eventTopics: ["child", "children", "junior", "family"],
   },
   {
     slug: "independent-shops-in-long-eaton",
