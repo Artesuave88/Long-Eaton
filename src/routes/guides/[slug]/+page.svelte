@@ -1,8 +1,10 @@
 <script lang="ts">
-	import { EventCard, SectionHeading } from '$components';
+	import { EventCard, NewsletterSignup, SectionHeading } from '$components';
 	import type { PageData } from './$types';
+	import type { ActionData } from './$types';
 	import { breadcrumbJsonLd, guideJsonLd } from '$utils/seo';
 	export let data: PageData;
+	export let form: ActionData;
 	const breadcrumbs = breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides' }, { name: data.guide.title, path: `/guides/${data.guide.slug}` }]);
 	const structuredData = guideJsonLd(data.guide);
 </script>
@@ -28,6 +30,7 @@
 			</div>
 		</section>
 	{/if}
+	<NewsletterSignup {form} source="guide" embedded />
 	{#if data.events.length}<section class="mt-12"><h2 class="text-3xl text-brand-text">{"season" in data.guide ? "Dated events for the season" : "Related upcoming events"}</h2><p class="body-copy-sm mt-3">Confirmed listings currently in the calendar. Check each page for the latest details.</p><div class="section-grid mt-7">{#each data.events as event}<EventCard {event} />{/each}</div><a href="/events" class="button-secondary mt-7">View more events</a></section>{/if}
 	{#if data.relatedGuides.length}
 		<section class="mt-12 border-t border-brand-border pt-10" aria-labelledby="related-guides-heading">

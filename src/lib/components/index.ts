@@ -16,3 +16,4 @@ export { default as HeroCarousel } from "./features/home/HeroCarousel.svelte";
 export { default as Footer } from "./features/navigation/Footer.svelte";
 export { default as Header } from "./features/navigation/Header.svelte";
 export { default as NewsCard } from "./features/news/NewsCard.svelte";
+export { default as NewsletterSignup } from "./features/newsletter/NewsletterSignup.svelte";

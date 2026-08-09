@@ -1,12 +1,15 @@
 <script lang="ts">
 	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
+	import NewsletterSignup from '$components/features/newsletter/NewsletterSignup.svelte';
 	import { formatDisplayDate, formatEventDate, formatRecurringLabel } from '$utils/format';
 	import { breadcrumbJsonLd, eventJsonLd } from '$utils/seo';
 	import { isRepeatedEventText } from '$data/listings';
 	import type { PageData } from './$types';
 	import { site } from '$data/site';
+	import type { ActionData } from './$types';
 
 	export let data: PageData;
+	export let form: ActionData;
 	const structuredData = eventJsonLd(data.event, data.isPast);
 	const breadcrumbs = breadcrumbJsonLd([
 		{ name: 'Home', path: '/' },
@@ -283,35 +286,6 @@
 					</div>
 				{/if}
 
-				{#if data.event.relatedLinks?.length}
-					<nav class="surface-card mt-8 p-6" aria-label="Related Long Eaton pages">
-						<h2 class="text-2xl text-brand-text">More in Long Eaton</h2>
-						<div class="mt-5 flex flex-wrap gap-3">
-							{#each data.event.relatedLinks as link}
-								<a href={link.href} class="button-secondary">{link.label}</a>
-							{/each}
-						</div>
-					</nav>
-				{/if}
-
-				{#if data.event.relatedDates?.length}
-					<div class="surface-card mt-8 p-6">
-						<h2 class="text-2xl text-brand-text">Related dates</h2>
-						<p class="body-copy-sm mt-4">Useful extra dates connected with this event.</p>
-						<div class="mt-5 grid gap-3 sm:grid-cols-2">
-							{#each data.event.relatedDates as item}
-								<div class="inset-panel p-4">
-									<p class="eyebrow">{item.title}</p>
-									<p class="mt-2 text-base font-semibold text-brand-text">{formatRelatedDate(item.date, item.dateLabel)}</p>
-									{#if item.note}
-										<p class="mt-1 text-sm text-brand-muted">{item.note}</p>
-									{/if}
-								</div>
-							{/each}
-						</div>
-					</div>
-				{/if}
-
 			</div>
 
 			<div class="space-y-6">
@@ -370,3 +344,40 @@
 		</div>
 	</div>
 </article>
+
+<NewsletterSignup {form} source="event" />
+
+{#if data.event.relatedLinks?.length || data.event.relatedDates?.length}
+	<section class="section-surface">
+		<div class="container-shell pb-8">
+			{#if data.event.relatedLinks?.length}
+				<nav class="surface-card p-6" aria-label="Related Long Eaton pages">
+					<h2 class="text-2xl text-brand-text">More in Long Eaton</h2>
+					<div class="mt-5 flex flex-wrap gap-3">
+						{#each data.event.relatedLinks as link}
+							<a href={link.href} class="button-secondary">{link.label}</a>
+						{/each}
+					</div>
+				</nav>
+			{/if}
+
+			{#if data.event.relatedDates?.length}
+				<div class="surface-card mt-8 p-6">
+					<h2 class="text-2xl text-brand-text">Related dates</h2>
+					<p class="body-copy-sm mt-4">Useful extra dates connected with this event.</p>
+					<div class="mt-5 grid gap-3 sm:grid-cols-2">
+						{#each data.event.relatedDates as item}
+							<div class="inset-panel p-4">
+								<p class="eyebrow">{item.title}</p>
+								<p class="mt-2 text-base font-semibold text-brand-text">{formatRelatedDate(item.date, item.dateLabel)}</p>
+								{#if item.note}
+									<p class="mt-1 text-sm text-brand-muted">{item.note}</p>
+								{/if}
+							</div>
+						{/each}
+					</div>
+				</div>
+			{/if}
+		</div>
+	</section>
+{/if}
