@@ -14,9 +14,9 @@
 			aria-label="Love Long Eaton home"
 		>
 			<img
-				src="/le-logo.png"
+				src="/le-logo-header.png"
 				alt="Love Long Eaton"
-				class="h-16 w-auto brightness-0 invert [filter:brightness(0)_invert(1)_drop-shadow(0_2px_10px_rgba(7,18,41,0.35))] sm:h-20"
+				class="h-16 w-auto drop-shadow-[0_2px_10px_rgba(7,18,41,0.35)] sm:h-20"
 			/>
 		</a>
 
