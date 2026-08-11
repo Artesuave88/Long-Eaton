@@ -22,9 +22,15 @@ function buildImportedBusiness(venue: ImportedVenue): BusinessItem {
     id: "business-imported-duchess-theatre",
     slug: venue.slug,
     name: venue.name,
+    seoTitle:
+      "Duchess Theatre Long Eaton: Shows, Tickets & Visitor Information",
+    metaDescription:
+      "Find Duchess Theatre in Long Eaton, browse performances and tickets, and get useful visitor details for the West Gate venue.",
+    heading: "Duchess Theatre Long Eaton",
     category: venue.category,
     location: venue.address,
-    description: venue.summary,
+    description:
+      "Duchess Theatre is a volunteer-run Long Eaton venue for local performances. Find shows, ticket links and useful visitor details for its West Gate location.",
     about: venue.description.length
       ? venue.description
       : [venue.summary].filter(Boolean),
@@ -36,6 +42,11 @@ function buildImportedBusiness(venue: ImportedVenue): BusinessItem {
     imageStyle: "bg-brand-accent/10",
     featured: false,
     isReal: true,
+    relatedLinks: [
+      { href: "/events", label: "Upcoming performances and events" },
+      { href: "/guides/autumn-in-long-eaton", label: "Autumn things to do" },
+      { href: "/whats-on-this-weekend", label: "What’s on this weekend" },
+    ],
   };
 }
 
@@ -292,8 +303,14 @@ const baseBusinesses: BusinessItem[] = [
     website:
       "https://www.erewash.gov.uk/businesses-and-licensing/markets-and-car-boot-sales/erewash-markets",
     openingHours: [
-      { label: "Tuesday flea market, usually 9am–3pm", schema: "Tu 09:00-15:00" },
-      { label: "Wednesday, Friday and Saturday, usually 9am–3pm", schema: "We,Fr,Sa 09:00-15:00" },
+      {
+        label: "Tuesday flea market, usually 9am–3pm",
+        schema: "Tu 09:00-15:00",
+      },
+      {
+        label: "Wednesday, Friday and Saturday, usually 9am–3pm",
+        schema: "We,Fr,Sa 09:00-15:00",
+      },
     ],
     imageSrc: "/long-eaton-market.jpg",
     imageAlt: "Market stalls and shoppers on Long Eaton High Street",
@@ -307,10 +324,10 @@ const baseBusinesses: BusinessItem[] = [
     id: "business-10",
     slug: "dudl-coffee",
     name: "DÜDL",
-    seoTitle: "DÜDL Long Eaton: Creative Café & Workshops",
+    seoTitle: "DÜDL Long Eaton: Creative Café, Workshops & Events",
     metaDescription:
-      "Discover DÜDL, a creative café at 79 College Street, Long Eaton, combining coffee with crafts, workshops, creative evenings and community events.",
-    heading: "DÜDL creative café in Long Eaton",
+      "DÜDL is a creative café at 79 College Street, Long Eaton, offering coffee, crafts, workshops and community events. See what’s coming up.",
+    heading: "DÜDL Long Eaton creative café",
     category: "Café & Creative Workshops",
     location: "79 College Street, Long Eaton, NG10 4NN",
     description:
@@ -337,7 +354,8 @@ const baseBusinesses: BusinessItem[] = [
         href: "/guides/independent-shops-in-long-eaton",
         label: "Independent shops in Long Eaton",
       },
-      { href: "/events", label: "Creative events in Long Eaton" },
+      { href: "/events", label: "Upcoming creative events" },
+      { href: "/whats-on-this-weekend", label: "What’s on this weekend" },
     ],
   },
   {

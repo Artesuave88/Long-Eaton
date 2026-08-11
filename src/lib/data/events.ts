@@ -214,10 +214,10 @@ const baseEvents: EventItem[] = [
     id: "event-long-eaton-junior-parkrun",
     slug: "long-eaton-junior-parkrun",
     title: "Long Eaton junior parkrun",
-    seoTitle: "Long Eaton Junior parkrun: Sundays at West Park",
+    seoTitle: "Long Eaton Junior parkrun: Sunday Time, Location & Ages",
     metaDescription:
-      "Long Eaton junior parkrun is a free weekly 2k for children aged 4 to 14, held at 9am every Sunday at West Park. Check details before attending.",
-    heading: "Long Eaton junior parkrun at West Park",
+      "Long Eaton junior parkrun is a free weekly 2k event for ages 4–14, held at 9am on Sundays at West Park. Find location and participation details.",
+    heading: "Long Eaton junior parkrun: Sundays at West Park",
     type: "recurringEvent",
     excerpt:
       "A free weekly 2k event for children aged 4 to 14, starting at 9am every Sunday at West Park in Long Eaton.",
@@ -251,10 +251,11 @@ const baseEvents: EventItem[] = [
     relatedLinks: [
       { href: "/events/long-eaton-parkrun", label: "Long Eaton 5k parkrun" },
       {
-        href: "/guides/best-cafes-in-long-eaton",
-        label: "Cafés in Long Eaton",
+        href: "/guides/childrens-activities-in-long-eaton",
+        label: "Children’s activities in Long Eaton",
       },
-      { href: "/events", label: "More local events" },
+      { href: "/events", label: "Upcoming Long Eaton events" },
+      { href: "/whats-on-this-weekend", label: "What’s on this weekend" },
     ],
   },
   {
