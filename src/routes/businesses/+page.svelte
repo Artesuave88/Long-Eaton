@@ -50,6 +50,11 @@
 			copy="Independent businesses, local services and useful town listings in one place."
 			headingLevel="h1"
 		/>
+		<nav class="mb-8 flex flex-wrap gap-3" aria-label="Long Eaton shopping and food guides">
+			<a href="/guides/best-cafes-in-long-eaton" class="button-secondary">Cafés in Long Eaton</a>
+			<a href="/guides/restaurants-in-long-eaton" class="button-secondary">Restaurants in Long Eaton</a>
+			<a href="/guides/independent-shops-in-long-eaton" class="button-secondary">Independent shops</a>
+		</nav>
 
 		{#if selectedBrowseGroupLabel || selectedLetter}
 			<div class="surface-card mb-6 flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5">

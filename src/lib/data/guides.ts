@@ -176,14 +176,14 @@ export const seasonalGuides: SeasonalGuide[] = [
 export const searchGuides: SearchGuide[] = [
   {
     slug: "best-cafes-in-long-eaton",
-    title: "Best Cafés in Long Eaton: Independent Places for Coffee and Food",
-    seoTitle: "Best Cafés in Long Eaton: Independent Coffee & Food",
-    heading: "Best cafés in Long Eaton: independent places for coffee and food",
+    title: "Cafés in Long Eaton: Independent Places for Coffee and Food",
+    seoTitle: "Cafés in Long Eaton: Independent Coffee & Food",
+    heading: "Cafés in Long Eaton for independent coffee and food",
     eyebrow: "Local food and drink guide",
     description:
       "Compare independent cafés in Long Eaton for Greek food, Italian brunch, creative activities and takeaway, with local addresses and listing links.",
     intro: [
-      "Compare three independent cafés for Greek food, Italian brunch or a creative coffee stop. Check each listing’s official link for current menus and opening times.",
+      "Looking for a café in Long Eaton? Compare three independent places for Greek food, Italian brunch or a creative coffee stop, then use each business listing to find its address and official link.",
     ],
     lastUpdated: "9 August 2026",
     sections: [

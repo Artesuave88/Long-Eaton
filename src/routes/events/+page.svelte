@@ -14,10 +14,10 @@
 </script>
 
 <svelte:head>
-	<title>What's On in Long Eaton | Events & Activities</title>
+	<title>Long Eaton Events: What’s On & Upcoming Activities</title>
 	<meta
 		name="description"
-		content="See upcoming events in Long Eaton, from markets and family days to walks and live music."
+		content="Find upcoming Long Eaton events, regular activities, markets, family days and live performances, with dates, venues and organiser links."
 	/>
 </svelte:head>
 
@@ -25,15 +25,16 @@
 	<div class="container-shell section-space">
 		<SectionHeading
 			eyebrow="Events"
-			title="What’s on in Long Eaton"
-			copy="One-off dates, weekly activities and regular local events across Long Eaton."
+			title="Long Eaton events and what’s on"
+			copy="Browse upcoming dates, weekly activities and regular local events. Open a listing for its confirmed venue, timing and organiser details."
 			headingLevel="h1"
 		/>
 
-		<div class="mb-8">
+		<div class="mb-8 flex flex-wrap gap-3">
 			<a href="/whats-on-this-weekend" class="button-primary">
 				See what’s on this weekend
 			</a>
+			<a href="/things-to-do" class="button-secondary">Explore things to do</a>
 		</div>
 
 		<div class="surface-card mb-8 overflow-hidden">

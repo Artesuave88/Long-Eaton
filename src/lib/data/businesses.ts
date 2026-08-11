@@ -291,6 +291,10 @@ const baseBusinesses: BusinessItem[] = [
     id: "business-11",
     slug: "long-eaton-market",
     name: "Long Eaton Market",
+    seoTitle: "Long Eaton Market Days: Times, Location & Traders",
+    metaDescription:
+      "Long Eaton Market runs Tuesday, Wednesday, Friday and Saturday from 9am to 3pm, weather permitting. Find the location and official contact details.",
+    heading: "Long Eaton Market days and opening times",
     category: "Shopping & Markets",
     location: "High Street and Market Place, Long Eaton",
     description:
@@ -298,17 +302,20 @@ const baseBusinesses: BusinessItem[] = [
     about: [
       "Long Eaton Market brings a changing selection of independent traders into the town centre throughout the week.",
       "Regular stalls sell products including cheese, meat and preserves, clothing, greetings cards, books, haberdashery and household goods.",
-      "The main market runs on Wednesdays, Fridays and Saturdays, with a smaller flea market on Tuesdays. Markets usually operate from 9am to 3pm, subject to weather conditions.",
+      "The market runs on Wednesdays, Fridays and Saturdays, with a small flea market on Tuesdays. Erewash Borough Council states that all markets operate from 9am to 3pm, depending on weather conditions.",
+      "Prospective stallholders can contact the council’s market team by phone or email using the official details on this page.",
     ],
     website:
       "https://www.erewash.gov.uk/businesses-and-licensing/markets-and-car-boot-sales/erewash-markets",
+    telephone: "07702 821938",
+    email: "markets@erewash.gov.uk",
     openingHours: [
       {
-        label: "Tuesday flea market, usually 9am–3pm",
+        label: "Tuesday small flea market, 9am–3pm (weather permitting)",
         schema: "Tu 09:00-15:00",
       },
       {
-        label: "Wednesday, Friday and Saturday, usually 9am–3pm",
+        label: "Wednesday, Friday and Saturday, 9am–3pm (weather permitting)",
         schema: "We,Fr,Sa 09:00-15:00",
       },
     ],
@@ -319,6 +326,14 @@ const baseBusinesses: BusinessItem[] = [
     imageStyle: "bg-brand-section",
     featured: false,
     isReal: true,
+    relatedLinks: [
+      {
+        href: "/guides/independent-shops-in-long-eaton",
+        label: "Independent shops in Long Eaton",
+      },
+      { href: "/events", label: "Upcoming Long Eaton events" },
+      { href: "/whats-on-this-weekend", label: "What’s on this weekend" },
+    ],
   },
   {
     id: "business-10",

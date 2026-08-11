@@ -48,14 +48,16 @@
 				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-white/80">Explore the town</p>
 				<h1 class="mt-4 max-w-2xl text-white">Things to do in Long Eaton</h1>
 				<p class="mt-5 max-w-2xl text-lg leading-8 text-white/85">
-					Find your next local plan, from events and family activities to waterside walks, good food and independent shopping.
+					Find your next local plan, from upcoming events and free outdoor ideas to children’s activities, cafés, restaurants and independent shopping.
 				</p>
-				<nav class="mt-8 flex flex-wrap gap-2" aria-label="Things to do sections">
+				<nav class="mt-8 flex flex-wrap gap-2" aria-label="Popular things to do in Long Eaton">
 					{#each [
-						['#events', 'Events'],
-						['#parks-and-walks', 'Parks & walks'],
-						['#family', 'Family'],
-						['#food-and-drink', 'Food & drink'],
+						['/guides/childrens-activities-in-long-eaton', 'Children’s activities'],
+						['#free-things-to-do', 'Free things to do'],
+						['/events', 'Events'],
+						['/whats-on-this-weekend', 'Weekend events'],
+						['/guides/best-cafes-in-long-eaton', 'Cafés'],
+						['/guides/restaurants-in-long-eaton', 'Restaurants'],
 						['#independent-shops', 'Independent shops'],
 						['#seasonal-ideas', 'Seasonal ideas']
 					] as link}
@@ -78,10 +80,10 @@
 		{/if}
 	</section>
 
-	<section id="parks-and-walks" class="section-muted scroll-mt-24" aria-labelledby="parks-heading">
+	<section id="free-things-to-do" class="section-muted scroll-mt-24" aria-labelledby="parks-heading">
 		<div class="container-shell section-space">
 			<div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-				<SectionHeading eyebrow="Get outdoors" title="Parks and walks" copy="Green spaces and waterside routes for a stroll, bike ride or family afternoon." />
+				<SectionHeading eyebrow="Get outdoors" title="Free things to do: parks and walks" copy="Explore green spaces and waterside routes for a stroll, bike ride or family afternoon without an entry fee." />
 				<a href="/discover-long-eaton" class="button-secondary shrink-0">Explore all places</a>
 			</div>
 			<div class="mt-8 space-y-6">{#each discoverPlaces as place}<DiscoverPlaceCard {place} />{/each}</div>
@@ -91,7 +93,7 @@
 	<section id="family" class="container-shell section-space scroll-mt-24" aria-labelledby="family-heading">
 		<div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 			<SectionHeading eyebrow="For all ages" title="Family activities" copy="Family-friendly events and easy ideas for time together close to home." />
-			<a href="/events" class="button-secondary shrink-0">Find more activities</a>
+			<a href="/guides/childrens-activities-in-long-eaton" class="button-secondary shrink-0">See the children’s activity guide</a>
 		</div>
 		{#if familyEvents.length}
 			<div class="section-grid mt-8">{#each familyEvents as event}<EventCard {event} />{/each}</div>
@@ -104,7 +106,10 @@
 		<div class="container-shell section-space">
 			<div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 				<SectionHeading eyebrow="Eat local" title="Food and drink" copy="Independent places for coffee, a meal, a drink or something good to take home." />
-				<a href="/businesses?category=food-drink" class="button-secondary shrink-0">Browse food & drink</a>
+				<div class="flex flex-wrap gap-3">
+					<a href="/guides/best-cafes-in-long-eaton" class="button-secondary shrink-0">Browse cafés</a>
+					<a href="/guides/restaurants-in-long-eaton" class="button-secondary shrink-0">Browse restaurants</a>
+				</div>
 			</div>
 			<div class="section-grid mt-8">{#each foodAndDrink as business}<BusinessCard {business} />{/each}</div>
 		</div>

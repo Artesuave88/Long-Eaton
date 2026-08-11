@@ -12,5 +12,5 @@
 	<SectionHeading eyebrow="This weekend" title="What’s on in Long Eaton this weekend" copy={`${formatDisplayDate(data.start)} to ${formatDisplayDate(data.end)}. Upcoming events and regular weekend activities, gathered in one place.`} headingLevel="h1" />
 	{#if data.events.length}<div class="section-grid mt-8">{#each data.events as event}<EventCard {event} />{/each}</div>
 	{:else}<div class="mt-8"><EmptyState title="Nothing is listed for this weekend yet" message="New events are added regularly. You can also browse all upcoming and weekly activities." /></div>{/if}
-	<div class="mt-8 flex flex-wrap gap-3"><a href="/events" class="button-primary">Browse all events</a><a href="/contact" class="button-secondary">Tell us about an event</a></div>
+	<div class="mt-8 flex flex-wrap gap-3"><a href="/events" class="button-primary">Browse all events</a><a href="/things-to-do" class="button-secondary">Explore more things to do</a><a href="/contact" class="button-secondary">Tell us about an event</a></div>
 </div></section>
