@@ -9,6 +9,8 @@
 		| undefined = undefined;
 	export let source: 'home' | 'event' | 'guide' = 'home';
 	export let embedded = false;
+	export let heading = 'Never miss what’s happening in Long Eaton';
+	export let copy = 'Get a short weekly email featuring upcoming events, activities and useful local updates.';
 
 	const headingId = `newsletter-${source}-heading`;
 	const websiteId = `newsletter-${source}-website`;
@@ -21,9 +23,9 @@
 			<div class="grid gap-6 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:p-10">
 				<div>
 					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-200">Your local weekend guide</p>
-					<h2 id={headingId} class="mt-3 text-3xl text-white">Never miss what’s happening in Long Eaton</h2>
+					<h2 id={headingId} class="mt-3 text-3xl text-white">{heading}</h2>
 					<p class="mt-3 max-w-xl text-sm leading-7 text-white/75 sm:text-base">
-						Get a short weekly email featuring upcoming events, activities and useful local updates.
+						{copy}
 					</p>
 				</div>
 

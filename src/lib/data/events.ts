@@ -563,7 +563,8 @@ const baseEvents: EventItem[] = [
       "https://www.dudlcoffee.co.uk/whatson-store/p/5fuzde8ucogdjw9p7tbuqc5j746l34-nkzwf-77sgn-g8cg6-8c6cm",
     offerValidFrom: "2026-07-25T00:00:00+01:00",
     imageSrc: "/dudl-craft-night.webp",
-    imageAlt: "Poster for DÜDL Works in Progress Craft Night on 6 September 2026",
+    imageAlt:
+      "Poster for DÜDL Works in Progress Craft Night on 6 September 2026",
     imageFit: "contain",
     imageLabel: "DÜDL craft night",
     imageStyle: "bg-brand-section",
@@ -939,9 +940,9 @@ const baseEvents: EventItem[] = [
     id: "event-long-eaton-music-festival-2026-08-08",
     slug: "long-eaton-music-festival-8-august-2026",
     title: "Long Eaton Music Festival",
-    seoTitle: "Long Eaton Music Festival 2026 | 8 August, West Park",
+    seoTitle: "Long Eaton Music Festival 2026 Archive | West Park",
     metaDescription:
-      "Long Eaton Music Festival 2026 is at West Park on Saturday 8 August. See confirmed times, location and ticket information before you go.",
+      "Archived details for Long Eaton Music Festival at West Park on Saturday 8 August 2026, including the verified times, location and ticket information.",
     heading: "Long Eaton Music Festival 2026, West Park, Long Eaton",
     date: "2026-08-08",
     time: "11:30-22:00",
@@ -951,14 +952,15 @@ const baseEvents: EventItem[] = [
     price: "From £14.50; under-5s free",
     priceSummary:
       "Ages 5 and under free; children's tickets from £14.50, adult tickets from £21.50, two-adult tickets £40 and Family Saver tickets £39.50 at the time of checking.",
+    status: "Finished",
     organiser: "Long Eaton Music Festival",
     category: "Music",
     excerpt:
-      "A full-day, family-friendly music festival on the West Park Events Field.",
+      "An archived record of the full-day, family-friendly music festival held on the West Park Events Field.",
     description: [
-      "Long Eaton Music Festival returns with a full day of live music and family entertainment on the West Park Events Field.",
-      "Gates open at 11:30am and the event runs until 10pm, with last entry listed as 7:45pm.",
-      "Ticket prices vary by age and release, with family ticket options also available.",
+      "Long Eaton Music Festival 2026 brought a full day of live music and family entertainment to the West Park Events Field.",
+      "Gates opened at 11:30am and the event ran until 10pm, with last entry listed as 7:45pm.",
+      "Ticket prices varied by age and release, with family ticket options also available.",
     ],
     locationNote: "Last entry is listed as 19:45.",
     ticketUrl:
@@ -974,11 +976,14 @@ const baseEvents: EventItem[] = [
     featured: true,
     retainAfterEvent: true,
     postEventMessage:
-      "Long Eaton Music Festival 2026 took place on 8 August 2026. This page is being kept as a record of the event; browse the latest Long Eaton events below.",
+      "Long Eaton Music Festival 2026 took place on 8 August 2026. This page is kept as an archived record of the event.",
     relatedLinks: [
-      { href: "/events", label: "See upcoming Long Eaton events" },
-      { href: "/discover-long-eaton#west-park", label: "Explore West Park" },
-      { href: "/things-to-do", label: "Find more things to do in Long Eaton" },
+      { href: "/events", label: "Upcoming Long Eaton events" },
+      { href: "/whats-on-this-weekend", label: "What’s on this weekend" },
+      {
+        href: "/discover-long-eaton#west-park",
+        label: "Other events at West Park",
+      },
     ],
   },
   {

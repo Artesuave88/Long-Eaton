@@ -132,11 +132,13 @@ export function eventJsonLd(event: EventItem, isPast = false) {
 	const data: Record<string, unknown> = {
 		'@context': 'https://schema.org', '@type': 'Event', name: event.heading ?? event.title,
 		startDate: toIsoDateTime(event.date, event.startTime ?? event.time),
-		eventStatus: 'https://schema.org/EventScheduled',
 		eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
 		description: event.metaDescription ?? (event.description.join(' ') || event.excerpt),
 		url: `${site.url}/events/${event.slug}`
 	};
+	// Schema.org has no completed-event status. Keep the historical Event record,
+	// but do not describe an archived event as scheduled/upcoming.
+	if (!isPast) data.eventStatus = 'https://schema.org/EventScheduled';
 	data.endDate = toIsoDateTime(event.endDate ?? event.date, event.endTime);
 	if (event.location) data.location = {
 		'@type': 'Place', name: event.location.split(',')[0],

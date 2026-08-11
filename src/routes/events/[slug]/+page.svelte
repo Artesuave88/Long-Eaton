@@ -22,6 +22,7 @@
 	const isCarnival = data.event.slug === 'long-eaton-carnival';
 	const isParkrun = data.event.slug === 'long-eaton-parkrun';
 	const isJuniorParkrun = data.event.slug === 'long-eaton-junior-parkrun';
+	const isMusicFestivalArchive = data.event.slug === 'long-eaton-music-festival-8-august-2026';
 	const isActivity = data.event.type === 'activity';
 	const isArtRoomEvent = data.event.sourceUrl === 'https://www.longeatonartroom.co.uk/whats-available/events/';
 	const hasVisitDetails =
@@ -85,6 +86,12 @@
 			<div>
 				<p class="eyebrow">{data.event.category}</p>
 				<h1 class="mt-3 text-brand-text">{data.event.heading ?? data.event.title}</h1>
+				{#if data.isPast && isMusicFestivalArchive}
+					<div class="mt-5 rounded-xl border border-brand-accent/30 bg-brand-accent/10 p-5" role="status">
+						<p class="text-lg font-bold text-brand-text">This event has now finished.</p>
+						<p class="mt-2 text-sm leading-7 text-brand-muted">The details below are retained as an archive of the 2026 event.</p>
+					</div>
+				{/if}
 				{#if data.event.strapline}
 					<p class="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">{data.event.strapline}</p>
 				{/if}
@@ -345,14 +352,21 @@
 	</div>
 </article>
 
-<NewsletterSignup {form} source="event" />
+<NewsletterSignup
+	{form}
+	source="event"
+	heading={isMusicFestivalArchive ? 'Hear about future Long Eaton events' : 'Never miss what’s happening in Long Eaton'}
+	copy={isMusicFestivalArchive
+		? 'Join the weekly email for future Long Eaton event announcements, weekend ideas and useful local updates.'
+		: 'Get a short weekly email featuring upcoming events, activities and useful local updates.'}
+/>
 
 {#if data.event.relatedLinks?.length || data.event.relatedDates?.length}
 	<section class="section-surface">
 		<div class="container-shell pb-8">
 			{#if data.event.relatedLinks?.length}
 				<nav class="surface-card p-6" aria-label="Related Long Eaton pages">
-					<h2 class="text-2xl text-brand-text">More in Long Eaton</h2>
+					<h2 class="text-2xl text-brand-text">{isMusicFestivalArchive ? 'Find another Long Eaton event' : 'More in Long Eaton'}</h2>
 					<div class="mt-5 flex flex-wrap gap-3">
 						{#each data.event.relatedLinks as link}
 							<a href={link.href} class="button-secondary">{link.label}</a>
