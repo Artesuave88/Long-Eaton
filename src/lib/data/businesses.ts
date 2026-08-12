@@ -57,6 +57,29 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-22",
+    slug: "street-food-kitchen",
+    name: "Street Food Kitchen",
+    category: "Food & Drink",
+    location: "Wade Business Centre, Wellington Street, Long Eaton, NG10 4HS",
+    description:
+      "A Long Eaton bistro backed by more than 25 years of food-industry experience, serving fresh, made-to-order dishes alongside takeaway, delivery and event catering.",
+    about: [
+      "Street Food Kitchen is an independent bistro at Wade Business Centre, led by a team with more than 25 years of experience spanning contract catering for major companies and work in high-quality restaurants.",
+      "Fresh dishes are made to order using quality ingredients, with generous portions and creative menus that put bold twists on familiar comfort food. The varied selection includes breakfasts, smashed burgers, filled flatbreads, stone-baked pizzas, paninis and seasonal specials.",
+      "Customers can eat in, collect a takeaway or arrange local delivery. Flexible event catering and custom menu planning are also available, with vegetarian, vegan and gluten-free choices offered for a range of dietary needs.",
+    ],
+    website: "https://www.street-food-kitchen.co.uk/",
+    instagram: "https://www.instagram.com/streetfoodkitchen1/",
+    imageSrc: "/street-food-kitchen.png",
+    imageAlt: "Street Food Kitchen logo",
+    imageFit: "contain",
+    imageLabel: "Independent bistro and caterer",
+    imageStyle: "bg-[#eee7dc]",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-21",
     slug: "impact-physio-long-eaton",
     name: "Impact Physio",
