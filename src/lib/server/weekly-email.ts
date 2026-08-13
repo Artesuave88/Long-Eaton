@@ -41,28 +41,40 @@ export function getNextWeekend(now = new Date()) {
 }
 
 function occursDuringWeekend(event: EventItem, start: string, end: string) {
-  if (event.date) {
-    return event.date <= end && (event.endDate ?? event.date) >= start;
-  }
-
   const days = event.daysOfWeek?.length
     ? event.daysOfWeek
     : event.dayOfWeek
       ? [event.dayOfWeek]
       : [];
 
+  // A weekly series can have start/end dates describing the lifetime of the
+  // series. That range is not a continuous event: an occurrence still needs
+  // to fall on one of the configured weekdays.
+  if (event.recurrence === "weekly" && days.length) {
+    const seriesOverlapsWeekend =
+      (!event.date || event.date <= end) && (!event.endDate || event.endDate >= start);
+    return seriesOverlapsWeekend && days.some((day) => weekendDays.has(day));
+  }
+
+  if (event.date) {
+    return event.date <= end && (event.endDate ?? event.date) >= start;
+  }
+
   return Boolean(event.ongoing && days.some((day) => weekendDays.has(day)));
 }
 
 function eventDate(event: EventItem, startDate: Date) {
-  if (event.date) return new Date(`${event.date}T12:00:00Z`);
-
   const dayIndex: Record<string, number> = {
     Friday: 5,
     Saturday: 6,
     Sunday: 0,
   };
-  const day = event.dayOfWeek ?? event.daysOfWeek?.[0] ?? "Friday";
+  const recurringDay = event.dayOfWeek ?? event.daysOfWeek?.[0];
+  if (event.recurrence !== "weekly" || !recurringDay) {
+    return event.date ? new Date(`${event.date}T12:00:00Z`) : startDate;
+  }
+
+  const day = recurringDay;
   return addDays(startDate, (dayIndex[day] - 5 + 7) % 7);
 }
 
