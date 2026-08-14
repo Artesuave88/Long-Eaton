@@ -17,6 +17,8 @@ const links = [
   { href: "/jobs", label: "Jobs" },
   { href: "/news", label: "News" },
   { href: "/about", label: "About" },
+	{ href: "/editorial-policy", label: "Editorial policy" },
+	{ href: "/privacy", label: "Privacy" },
   { href: "/contact", label: "Contact" },
 ];
 

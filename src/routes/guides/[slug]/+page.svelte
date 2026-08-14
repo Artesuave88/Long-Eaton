@@ -13,7 +13,11 @@
 	<a href="/guides" class="button-subtle">Back to guides</a>
 	<div class="mt-8"><SectionHeading eyebrow={data.guide.eyebrow} title={data.guide.heading ?? data.guide.title} headingLevel="h1" /></div>
 	<div class="mt-7 max-w-3xl space-y-5 text-base leading-8 text-brand-muted">{#each data.guide.intro as paragraph}<p>{paragraph}</p>{/each}</div>
-	{#if "lastUpdated" in data.guide}<p class="mt-5 text-sm font-semibold text-brand-muted">Last updated: {data.guide.lastUpdated}</p>{/if}
+	<div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-brand-muted">
+		<span>By the Love Long Eaton editorial team</span>
+		{#if "lastUpdated" in data.guide && data.guide.lastUpdated}<span>Reviewed: {data.guide.lastUpdated}</span>{/if}
+		<a href="/editorial-policy" class="underline underline-offset-4 hover:text-brand-accent">How we check our guides</a>
+	</div>
 	{#if "season" in data.guide}
 		<div class="mt-10 grid gap-6 lg:grid-cols-3">{#each data.guide.sections as section}<section class="surface-card p-6"><h2 class="text-2xl text-brand-text">{section.title}</h2><p class="body-copy-sm mt-4">{section.copy}</p>{#if section.href}<a href={section.href} class="link-subtle mt-5">{section.linkLabel}</a>{/if}</section>{/each}</div>
 	{:else}

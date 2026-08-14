@@ -14,9 +14,10 @@ const fixed = [
 	'/businesses',
 	'/discover-long-eaton',
 	'/guides',
-	'/jobs',
 	'/news',
 	'/about',
+	'/editorial-policy',
+	'/privacy',
 	'/contact',
 	'/donate'
 ];

@@ -10,7 +10,9 @@
 
 	export let data: LayoutData;
 	$: canonicalUrl = new URL($page.url.pathname, site.url).href;
-	$: isIndexableResponse = $page.status >= 200 && $page.status < 400 && $page.url.pathname !== '/donate/thank-you';
+	const intentionallyNoindex = new Set(['/donate/thank-you', '/jobs']);
+	$: isIndexableResponse =
+		$page.status >= 200 && $page.status < 400 && !intentionallyNoindex.has($page.url.pathname);
 	const globalStructuredData = websiteJsonLd();
 
 	injectAnalytics({ mode: dev ? 'development' : 'production' });

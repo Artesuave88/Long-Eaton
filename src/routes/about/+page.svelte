@@ -28,9 +28,15 @@
 							multiple places.
 						</p>
 						<p>
-							The focus is on keeping things simple, useful, and local. As more
-							businesses and events are added, the site will continue to grow into a
-							better reflection of what Long Eaton has to offer.
+							The guide is independently published and maintained by Midas Web. Listings are
+							selected for their relevance to Long Eaton and the surrounding area; inclusion
+							is not a recommendation or a guarantee from an organiser.
+						</p>
+						<p>
+							We check practical details against organisers, venues and official public sources,
+							then link to the original source wherever one is available. Dates, prices and
+							opening arrangements can still change, so readers should confirm details before
+							making a special journey.
 						</p>
 					</div>
 				</div>
@@ -47,6 +53,29 @@
 				</div>
 			</div>
 		</article>
+	</div>
+</section>
+
+<section class="section-muted">
+	<div class="container-shell section-space">
+		<div class="grid gap-6 lg:grid-cols-3">
+			<article class="surface-card p-6 sm:p-7">
+				<p class="eyebrow">How we work</p>
+				<h2 class="mt-2 text-2xl text-brand-text">Local and practical</h2>
+				<p class="body-copy-sm mt-4">We prioritise information that helps someone make a real local plan: when an event happens, where to find a place, what it offers and where to verify it.</p>
+			</article>
+			<article class="surface-card p-6 sm:p-7">
+				<p class="eyebrow">Independence</p>
+				<h2 class="mt-2 text-2xl text-brand-text">Clear about listings</h2>
+				<p class="body-copy-sm mt-4">Businesses and organisers can suggest additions, but they do not receive favourable editorial treatment. Any future paid placement will be clearly labelled.</p>
+			</article>
+			<article class="surface-card p-6 sm:p-7">
+				<p class="eyebrow">Corrections</p>
+				<h2 class="mt-2 text-2xl text-brand-text">Help us keep it accurate</h2>
+				<p class="body-copy-sm mt-4">If something is wrong or out of date, send the page address and the corrected detail through our contact form. We review correction requests against a reliable source.</p>
+			</article>
+		</div>
+		<p class="mt-7 text-sm text-brand-muted">Read our full <a href="/editorial-policy" class="link-subtle">editorial policy</a> or <a href="/contact" class="link-subtle">report a correction</a>.</p>
 	</div>
 </section>
 

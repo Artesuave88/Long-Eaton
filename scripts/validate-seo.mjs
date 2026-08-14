@@ -6,7 +6,7 @@ const host = '127.0.0.1';
 const port = Number(process.env.SEO_PORT ?? 4173);
 const localOrigin = `http://${host}:${port}`;
 const canonicalOrigin = new URL(process.env.SEO_CANONICAL_ORIGIN ?? 'https://www.lovelongeaton.com');
-const intentionallyNoindex = new Set(['/donate/thank-you']);
+const intentionallyNoindex = new Set(['/donate/thank-you', '/jobs']);
 // Recurring event instances intentionally share this editorial title. Keep it
 // visible as a warning until distinct SEO titles are approved.
 const acknowledgedDuplicateTitles = new Set(['Long Eaton Car Boot Sale | Love Long Eaton']);

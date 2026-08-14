@@ -20,6 +20,9 @@
 			copy="News, notices and useful updates from around Long Eaton."
 			headingLevel="h1"
 		/>
+		<div class="mb-8 max-w-3xl rounded-2xl border border-brand-border bg-brand-section p-5 text-sm leading-7 text-brand-muted">
+			<p><strong class="text-brand-text">How these updates are produced:</strong> the Love Long Eaton editorial team summarises information relevant to the town and identifies the original source where available. Facts can change after publication, so use the source link for the latest official position. <a href="/editorial-policy" class="link-subtle">Read our editorial policy</a>.</p>
+		</div>
 		{#if newsItems.length}
 			<div class="mx-auto grid max-w-5xl gap-8">
 				{#each newsItems as item}
@@ -34,7 +37,7 @@
 							</div>
 						{/if}
 						<div class="p-6 sm:p-8 lg:p-10">
-							<p class="eyebrow">{formatDisplayDate(item.date)}</p>
+							<p class="eyebrow">Published {formatDisplayDate(item.date)} · Love Long Eaton editorial team</p>
 							<h2 class="mt-3 text-3xl leading-tight text-brand-text">{item.title}</h2>
 							<p class="mt-4 text-lg leading-relaxed text-brand-muted">{item.excerpt}</p>
 							<div class="body-copy-sm mt-6 space-y-4">
