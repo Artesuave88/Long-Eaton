@@ -19,8 +19,17 @@ function weekendRange(today = localToday()) {
 }
 
 function occursThisWeekend(event: EventItem, start: string, end: string) {
-	if (event.date) return event.date <= end && (event.endDate ?? event.date) >= start;
 	const days = event.daysOfWeek?.length ? event.daysOfWeek : event.dayOfWeek ? [event.dayOfWeek] : [];
+
+	// A dated recurring event uses date/endDate as the bounds of the series, not
+	// as one continuous event. Check its actual recurring days before falling
+	// back to the overlap check used for genuine multi-day events.
+	if (event.recurrence && days.length) {
+		const overlapsDateBounds = (!event.date || event.date <= end) && (!event.endDate || event.endDate >= start);
+		return overlapsDateBounds && days.some((day) => weekendDays.has(day));
+	}
+
+	if (event.date) return event.date <= end && (event.endDate ?? event.date) >= start;
 	return Boolean(event.ongoing && days.some((day) => weekendDays.has(day)));
 }
 
