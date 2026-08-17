@@ -28,7 +28,6 @@
 	<meta property="og:title" content={pageTitle} />
 	<meta property="og:description" content={pageDescription} />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content={`${site.url}/businesses/${data.business.slug}`} />
 	{#if data.business.imageSrc}<meta property="og:image" content={data.business.imageSrc.startsWith('http') ? data.business.imageSrc : `${site.url}${data.business.imageSrc}`} />{/if}
 	<meta name="twitter:title" content={pageTitle} />
 	<meta name="twitter:description" content={pageDescription} />

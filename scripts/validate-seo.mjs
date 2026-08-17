@@ -79,6 +79,10 @@ async function inspectPage(path, sitemapPaths, queue) {
 		.get();
 	const noindex = robots.some((value) => /(^|,)\s*noindex\b/.test(value));
 	const indexable = !noindex;
+	const openGraphUrls = $('head meta[property="og:url"]')
+		.map((_, element) => $(element).attr('content'))
+		.get()
+		.filter(Boolean);
 
 	if (!title) report(path, 'missing page title');
 	if (descriptions.length === 0 || descriptions.some((value) => !value)) report(path, 'missing meta description');
@@ -93,8 +97,12 @@ async function inspectPage(path, sitemapPaths, queue) {
 			report(path, `has invalid canonical URL: ${canonical}`);
 			continue;
 		}
-		if (url.hostname !== canonicalOrigin.hostname) report(path, `canonical uses wrong hostname: ${url.hostname}`);
+		if (url.origin !== canonicalOrigin.origin) report(path, `canonical uses wrong origin: ${url.origin}`);
 		if (normalisePath(url.href) !== path) report(path, `canonical path ${url.pathname} does not match page`);
+	}
+	if (indexable && openGraphUrls.length !== 1) report(path, `has ${openGraphUrls.length} og:url values (expected 1)`);
+	if (openGraphUrls.length === 1 && openGraphUrls[0] !== canonicals[0]) {
+		report(path, `og:url does not match canonical URL`);
 	}
 
 	const h1Count = $('h1').length;
@@ -155,7 +163,7 @@ try {
 		const value = sitemap(element).text().trim();
 		try {
 			const url = new URL(value);
-			if (url.hostname !== canonicalOrigin.hostname) report('/sitemap.xml', `URL uses wrong hostname: ${value}`);
+			if (url.origin !== canonicalOrigin.origin) report('/sitemap.xml', `URL uses wrong origin: ${value}`);
 			sitemapPaths.add(normalisePath(value));
 		} catch {
 			report('/sitemap.xml', `contains invalid URL: ${value}`);
