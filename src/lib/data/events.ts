@@ -1002,6 +1002,36 @@ const baseEvents: EventItem[] = [
     ...carBootBase,
   },
   {
+    id: "event-community-garden-party-2026-09-05",
+    slug: "community-garden-party-wilsthorpe-tavern-5-september-2026",
+    title: "Community Garden Party",
+    date: "2026-09-05",
+    time: "13:00-18:00",
+    startTime: "13:00",
+    endTime: "18:00",
+    location: "Wilsthorpe Tavern, Long Eaton",
+    price: "Free entry",
+    organiser: "LESLA Alliance",
+    organiserUrl: "https://www.leslaalliance.co.uk/",
+    category: "Community",
+    tags: ["Free", "Food", "Arts and crafts", "Community"],
+    excerpt:
+      "A free outdoor community garden party with local food, arts and crafts, including two Caribbean food stalls.",
+    description: [
+      "Come along to the Wilsthorpe Tavern for a relaxed outdoor community garden party.",
+      "Enjoy food, arts and crafts, including two Caribbean food stalls, while supporting local food, arts and crafts businesses.",
+      "For more information, contact info@leslaalliance.co.uk.",
+    ],
+    imageSrc: "/lesla-alliance-community-garden-party.png",
+    imageAlt:
+      "LESLA Alliance logo featuring a tree with colourful leaves and the words Community is in our Roots",
+    imageFit: "contain",
+    imageLabel: "Community Garden Party at Wilsthorpe Tavern",
+    imageStyle: "bg-brand-section",
+    sourceUrl: "https://www.leslaalliance.co.uk/",
+    featured: false,
+  },
+  {
     id: "event-long-eaton-carnival-car-boot-2026-09-20",
     slug: "long-eaton-carnival-car-boot-sale-20-september-2026",
     excerpt:
