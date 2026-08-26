@@ -57,6 +57,28 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-23",
+    slug: "the-meatles",
+    name: "The Meatles",
+    category: "Food & Drink",
+    location: "Long Eaton",
+    description:
+      "A Long Eaton mobile caterer serving freshly prepared food at local events and pop-ups.",
+    about: [
+      "The Meatles is an independent mobile caterer based in the Long Eaton area.",
+      "The business serves freshly prepared food at local events and pop-ups, with current locations and menus shared on Instagram.",
+      "The Meatles holds a five-star food-hygiene rating from Erewash Borough Council.",
+    ],
+    instagram: "https://www.instagram.com/themeatles2023/",
+    imageSrc: "/the-meatles.png",
+    imageAlt: "The Meatles logo in red, white and blue",
+    imageFit: "contain",
+    imageLabel: "Independent mobile caterer",
+    imageStyle: "bg-[#f4f1eb]",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-22",
     slug: "street-food-kitchen",
     name: "Street Food Kitchen",
