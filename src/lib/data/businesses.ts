@@ -57,6 +57,26 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-24",
+    slug: "archangelica",
+    name: "Archangelica",
+    category: "Business & Leadership Consultancy",
+    location: "Blackfriars, 1 Union Street, Long Eaton, Notts, NG10 1HH",
+    description:
+      "Long Eaton based leadership consultancy helping organisations strengthen leadership, improve workplace culture and transform the systems that shape how people work and thrive. We provide consultancy, leadership development, organisational reviews, facilitated programmes and accredited CMI leadership and management qualifications.",
+    about: [
+      "Established in 2019, Archangelica works with organisations to achieve better results through stronger leadership, effective systems and thriving workplace cultures. We combine strategic consultancy with practical solutions that help leaders, teams and organisations understand what needs to change and turn insight into action. From organisational transformation and culture to leadership development and accredited programmes, we create meaningful, sustainable change that works in practice.",
+    ],
+    website: "https://www.archangelica.co.uk/",
+    imageSrc: "/archangelica.png",
+    imageAlt: "Archangelica Leadership, Systems and Culture logo",
+    imageFit: "contain",
+    imageLabel: "Leadership consultancy",
+    imageStyle: "bg-[#f4f9fb]",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-23",
     slug: "the-meatles",
     name: "The Meatles",
