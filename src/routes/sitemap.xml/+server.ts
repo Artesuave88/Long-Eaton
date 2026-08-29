@@ -2,6 +2,7 @@ import { businesses } from '$data/businesses';
 import { sortedEvents } from '$data/events';
 import { getUpcomingEvents } from '$data/listings';
 import { guides } from '$data/guides';
+import { newsItems } from '$data/news';
 import { site } from '$data/site';
 
 // Event eligibility changes with the date, so do not freeze the sitemap at build time.
@@ -27,7 +28,7 @@ export const GET = () => {
 	const indexableEvents = sortedEvents.filter(
 		(event) => event.retainAfterEvent || getUpcomingEvents([event]).length > 0
 	);
-	const paths = [...fixed, ...indexableEvents.map((event) => `/events/${event.slug}`), ...businesses.map((business) => `/businesses/${business.slug}`), ...guides.map((guide) => `/guides/${guide.slug}`)];
+	const paths = [...fixed, ...indexableEvents.map((event) => `/events/${event.slug}`), ...businesses.map((business) => `/businesses/${business.slug}`), ...guides.map((guide) => `/guides/${guide.slug}`), ...newsItems.map((item) => `/news/${item.id}`)];
 	const urls = [...new Set(paths)]
 		.map((path) => `  <url><loc>${escapeXml(new URL(path, site.url).href)}</loc></url>`)
 		.join('\n');

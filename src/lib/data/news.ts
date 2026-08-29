@@ -18,7 +18,11 @@ export const newsItems: NewsItem[] = [
       "He believes the continued development of New Stanton Park could provide the evidence needed to move Junction 25a closer to becoming a reality.",
       "The proposed junction remains at an early stage, with the council’s appraisal expected to play an important role in determining whether the scheme is viable and how it could progress.",
     ],
-    imageLabel: "Proposed M1 Junction 25a at Sandiacre",
+    imageSrc: "/m1-junction-25-sandiacre.png",
+    imageAlt:
+      "The A52 approach to M1 Junction 25, with lanes marked for Derby and Nottingham",
+    imageFit: "cover",
+    imageLabel: "M1 Junction 25 at Sandiacre",
     imageStyle: "bg-brand-accent/10",
   },
   {

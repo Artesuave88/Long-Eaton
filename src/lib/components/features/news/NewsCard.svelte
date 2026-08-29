@@ -6,7 +6,7 @@
 	export let item: NewsItem;
 </script>
 
-<article class="surface-card surface-card-hover overflow-hidden">
+<a href={`/news/${item.id}`} class="surface-card surface-card-hover block overflow-hidden">
 	{#if item.imageSrc}
 		<div class={`h-56 w-full overflow-hidden ${item.imageStyle}`}>
 			<img
@@ -22,6 +22,6 @@
 		<p class="text-sm text-brand-muted">{formatDisplayDate(item.date)}</p>
 		<h3 class="mt-3 text-[1.45rem] leading-tight text-brand-text">{item.title}</h3>
 		<p class="body-copy-sm mt-4">{item.excerpt}</p>
-
+		<span class="link-subtle mt-5">Read story</span>
 	</div>
-</article>
+</a>

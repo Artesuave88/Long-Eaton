@@ -99,7 +99,7 @@
 				eyebrow="Local news"
 				title={featuredNews.title}
 				copy={featuredNews.excerpt}
-				primaryHref={`/news#${featuredNews.id}`}
+				primaryHref={`/news/${featuredNews.id}`}
 				primaryLabel="Read update"
 				secondaryHref="/news"
 				secondaryLabel="Browse news"
