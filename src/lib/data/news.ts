@@ -2,6 +2,26 @@ import type { NewsItem } from "$types/content";
 
 export const newsItems: NewsItem[] = [
   {
+    id: "andy-burnham-supports-proposed-m1-junction-25a-sandiacre",
+    title: "Andy Burnham signals support for proposed new M1 junction at Sandiacre",
+    date: "2026-08-29",
+    excerpt:
+      "Supporters believe the proposed Junction 25a could ease congestion and pollution while supporting growth in the area.",
+    content: [
+      "Plans for a potential new M1 junction at Sandiacre have received a boost after Prime Minister Andy Burnham indicated his support for the proposal.",
+      "Erewash MP Adam Thompson said the case for the junction—known locally as Junction 25a—is becoming increasingly strong, particularly as development continues at New Stanton Park.",
+      "The update follows Erewash Borough Council’s decision to commission an £80,000 economic appraisal into the proposal. The cross-party study will examine the potential benefits of a new junction alongside other possible solutions to congestion and pollution in the area.",
+      "Residents have called for improvements around Sandiacre and Junction 25 for several years, citing heavy traffic, poor air quality and pressure on surrounding roads.",
+      "Mr Thompson said he had raised the issue with senior government figures, including the Prime Minister, Transport Secretary Heidi Alexander and Roads Minister Simon Lightwood.",
+      "He said Mr Burnham told him that if local communities understood what improvements were needed, they should be able to work together to deliver them.",
+      "Mr Thompson added that major infrastructure projects must be supported by a strong economic case and linked to wider growth.",
+      "He believes the continued development of New Stanton Park could provide the evidence needed to move Junction 25a closer to becoming a reality.",
+      "The proposed junction remains at an early stage, with the council’s appraisal expected to play an important role in determining whether the scheme is viable and how it could progress.",
+    ],
+    imageLabel: "Proposed M1 Junction 25a at Sandiacre",
+    imageStyle: "bg-brand-accent/10",
+  },
+  {
     id: "council-urges-drivers-not-to-pay-for-free-weekend-parking",
     title: "Council urges drivers not to pay for free weekend parking",
     date: "2026-08-08",
