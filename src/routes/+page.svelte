@@ -103,6 +103,8 @@
 				primaryLabel="Read update"
 				secondaryHref="/news"
 				secondaryLabel="Browse news"
+				imageSrc={featuredNews.imageSrc}
+				imageAlt={featuredNews.imageAlt ?? featuredNews.title}
 			/>
 		{/if}
 	</div>
