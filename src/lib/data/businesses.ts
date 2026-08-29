@@ -57,6 +57,26 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-25",
+    slug: "lesla-alliance",
+    name: "LESLA Alliance",
+    category: "Community or Charity",
+    location: "2nd Floor, 1 Union Street, Long Eaton, Nottingham, NG10 1HH",
+    description:
+      "Long Eaton based LESLA Alliance is a registered charity bringing people together, strengthening community connections and creating opportunities for people to participate, belong and thrive. Through community activities, events, partnerships and targeted support, we celebrate heritage, develop citizenship and leadership, and help address local needs. We're always looking for volunteers to get involved.",
+    about: [
+      "LESLA Alliance is a Long Eaton based registered charity committed to building stronger, more connected communities. We create welcoming spaces, activities and opportunities that bring people together, celebrate Windrush heritage, encourage citizenship and leadership, and support people experiencing need. Working with local communities, volunteers and partners, we turn ideas into practical action that makes a positive difference where we live, right here in Long Eaton.",
+    ],
+    website: "https://www.leslaalliance.co.uk/",
+    imageSrc: "/lesla-alliance.jpg",
+    imageAlt: "LESLA Alliance tree logo with the words Community is in our Roots",
+    imageFit: "contain",
+    imageLabel: "Community charity",
+    imageStyle: "bg-white",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-24",
     slug: "archangelica",
     name: "Archangelica",
