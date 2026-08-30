@@ -11,7 +11,12 @@
   import { businesses } from "$data/businesses";
   import { discoverPlaces } from "$data/discover";
   import { regularEvents, sortedEvents } from "$data/events";
-  import { getFeaturedBusiness, getHomepageEventSelection, isRepeatedEventText } from "$data/listings";
+  import {
+    getFeaturedBusiness,
+    getHomepageEventSelection,
+    getUpcomingEvents,
+    isRepeatedEventText,
+  } from "$data/listings";
   import { newsItems } from "$data/news";
   import { formatRecurringLabel } from "$utils/format";
   import type { ActionData } from "./$types";
@@ -23,6 +28,10 @@
   const homepageDiscoverPlaces = discoverPlaces.slice(0, 3);
   const homepageRegularEvents = regularEvents.slice(0, 6);
   const featuredNews = newsItems[0];
+  const bankHolidayEvents = getUpcomingEvents(sortedEvents).filter((event) =>
+    event.tags?.includes("Bank Holiday"),
+  );
+  const homepageHeroEvents = bankHolidayEvents.length ? bankHolidayEvents : heroEvents;
 
   let shareStatus = "";
 
@@ -61,13 +70,12 @@
   />
 </svelte:head>
 
-
 <NewsletterSignup {form} source="home" />
 
 <section class="section-surface">
   <div class="container-shell section-space">
-    {#if heroEvents.length}
-      <HeroCarousel events={heroEvents} />
+    {#if homepageHeroEvents.length}
+      <HeroCarousel events={homepageHeroEvents} />
     {:else}
       <section class="relative overflow-hidden rounded-[1.9rem] border border-brand-border bg-brand-primaryDark text-white shadow-[0_28px_90px_rgba(7,18,41,0.24)]">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_35%),linear-gradient(120deg,rgba(4,14,39,0.96),rgba(11,44,109,0.78))]"></div>

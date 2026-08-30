@@ -15,6 +15,7 @@
           src={event.imageSrc}
           alt={event.imageAlt ?? event.title}
           decoding="async"
+          style:object-position={event.imagePosition ?? "center"}
           class="h-full w-full object-cover"
         />
       </div>

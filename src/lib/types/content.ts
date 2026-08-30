@@ -57,6 +57,7 @@ export type EventItem = {
   imageSrc?: string;
   imageAlt?: string;
   imageFit?: "cover" | "contain";
+  imagePosition?: string;
   imageLabel: string;
   imageStyle: string;
   image?: {

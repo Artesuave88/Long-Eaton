@@ -42,6 +42,7 @@
 				src={event.imageSrc}
 				alt={event.imageAlt ?? event.title}
 				decoding="async"
+				style:object-position={event.imagePosition ?? 'center'}
 				class={`absolute inset-0 h-full w-full ${
 					event.imageFit === 'contain'
 						? 'object-contain bg-white/92 p-5 pt-12 sm:p-6 sm:pt-16 lg:inset-y-0 lg:right-0 lg:left-auto lg:bg-white/95 lg:p-8 lg:pl-[48%]'

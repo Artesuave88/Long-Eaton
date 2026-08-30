@@ -21,6 +21,7 @@
 				alt={event.imageAlt ?? event.title}
 				loading="lazy"
 				decoding="async"
+				style:object-position={event.imagePosition ?? 'center'}
 				class={`h-full w-full ${event.imageFit === 'contain' ? 'bg-white p-4 object-contain' : 'object-cover'}`}
 			/>
 		</div>

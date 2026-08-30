@@ -301,6 +301,7 @@
 						<img
 							src={data.event.imageSrc}
 							alt={data.event.imageAlt ?? data.event.title}
+							style:object-position={data.event.imagePosition ?? 'center'}
 							class={`h-[24rem] w-full ${
 								data.event.imageFit === 'contain' ? 'bg-white p-6 object-contain' : 'object-cover'
 							}`}
