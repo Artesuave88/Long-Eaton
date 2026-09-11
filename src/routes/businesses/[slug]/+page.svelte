@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
+	import VisitDetails from '$components/ui/VisitDetails.svelte';
 	import EventCard from '$components/features/events/EventCard.svelte';
 	import { businesses } from '$data/businesses';
 	import type { PageData } from './$types';
@@ -8,14 +9,14 @@
 
 	export let data: PageData;
 
-	const relatedBusinesses = businesses
+	$: relatedBusinesses = businesses
 		.filter((business) => business.slug !== data.business.slug)
 		.sort((a, b) => Number(b.category === data.business.category) - Number(a.category === data.business.category))
 		.slice(0, 3);
-	const pageTitle = businessSeoTitle(data.business);
-	const pageDescription = businessMetaDescription(data.business);
-	const structuredData = businessJsonLd(data.business);
-	const breadcrumbs = breadcrumbJsonLd([
+	$: pageTitle = businessSeoTitle(data.business);
+	$: pageDescription = businessMetaDescription(data.business);
+	$: structuredData = businessJsonLd(data.business);
+	$: breadcrumbs = breadcrumbJsonLd([
 		{ name: 'Home', path: '/' },
 		{ name: 'Businesses', path: '/businesses' },
 		{ name: data.business.name, path: `/businesses/${data.business.slug}` }
@@ -110,6 +111,8 @@
 				</div>
 				</section>
 
+				<VisitDetails sections={data.business.visitSections} sources={data.business.sources} checkedOn={data.business.checkedOn} />
+
 				{#if data.business.website || data.business.instagram || data.business.telephone || data.business.email}
 					<div class="mt-8 flex flex-wrap gap-3" aria-label={`Contact ${data.business.name}`}>
 					{#if data.business.website}
@@ -163,7 +166,7 @@
 		</div>
 
 		{#if data.events.length}
-			<section class="mt-14" aria-labelledby="business-events-heading">
+			<section id="events" class="mt-14 scroll-mt-6" aria-labelledby="business-events-heading">
 				<div class="mb-6 max-w-2xl">
 					<p class="eyebrow">Coming up</p>
 					<h2 id="business-events-heading" class="mt-3 text-brand-text">Events at {data.business.name}</h2>

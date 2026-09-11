@@ -75,12 +75,23 @@
       <div>
         <h1 class="max-w-3xl text-white">Find your next opportunity close to home</h1>
         <p class="mt-5 max-w-2xl text-lg leading-8 text-white/70">
-          Current vacancies, trusted local searches and apprenticeships within three miles of Long Eaton.
+          Current vacancies, trusted local searches and apprenticeships in Long Eaton and nearby communities.
         </p>
       </div>
       <a href="#submit-a-job" class="inline-flex justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-primaryDark hover:bg-brand-section">
         Advertise a local vacancy
       </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-muted" aria-labelledby="local-job-search-heading">
+  <div class="container-shell py-8 sm:py-10">
+    <h2 id="local-job-search-heading" class="text-2xl text-brand-text">Plan a local job search</h2>
+    <div class="mt-5 grid gap-6 md:grid-cols-3">
+      <div><h3 class="text-xl text-brand-text">Check the actual workplace</h3><p class="body-copy-sm mt-3">A vacancy labelled Derby or Nottingham may have a workplace in Long Eaton, while a nearby town name can cover several sites. Read the full address and shift pattern before deciding whether the commute works. Check the journey at the time your shift starts and finishes.</p></div>
+      <div><h3 class="text-xl text-brand-text">Compare the full terms</h3><p class="body-copy-sm mt-3">Check contracted hours, whether the pay is hourly or annual, and whether the role is permanent, temporary or through an agency. A headline salary alone does not tell you what a part-time week will pay. Save the job reference and closing date with your application notes.</p></div>
+      <div><h3 class="text-xl text-brand-text">Apply through the source</h3><p class="body-copy-sm mt-3">The feed links to third-party vacancy pages. Use the full advert for current requirements and application instructions; listings may close or appear through more than one recruiter. Contact the named employer or agency about the role. Love Long Eaton lists opportunities and does not handle applications.</p></div>
     </div>
   </div>
 </section>

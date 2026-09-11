@@ -21,7 +21,7 @@
 				</section>
 				<section>
 					<h2 class="text-2xl text-brand-text">Originality and attribution</h2>
-					<p class="mt-3">Our guides are assembled and written for this site around practical local questions. When a news update depends on another organisation’s announcement, we identify and link to that source. Images supplied by a venue, organiser or business are used to illustrate the relevant listing and are not presented as our own photography.</p>
+					<p class="mt-3">Our guides compare local options and explain how to plan a visit. They are compiled from the sources and listings linked on each page; they are not first-hand reviews unless we explicitly describe a visit. A source-check date records when the linked information was checked, rather than promising that a future event cannot change. When a news update depends on another organisation’s announcement, we identify and link to that source. Images supplied by a venue, organiser or business are used to illustrate the relevant listing and are not presented as our own photography.</p>
 				</section>
 				<section>
 					<h2 class="text-2xl text-brand-text">Updates and corrections</h2>

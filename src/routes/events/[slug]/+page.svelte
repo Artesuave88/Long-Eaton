@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
+	import VisitDetails from '$components/ui/VisitDetails.svelte';
 	import NewsletterSignup from '$components/features/newsletter/NewsletterSignup.svelte';
 	import { formatDisplayDate, formatEventDate, formatRecurringLabel } from '$utils/format';
 	import { breadcrumbJsonLd, eventJsonLd } from '$utils/seo';
@@ -10,8 +11,8 @@
 
 	export let data: PageData;
 	export let form: ActionData;
-	const structuredData = eventJsonLd(data.event, data.isPast);
-	const breadcrumbs = breadcrumbJsonLd([
+	$: structuredData = eventJsonLd(data.event, data.isPast);
+	$: breadcrumbs = breadcrumbJsonLd([
 		{ name: 'Home', path: '/' },
 		{ name: 'Events', path: '/events' },
 		{ name: data.event.title, path: `/events/${data.event.slug}` }
@@ -19,19 +20,20 @@
 
 	const formatRelatedDate = (date?: string, dateLabel?: string) =>
 		date ? formatDisplayDate(date) : dateLabel ?? '';
-	const isCarnival = data.event.slug === 'long-eaton-carnival';
-	const isParkrun = data.event.slug === 'long-eaton-parkrun';
-	const isJuniorParkrun = data.event.slug === 'long-eaton-junior-parkrun';
-	const isMusicFestivalArchive = data.event.slug === 'long-eaton-music-festival-8-august-2026';
-	const isActivity = data.event.type === 'activity';
-	const isArtRoomEvent = data.event.sourceUrl === 'https://www.longeatonartroom.co.uk/whats-available/events/';
-	const hasVisitDetails =
+	$: isCarnival = data.event.slug === 'long-eaton-carnival';
+	$: isParkrun = data.event.slug === 'long-eaton-parkrun';
+	$: isJuniorParkrun = data.event.slug === 'long-eaton-junior-parkrun';
+	$: isMusicFestivalArchive = data.event.slug === 'long-eaton-music-festival-8-august-2026';
+	$: isActivity = data.event.type === 'activity';
+	$: isArtRoomEvent = data.event.sourceUrl === 'https://www.longeatonartroom.co.uk/whats-available/events/';
+	$: hasVisitDetails =
 		Boolean(data.event.priceSummary) || Boolean(data.event.locationNote) || Boolean(data.event.fundraisingNote);
+	$: description = data.event.description.filter((paragraph) => !isRepeatedEventText(paragraph, data.event.title) && !isRepeatedEventText(paragraph, data.event.excerpt));
 	type SummaryItem = {
 		label: string;
 		value: string;
 	};
-	const summaryItems = [
+	$: summaryItems = [
 		data.event.status
 			? {
 					label: 'Status',
@@ -124,11 +126,11 @@
 					{/each}
 				</div>
 
-				{#if data.event.description.some((paragraph) => !isRepeatedEventText(paragraph, data.event.title))}
+				{#if description.length}
 				<div class="mt-8">
 					<h2 class="text-2xl text-brand-text">{isActivity ? 'About this group' : 'About this event'}</h2>
 					<div class="mt-4 space-y-5 text-base leading-8 text-brand-muted">
-						{#each data.event.description as paragraph}
+						{#each description as paragraph}
 							{#if !isRepeatedEventText(paragraph, data.event.title)}<p>{paragraph}</p>{/if}
 						{/each}
 					</div>
@@ -292,6 +294,8 @@
 						{/if}
 					</div>
 				{/if}
+
+				<VisitDetails sections={data.event.visitSections} sources={data.event.sources} checkedOn={data.event.checkedOn} />
 
 			</div>
 

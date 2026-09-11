@@ -1,4 +1,5 @@
 import type { Season } from "$utils/seasons";
+import type { ContentSource, VisitSection } from "$types/content";
 
 export type SeasonalGuide = {
   slug: string;
@@ -27,6 +28,12 @@ export type SearchGuide = {
   description: string;
   intro: string[];
   lastUpdated?: string;
+  planning?: VisitSection[];
+  sources?: ContentSource[];
+  comparison?: {
+    caption: string;
+    rows: { name: string; href: string; suits: string; check: string }[];
+  };
   sections: {
     title: string;
     copy: string;
@@ -176,6 +183,50 @@ export const seasonalGuides: SeasonalGuide[] = [
 export const searchGuides: SearchGuide[] = [
   {
     slug: "best-cafes-in-long-eaton",
+    comparison: {
+      "caption": "Choose a café around the visit you want",
+      "rows": [
+        {
+          "name": "Caffe-Inna",
+          "href": "/businesses/caffe-inna",
+          "suits": "A Market Place stop for coffee or Greek deli food",
+          "check": "Ask about the current menu and opening times through its official Instagram."
+        },
+        {
+          "name": "Mo’ Mo’",
+          "href": "/businesses/mo-mo-italian-dining",
+          "suits": "A planned Italian breakfast or brunch",
+          "check": "The published brunch service is Friday and Saturday, 9:30am–1pm."
+        },
+        {
+          "name": "DÜDL",
+          "href": "/businesses/dudl-coffee",
+          "suits": "Coffee combined with a creative activity",
+          "check": "Check whether the activity needs its own booking and what the ticket includes."
+        }
+      ]
+    },
+    planning: [
+      {
+        "title": "Start with the day, then choose the café",
+        "copy": "For a casual town-centre visit, start with the Market Place listings and confirm the café is open. For a specific breakfast or brunch, choose the service before planning the rest of your morning: an evening restaurant menu does not imply daily breakfast service. Mo’ Mo’ publishes different menus for brunch, pizza evenings and Sunday lunch, so use the menu for the day you intend to go."
+      },
+      {
+        "title": "Combine coffee with something nearby",
+        "copy": "A Market Place coffee stop can fit around town-centre shopping. DÜDL on College Street is a different kind of outing when you want to make something as well as have a drink. Read the individual activity listing before deciding that a workshop is suitable for your group; a general café listing cannot establish the age range, duration or materials for every session."
+      },
+      {
+        "title": "What this comparison covers",
+        "copy": "These are different types of independent café, selected from our local directory. This is a planning comparison, not a ranked taste test. We have not assigned scores, made personal-visit claims or assumed that any venue has a particular dietary menu or access arrangement. For those needs, contact the business before committing to a visit."
+      }
+    ],
+    sources: [
+      {
+        "label": "Mo’ Mo’ — menus, service times and reservations",
+        "href": "https://www.momonottingham.co.uk/"
+      }
+    ],
+    lastUpdated: "11 September 2026",
     title: "Cafés in Long Eaton: Independent Places for Coffee and Food",
     seoTitle: "Cafés in Long Eaton: Independent Coffee & Food",
     heading: "Cafés in Long Eaton for independent coffee and food",
@@ -185,7 +236,6 @@ export const searchGuides: SearchGuide[] = [
     intro: [
       "Looking for a café in Long Eaton? Compare three independent places for Greek food, Italian brunch or a creative coffee stop, then use each business listing to find its address and official link.",
     ],
-    lastUpdated: "9 August 2026",
     sections: [
       {
         title: "Caffe-Inna",
@@ -211,20 +261,62 @@ export const searchGuides: SearchGuide[] = [
   },
   {
     slug: "restaurants-in-long-eaton",
+    description: "Compare Limas and Mo’ Mo’ on Derby Road by dining style, booking arrangements and service times, with official menu links.",
+    intro: [
+      "Two independent Derby Road restaurants offer quite different evenings: shared small plates at Limas, or a small Italian dining room at Mo’ Mo’. Choose around how your group likes to eat, then check the current menu and availability."
+    ],
+    comparison: {
+      "caption": "Two Derby Road restaurants compared",
+      "rows": [
+        {
+          "name": "Limas",
+          "href": "/businesses/limas-long-eaton",
+          "suits": "Sharing several dishes, served as each is ready",
+          "check": "115 Derby Road. Check food booking times, which differ from overall opening hours."
+        },
+        {
+          "name": "Mo’ Mo’",
+          "href": "/businesses/mo-mo-italian-dining",
+          "suits": "An Italian meal in a six-table dining room",
+          "check": "71 Derby Road. Contact the restaurant directly for groups of more than four."
+        }
+      ]
+    },
+    planning: [
+      {
+        "title": "Choose the dining style for your group",
+        "copy": "Limas describes its food as small plates cooked to order and brought out when ready. That suits a table happy to share and eat at a flexible pace. If you want everyone to have an individual dish at the same time, discuss that preference when booking. Mo’ Mo’ changes the offer with the service: Thursday pizza and aperitivo, Friday and Saturday evening dining, and Sunday lunch."
+      },
+      {
+        "title": "Book around the kitchen service",
+        "copy": "A restaurant being open does not always mean the kitchen is taking orders. Limas publishes separate food booking windows, including an afternoon break on Thursdays and Fridays. Mo’ Mo’ asks larger groups to call or email first and reserves evening tables for the whole evening. Decide your group size and arrival time before checking availability, especially if you are eating before a show."
+      },
+      {
+        "title": "Dietary requirements and access",
+        "copy": "Limas describes itself as a dedicated coeliac-safe restaurant. That is the restaurant’s own statement; discuss your requirements directly when booking. Do the same for allergies, other dietary needs and access at either venue. This comparison covers published arrangements rather than a first-hand restaurant review, and current menus should take precedence over an older listing."
+      }
+    ],
+    sources: [
+      {
+        "label": "Limas — menus, food booking times and dietary information",
+        "href": "https://limas.uk/"
+      },
+      {
+        "label": "Mo’ Mo’ — menus and group booking arrangements",
+        "href": "https://www.momonottingham.co.uk/"
+      }
+    ],
+    lastUpdated: "11 September 2026",
     title: "Restaurants in Long Eaton: Independent Places to Eat",
     seoTitle: "Restaurants in Long Eaton: Independent Places to Eat",
     heading: "Restaurants in Long Eaton: independent places to eat",
     eyebrow: "Independent restaurant guide",
-    description:
-      "Compare verified independent restaurants in Long Eaton for Italian dining, shared small plates, coeliac-safe food and daytime or evening service.",
-    intro: [
-      "Compare two verified independent restaurants: Limas for shared small plates and coeliac-safe dining, or Mo’ Mo’ for intimate Italian meals.",
-    ],
-    lastUpdated: "9 August 2026",
+
+
     sections: [
       {
         title: "Limas",
-        copy: "A relaxed restaurant and bar at 115 Derby Road serving shared small plates, with a dedicated coeliac-safe menu.",
+        copy: "A restaurant and bar at 115 Derby Road serving shared small plates. The restaurant describes its menu as coeliac-safe; discuss dietary requirements when booking.",
         href: "/businesses/limas-long-eaton",
         linkLabel: "View Limas",
       },
@@ -240,16 +332,74 @@ export const searchGuides: SearchGuide[] = [
   },
   {
     slug: "childrens-activities-in-long-eaton",
+    description: "Compare free outdoor time, junior parkrun and organised children’s classes in Long Eaton, with planning advice and current event links.",
+    intro: [
+      "Start with the kind of outing your child wants: a scheduled activity with a group, a class to return to each week, or outdoor time with room to change your plans. These options differ in cost, commitment and the amount of preparation needed."
+    ],
+    comparison: {
+      "caption": "Choose by cost and commitment",
+      "rows": [
+        {
+          "name": "Junior parkrun",
+          "href": "/events/long-eaton-junior-parkrun",
+          "suits": "A free Sunday morning 2k for children aged 4–14",
+          "check": "Register with parkrun and bring a scannable barcode for a recorded result."
+        },
+        {
+          "name": "Long Eaton BJJ",
+          "href": "/businesses/long-eaton-bjj",
+          "suits": "A regular, coached martial-arts class",
+          "check": "Ask about the right junior group, a trial, kit and the ongoing cost."
+        },
+        {
+          "name": "West Park",
+          "href": "/discover-long-eaton#west-park",
+          "suits": "An outdoor visit with a flexible start and finish",
+          "check": "Plan around the weather and check seasonal facilities separately."
+        },
+        {
+          "name": "Erewash Canal",
+          "href": "/discover-long-eaton#erewash-canal",
+          "suits": "A waterside walk at your own pace",
+          "check": "Choose a manageable out-and-back route and supervise children near water."
+        }
+      ]
+    },
+    planning: [
+      {
+        "title": "For a first organised activity",
+        "copy": "Ask what happens in the first session, whether a parent stays, what equipment is needed and how to arrange a trial. A martial-arts class and junior parkrun involve different commitments; comparing only the start time misses the cost of regular classes and any equipment. For parkrun, registration is free and your barcode can be used again at future events."
+      },
+      {
+        "title": "For a flexible outdoor afternoon",
+        "copy": "Choose one place as the main outing and decide how long you want to be out before adding a second stop. At Trent Lock in Sawley, the Canal & River Trust lists no public toilets on site. Build that into a family plan rather than assuming a waterside destination has the same facilities as a park. With a pushchair, check the route and current conditions instead of relying on a general description of a towpath."
+      },
+      {
+        "title": "Keep holiday activities separate from weekly clubs",
+        "copy": "A summer club can meet every week and still finish when the school holiday ends. The dated events below are filtered against their final advertised date. Use them for specific sessions, and use the recurring listings above for ongoing options. Check an organiser’s latest notice for cancellations before travelling."
+      }
+    ],
+    sources: [
+      {
+        "label": "parkrun — registration and barcodes",
+        "href": "https://support.parkrun.com/hc/en-us/articles/205595392-1-1-How-do-I-register-for-parkrun"
+      },
+      {
+        "label": "Long Eaton BJJ — current junior timetable",
+        "href": "https://www.longeatonbjj.co.uk/timetable"
+      },
+      {
+        "label": "Canal & River Trust — Trent Lock visitor facilities",
+        "href": "https://canalrivertrust.org.uk/canals-and-rivers/places-to-visit/trent-lock"
+      }
+    ],
+    lastUpdated: "11 September 2026",
     title: "Children’s Activities in Long Eaton: Clubs, Parks and Days Out",
     seoTitle: "Children’s Activities in Long Eaton: Clubs, Parks & Days Out",
     heading: "Children’s activities in Long Eaton: clubs, parks and days out",
     eyebrow: "Family activity guide",
-    description:
-      "Find verified children’s activities in Long Eaton, including recurring clubs, free outdoor options and upcoming family events with listing links.",
-    intro: [
-      "Find recurring clubs, free outdoor places and current children’s events. Ages, prices and schedules are included only where verified.",
-    ],
-    lastUpdated: "9 August 2026",
+
+
     sections: [
       {
         title: "Long Eaton junior parkrun",
@@ -285,6 +435,56 @@ export const searchGuides: SearchGuide[] = [
   },
   {
     slug: "independent-shops-in-long-eaton",
+    comparison: {
+      "caption": "Plan the right kind of shopping trip",
+      "rows": [
+        {
+          "name": "Long Eaton Market",
+          "href": "/businesses/long-eaton-market",
+          "suits": "Browsing a range of town-centre traders",
+          "check": "Wednesday, Friday and Saturday; a smaller flea market on Tuesday. Weather can affect trading."
+        },
+        {
+          "name": "Bethany Rose Bridal",
+          "href": "/businesses/bethany-rose-bridal",
+          "suits": "An appointment for bridalwear",
+          "check": "Arrange a fitting before making a special journey."
+        },
+        {
+          "name": "The Butchers / Chefs Cut",
+          "href": "/businesses/the-butchers-long-eaton",
+          "suits": "Shopping for food or planning an order",
+          "check": "The Butchers is in Market Place; Chefs Cut is on the Sheet Stores estate off Fields Farm Road."
+        },
+        {
+          "name": "Books on the Bridge",
+          "href": "/businesses/books-on-the-bridge",
+          "suits": "Finding local bookseller updates",
+          "check": "Our listing has an Instagram contact, but no confirmed shop address or public opening hours."
+        }
+      ]
+    },
+    planning: [
+      {
+        "title": "Make the market part of a town-centre trip",
+        "copy": "The council lists the main Long Eaton market on Wednesday, Friday and Saturday, with a small Tuesday flea market. The published hours are 9am–3pm, weather permitting. If the market is the main reason for your visit, choose one of those days and allow time before closing. Stallholders vary; check directly if you are travelling for a particular product."
+      },
+      {
+        "title": "Separate browsing from appointments and orders",
+        "copy": "A bridal appointment, a butcher’s order and a market browse need different preparation. For an appointment, agree the time and what to bring. For a food order, check the collection point, quantity and notice needed. For an industrial-estate business such as Chefs Cut, plan the address separately rather than assuming it sits among the Market Place shops."
+      },
+      {
+        "title": "Use the directory without making assumptions",
+        "copy": "The entries below are a starting point for contacting local businesses, rather than a guarantee of stock or daily opening. Books on the Bridge currently has no confirmed street address in our directory, so contact it before planning a visit. DÜDL is included for creative activities and supplies associated with workshops; check what is available to buy before treating it as a general craft shop."
+      }
+    ],
+    sources: [
+      {
+        "label": "Erewash Borough Council — market days and hours",
+        "href": "https://www.erewash.gov.uk/businesses-and-licensing/markets-and-car-boot-sales/erewash-markets"
+      }
+    ],
+    lastUpdated: "11 September 2026",
     title: "Independent shops in Long Eaton",
     seoTitle: "Independent Shops in Long Eaton: A Local Guide",
     heading: "Independent shops and traders in Long Eaton",

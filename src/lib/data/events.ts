@@ -2,9 +2,6 @@ import type { EventItem } from "$types/content";
 import duchessTheatre from "$data/imported/duchess-theatre.json";
 import duchessTheatreEvents from "$data/imported/duchess-theatre-events.json";
 import {
-  getCategories,
-  getRegularEvents,
-  getUpcomingEvents,
   sortEvents,
 } from "$data/listings";
 
@@ -30,20 +27,6 @@ function slugify(value: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-}
-
-function isShowCurrent(show: ImportedShow): boolean {
-  if (!show.endDate && !show.startDate) {
-    return true;
-  }
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const endDate = new Date(show.endDate ?? show.startDate ?? "");
-  endDate.setHours(0, 0, 0, 0);
-
-  return Number.isNaN(endDate.getTime()) ? true : endDate >= today;
 }
 
 function formatDateLabel(show: ImportedShow): string | undefined {
@@ -75,6 +58,8 @@ function createImportedEvent(
         }
       : {}),
     date: show.startDate,
+    endDate: show.endDate,
+    listingOnly: !isSpamalot,
     dateLabel:
       formatDateLabel(show) ??
       (!show.startDate ? "Dates available from organiser" : undefined),
@@ -118,7 +103,6 @@ function createImportedEvent(
 const optionalImportedEvents: EventItem[] = includeDuchessEvents
   ? duchessTheatreEvents
       .filter((show) => show.title && show.url)
-      .filter((show) => isShowCurrent(show))
       .map((show, index) => createImportedEvent(show, index, duchessTheatre))
   : [];
 
@@ -735,6 +719,23 @@ const baseEvents: EventItem[] = [
   {
     id: "event-long-eaton-art-room-fabric-sales-2026-10-17",
     slug: "fabric-sales-17-october-2026",
+    checkedOn: "2026-09-11",
+    sources: [
+      {
+        "label": "Long Eaton Art Room — 2026 event programme",
+        "href": "https://www.longeatonartroom.co.uk/whats-available/events/"
+      }
+    ],
+    visitSections: [
+      {
+        "title": "What to look for",
+        "copy": "The sale includes upholstery remnants, leather offcuts, fabric samples, yarn, patterns, buttons and beads. Proceeds support building renovations. It is worth bringing project measurements so you can judge whether an offcut is large enough."
+      },
+      {
+        "title": "Preparing for the sale",
+        "copy": "Take a bag for your purchases and a sample of any colour you need to match. Cash is preferred and parking is free. Stock is sold from existing supplies, so a particular fabric or quantity cannot be assumed to be available."
+      }
+    ],
     title: "Fabric Sales 2026",
     date: "2026-10-17",
     time: "09:30-12:00",
@@ -744,9 +745,9 @@ const baseEvents: EventItem[] = [
     price: "Free",
     category: "Markets",
     excerpt: "Fabric sale with textiles, craft materials and supplies.",
-    description: ["Fabric sale with textiles, craft materials and supplies."],
-    fundraisingNote: "This sale is a fundraising event.",
-    locationNote: "Free parking available. Cash preferred.",
+    description: ["The October sale is a chance to source materials for sewing and craft projects while supporting the Art Room. It runs in the morning, so plan your visit before the midday finish."],
+    fundraisingNote: "Proceeds support Art Room building renovations.",
+    locationNote: "Use the Art Room address on Lime Grove when planning your journey.",
     imageSrc: longEatonArtRoomLogo,
     imageAlt: "Long Eaton Art Room logo banner",
     imageFit: "contain",
@@ -766,20 +767,40 @@ const baseEvents: EventItem[] = [
   {
     id: "event-long-eaton-art-room-open-studios-2026-11-14",
     slug: "open-studios-art-craft-fair-14-november-2026",
+    checkedOn: "2026-09-11",
+    sources: [
+      {
+        "label": "Long Eaton Art Room — 2026 event programme",
+        "href": "https://www.longeatonartroom.co.uk/whats-available/events/"
+      }
+    ],
+    visitSections: [
+      {
+        "title": "Studios and stalls",
+        "copy": "The programme includes resident artists opening their studios and stalls in the former lace factory. Look for ceramics, jewellery, illustration and textiles. This makes the fair a useful choice for meeting makers and comparing handmade gifts in one visit."
+      },
+      {
+        "title": "Allow time for both spaces",
+        "copy": "Plan to see the working studios as well as the stalls. If you are shopping for a particular piece, take its intended measurements and ask the maker about materials, care and collection arrangements."
+      },
+      {
+        "title": "Arriving by car",
+        "copy": "The organiser advertises free parking. Keep the Lime Grove address handy rather than searching only for the event name; contact the Art Room about any access requirements before setting out."
+      }
+    ],
+    organiser: "Long Eaton Art Room",
     title: "Open Studios Art & Craft Fair",
     date: "2026-11-14",
     endDate: "2026-11-15",
     time: "10:00-16:00",
     startTime: "10:00",
     endTime: "16:00",
-    location: "Long Eaton Art Room",
+    location: "Long Eaton Art Room, 29–31 Lime Grove, Long Eaton, NG10 4LD",
     price: "Free",
     category: "Crafts",
     excerpt:
       "Open studios event with local artists, stalls and handmade goods.",
-    description: [
-      "Open studios event with local artists, stalls and handmade goods.",
-    ],
+    description: ["The November weekend combines a chance to buy directly from resident artists with a wider art and craft fair. Entry is free on both days."],
     featured: true,
     imageSrc: longEatonArtRoomLogo,
     imageAlt: "Long Eaton Art Room logo banner",
@@ -795,16 +816,29 @@ const baseEvents: EventItem[] = [
   {
     id: "event-long-eaton-art-room-toasted-ceramic-fair-2026-12-05",
     slug: "toasted-ceramic-fair-5-december-2026",
+    checkedOn: "2026-09-11",
+    sources: [
+      {
+        "label": "Long Eaton Art Room — 2026 event programme",
+        "href": "https://www.longeatonartroom.co.uk/whats-available/events/"
+      }
+    ],
+    visitSections: [
+      {
+        "title": "Comparing ceramics",
+        "copy": "The organiser lists 21 potters, in association with the Northern Potters Association. Entry and parking are free. For a functional piece, ask its maker about food use, washing and care; for a gift, check how it will be packed for the journey home."
+      }
+    ],
     title: "Toasted Ceramic Fair",
     date: "2026-12-05",
     time: "10:00-16:00",
     startTime: "10:00",
     endTime: "16:00",
-    location: "Long Eaton Art Room",
+    location: "Long Eaton Art Room, 29–31 Lime Grove, Long Eaton, NG10 4LD",
     price: "Free",
     category: "Crafts",
     excerpt: "Ceramic fair featuring 20+ potters.",
-    description: ["Ceramic fair featuring 20+ potters."],
+    description: ["Toasted brings a range of ceramic makers together at the Art Room. The December fair offers a focused alternative to a general craft market for visitors choosing pottery or exploring different making techniques."],
     featured: true,
     imageSrc: longEatonArtRoomLogo,
     imageAlt: "Long Eaton Art Room logo banner",
@@ -1184,9 +1218,3 @@ const baseEvents: EventItem[] = [
 export const events: EventItem[] = [...baseEvents, ...optionalImportedEvents];
 
 export const sortedEvents = sortEvents(events);
-
-export const upcomingEvents = getUpcomingEvents(sortedEvents);
-
-export const regularEvents = getRegularEvents(sortedEvents);
-
-export const eventCategories = getCategories(upcomingEvents);

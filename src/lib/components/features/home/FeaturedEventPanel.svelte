@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { EventItem } from "$types/content";
   import { formatEventDate } from "$utils/format";
-  import { isRepeatedEventText } from "$data/listings";
+  import { isRepeatedEventText, getEventHref } from "$data/listings";
   import ImagePlaceholder from "../../ui/ImagePlaceholder.svelte";
 
   export let event: EventItem;
@@ -41,7 +41,7 @@
       </div>
 
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href={`/events/${event.slug}`} class="button-primary">View event details</a>
+        <a href={getEventHref(event)} class="button-primary">View event details</a>
         <a href="/events" class="button-secondary">All events</a>
       </div>
     </div>

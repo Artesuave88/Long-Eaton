@@ -1,3 +1,4 @@
+import { getEventHref } from "$data/listings";
 import { sortedEvents } from "$data/events";
 import { site } from "$data/site";
 import type { EventItem } from "$types/content";
@@ -108,7 +109,7 @@ function absoluteImage(source?: string) {
 }
 
 function eventCard(event: EventItem, startDate: Date, featured: boolean) {
-  const url = `${site.url}/events/${event.slug}`;
+  const url = new URL(getEventHref(event), site.url).href;
   const image = absoluteImage(event.imageSrc);
   const date = displayDate(eventDate(event, startDate));
   const details = [date, event.time, event.location, event.price].filter(
@@ -156,7 +157,7 @@ export function buildWeeklyEmail(now = new Date()) {
       event.title.toUpperCase(),
       [displayDate(eventDate(event, weekend.startDate)), event.time, event.location, event.price].filter(Boolean).join(" · "),
       event.excerpt,
-      `${site.url}/events/${event.slug}`,
+      new URL(getEventHref(event), site.url).href,
       "",
     ]),
     `Full list: ${site.url}/whats-on-this-weekend`,

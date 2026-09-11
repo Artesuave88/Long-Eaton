@@ -31,9 +31,31 @@ function buildImportedBusiness(venue: ImportedVenue): BusinessItem {
     location: venue.address,
     description:
       "Duchess Theatre is a volunteer-run Long Eaton venue for local performances. Find shows, ticket links and useful visitor details for its West Gate location.",
-    about: venue.description.length
-      ? venue.description
-      : [venue.summary].filter(Boolean),
+    about: [
+      "Duchess Theatre and Chatsworth Arts Centre is a volunteer-run venue on West Gate. Its programme brings local theatre companies and touring entertainment into a town-centre setting.",
+      "Use the current programme to choose a production, then check its own booking page: performance times, age guidance and concessions depend on the show.",
+    ],
+    checkedOn: "2026-09-11",
+    sources: [
+      {
+        "label": "Duchess Theatre — visitor FAQs",
+        "href": "https://www.duchess-theatre.com/faqs"
+      }
+    ],
+    visitSections: [
+      {
+        "title": "Tickets and seating",
+        "copy": "The theatre has 180 seats and does not offer standing tickets for productions. Most shows can be booked through TicketSource. Tickets are also sold at Saturday coffee mornings, 10am–noon; check the individual production for concessions and age restrictions."
+      },
+      {
+        "title": "Getting there",
+        "copy": "The venue identifies car parks on West Gate and Claye Street opposite the theatre, with another on Beaconsfield Street. Check signs for the current parking terms. The nearest bus stop is by Long Eaton Town Hall; use the operator’s current timetable for your journey."
+      },
+      {
+        "title": "Before the curtain",
+        "copy": "The auditorium has heating and air conditioning. Drinks and snacks are available from the bar, with tea, coffee and ice creams before shows and during intervals. Allow time to find your seat and ask the venue directly about any access requirements."
+      }
+    ],
     website: venue.sourceUrl,
     imageSrc: "/duchess-theatre-exterior.jpg",
     imageAlt: `${venue.name} entrance and original theatre frontage`,
@@ -44,7 +66,7 @@ function buildImportedBusiness(venue: ImportedVenue): BusinessItem {
     isReal: true,
     relatedLinks: [
       { href: "/events", label: "Upcoming performances and events" },
-      { href: "/guides/autumn-in-long-eaton", label: "Autumn things to do" },
+      { href: "/guides#autumn", label: "Autumn things to do" },
       { href: "/whats-on-this-weekend", label: "What’s on this weekend" },
     ],
   };
@@ -483,6 +505,32 @@ const baseBusinesses: BusinessItem[] = [
   {
     id: "business-8",
     slug: "long-eaton-art-room",
+    checkedOn: "2026-09-11",
+    telephone: "0115 9461661",
+    sources: [
+      {
+        "label": "Art Room — directions and parking",
+        "href": "https://www.longeatonartroom.co.uk/find-us/"
+      },
+      {
+        "label": "Art Room — classes and facilities",
+        "href": "https://www.longeatonartroom.co.uk/whats-available/workshops/"
+      }
+    ],
+    visitSections: [
+      {
+        "title": "A class or a fair?",
+        "copy": "Choose a taught workshop if you want to practise a technique; choose an open studio or fair if you want to browse makers’ work. Booking arrangements differ: some classes are run by visiting tutors, so use the contact or booking link attached to that particular class."
+      },
+      {
+        "title": "Parking and public transport",
+        "copy": "The Art Room directs drivers through the black gates marked with its logo at the bottom of Lime Grove. It describes the on-site car park as small and suggests the council car park on Princess Street if it is full. Bus stops are on Derby Road at the top of the street."
+      },
+      {
+        "title": "Access to teaching rooms",
+        "copy": "The venue lists low-threshold double doors into teaching spaces and accessible toilets. Confirm access to the specific room or studio you will use, particularly for a larger event that uses several parts of the building."
+      }
+    ],
     name: "Long Eaton Art Room",
     category: "Crafts",
     location: "29-31 Lime Grove, Long Eaton, NG10 4LD",
@@ -504,9 +552,45 @@ const baseBusinesses: BusinessItem[] = [
   {
     id: "business-7",
     slug: "long-eaton-bjj",
+    checkedOn: "2026-09-11",
+    telephone: "07765 990501",
+    sources: [
+      {
+        "label": "Long Eaton BJJ — contact and trial enquiries",
+        "href": "https://www.longeatonbjj.co.uk/contact"
+      },
+      {
+        "label": "Long Eaton BJJ — class timetable",
+        "href": "https://www.longeatonbjj.co.uk/timetable"
+      }
+    ],
+    visitSections: [
+      {
+        "title": "Choosing a first class",
+        "copy": "The timetable separates adult all-levels classes, intermediate sessions and junior classes. It includes both gi and no-gi training, plus MMA and fitness sessions. Ask the academy which class suits your experience and what kit to bring before booking your first visit."
+      },
+      {
+        "title": "Children’s sessions",
+        "copy": "Junior training is listed on Monday, Tuesday, Thursday and Saturday. Monday is no-gi; the other junior sessions are gi classes. Check the live timetable for times and ask the academy to confirm the appropriate age group and availability."
+      },
+      {
+        "title": "Finding the academy",
+        "copy": "The contact page places the gym on floor 3, Unit A2, West End Mills, Leopold Street. Discuss access needs directly with the academy; the listing does not establish whether there is step-free access. The academy also accepts enquiries about membership and private sessions."
+      }
+    ],
+    relatedLinks: [
+      {
+        "href": "/guides/childrens-activities-in-long-eaton",
+        "label": "Compare children’s activities"
+      },
+      {
+        "href": "/events/long-eaton-parkrun",
+        "label": "Free Saturday parkrun"
+      }
+    ],
     name: "Long Eaton BJJ",
     category: "Fitness & Martial Arts",
-    location: "Unit A2 & A3 West End Mills, Leopold Street",
+    location: "Floor 3, Unit A2, West End Mills, Leopold Street, Long Eaton",
     description:
       "Brazilian Jiu-Jitsu academy at West End Mills with daily classes for adults and children.",
     about: [

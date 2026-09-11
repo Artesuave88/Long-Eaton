@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { EventItem } from '$types/content';
 	import { formatEventDate, formatRecurringLabel } from '$utils/format';
-	import { isRepeatedEventText } from '$data/listings';
+	import { isRepeatedEventText, getEventHref } from '$data/listings';
 	import ImagePlaceholder from '../../ui/ImagePlaceholder.svelte';
 
 	export let event: EventItem;
@@ -9,9 +9,9 @@
 
 <article class="surface-card surface-card-hover group relative overflow-hidden">
 	<a
-		href={`/events/${event.slug}`}
+		href={getEventHref(event)}
 		class="absolute inset-0 z-10 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
-		aria-label={`View ${event.title}`}
+		aria-label={`${event.listingOnly ? "Official booking information for" : "View"} ${event.title}`}
 	></a>
 
 	{#if event.imageSrc}
@@ -53,6 +53,6 @@
 		{#if !isRepeatedEventText(event.excerpt, event.title)}
 			<p class="body-copy-sm mt-4">{event.excerpt}</p>
 		{/if}
-		<span class="link-subtle mt-5">See details</span>
+		<span class="link-subtle mt-5">{event.listingOnly ? "Official booking information ↗" : "See details"}</span>
 	</div>
 </article>

@@ -1,7 +1,7 @@
 import { businesses } from "$data/businesses";
 import { sortedEvents } from "$data/events";
 import { getUpcomingEvents } from "$data/listings";
-import { guides } from "$data/guides";
+import { searchGuides } from "$data/guides";
 import { newsItems } from "$data/news";
 import { site } from "$data/site";
 
@@ -28,13 +28,13 @@ const escapeXml = (value: string) =>
 
 export const GET = () => {
   const indexableEvents = sortedEvents.filter(
-    (event) => event.retainAfterEvent || getUpcomingEvents([event]).length > 0,
+    (event) => !event.listingOnly && (event.retainAfterEvent || getUpcomingEvents([event]).length > 0),
   );
   const paths = [
     ...fixed,
     ...indexableEvents.map((event) => `/events/${event.slug}`),
     ...businesses.map((business) => `/businesses/${business.slug}`),
-    ...guides.map((guide) => `/guides/${guide.slug}`),
+    ...searchGuides.map((guide) => `/guides/${guide.slug}`),
     ...newsItems.map((item) => `/news/${item.id}`),
   ];
   const urls = [...new Set(paths)]

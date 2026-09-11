@@ -1,4 +1,4 @@
-import { error } from "@sveltejs/kit";
+import { error, redirect } from "@sveltejs/kit";
 import { sortedEvents } from "$data/events";
 import { getUpcomingEvents } from "$data/listings";
 
@@ -11,6 +11,10 @@ export const load = ({ params }) => {
 
   if (!event) {
     throw error(404, "Event not found");
+  }
+
+  if (event.listingOnly) {
+    throw redirect(308, "/businesses/duchess-theatre-chatsworth-arts-centre#events");
   }
 
   const eventEnd = event.date

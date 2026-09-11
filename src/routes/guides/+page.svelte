@@ -142,7 +142,7 @@
 							</div>
 							<h2 id={`${season}-heading`} class="mt-5 text-3xl sm:text-4xl">{presentation[season].name} in Long Eaton</h2>
 							<p class="body-copy mt-5">{guide.intro[0]}</p>
-							<a href={`/guides/${guide.slug}`} class="button-secondary mt-6">Read the full {presentation[season].name.toLowerCase()} guide</a>
+							<p class="body-copy mt-4">{guide.intro[1]}</p>
 						</div>
 						<div class="grid gap-4 sm:grid-cols-3">
 							{#each guide.sections as activity}

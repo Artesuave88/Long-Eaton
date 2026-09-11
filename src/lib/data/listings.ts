@@ -149,6 +149,10 @@ export function isUpcomingEvent(
   >,
   today = new Date(),
 ) {
+  // A recurrence does not make a finite holiday club permanent.
+  const londonDate = getLondonCalendarDate(today);
+  if (event.endDate && event.endDate.slice(0, 10) < londonDate) return false;
+
   if (event.ongoing || getNextRecurringDate(event, today)) {
     return true;
   }
@@ -156,8 +160,6 @@ export function isUpcomingEvent(
   if (!event.date) {
     return false;
   }
-
-  const londonDate = getLondonCalendarDate(today);
 
   return (event.endDate ?? event.date).slice(0, 10) >= londonDate;
 }
@@ -222,8 +224,14 @@ export function isRegularEvent(
   return Boolean(event.ongoing || getRecurringDays(event).length || event.recurrence);
 }
 
-export function getRegularEvents(events: EventItem[]) {
-  return events.filter((event) => isRegularEvent(event));
+export function getRegularEvents(events: EventItem[], today = new Date()) {
+  return getUpcomingEvents(events, today).filter((event) => isRegularEvent(event));
+}
+
+export function getEventHref(event: EventItem) {
+  return event.listingOnly && event.ticketUrl
+    ? event.ticketUrl
+    : `/events/${event.slug}`;
 }
 
 export function getHomepageEventSelection(events: EventItem[]) {

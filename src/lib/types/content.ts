@@ -1,3 +1,6 @@
+export type ContentSource = { label: string; href: string };
+export type VisitSection = { title: string; copy: string };
+
 export type EventItem = {
   id: string;
   slug: string;
@@ -5,6 +8,10 @@ export type EventItem = {
   seoTitle?: string;
   metaDescription?: string;
   heading?: string;
+  listingOnly?: boolean;
+  checkedOn?: string;
+  sources?: ContentSource[];
+  visitSections?: VisitSection[];
   type?: "event" | "recurringEvent" | "activity";
   date?: string;
   endDate?: string;
@@ -97,6 +104,9 @@ export type BusinessItem = {
   seoTitle?: string;
   metaDescription?: string;
   heading?: string;
+  checkedOn?: string;
+  sources?: ContentSource[];
+  visitSections?: VisitSection[];
   category: string;
   location: string;
   description: string;

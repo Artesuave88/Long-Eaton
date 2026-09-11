@@ -8,11 +8,14 @@
     NewsletterSignup,
     SectionHeading,
   } from "$components";
+  import { searchGuides } from "$data/guides";
   import { businesses } from "$data/businesses";
   import { discoverPlaces } from "$data/discover";
-  import { regularEvents, sortedEvents } from "$data/events";
+  import { sortedEvents } from "$data/events";
   import {
     getFeaturedBusiness,
+    getRegularEvents,
+    getEventHref,
     getHomepageEventSelection,
     getUpcomingEvents,
     isRepeatedEventText,
@@ -26,7 +29,7 @@
   const { featuredEvent, heroEvents } = getHomepageEventSelection(sortedEvents);
   const featuredBusiness = getFeaturedBusiness(businesses);
   const homepageDiscoverPlaces = discoverPlaces.slice(0, 3);
-  const homepageRegularEvents = regularEvents.slice(0, 6);
+  const homepageRegularEvents = getRegularEvents(sortedEvents).slice(0, 6);
   const featuredNews = newsItems[0];
   const bankHolidayEvents = getUpcomingEvents(sortedEvents).filter((event) =>
     event.tags?.includes("Bank Holiday"),
@@ -70,8 +73,6 @@
   />
 </svelte:head>
 
-<NewsletterSignup {form} source="home" />
-
 <section class="section-surface">
   <div class="container-shell section-space">
     {#if homepageHeroEvents.length}
@@ -97,6 +98,24 @@
         </div>
       </section>
     {/if}
+  </div>
+</section>
+
+<section class="section-muted" aria-labelledby="home-guides-heading">
+  <div class="container-shell section-space">
+    <p class="eyebrow">Plan a local visit</p>
+    <h2 id="home-guides-heading" class="mt-3 text-brand-text">Find the right place for your day</h2>
+    <p class="body-copy mt-4 max-w-3xl">Compare places to eat, children’s activities and independent shops, with practical details to check before you go.</p>
+    <div class="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {#each searchGuides as guide}
+        <a href={`/guides/${guide.slug}`} class="surface-card surface-card-hover p-6">
+          <p class="eyebrow">{guide.eyebrow}</p>
+          <h3 class="mt-3 text-xl text-brand-text">{guide.title}</h3>
+          <p class="body-copy-sm mt-3">{guide.description}</p>
+          <span class="link-subtle mt-4">Compare options</span>
+        </a>
+      {/each}
+    </div>
   </div>
 </section>
 
@@ -136,7 +155,7 @@
       />
       <div class="section-grid">
         {#each homepageRegularEvents as event}
-          <a href={`/events/${event.slug}`} class="surface-card surface-card-hover p-6">
+          <a href={getEventHref(event)} class="surface-card surface-card-hover p-6">
             <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">
               {event.category}
             </p>
@@ -218,3 +237,5 @@
     <BusinessCategoryGrid />
   </div>
 </section>
+
+<NewsletterSignup {form} source="home" />
