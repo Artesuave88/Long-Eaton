@@ -1,0 +1,21 @@
+Hi {{CONTACT_NAME}},
+
+I’m part of Love Long Eaton, an independent local guide to businesses, events and things to do around Long Eaton.
+
+{{PERSONALISED_NOTE}}
+
+We’ve created a free page for {{BUSINESS_NAME}}, and local visitors are already finding it:
+
+{{LISTING_URL}}
+
+Could you take a quick look and let us know whether the details are correct? We’d be happy to update the description, opening information, photographs or links.
+
+If you find the page useful, we’d also appreciate you sharing it on social media or linking to it from your website. It helps more local people discover independent businesses and supports the continued growth of the guide.
+
+There is no charge and no obligation.
+
+Thanks,
+The Love Long Eaton team
+https://www.lovelongeaton.com/
+
+You are receiving this message because your business is featured in our local guide. If you would prefer not to receive another message, simply reply and let us know.
