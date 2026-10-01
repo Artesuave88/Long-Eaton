@@ -160,6 +160,57 @@ const carBootBase = {
 
 const baseEvents: EventItem[] = [
   {
+    id: "event-long-eaton-autism-meetup",
+    slug: "long-eaton-autism-meetup",
+    title: "Long Eaton Autism Meetup",
+    type: "recurringEvent",
+    date: "2026-10-07",
+    ongoing: true,
+    recurrence: "monthly",
+    recurrenceLabel: "First Wednesday of each month",
+    time: "1–3pm",
+    startTime: "13:00",
+    endTime: "15:00",
+    location: "The Square Hideaway Café & Sensory Space, High Street, Long Eaton",
+    organiser: "Neurodiverse Self Advocacy Partnership CIC",
+    organiserUrl: "https://www.ndsa.uk/",
+    contactName: "Marta Walkowska, Project Manager",
+    sourceUrl: "https://www.ndsa.uk/",
+    category: "Community / Social",
+    tags: ["Autism", "Monthly", "Social", "Support"],
+    audience: "Autistic people looking to meet others and connect locally.",
+    excerpt:
+      "A monthly social meetup for autistic people at The Square Hideaway Café & Sensory Space, on the first Wednesday of each month from 1–3pm.",
+    description: [
+      "The October meetup takes place on Wednesday 7 October 2026, from 1–3pm, at The Square Hideaway Café & Sensory Space on High Street in Long Eaton.",
+      "The group offers autistic people an opportunity to meet others and make local connections. Meetups take place on the first Wednesday of each month.",
+      "The organiser also runs online social and support groups and other meetups across Derbyshire. Their Derbyshire services are NHS-funded, according to the event information supplied.",
+    ],
+    visitSections: [
+      {
+        title: "Weekly online autism support and learning",
+        copy:
+          "Online groups take place on Tuesdays at 7pm and Thursdays at 1pm. Sessions explore autism, understanding your own experiences and ways to improve well-being through questions, discussion and shared experiences. Family members are welcome. You can join as many or as few sessions as you like, keep your camera and microphone off, and simply listen. Learning materials are available from the organiser for studying at your own pace.",
+      },
+      {
+        title: "Join the online support groups",
+        copy:
+          "Join using Microsoft Teams meeting ID 364 576 640 521 9 and passcode MB2Js6Q2. These details are for the Tuesday and Thursday online support groups.",
+      },
+      {
+        title: "Online social meetups",
+        copy:
+          "An online social meetup runs every Wednesday from 1–3pm on Zoom. A monthly evening social group meets on the third Wednesday from 6–8pm on Microsoft Teams; the October session is Wednesday 21 October 2026. For the monthly evening group, use meeting ID 385 020 190 587 and passcode 5Xh7vN38.",
+      },
+    ],
+    imageSrc: "/ndsa-logo.png",
+    imageAlt: "NDSA logo with a rainbow wave above the organisation’s initials",
+    imageFit: "contain",
+    imageLabel: "Neurodiverse Self Advocacy Partnership CIC",
+    imageStyle: "bg-brand-section",
+    featured: false,
+  },
+  {
     id: "event-long-eaton-parkrun",
     slug: "long-eaton-parkrun",
     title: "Long Eaton parkrun",
