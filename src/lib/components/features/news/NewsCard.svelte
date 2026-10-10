@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { NewsItem } from '$types/content';
 	import { formatDisplayDate } from '$utils/format';
+	import { isNewsExpired } from '$data/news';
 	import ImagePlaceholder from '../../ui/ImagePlaceholder.svelte';
 
 	export let item: NewsItem;
@@ -20,6 +21,7 @@
 	{/if}
 	<div class="card-content">
 		<p class="text-sm text-brand-muted">{formatDisplayDate(item.date)}</p>
+		{#if isNewsExpired(item)}<p class="mt-2 text-sm font-semibold text-brand-muted">Archived · offer ended</p>{/if}
 		<h3 class="mt-3 text-[1.45rem] leading-tight text-brand-text">{item.title}</h3>
 		<p class="body-copy-sm mt-4">{item.excerpt}</p>
 		<span class="link-subtle mt-5">Read story</span>

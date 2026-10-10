@@ -1,5 +1,6 @@
 import type { Season } from "$utils/seasons";
 import type { ContentSource, VisitSection } from "$types/content";
+import { outdoorPlans, type VisitPlan } from "$data/visit-plans";
 
 export type SeasonalGuide = {
   slug: string;
@@ -28,6 +29,8 @@ export type SearchGuide = {
   description: string;
   intro: string[];
   lastUpdated?: string;
+  checkedOn?: string;
+  visitPlans?: VisitPlan[];
   planning?: VisitSection[];
   sources?: ContentSource[];
   comparison?: {
@@ -181,6 +184,45 @@ export const seasonalGuides: SeasonalGuide[] = [
 ];
 
 export const searchGuides: SearchGuide[] = [
+  {
+    slug: "outdoor-days-out-in-long-eaton",
+    title: "Outdoor days out in Long Eaton: park or waterside?",
+    eyebrow: "Outdoor planning guide",
+    description: "Choose between West Park, the Erewash Canal and Trent Lock, with suggested outings, starting points and practical checks for a local day out.",
+    lastUpdated: "10 October 2026",
+    checkedOn: "2026-10-10",
+    intro: [
+      "West Park, the Erewash Canal and Trent Lock offer three different ways to spend time outdoors around Long Eaton. The useful distinction is the kind of visit you want: a park stay, a walk with a turnaround point, or a waterside destination where you can stop and watch.",
+      "This guide combines official visitor information with our suggested plans. The plans are editorial suggestions, not timed or surveyed walking routes. Start with one place rather than trying to fit all three into a short afternoon, then use the visitor links to check the details that matter to your group."
+    ],
+    visitPlans: outdoorPlans,
+    comparison: {
+      caption: "Choose the place that fits your outing",
+      rows: [
+        { name: "West Park", href: "/discover-long-eaton#west-park", suits: "Staying in one park and changing your plan as you go.", check: "The council lists Wilsthorpe Road, NG10 3NL. Check access arrangements before choosing an entrance." },
+        { name: "Erewash Canal", href: "/discover-long-eaton#erewash-canal", suits: "A walk where you control the distance by turning back.", check: "Choose an access point using the canal map and check notices for your stretch." },
+        { name: "Trent Lock", href: "/discover-long-eaton#trent-lock", suits: "Watching boats and exploring a waterway junction.", check: "The Trust lists no public toilets on site; plan that part of the visit in advance." }
+      ]
+    },
+    planning: [
+      { title: "Make the return journey part of the plan", copy: "A spare hour at your destination is different from an hour including travel. Decide when you need to be back, then work backwards from that time. For a canal outing, an out-and-back walk keeps the return simple: turn around before half your available time has passed, leaving room for pauses. If you want to finish somewhere else, check the onward journey before starting rather than assuming a convenient return connection." },
+      { title: "Choose around your group’s needs", copy: "For a group that wants to split between moving and resting, a park visit gives you a single destination and a meeting point. For people who want continuous walking, choose a canal stretch instead. Trent Lock works as a destination in its own right without a long walk. None of those choices establishes step-free access: check entrances, surfaces and facilities separately if you are bringing a wheelchair or pushchair." },
+      { title: "Keep a shorter alternative ready", copy: "A plan is easier to adapt when its optional part comes last. At Trent Lock, make the lock area your main stop and any onward walk an extra. On a canal walk, shorten the outing by turning back sooner. In the park, keep your group’s meeting point consistent even if some people finish early. In darker months, set a finish time before leaving instead of deciding how far to go only after you arrive." },
+      { title: "Keep spending and facilities separate", copy: "The Trust describes Trent Lock as free to visit and lists a free council car park. That does not include food, travel or nearby businesses. It also says there are no public toilets on site, so do not treat a nearby venue as a guaranteed public facility. If refreshments are part of your outing, confirm opening times and any access needs directly with that business before building your plan around it." }
+    ],
+    sources: [
+      { label: "Erewash Borough Council — West Park address and access", href: "https://www.erewash.gov.uk/your-borough/directory-parks/west-park-long-eaton" },
+      { label: "Canal & River Trust — Erewash Canal map and information", href: "https://canalrivertrust.org.uk/canals-and-rivers/erewash-canal" },
+      { label: "Canal & River Trust — Trent Lock visitor facilities", href: "https://canalrivertrust.org.uk/canals-and-rivers/places-to-visit/trent-lock" }
+    ],
+    sections: [
+      { title: "West Park", copy: "Use the park as your main destination when you want a flexible visit. Read the council’s access information before travelling: vehicle access within the park requires a permit and is different from parking outside it.", href: "/discover-long-eaton#west-park", linkLabel: "See West Park" },
+      { title: "Erewash Canal", copy: "Choose a stretch rather than treating the canal as one fixed attraction. Note your access point and return along the same route if you have a firm finish time.", href: "/discover-long-eaton#erewash-canal", linkLabel: "See the Erewash Canal" },
+      { title: "Trent Lock", copy: "Start at Lock Lane, Sawley, NG10 2FY. The junction gives this outing a clear destination; use the Trust’s map to decide whether to add a walk after your first stop.", href: "/discover-long-eaton#trent-lock", linkLabel: "See Trent Lock" }
+    ],
+    relatedSlugs: ["childrens-activities-in-long-eaton", "best-cafes-in-long-eaton"],
+    eventTopics: ["walk", "park", "outdoor"]
+  },
   {
     slug: "best-cafes-in-long-eaton",
     comparison: {

@@ -3,6 +3,8 @@
 	import { site } from '$data/site';
 	import { formatDisplayDate } from '$utils/format';
 	import { breadcrumbJsonLd } from '$utils/seo';
+	import { isNewsExpired } from '$data/news';
+	import VisitDetails from '$components/ui/VisitDetails.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -19,7 +21,7 @@
 		headline: data.article.title,
 		description: data.article.excerpt,
 		datePublished: data.article.date,
-		dateModified: data.article.date,
+		dateModified: data.article.checkedOn ?? data.article.date,
 		url: articleUrl,
 		mainEntityOfPage: articleUrl,
 		author: { '@type': 'Organization', name: 'Love Long Eaton' },
@@ -51,6 +53,12 @@
 			<h1 class="mt-4 text-brand-text">{data.article.title}</h1>
 			<p class="mt-5 max-w-3xl text-lg leading-8 text-brand-muted">{data.article.excerpt}</p>
 		</header>
+		{#if isNewsExpired(data.article)}
+			<div class="mt-7 max-w-3xl rounded-2xl border border-brand-border bg-brand-section p-5 text-brand-muted">
+				<p class="font-semibold text-brand-text">This offer has ended</p>
+				<p class="mt-2 leading-7">It ended on {formatDisplayDate(data.article.validUntil!)}. This article is kept as a dated record; it does not describe a current offer.</p>
+			</div>
+		{/if}
 
 		<div class="mt-9 max-w-5xl overflow-hidden rounded-2xl">
 			{#if data.article.imageSrc}
@@ -72,11 +80,7 @@
 			{/each}
 		</div>
 
-		{#if data.article.sourceUrl}
-			<a href={data.article.sourceUrl} target="_blank" rel="noreferrer" class="link-subtle mt-7">
-				{data.article.sourceLabel ?? 'Read the original update'}
-			</a>
-		{/if}
+		<div class="max-w-3xl"><VisitDetails sections={data.article.planning} checkedOn={data.article.checkedOn} sources={data.article.sourceUrl ? [{ label: data.article.sourceLabel ?? 'Original announcement', href: data.article.sourceUrl }] : []} /></div>
 
 		<div class="mt-10 max-w-3xl rounded-2xl border border-brand-border bg-brand-section p-5 text-sm leading-7 text-brand-muted">
 			Facts can change after publication. <a href="/editorial-policy" class="link-subtle">Read our editorial policy</a>.

@@ -1,8 +1,10 @@
 import type { NewsItem } from "$types/content";
 
-export const newsItems: NewsItem[] = [
+export const newsDrafts: NewsItem[] = [
   {
     id: "andy-burnham-supports-proposed-m1-junction-25a-sandiacre",
+    publicationStatus: "draft",
+    reviewNote: "Do not republish until a first-party source confirms the reported support and appraisal details.",
     title: "Andy Burnham signals support for proposed new M1 junction at Sandiacre",
     date: "2026-08-29",
     excerpt:
@@ -25,22 +27,26 @@ export const newsItems: NewsItem[] = [
     imageLabel: "M1 Junction 25 at Sandiacre",
     imageStyle: "bg-brand-accent/10",
   },
+];
+
+export const newsItems: NewsItem[] = [
   {
     id: "council-urges-drivers-not-to-pay-for-free-weekend-parking",
     title: "Council urges drivers not to pay for free weekend parking",
     date: "2026-08-08",
     excerpt:
       "Erewash Borough Council is reminding motorists that its car parks are free at weekends after drivers paid more than £12,500 unnecessarily.",
+    checkedOn: "2026-10-10",
+    sourceUrl: "https://www.erewash.gov.uk/news/2026/council-begs-saturday-car-park-users-dont-pay",
+    sourceLabel: "Read the council’s parking announcement",
     content: [
-      "Erewash Borough Council is appealing to motorists to stop paying for parking at weekends after drivers handed over more than £12,500 unnecessarily.",
-      "Parking is free on Saturdays and Sundays at all car parks operated by the council. However, an analysis of its income showed that about a quarter of motorists were still paying on Saturdays.",
-      "Since free parking was extended from Sundays to Saturdays at the beginning of April, drivers have paid £12,577 when no charge was required.",
-      "Councillor Curtis Howard, the authority’s lead member for town centres and regeneration, said he was “aghast” when he received the parking data.",
-      "To make the arrangement clearer, the council has installed yellow banners informing visitors that they do not need to pay or display a ticket on Saturdays or Sundays.",
-      "Charges apply only between 08:00 and 18:00 on weekdays. Motorists pay £1.50 for stays of up to three hours and £4 for longer visits.",
-      "Councillor Howard said Saturday parking was made free to help residents save money and to support town-centre businesses on their busiest day of the week.",
-      "The council cannot refund motorists who have already paid unnecessarily. Councillor Howard said: “It’s not possible to give refunds to those who have already paid unnecessarily—hence our plea to those parking in Ilkeston or Long Eaton at the weekend: Please do not pay!”",
-      "Free Saturday parking is being funded through the council’s £6.5m Erewash Investment Fund and is intended to encourage more people to visit shops and businesses across the borough.",
+      "Erewash Borough Council says weekend parking is free in the car parks it operates. Its announcement reports that drivers nevertheless paid £12,577 on Saturdays in the first three months after Saturday charges were removed.",
+      "The council says weekday charges apply from 8am to 6pm, at £1.50 for up to three hours or £4 for longer stays. It also identifies an exception: a weekend payment may be needed when pre-paying for a stay continuing into Monday or later.",
+      "The announcement says the unnecessary payments cannot be refunded. Check the sign at your chosen car park and the council’s current information before paying."
+    ],
+    planning: [
+      { title: "Check who operates the car park", copy: "This announcement concerns council-operated car parks. Do not apply it to a private car park just because it is in Long Eaton. Read the operator name and payment instructions where you park." },
+      { title: "Check your departure day", copy: "A visit ending on Sunday is different from leaving a car until Monday. If your stay crosses into a charging day, read the payment instructions for the whole stay." }
     ],
     imageSrc: "/free-weekend-parking.png",
     imageAlt:
@@ -51,17 +57,18 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: "long-eaton-town-centre-transformation-underway",
-    title: "£10 million Long Eaton town centre transformation underway",
+    title: "Long Eaton’s £10 million town centre plans: what visitors need to check",
     date: "2026-08-03",
     excerpt:
-      "Work is underway on a £10 million transformation of Long Eaton town centre, bringing wider pedestrian areas, new paving, seating, planting and improved public spaces.",
+      "The council’s announcement sets out changes to High Street and Tamworth Road, including parking and access arrangements to check before visiting.",
+    checkedOn: "2026-10-10",
     content: [
-      "The project will focus on improving the High Street and Tamworth Road, creating a greener, more welcoming space with wider pedestrian areas, new paving, seating, planting and improved public spaces. The aim is to make the town centre a more attractive place to shop, visit and spend time.",
-      "The market will return to its historic home in Long Eaton Market Place. New landscaping and seating areas will encourage people to spend more time in the town centre, while public artwork and design features will celebrate Long Eaton's rich furniture-making heritage. A trail honouring renowned artist Dame Laura Knight, who was born in the town, will also form part of the improvements.",
-      "The regeneration is funded through the Government-backed Long Eaton Town Deal, which has secured £25 million for projects across the town. The High Street improvements account for £10 million of that investment.",
-      "Construction is expected to continue into next year, with work being carried out in phases to minimise disruption. Shops, cafés and businesses are expected to remain open throughout the project, although temporary traffic management and changes to pedestrian routes will be in place.",
-      "Erewash Borough Council says the investment is designed to create a more vibrant town centre that supports local businesses while making Long Eaton a more attractive destination for residents and visitors alike.",
-      "While there may be some short-term disruption during construction, the completed project aims to deliver a town centre that is easier to navigate, more welcoming and better equipped to support the local economy for years to come.",
+      "Erewash Borough Council’s announcement sets out a £10 million project covering Long Eaton High Street and Tamworth Road, funded through the £25 million Town Deal. The published plan gives a June start and completion by the following spring; it is a project announcement rather than a live construction progress report.",
+      "The council describes new paving, greener public spaces and designs reflecting the furniture industry. It also plans a Laura Knight trail and a return of the market to Market Place, with contractors working with businesses to keep them open.",
+      "The notice says High Street Blue Badge access and parking will be suspended during works, with alternative Blue Badge parking in Beaconsfield and Claye Street car parks. It says Tamworth Road will remain open with possible narrowing or one-way arrangements."
+    ],
+    planning: [
+      { title: "Plan a specific visit", copy: "Check the council’s latest works information and contact your destination if you need to confirm an entrance or delivery route. A planned completion date does not establish which section is open today." }
     ],
     imageSrc: "/long-eaton-town-centre-transformation.jpg",
     imageAlt:
@@ -75,6 +82,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: "free-summer-bus-travel-2026",
+    validUntil: "2026-08-31",
     title: "Free August bus travel for 5 to 18 year olds",
     date: "2026-07-28",
     excerpt:
@@ -95,3 +103,13 @@ export const newsItems: NewsItem[] = [
     sourceLabel: "Read the full trentbarton announcement",
   },
 ];
+
+// Use the London calendar date so promotions expire consistently across renderers.
+export function isNewsExpired(item: NewsItem, now = new Date()) {
+  if (!item.validUntil) return false;
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(now);
+  const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((value) => value.type === type)?.value;
+  return item.validUntil < `${part('year')}-${part('month')}-${part('day')}`;
+}

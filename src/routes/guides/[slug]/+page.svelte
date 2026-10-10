@@ -1,5 +1,6 @@
 <script lang="ts">
 	import VisitDetails from '$components/ui/VisitDetails.svelte';
+	import VisitPlanner from '$components/features/guides/VisitPlanner.svelte';
 	import { EventCard, NewsletterSignup, SectionHeading } from '$components';
 	import type { PageData } from './$types';
 	import type { ActionData } from './$types';
@@ -19,6 +20,7 @@
 		{#if "lastUpdated" in data.guide && data.guide.lastUpdated}<span>Updated: {data.guide.lastUpdated}</span>{/if}
 		<a href="/editorial-policy" class="underline underline-offset-4 hover:text-brand-accent">How we check our guides</a>
 	</div>
+	{#if data.guide.visitPlans}<VisitPlanner plans={data.guide.visitPlans} />{/if}
 	{#if data.guide.comparison}
     <section class="mt-10" aria-labelledby="comparison-heading">
       <h2 id="comparison-heading" class="text-2xl text-brand-text">{data.guide.comparison.caption}</h2>
@@ -33,7 +35,7 @@
       </div>
     </section>
   {/if}
-  <div class="max-w-4xl"><VisitDetails sections={data.guide.planning} sources={data.guide.sources} /></div>
+  <div class="max-w-4xl"><VisitDetails sections={data.guide.planning} sources={data.guide.sources} checkedOn={data.guide.checkedOn} /></div>
   <section class="mt-10" aria-label="Places and activities in this guide">
     <div class="section-grid">
       {#each data.guide.sections as section}

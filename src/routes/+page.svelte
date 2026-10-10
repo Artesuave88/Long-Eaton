@@ -20,7 +20,7 @@
     getUpcomingEvents,
     isRepeatedEventText,
   } from "$data/listings";
-  import { newsItems } from "$data/news";
+  import { newsItems, isNewsExpired } from "$data/news";
   import { formatRecurringLabel } from "$utils/format";
   import type { ActionData } from "./$types";
 
@@ -30,7 +30,7 @@
   const featuredBusiness = getFeaturedBusiness(businesses);
   const homepageDiscoverPlaces = discoverPlaces.slice(0, 3);
   const homepageRegularEvents = getRegularEvents(sortedEvents).slice(0, 6);
-  const featuredNews = newsItems[0];
+  const featuredNews = newsItems.find((item) => !isNewsExpired(item));
   const bankHolidayEvents = getUpcomingEvents(sortedEvents).filter((event) =>
     event.tags?.includes("Bank Holiday"),
   );

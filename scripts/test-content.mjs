@@ -13,6 +13,9 @@ const server = await createServer({
 
 try {
   const { events } = await server.ssrLoadModule('/src/lib/data/events.ts');
+  const { newsItems, newsDrafts, isNewsExpired } = await server.ssrLoadModule('/src/lib/data/news.ts');
+  const { outdoorPlans, filterVisitPlans } = await server.ssrLoadModule('/src/lib/data/visit-plans.ts');
+  const { searchGuides } = await server.ssrLoadModule('/src/lib/data/guides.ts');
   const { isUpcomingEvent, getRegularEvents, getUpcomingEvents, getEventHref } =
     await server.ssrLoadModule('/src/lib/data/listings.ts');
   const { getCurrentSeasonEvents } = await server.ssrLoadModule('/src/lib/utils/seasons.ts');
@@ -36,7 +39,23 @@ try {
   assert.equal(isUpcomingEvent(show, at('2026-09-20T12:00:00Z')), false, 'A production expires after its final performance');
   assert.equal(getEventHref(show), show.ticketUrl, 'A title-only import links directly to official booking information');
   assert.equal(getEventHref(club), `/events/${club.slug}`, 'An editorial listing retains its detail URL');
-  console.log('Content regression checks passed: expiry, London midnight, recurring events, multi-day imports and booking links.');
+  for (const item of newsItems) {
+    assert.ok(item.sourceUrl && new URL(item.sourceUrl).protocol === 'https:', `Published news has a source: ${item.id}`);
+    assert.notEqual(item.publicationStatus, 'draft', 'Drafts do not appear in the public feed');
+    assert.ok(!newsDrafts.some((draft) => draft.id === item.id), 'A held story stays out of published data');
+  }
+  const offer = newsItems.find((item) => item.id === 'free-summer-bus-travel-2026');
+  assert.equal(isNewsExpired(offer, at('2026-08-31T22:59:00Z')), false, 'Offer is valid through its final London day');
+  assert.equal(isNewsExpired(offer, at('2026-08-31T23:00:00Z')), true, 'Offer expires at London midnight');
+  assert.equal(isNewsExpired(newsItems.find((item) => !item.validUntil), at('2027-01-01T12:00:00Z')), false, 'An undated announcement does not become an expired offer');
+  assert.equal(filterVisitPlans(outdoorPlans, 'all').length, 3, 'All suggested outings are available without filtering');
+  assert.deepEqual(filterVisitPlans(outdoorPlans, 'park').map((plan) => plan.id), ['west-park'], 'Park preference selects the park outing');
+  assert.deepEqual(filterVisitPlans(outdoorPlans, 'water').map((plan) => plan.id), ['erewash-canal', 'trent-lock'], 'Water preference preserves both kinds of waterside outing');
+  const outdoorGuide = searchGuides.find((guide) => guide.slug === 'outdoor-days-out-in-long-eaton');
+  for (const plan of outdoorGuide.visitPlans) {
+    assert.ok(outdoorGuide.sources.some((source) => source.href === plan.href), 'Every outing links to a checked source in its guide');
+  }
+  console.log('Content regression checks passed: events, publication sources, draft isolation, offer expiry and visit planning.');
 } finally {
   await server.close();
 }

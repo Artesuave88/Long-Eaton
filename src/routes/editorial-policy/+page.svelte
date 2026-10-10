@@ -18,6 +18,7 @@
 				<section>
 					<h2 class="text-2xl text-brand-text">Sources and verification</h2>
 					<p class="mt-3">We check information against first-party sources where possible, including an organiser’s website or booking page, a venue, a business’s official channels, and local-authority notices. Source links are included on listings and updates when available. We do not treat an unverified social post as confirmation of a date, price or venue.</p>
+					<p class="mt-3">News announcements must have an identifiable source before publication. Stories awaiting verification are held back from the public news feed and sitemap. A source-check date means we reviewed the linked announcement; it is not evidence of a site visit or confirmation that a project is proceeding on schedule.</p>
 				</section>
 				<section>
 					<h2 class="text-2xl text-brand-text">Originality and attribution</h2>
@@ -26,6 +27,7 @@
 				<section>
 					<h2 class="text-2xl text-brand-text">Updates and corrections</h2>
 					<p class="mt-3">Time-sensitive pages tell readers to confirm details with the organiser because schedules can change quickly. We remove expired events from current listings and review reported errors against a reliable source. To request a correction, use the contact form and include the page address, the detail that is wrong and a source for the replacement information.</p>
+					<p class="mt-3">Time-limited news offers carry an end date and are labelled as archived after that date. They remain available as historical records but are excluded from the homepage’s featured news selection. Guides distinguish suggested outings from measured routes and link to official visitor information for facilities and access.</p>
 				</section>
 				<section>
 					<h2 class="text-2xl text-brand-text">Commercial independence</h2>

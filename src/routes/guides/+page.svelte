@@ -59,7 +59,7 @@
 </script>
 
 <svelte:head>
-	<title>Explore Long Eaton Through the Seasons | Love Long Eaton</title>
+	<title>Long Eaton Guides: Days Out, Food & Local Activities</title>
 	<meta
 		name="description"
 		content="Discover seasonal things to do in Long Eaton, including local events, parks, walks, family activities and flexible days out throughout the year."
@@ -72,9 +72,9 @@
 			<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.28),transparent_35%),linear-gradient(125deg,rgba(1,36,190,0.96),rgba(7,61,255,0.82))]"></div>
 			<div class="relative max-w-3xl">
 				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-white/80">Guides</p>
-				<h1 class="mt-4 max-w-2xl text-white">Explore Long Eaton through the seasons</h1>
+				<h1 class="mt-4 max-w-2xl text-white">Plan your time in Long Eaton</h1>
 				<p class="mt-5 max-w-2xl text-lg leading-8 text-white/85">
-					Useful starting points for local events, outdoor time and flexible days out throughout the year.
+					Compare local places, choose an outdoor outing and find practical details before you go. Explore the seasonal suggestions when you want ideas for a particular time of year.
 				</p>
 				<nav class="mt-8 flex flex-wrap gap-2" aria-label="Seasonal guide sections">
 					{#each seasons as season}
@@ -86,6 +86,27 @@
 			</div>
 		</div>
 	</section>
+
+	<section class="section-muted" aria-label="Local recommendation guides">
+		<div class="container-shell section-space">
+			<SectionHeading
+				eyebrow="Local recommendations"
+				title="Practical guides to local days out"
+				copy="Compare your options, use the outdoor visit planner and follow source links for the details that matter to your visit."
+			/>
+			<div class="section-grid mt-8">
+				{#each searchGuides as guide}
+					<a href={`/guides/${guide.slug}`} class="surface-card surface-card-hover p-6">
+						<p class="eyebrow">{guide.eyebrow}</p>
+						<h2 class="mt-3 text-2xl text-brand-text">{guide.title}</h2>
+						<p class="body-copy-sm mt-4">{guide.description}</p>
+						<span class="link-subtle mt-5">Read guide</span>
+					</a>
+				{/each}
+			</div>
+		</div>
+	</section>
+
 
 	<section class="container-shell section-space" aria-labelledby="current-season-heading">
 		<div class="panel-card overflow-hidden border-brand-primary/20">
@@ -108,25 +129,6 @@
 		</div>
 	</section>
 
-	<section class="section-muted" aria-label="Local recommendation guides">
-		<div class="container-shell section-space">
-			<SectionHeading
-				eyebrow="Local recommendations"
-				title="Guides to eating, shopping and exploring"
-				copy="Focused local guides built from verified places and businesses in the Love Long Eaton directory."
-			/>
-			<div class="section-grid mt-8">
-				{#each searchGuides as guide}
-					<a href={`/guides/${guide.slug}`} class="surface-card surface-card-hover p-6">
-						<p class="eyebrow">{guide.eyebrow}</p>
-						<h2 class="mt-3 text-2xl text-brand-text">{guide.title}</h2>
-						<p class="body-copy-sm mt-4">{guide.description}</p>
-						<span class="link-subtle mt-5">Read guide</span>
-					</a>
-				{/each}
-			</div>
-		</div>
-	</section>
 
 	{#each seasons as season, index}
 		{@const guide = guidesBySeason.get(season)}

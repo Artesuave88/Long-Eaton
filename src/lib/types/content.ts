@@ -133,6 +133,11 @@ export type BusinessItem = {
 };
 
 export type NewsItem = {
+  publicationStatus?: "draft" | "published";
+  reviewNote?: string;
+  checkedOn?: string;
+  validUntil?: string;
+  planning?: VisitSection[];
   id: string;
   title: string;
   date: string;

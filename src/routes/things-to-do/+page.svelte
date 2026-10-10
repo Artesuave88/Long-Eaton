@@ -54,6 +54,7 @@
 					{#each [
 						['/guides/childrens-activities-in-long-eaton', 'Children’s activities'],
 						['#free-things-to-do', 'Free things to do'],
+						['/guides/outdoor-days-out-in-long-eaton', 'Plan an outdoor outing'],
 						['/events', 'Events'],
 						['/whats-on-this-weekend', 'Weekend events'],
 						['/guides/best-cafes-in-long-eaton', 'Cafés'],
@@ -133,11 +134,11 @@
 							<p class="text-xs font-semibold uppercase tracking-[0.22em] text-white/75">Current guide</p>
 							<h2 id="seasonal-heading" class="mt-3 text-white">{currentGuide.title}</h2>
 							<p class="mt-4 leading-7 text-white/80">{currentGuide.description}</p>
-							<a href={`/guides/${currentGuide.slug}`} class="button-primary mt-6 bg-white text-brand-primaryDark hover:bg-brand-section">Read the guide</a>
+							<a href={`/guides#${currentGuide.season}`} class="button-primary mt-6 bg-white text-brand-primaryDark hover:bg-brand-section">Read the guide</a>
 						</div>
 						<div class="grid gap-4 p-6 sm:grid-cols-2 sm:p-8">
 							{#each seasonalGuides as guide}
-								<a href={`/guides/${guide.slug}`} class="surface-card surface-card-hover p-5">
+								<a href={`/guides#${guide.season}`} class="surface-card surface-card-hover p-5">
 									<p class="eyebrow">{guide.eyebrow}</p>
 									<h3 class="mt-3 text-xl">{guide.title}</h3>
 									<p class="body-copy-sm mt-3">{guide.description}</p>
