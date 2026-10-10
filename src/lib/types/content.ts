@@ -65,6 +65,7 @@ export type EventItem = {
   imageAlt?: string;
   imageFit?: "cover" | "contain";
   imagePosition?: string;
+  imageCredit?: string;
   imageLabel: string;
   imageStyle: string;
   image?: {
@@ -133,6 +134,8 @@ export type BusinessItem = {
 };
 
 export type NewsItem = {
+  imagePosition?: string;
+  imageCredit?: string;
   publicationStatus?: "draft" | "published";
   reviewNote?: string;
   checkedOn?: string;

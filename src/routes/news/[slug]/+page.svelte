@@ -66,6 +66,7 @@
 					<img
 						src={data.article.imageSrc}
 						alt={data.article.imageAlt ?? data.article.title}
+						style:object-position={data.article.imagePosition ?? 'center'}
 						class={`h-full w-full ${data.article.imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
 					/>
 				</div>
@@ -73,6 +74,10 @@
 				<ImagePlaceholder label={data.article.imageLabel} style={data.article.imageStyle} className="h-64 w-full rounded-none sm:h-80" />
 			{/if}
 		</div>
+
+		{#if data.article.imageCredit}
+			<p class="mt-3 text-xs leading-6 text-brand-muted">Image: {data.article.imageCredit}</p>
+		{/if}
 
 		<div class="body-copy mt-9 max-w-3xl space-y-5">
 			{#each data.article.content as paragraph}

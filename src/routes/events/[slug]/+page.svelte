@@ -319,6 +319,10 @@
 					/>
 				{/if}
 
+				{#if data.event.imageCredit}
+					<p class="text-xs leading-6 text-brand-muted">Image: {data.event.imageCredit}</p>
+				{/if}
+
 				{#if data.event.gallery && data.event.gallery.length > 1}
 					<div class="grid gap-4 sm:grid-cols-2">
 						{#each data.event.gallery.slice(1) as image}

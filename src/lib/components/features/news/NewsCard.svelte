@@ -13,6 +13,7 @@
 			<img
 				src={item.imageSrc}
 				alt={item.imageAlt ?? item.title}
+				style:object-position={item.imagePosition ?? 'center'}
 				class={`h-full w-full ${item.imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
 			/>
 		</div>

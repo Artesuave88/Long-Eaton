@@ -31,6 +31,68 @@ export const newsDrafts: NewsItem[] = [
 
 export const newsItems: NewsItem[] = [
   {
+    id: "tamworth-road-restrictions-october-2026",
+    title: "Tamworth Road works: overnight closures scheduled to end, southbound restriction continues",
+    date: "2026-10-01",
+    checkedOn: "2026-10-10",
+    excerpt: "The council scheduled the final overnight closure to lift on 10 October, while its notice says southbound traffic remains restricted until December.",
+    content: [
+      "Erewash Borough Council’s 1 October announcement set out a week of overnight Tamworth Road closures as part of Long Eaton’s town centre refurbishment. Closures were scheduled from 7pm to 5am, beginning on Sunday 4 October, with the final closure due to lift on Saturday 10 October.",
+      "The council says the overnight work allows construction to move from one side of the road to the other while new paving is installed. Its notice also says the road has become one-way, with southbound vehicles barred until December.",
+      "These are the announced arrangements, rather than a live traffic report. Check the council’s latest information and signs on the route before travelling."
+    ],
+    planning: [{ title: "Plan the approach to your destination", copy: "Check which direction you can approach from before setting off, particularly if you normally drive south along Tamworth Road. Contact your destination if you need to confirm a delivery entrance or accessible arrival point during the works." }],
+    sourceUrl: "https://www.erewash.gov.uk/news/2026/week-overnight-closures-tamworth-road-part-ps10m-long-eaton-revamp",
+    sourceLabel: "Read the council’s Tamworth Road works notice",
+    imageSrc: "/long-eaton-town-centre-transformation.jpg",
+    imageAlt: "Artist’s impression of the planned Long Eaton town centre improvements",
+    imageCredit: "Artist’s impression — Erewash Borough Council",
+    imageLabel: "Tamworth Road and town centre works",
+    imageStyle: "bg-brand-accent/10"
+  },
+  {
+    id: "all-saints-sawley-bellringers-grant-september-2026",
+    title: "Sawley’s All Saints bellringers receive £3,484 for tower improvements",
+    date: "2026-09-24",
+    checkedOn: "2026-10-10",
+    excerpt: "A council community grant will help replace ageing bell ropes and improve the ringing room at All Saints Church in Sawley.",
+    content: [
+      "Bellringers at All Saints Church in Sawley have secured a £3,484 council grant towards improvements to their church tower. Erewash Borough Council’s announcement says the work includes eight replacement bell ropes, electrical improvements and an electric heater for the ringing room.",
+      "The existing ropes are more than 30 years old and have needed repeated repairs. Replacement ropes are being commissioned from a specialist maker in Loughborough.",
+      "Sawley councillor Harry Atkinson supported the application to the council’s community grants programme. The proposed refurbishment also includes a camera so learners and visitors can see the bells in motion without entering the belfry."
+    ],
+    planning: [{ title: "Interested in the local bellringing group?", copy: "The council’s article describes existing practice sessions rather than advertising an open event. Contact the church directly to ask about learning or visiting before attending a practice." }],
+    sourceUrl: "https://www.erewash.gov.uk/news/2026/council-ps35k-makes-life-less-ropey-bellringers",
+    sourceLabel: "Read the council’s All Saints bellringers announcement",
+    imageSrc: "/editorial/sawley-bells.webp",
+    imageAlt: "Historic bells and timber bell wheels inside the All Saints Church tower in Sawley",
+    imagePosition: "center 65%",
+    imageCredit: "Erewash Borough Council",
+    imageLabel: "All Saints Church bellringers, Sawley",
+    imageStyle: "bg-brand-section"
+  },
+  {
+    id: "west-park-bridge-lace-industry-mural-september-2026",
+    title: "New canal-side mural celebrates Long Eaton’s lace-making history",
+    date: "2026-09-17",
+    checkedOn: "2026-10-10",
+    excerpt: "Artists Neil Keating and Elle Koziupa created a mural beside the new West Park Bridge, bringing lace-making and canal history into the waterfront design.",
+    content: [
+      "A new mural on the rear of the Sankey Upholstery building celebrates Long Eaton’s industrial history beside the Erewash Canal. Erewash Borough Council says artists Neil Keating and Elle Koziupa collaborated on the artwork for the new West Park Bridge waterfront.",
+      "Koziupa’s contribution depicts a woman lace worker, while Keating’s design includes machinery and references to the canal. The council’s 17 September announcement described the mural being completed ahead of the bridge’s planned public opening on 19 September.",
+      "The pedestrian and cycle bridge at Broad Street links the town centre with West Park. The mural forms part of the council’s public art initiative."
+    ],
+    planning: [{ title: "Add local history to a canal outing", copy: "If you are exploring the waterfront, look for the artwork from the public canal-side route. Its setting makes it a useful stopping point for noticing the connection between the waterway and the town’s industrial buildings." }],
+    sourceUrl: "https://www.erewash.gov.uk/news/2026/artists-raced-complete-mural-bridge-opening",
+    sourceLabel: "Read the council’s bridge mural announcement",
+    imageSrc: "/editorial/west-park-mural.webp",
+    imageAlt: "Canal-side mural depicting a lace worker and Long Eaton’s industrial history beside West Park Bridge",
+    imagePosition: "center 55%",
+    imageCredit: "Erewash Borough Council; mural by Neil Keating and Elle Koziupa",
+    imageLabel: "Lace-making heritage at the West Park waterfront",
+    imageStyle: "bg-brand-accent/10"
+  },
+  {
     id: "council-urges-drivers-not-to-pay-for-free-weekend-parking",
     title: "Council urges drivers not to pay for free weekend parking",
     date: "2026-08-08",

@@ -1,6 +1,7 @@
 import type { EventItem } from "$types/content";
 import duchessTheatre from "$data/imported/duchess-theatre.json";
 import duchessTheatreEvents from "$data/imported/duchess-theatre-events.json";
+import { localAutumnEvents } from "$data/local-events-autumn-2026";
 import {
   sortEvents,
 } from "$data/listings";
@@ -1266,6 +1267,6 @@ const baseEvents: EventItem[] = [
   },
 ];
 
-export const events: EventItem[] = [...baseEvents, ...optionalImportedEvents];
+export const events: EventItem[] = [...baseEvents, ...localAutumnEvents, ...optionalImportedEvents];
 
 export const sortedEvents = sortEvents(events);

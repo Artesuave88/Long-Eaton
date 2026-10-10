@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="sky" x2="0.8" y2="1"><stop stop-color="#0d163d"/><stop offset="1" stop-color="#30225b"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#f8b863" stop-opacity=".22"/><stop offset="1" stop-color="#f8b863" stop-opacity="0"/></radialGradient>
+    <g id="ray"><path d="M0-60 0-122"/><path d="M0-145 0-158" stroke-width="4"/><circle cy="-180" r="3" fill="currentColor" stroke="none"/></g>
+    <g id="burst" stroke-linecap="round" stroke-width="7">
+      <use href="#ray"/><use href="#ray" transform="rotate(30)"/><use href="#ray" transform="rotate(60)"/><use href="#ray" transform="rotate(90)"/><use href="#ray" transform="rotate(120)"/><use href="#ray" transform="rotate(150)"/><use href="#ray" transform="rotate(180)"/><use href="#ray" transform="rotate(210)"/><use href="#ray" transform="rotate(240)"/><use href="#ray" transform="rotate(270)"/><use href="#ray" transform="rotate(300)"/><use href="#ray" transform="rotate(330)"/>
+    </g>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1200v750H0z"/>
+  <circle cx="600" cy="330" r="370" fill="url(#glow)"/>
+  <g fill="#c7d5ec" opacity=".65"><circle cx="94" cy="125" r="2"/><circle cx="290" cy="79" r="2"/><circle cx="803" cy="83" r="2"/><circle cx="1050" cy="145" r="3"/><circle cx="176" cy="366" r="2"/><circle cx="925" cy="409" r="2"/><circle cx="1090" cy="360" r="2"/></g>
+  <g transform="translate(564 294)" color="#ffcc7c" stroke="#ffcc7c"><use href="#burst"/><circle r="10" fill="#ffe3b5" stroke="none"/></g>
+  <g transform="translate(867 207) scale(.62) rotate(15)" color="#84e5eb" stroke="#84e5eb"><use href="#burst"/></g>
+  <g transform="translate(282 245) scale(.7) rotate(15)" color="#f797b3" stroke="#f797b3"><use href="#burst"/></g>
+  <g fill="none" stroke-linecap="round" stroke-width="3" opacity=".65"><path d="M563 485q-35 50-28 93" stroke="#ffcc7c" stroke-dasharray="3 14"/><path d="M856 337q-20 47-8 105" stroke="#84e5eb" stroke-dasharray="3 13"/><path d="M274 388q19 36 17 101" stroke="#f797b3" stroke-dasharray="3 14"/></g>
+  <path d="M0 626q155-66 310-8t320 0 300-5 270-10v147H0z" fill="#11182e"/>
+  <path d="M0 691q220-61 428-1t405-4 367 10v54H0z" fill="#0a1021"/>
+  <g fill="#0a1021"><path d="m104 651 32-98 32 98h-20v58h-26v-58z"/><path d="m979 654 41-130 41 130h-28v61h-26v-61z"/></g>
+</svg>
