@@ -1,8 +1,101 @@
 import type { EventItem } from "$types/content";
 
-// Compiled from organiser sources on 10 October 2026. Unknown details are
-// deliberately omitted rather than inferred from third-party listings.
+// Compiled from organiser sources. Each checkedOn date records source review;
+// unknown details are omitted rather than inferred from third-party listings.
 export const localAutumnEvents: EventItem[] = [
+  {
+    id: "event-football-camp-2026-10-27",
+    slug: "october-holiday-football-camp-long-eaton-united-2026",
+    title: "October Holiday Football Camp",
+    date: "2026-10-27",
+    endDate: "2026-10-29",
+    time: "9am–3pm",
+    startTime: "09:00",
+    endTime: "15:00",
+    location: "Long Eaton United Football Club, Grange Park, Long Eaton, NG10 2EF",
+    organiser: "Long Eaton United Football Club",
+    category: "Family / Sport",
+    tags: ["Children", "Football", "Half term", "Sport"],
+    audience: "Children aged 4–12",
+    price: "£20–£60 — check booking options",
+    excerpt: "A half-term football camp for children aged 4–12 at Long Eaton United’s Grange Park, running from 27 to 29 October.",
+    description: [
+      "Long Eaton United Football Club’s October holiday camp runs from Tuesday 27 to Thursday 29 October 2026, with the booking page listing 9am–3pm. The programme is delivered by FA-qualified, DBS-checked coaches.",
+      "The organiser lists ticket options from £20 to £60. Check the booking page for the days covered by each option, current availability and any joining instructions."
+    ],
+    ticketUrl: "https://www.eventbrite.co.uk/e/october-holiday-football-camp-for-children-aged-4-12-tickets-1999083172583",
+    sourceUrl: "https://www.eventbrite.co.uk/e/october-holiday-football-camp-for-children-aged-4-12-tickets-1999083172583",
+    checkedOn: "2026-10-16",
+    sources: [{ label: "Long Eaton United — official camp booking page", href: "https://www.eventbrite.co.uk/e/october-holiday-football-camp-for-children-aged-4-12-tickets-1999083172583" }],
+    imageSrc: "/editorial/october-football-camp.jpg",
+    imageAlt: "Long Eaton United Football Club crest",
+    imageFit: "contain",
+    imageCredit: "Long Eaton United Football Club — Eventbrite event image",
+    imageLabel: "Half-term football at Grange Park",
+    imageStyle: "bg-brand-section"
+  },
+  {
+    id: "event-halloween-sip-paint-2026-10-31",
+    slug: "halloween-sip-paint-copper-cogs-31-october-2026",
+    title: "Halloween Sip & Paint: After Dark",
+    date: "2026-10-31",
+    time: "7–9pm · Arrive 15 minutes early",
+    startTime: "19:00",
+    endTime: "21:00",
+    location: "Copper Cogs, 73 Market Place, Long Eaton, NG10 1JQ",
+    organiser: "Rose Mclean",
+    category: "Crafts / Social",
+    tags: ["Painting", "Halloween", "Crafts", "Adults"],
+    audience: "Adults aged 18 and over",
+    price: "Early bird £30 + fees · Standard £35 + fees",
+    excerpt: "A Halloween painting evening at Copper Cogs with guided tuition, art materials and two cocktails or mocktails included. For ages 18 and over.",
+    description: [
+      "Create a Halloween-inspired painting at Copper Cogs on Saturday 31 October 2026, from 7–9pm. An artist host guides the session, and beginners are welcome.",
+      "Tickets include painting materials and two cocktails or mocktails per person. Costumes are encouraged, and food can be ordered separately from the venue. Early-bird tickets are listed at £30 plus booking fees, with standard tickets at £35 plus fees. Check Skiddle for availability and the total price."
+    ],
+    visitSections: [{ title: "Arriving for the session", copy: "Plan to arrive 15 minutes before the 7pm start to order your first drink and settle in. The event is for ages 18 and over." }],
+    ticketUrl: "https://www.skiddle.com/whats-on/Nottingham/Copper-Cogs/HALLOWEEN-SIP--PAINT-AFTER-DARK---Nottingham/42728886/",
+    sourceUrl: "https://www.skiddle.com/whats-on/Nottingham/Copper-Cogs/HALLOWEEN-SIP--PAINT-AFTER-DARK---Nottingham/42728886/",
+    checkedOn: "2026-10-16",
+    sources: [{ label: "Skiddle — official event details and tickets", href: "https://www.skiddle.com/whats-on/Nottingham/Copper-Cogs/HALLOWEEN-SIP--PAINT-AFTER-DARK---Nottingham/42728886/" }],
+    imageSrc: "/editorial/halloween-sip-paint.jpg",
+    imageAlt: "Halloween Sip & Paint promotional image showing costumed guests, paintings and drinks",
+    imagePosition: "center 35%",
+    imageCredit: "Halloween Sip & Paint: After Dark — promotional image via Skiddle",
+    imageLabel: "Halloween painting at Copper Cogs",
+    imageStyle: "bg-brand-primaryDark/10"
+  },
+  {
+    id: "event-photography-zero-2026-11-29",
+    slug: "photography-zero-long-eaton-art-room-29-november-2026",
+    title: "Photography Zero: A Free Introduction to Photography",
+    date: "2026-11-29",
+    time: "10am–1pm",
+    startTime: "10:00",
+    endTime: "13:00",
+    location: "Long Eaton Art Room, 29–31 Lime Grove, Long Eaton, NG10 4LD",
+    organiser: "Nick Archer — Nickarc Photography",
+    category: "Learning / Crafts",
+    tags: ["Photography", "Free", "Workshop", "Beginners"],
+    audience: "Adults and young people; under-16s need a parent or guardian",
+    price: "Free — book through the organiser",
+    excerpt: "A free three-hour introduction to photography with Nick Archer at Long Eaton Art Room. Beginners are welcome, and a smartphone is enough to take part.",
+    description: [
+      "Nick Archer’s introductory workshop takes place on Sunday 29 November 2026, from 10am–1pm. It starts at Long Eaton Art Room and combines an indoor introduction with practical photography.",
+      "Bring a camera or smartphone and dress for the weather. Under-16s must attend with a parent or guardian; the organiser recommends the session for children aged eight and above.",
+      "Confirm the outdoor route with the organiser before attending: the booking page names both Long Eaton and Nottingham city centre. Poor weather may mean staying indoors."
+    ],
+    ticketUrl: "https://www.eventbrite.co.uk/e/photography-zero-long-eaton-art-room-a-free-introduction-to-photography-tickets-2003357874331",
+    sourceUrl: "https://www.eventbrite.co.uk/e/photography-zero-long-eaton-art-room-a-free-introduction-to-photography-tickets-2003357874331",
+    checkedOn: "2026-10-16",
+    sources: [{ label: "Nick Archer — official Long Eaton workshop booking page", href: "https://www.eventbrite.co.uk/e/photography-zero-long-eaton-art-room-a-free-introduction-to-photography-tickets-2003357874331" }],
+    imageSrc: "/editorial/photography-zero.jpg",
+    imageAlt: "Photography Zero workshop banner with a stone trig point overlooking hills",
+    imageFit: "contain",
+    imageCredit: "Nick Archer / Nickarc Photography — Eventbrite workshop banner",
+    imageLabel: "Discover photography at Long Eaton Art Room",
+    imageStyle: "bg-brand-section"
+  },
   {
     id: "event-legends-of-motown-2026-10-20",
     slug: "legends-of-motown-duchess-theatre-20-october-2026",

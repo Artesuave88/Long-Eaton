@@ -38,5 +38,23 @@
     "asset": "/editorial/bike-marking-illustration.svg",
     "credit": "Original Love Long Eaton illustration",
     "createdOn": "2026-10-10"
+  },
+  {
+    "asset": "/editorial/october-football-camp.jpg",
+    "sourcePage": "https://www.eventbrite.co.uk/e/october-holiday-football-camp-for-children-aged-4-12-tickets-1999083172583",
+    "sourceImage": "https://cdn.evbuc.com/images/937213613/1714597459963/1/original.20250116-105148",
+    "retrievedOn": "2026-10-16"
+  },
+  {
+    "asset": "/editorial/halloween-sip-paint.jpg",
+    "sourcePage": "https://www.skiddle.com/whats-on/Nottingham/Copper-Cogs/HALLOWEEN-SIP--PAINT-AFTER-DARK---Nottingham/42728886/",
+    "sourceImage": "https://skiddle.imgix.net/d/f/f/2339598_c30b24d2_halloween-sip-paint-after-dark-nottingham_1024.jpg?auto=format%2Ccompress",
+    "retrievedOn": "2026-10-16"
+  },
+  {
+    "asset": "/editorial/photography-zero.jpg",
+    "sourcePage": "https://www.eventbrite.co.uk/e/photography-zero-long-eaton-art-room-a-free-introduction-to-photography-tickets-2003357874331",
+    "sourceImage": "https://cdn.evbuc.com/images/1193569763/520816719415/1/original.20260915-161227",
+    "retrievedOn": "2026-10-16"
   }
 ]
