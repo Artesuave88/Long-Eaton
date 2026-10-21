@@ -35,7 +35,7 @@
       </div>
     </section>
   {/if}
-  <div class="max-w-4xl"><VisitDetails sections={data.guide.planning} sources={data.guide.sources} checkedOn={data.guide.checkedOn} /></div>
+  <div class="max-w-4xl"><VisitDetails sections={data.guide.planning} /></div>
   <section class="mt-10" aria-label="Places and activities in this guide">
     <div class="section-grid">
       {#each data.guide.sections as section}

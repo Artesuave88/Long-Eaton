@@ -111,7 +111,7 @@
 				</div>
 				</section>
 
-				<VisitDetails sections={data.business.visitSections} sources={data.business.sources} checkedOn={data.business.checkedOn} />
+				<VisitDetails sections={data.business.visitSections} />
 
 				{#if data.business.website || data.business.instagram || data.business.telephone || data.business.email}
 					<div class="mt-8 flex flex-wrap gap-3" aria-label={`Contact ${data.business.name}`}>

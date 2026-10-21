@@ -295,7 +295,7 @@
 					</div>
 				{/if}
 
-				<VisitDetails sections={data.event.visitSections} sources={data.event.sources} checkedOn={data.event.checkedOn} />
+				<VisitDetails sections={data.event.visitSections} />
 
 			</div>
 
