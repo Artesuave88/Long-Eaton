@@ -43,7 +43,7 @@
 				{/if}
 				{#if site.email}
 					<p>
-						<a href={`mailto:${site.email}`} class="hover:text-brand-accent">{site.email}</a>
+						<a href={`mailto:${site.email}`} class="break-all hover:text-brand-accent">{site.email}</a>
 					</p>
 				{/if}
 				{#if site.phone}

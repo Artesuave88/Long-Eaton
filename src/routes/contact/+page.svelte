@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { site } from '$data/site';
 	import type { ActionData } from './$types';
 
 	export let form: ActionData;
@@ -34,7 +35,8 @@
 						<p class="eyebrow">Fastest route</p>
 						<h2 class="mt-2 text-2xl text-brand-text">Use the enquiry form</h2>
 						<p class="mt-3 text-sm leading-7 text-brand-muted">
-							Messages are sent straight to the Love Long Eaton team at Midas Web.
+							Messages are sent straight to the Love Long Eaton team. You can also email
+							<a href={`mailto:${site.email}`} class="link-subtle break-all">{site.email}</a>.
 						</p>
 					</div>
 

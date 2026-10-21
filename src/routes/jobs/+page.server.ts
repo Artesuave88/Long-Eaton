@@ -349,7 +349,7 @@ export const actions = {
       },
       body: JSON.stringify({
         from: getResendFromEmail(env.CONTACT_FROM_EMAIL),
-        to: "info@midasweb.org",
+        to: site.email,
         reply_to: email,
         subject: `Local vacancy submission: ${title} at ${employer}`,
         text: rows.map(([label, value]) => `${label}: ${value}`).join("\n"),

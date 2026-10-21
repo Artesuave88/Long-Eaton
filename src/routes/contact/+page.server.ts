@@ -1,11 +1,11 @@
 import { env } from "$env/dynamic/private";
+import { site } from "$data/site";
 import { getResendFromEmail } from "$lib/server/resend";
 import { fail } from "@sveltejs/kit";
 import type { Actions } from "./$types";
 
 export const prerender = false;
 
-const contactRecipient = "info@midasweb.org";
 const enquiryTypes = new Set([
   "Add my business",
   "Submit an event",
@@ -82,7 +82,7 @@ export const actions = {
         },
         body: JSON.stringify({
           from: fromEmail,
-          to: contactRecipient,
+          to: site.email,
           reply_to: email,
           subject: `Love Long Eaton enquiry: ${subject}`,
           text: [

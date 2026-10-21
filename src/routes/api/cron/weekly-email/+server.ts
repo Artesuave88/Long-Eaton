@@ -1,4 +1,5 @@
 import { env } from "$env/dynamic/private";
+import { site } from "$data/site";
 import { getResendFromEmail } from "$lib/server/resend";
 import { buildWeeklyEmail } from "$lib/server/weekly-email";
 import { error, json } from "@sveltejs/kit";
@@ -82,6 +83,7 @@ export const GET: RequestHandler = async ({ request, url }) => {
       name: email.campaignName,
       segment_id: env.RESEND_SEGMENT_ID,
       from: getResendFromEmail(env.CONTACT_FROM_EMAIL),
+      reply_to: site.email,
       subject: email.subject,
       preview_text: email.previewText,
       html: email.html,
