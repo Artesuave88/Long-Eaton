@@ -85,7 +85,7 @@
 			{/each}
 		</div>
 
-		<div class="max-w-3xl"><VisitDetails sections={data.article.planning} checkedOn={data.article.checkedOn} sources={data.article.sourceUrl ? [{ label: data.article.sourceLabel ?? 'Original announcement', href: data.article.sourceUrl }] : []} /></div>
+		<div class="max-w-3xl"><VisitDetails sections={data.article.planning} checkedOn={data.article.checkedOn} sources={data.article.sources ?? (data.article.sourceUrl ? [{ label: data.article.sourceLabel ?? 'Original announcement', href: data.article.sourceUrl }] : [])} /></div>
 
 		<div class="mt-10 max-w-3xl rounded-2xl border border-brand-border bg-brand-section p-5 text-sm leading-7 text-brand-muted">
 			Facts can change after publication. <a href="/editorial-policy" class="link-subtle">Read our editorial policy</a>.

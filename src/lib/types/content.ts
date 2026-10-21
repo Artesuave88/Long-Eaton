@@ -134,6 +134,7 @@ export type BusinessItem = {
 };
 
 export type NewsItem = {
+  sources?: ContentSource[];
   imagePosition?: string;
   imageCredit?: string;
   publicationStatus?: "draft" | "published";

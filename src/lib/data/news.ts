@@ -31,6 +31,34 @@ export const newsDrafts: NewsItem[] = [
 
 export const newsItems: NewsItem[] = [
   {
+    id: "chestnut-fair-cancelled-2026",
+    title: "Long Eaton’s Chestnut Fair cancelled for 2026 as High Street works continue",
+    date: "2026-10-21",
+    checkedOn: "2026-10-21",
+    excerpt: "High Street regeneration works mean November’s Chestnut Fair will not go ahead. Nearby Ilkeston Charter Fair runs from 21 to 25 October.",
+    content: [
+      "Long Eaton’s Chestnut Fair will not take place this November because of ongoing regeneration works in High Street.",
+      "The cancellation was confirmed in a joint statement from fair organiser Mellors Group and Erewash Borough Council, published on 12 October. The statement acknowledges the disappointment for people who enjoy the annual street fair and says it will return to Long Eaton in 2027.",
+      "For residents hoping to enjoy a fair this autumn, nearby Ilkeston Charter Fair is taking place from Wednesday 21 to Sunday 25 October 2026. The separate event brings fairground rides and traditional sideshows to Ilkeston town centre.",
+      "Ilkeston’s fair dates back to a charter granted in 1252. This year’s event offers an alternative outing for Long Eaton families while they wait for the Chestnut Fair’s return."
+    ],
+    planning: [{
+      title: "Visiting Ilkeston Charter Fair",
+      copy: "Check the council’s Ilkeston Charter Fair page for the latest visitor information before travelling. The dates above are for Ilkeston’s event in October; Long Eaton’s November Chestnut Fair is cancelled."
+    }],
+    sourceUrl: "https://www.erewash.gov.uk/news/2026/chestnut-fair-will-not-go-ahead",
+    sourceLabel: "Read the joint Chestnut Fair statement",
+    sources: [
+      { label: "Read the joint Chestnut Fair statement", href: "https://www.erewash.gov.uk/news/2026/chestnut-fair-will-not-go-ahead" },
+      { label: "Check Ilkeston Charter Fair dates and information", href: "https://www.erewash.gov.uk/your-borough/events-erewash/ilkeston-charter-fair" }
+    ],
+    imageSrc: "/editorial/chestnut-fair-cancelled-2026.jpg",
+    imageAlt: "Fairground rides lit up at night with a red banner reading CANCELLED",
+    imageFit: "contain",
+    imageLabel: "Chestnut Fair cancelled for 2026",
+    imageStyle: "bg-brand-accent/10"
+  },
+  {
     id: "tamworth-road-restrictions-october-2026",
     title: "Tamworth Road works: overnight closures scheduled to end, southbound restriction continues",
     date: "2026-10-01",
