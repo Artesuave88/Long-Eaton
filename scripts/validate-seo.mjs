@@ -66,6 +66,27 @@ async function inspectPage(path, sitemapPaths, queue) {
 
 	const html = await response.text();
 	const $ = cheerio.load(html);
+	if (path.startsWith('/news/')) {
+		const article = $('script[type="application/ld+json"]').toArray()
+			.map((element) => JSON.parse($(element).text()))
+			.find((value) => value['@type'] === 'NewsArticle');
+		for (const selector of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) {
+			const images = $(`head ${selector}`);
+			if (images.length !== 1) report(path, `has ${images.length} ${selector} tags (expected 1)`);
+			if (article?.image && images.attr('content') !== article.image) {
+				report(path, `${selector} does not use the article image`);
+			}
+		}
+		if (article?.image) {
+			const imageUrl = new URL(article.image);
+			if (imageUrl.origin === canonicalOrigin.origin) {
+				const imageResponse = await fetchLocal(imageUrl.pathname);
+				if (!imageResponse.ok || !imageResponse.headers.get('content-type')?.startsWith('image/')) {
+					report(path, 'article share image is not accessible as an image');
+				}
+			}
+		}
+	}
 	const title = $('head title').text().trim();
 	const descriptions = $('head meta[name="description"]')
 		.map((_, element) => ($(element).attr('content') ?? '').trim())

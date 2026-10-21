@@ -10,6 +10,8 @@
 
 	export let data: LayoutData;
 	$: canonicalUrl = new URL($page.url.pathname, site.url).href;
+	$: articleImage = $page.data.article?.imageSrc;
+	$: shareImageUrl = new URL(articleImage || '/le-logo.png', site.url).href;
 	const intentionallyNoindex = new Set(['/donate/thank-you', '/jobs']);
 	$: isIndexableResponse =
 		$page.status >= 200 && $page.status < 400 && !intentionallyNoindex.has($page.url.pathname);
@@ -26,9 +28,9 @@
 			: 'noindex,follow'}
 	/>
 	{#if isIndexableResponse}<meta property="og:url" content={canonicalUrl} />{/if}
-	<meta property="og:image" content={`${site.url}/le-logo.png`} />
+	<meta property="og:image" content={shareImageUrl} />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:image" content={`${site.url}/le-logo.png`} />
+	<meta name="twitter:image" content={shareImageUrl} />
 	<meta name="theme-color" content="#0124be" />
 	<link rel="icon" type="image/png" href="/favicon.png" />
 	<link rel="apple-touch-icon" href="/favicon.png" />

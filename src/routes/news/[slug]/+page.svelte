@@ -39,7 +39,10 @@
 	<meta property="og:description" content={data.article.excerpt} />
 	<meta property="og:type" content="article" />
 	<meta property="article:published_time" content={data.article.date} />
-	{#if data.article.imageSrc}<meta property="og:image" content={`${site.url}${data.article.imageSrc}`} />{/if}
+	<meta property="og:image:alt" content={data.article.imageAlt ?? data.article.title} />
+	<meta name="twitter:title" content={data.article.title} />
+	<meta name="twitter:description" content={data.article.excerpt} />
+	<meta name="twitter:image:alt" content={data.article.imageAlt ?? data.article.title} />
 	{@html `<script type="application/ld+json">${structuredData}</script>`}
 	{@html `<script type="application/ld+json">${breadcrumbs}</script>`}
 </svelte:head>
