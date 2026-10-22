@@ -101,6 +101,13 @@
   </div>
 </section>
 
+<NewsletterSignup
+  {form}
+  source="home"
+  heading="What’s on, straight to your inbox"
+  buttonLabel="Sign me up for free"
+/>
+
 <section class="section-muted" aria-labelledby="home-guides-heading">
   <div class="container-shell section-space">
     <p class="eyebrow">Plan a local visit</p>
@@ -237,5 +244,3 @@
     <BusinessCategoryGrid />
   </div>
 </section>
-
-<NewsletterSignup {form} source="home" />

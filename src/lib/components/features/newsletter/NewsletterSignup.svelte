@@ -10,23 +10,21 @@
 	export let source: 'home' | 'event' | 'guide' = 'home';
 	export let embedded = false;
 	export let heading = 'Never miss what’s happening in Long Eaton';
-	export let copy = 'Get the weekend guide on Thursdays and “Coming up this week” on Sundays, both at 6pm.';
+	export let eyebrow = 'Your local events guides';
+	export let buttonLabel = 'Send me the local guides';
 
 	const headingId = `newsletter-${source}-heading`;
 	const websiteId = `newsletter-${source}-website`;
 	const emailId = `newsletter-${source}-email`;
 </script>
 
-<section class="section-surface" aria-labelledby={headingId}>
+<section id={`newsletter-${source}`} class="section-surface scroll-mt-24" aria-labelledby={headingId}>
 	<div class:container-shell={!embedded} class="py-8">
 		<div class="overflow-hidden rounded-2xl bg-brand-primaryDark text-white shadow-card">
 			<div class="grid gap-6 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:p-10">
 				<div>
-					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-200">Your local events guides</p>
+					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-sky-200">{eyebrow}</p>
 					<h2 id={headingId} class="mt-3 text-3xl text-white">{heading}</h2>
-					<p class="mt-3 max-w-xl text-sm leading-7 text-white/75 sm:text-base">
-						{copy}
-					</p>
 				</div>
 
 				{#if form?.newsletterSuccess}
@@ -55,12 +53,12 @@
 								class="min-h-12 min-w-0 flex-1 rounded-xl border border-white/20 bg-white px-4 py-3 text-base text-brand-text placeholder:text-slate-500 focus:border-sky-300 focus:ring-sky-300/30"
 							/>
 							<button type="submit" class="min-h-12 whitespace-nowrap rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-primaryDark transition hover:bg-sky-50">
-								Send me the local guides
+								{buttonLabel}
 							</button>
 						</div>
 						<label class="flex items-start gap-2 text-xs leading-5 text-white/70">
 							<input name="consent" value="yes" type="checkbox" required class="mt-1 rounded border-white/30 text-brand-primary focus:ring-sky-300" />
-							<span>I’d like to receive Love Long Eaton’s Thursday and Sunday email roundups. Unsubscribe at any time.</span>
+							<span>I’d like to receive Love Long Eaton’s email roundups. Unsubscribe at any time.</span>
 						</label>
 						{#if form?.newsletterError}
 							<p class="rounded-lg bg-red-400/15 px-3 py-2 text-sm text-red-100" role="alert">
