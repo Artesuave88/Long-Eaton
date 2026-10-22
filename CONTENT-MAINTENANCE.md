@@ -50,7 +50,7 @@ The existing newsletter segment receives two branded campaigns:
 
 - Thursday at 18:00 Europe/London: the Friday–Sunday weekend guide.
 - Sunday at 18:00 Europe/London: “Coming up this week”, covering the following
-  Monday–Sunday, with up to eight dated events and weekly activities.
+  Monday–Friday, with up to eight dated events and weekly activities.
 
 Both use `RESEND_API_KEY`, `RESEND_SEGMENT_ID`, `CONTACT_FROM_EMAIL` and
 `CRON_SECRET`. Each endpoint has 17:00 and 18:00 UTC cron entries; its London

@@ -24,14 +24,19 @@ try {
   const now = new Date('2026-10-25T18:00:00Z');
   const week = getNextWeek(now);
   assert.equal(week.start, '2026-10-26');
-  assert.equal(week.end, '2026-11-01');
-  assert.equal(getNextWeek(new Date('2026-12-27T18:00:00Z')).end, '2027-01-03');
+  assert.equal(week.end, '2026-10-30');
+  assert.equal(getNextWeek(new Date('2026-12-27T18:00:00Z')).end, '2027-01-01');
   const base = { id: 'test', slug: 'test', title: 'Test & music', category: 'Music', excerpt: 'Local <music>', description: [], imageLabel: '', imageStyle: '' };
   const occurrences = (event) => getEmailEventDates({ ...base, ...event }, week.startDate, week.endDate).map((date) => date.toISOString().slice(0, 10));
   assert.deepEqual(occurrences({ date: '2026-10-25' }), []);
   assert.deepEqual(occurrences({ date: '2026-11-02' }), []);
   assert.deepEqual(occurrences({ date: '2026-10-26' }), ['2026-10-26']);
-  assert.deepEqual(occurrences({ date: '2026-11-01' }), ['2026-11-01']);
+  assert.deepEqual(occurrences({ date: '2026-10-30' }), ['2026-10-30']);
+  assert.deepEqual(occurrences({ date: '2026-10-31' }), []);
+  assert.deepEqual(occurrences({ date: '2026-11-01' }), []);
+  assert.deepEqual(occurrences({ recurrence: 'weekly', dayOfWeek: 'Saturday' }), []);
+  assert.deepEqual(occurrences({ recurrence: 'weekly', dayOfWeek: 'Sunday' }), []);
+  assert.deepEqual(occurrences({ recurrence: 'weekly', dayOfWeek: 'Friday' }), ['2026-10-30']);
   assert.deepEqual(occurrences({ date: '2026-10-24', endDate: '2026-10-27' }), ['2026-10-26']);
   assert.deepEqual(occurrences({ recurrence: 'weekly', daysOfWeek: ['Wednesday', 'Monday'] }), ['2026-10-26', '2026-10-28']);
   assert.deepEqual(occurrences({ recurrence: 'weekly', dayOfWeek: 'Monday', date: '2026-10-27' }), []);
@@ -42,7 +47,7 @@ try {
   assert.match(email.subject, /^Coming up this week in Long Eaton:/);
   assert.match(email.html, /Test &amp; music/);
   assert.match(email.html, /Local &lt;music&gt;/);
-  assert.match(email.html, /26 October 2026–1 November 2026/);
+  assert.match(email.html, /26–30 October 2026/);
   assert.match(email.html, /RESEND_UNSUBSCRIBE_URL/);
   assert.match(email.text, /Monday 26 October/);
   assert.match(email.text, /\/events/);
@@ -72,7 +77,7 @@ try {
   assert.match(quietWeekend.text, /LONG EATON JUNIOR PARKRUN/);
   assert.equal(buildWeeklyEmail(thursday, 'week-ahead', [
     ...parkruns, { ...concert, date: '2026-10-28' },
-  ]).eventCount, 3, 'Sunday week ahead selection retains its existing behaviour');
+  ]).eventCount, 1, 'Sunday week ahead email excludes weekend parkruns');
 
   let calls = [];
   let existing = [];

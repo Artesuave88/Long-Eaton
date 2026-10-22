@@ -51,7 +51,7 @@ export function getNextWeekend(now = new Date()) {
 export function getNextWeek(now = new Date()) {
   const today = new Date(`${londonDate(now)}T12:00:00Z`);
   const startDate = addDays(today, (1 - today.getUTCDay() + 7) % 7 || 7);
-  const endDate = addDays(startDate, 6);
+  const endDate = addDays(startDate, 4);
   return { start: londonDate(startDate), end: londonDate(endDate), startDate, endDate };
 }
 
