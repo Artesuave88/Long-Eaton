@@ -21,6 +21,14 @@
     {
       "path": "/api/cron/weekly-email",
       "schedule": "0 18 * * 4"
+    },
+    {
+      "path": "/api/cron/week-ahead-email",
+      "schedule": "0 17 * * 0"
+    },
+    {
+      "path": "/api/cron/week-ahead-email",
+      "schedule": "0 18 * * 0"
     }
   ]
 }

@@ -1,5 +1,7 @@
 # Outreach preferences
 
+Updated 22 October 2026: the user explicitly requested both Sunday and Thursday newsletter test copies at Lovelongeatonwebsite@gmail.com. Newsletter tests use this address, superseding the older review-address instruction for these copies. Run `node --env-file=.env scripts/send-newsletter-tests.mjs --date=YYYY-MM-DD --send`; omit `--send` to generate local HTML previews only. The Sunday preview covers the following Monday–Sunday, and the Thursday preview covers the next Friday–Sunday. Delivery records are in `newsletter-test-send-log.json`.
+
 Always send draft/review copies to the user first at info@midasweb.org, using the established review-email address. Do not send organiser or other external outreach emails until the user approves the reviewed messages and recipients. This preference was explicitly requested on 16 October 2026. The user confirmed info@midasweb.org as the review recipient. Outreach emails must use the existing Love Long Eaton HTML branding (logo, blue header and button, white card and footer), as used in `business-listing-partnership.html`; include a plain-text alternative.
 
 Event review drafts are in `event-listing-drafts.json` and `event-listing-drafts.md`. Run `node --env-file=.env scripts/send-event-listing-reviews.mjs` to send the three review copies only to info@midasweb.org. Verify publication before sending the eventual organiser messages.

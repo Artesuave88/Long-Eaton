@@ -43,3 +43,28 @@ source, not confirmation of the current state of construction or a personal visi
    than assuming these code changes alone satisfy the review.
 
 Google's guidance: https://support.google.com/adsense/answer/7299563
+
+## Automated subscriber emails
+
+The existing newsletter segment receives two branded campaigns:
+
+- Thursday at 18:00 Europe/London: the Friday–Sunday weekend guide.
+- Sunday at 18:00 Europe/London: “Coming up this week”, covering the following
+  Monday–Sunday, with up to eight dated events and weekly activities.
+
+Both use `RESEND_API_KEY`, `RESEND_SEGMENT_ID`, `CONTACT_FROM_EMAIL` and
+`CRON_SECRET`. Each endpoint has 17:00 and 18:00 UTC cron entries; its London
+weekday/hour check permits only the matching local 18:00 invocation through BST
+and GMT. Production deployment activates changes to these schedules.
+
+`/api/cron/weekly-email` and `/api/cron/week-ahead-email` require the cron bearer
+secret. The existing `?send=now` override sends immediately, so use it only for
+an intentional subscriber send. Campaign names and HTML markers include the
+campaign type and date range to distinguish the two emails and detect repeats.
+
+Unknown dates, TBC listings and monthly activities without explicit occurrence
+dates are omitted. Keep dated listings and weekly series start/end dates current.
+In the Thursday weekend email, Long Eaton parkrun and junior parkrun are fallback
+listings: include them only when no other eligible weekend events are available.
+Run `pnpm test:newsletter` to check calendar selection, branding, timezone gates,
+authorization and duplicate handling without sending real emails.

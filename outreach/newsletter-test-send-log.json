@@ -1,0 +1,22 @@
+[
+  {
+    "campaign": "week-ahead",
+    "to": "Lovelongeatonwebsite@gmail.com",
+    "subject": "[TEST — SUNDAY] Coming up this week in Long Eaton: Long Eaton parkrun & October Holiday Football Camp",
+    "start": "2026-10-26",
+    "end": "2026-11-01",
+    "eventCount": 5,
+    "resendId": "01a16352-2833-7875-a4ca-38b7e02191ef",
+    "acceptedAt": "2026-10-22T11:14:51.143Z"
+  },
+  {
+    "campaign": "weekend",
+    "to": "Lovelongeatonwebsite@gmail.com",
+    "subject": "[TEST — THURSDAY] This weekend in Long Eaton: Long Eaton parkrun & Long Eaton junior parkrun",
+    "start": "2026-10-23",
+    "end": "2026-10-25",
+    "eventCount": 2,
+    "resendId": "01a16352-2833-77f3-92d5-013d4bcc10f3",
+    "acceptedAt": "2026-10-22T11:14:51.143Z"
+  }
+]

@@ -366,8 +366,8 @@
 	source="event"
 	heading={isMusicFestivalArchive ? 'Hear about future Long Eaton events' : 'Never miss what’s happening in Long Eaton'}
 	copy={isMusicFestivalArchive
-		? 'Join the weekly email for future Long Eaton event announcements, weekend ideas and useful local updates.'
-		: 'Get a short weekly email featuring upcoming events, activities and useful local updates.'}
+		? 'Get the Thursday weekend guide and Sunday week ahead roundup for future Long Eaton events and activities.'
+		: 'Get the Thursday weekend guide and Sunday week ahead roundup for upcoming Long Eaton events and activities.'}
 />
 
 {#if data.event.relatedLinks?.length || data.event.relatedDates?.length}

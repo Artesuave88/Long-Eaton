@@ -14,8 +14,9 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "seo:validate": "node scripts/validate-seo.mjs",
     "test:content": "node scripts/test-content.mjs",
-    "test": "pnpm check && pnpm test:content && pnpm build && pnpm seo:validate",
-    "import:duchess-theatre": "node --experimental-strip-types scripts/import-duchess-theatre.ts"
+    "test": "pnpm check && pnpm test:content && pnpm test:newsletter && pnpm build && pnpm seo:validate",
+    "import:duchess-theatre": "node --experimental-strip-types scripts/import-duchess-theatre.ts",
+    "test:newsletter": "node scripts/test-newsletter.mjs"
   },
   "dependencies": {
     "@sveltejs/kit": "^2.17.0",
