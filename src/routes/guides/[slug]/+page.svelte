@@ -14,12 +14,14 @@
 <article class="section-surface"><div class="container-shell section-space">
 	<a href="/guides" class="button-subtle">Back to guides</a>
 	<div class="mt-8"><SectionHeading eyebrow={data.guide.eyebrow} title={data.guide.heading ?? data.guide.title} headingLevel="h1" /></div>
-	<div class="mt-7 max-w-3xl space-y-5 text-base leading-8 text-brand-muted">{#each data.guide.intro as paragraph}<p>{paragraph}</p>{/each}</div>
+	{#if data.guide.intro.length}<div class="mt-7 max-w-3xl space-y-5 text-base leading-8 text-brand-muted">{#each data.guide.intro as paragraph}<p>{paragraph}</p>{/each}</div>{/if}
+	{#if !data.guide.hideByline}
 	<div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-brand-muted">
 		<span>By the Love Long Eaton editorial team</span>
 		{#if "lastUpdated" in data.guide && data.guide.lastUpdated}<span>Updated: {data.guide.lastUpdated}</span>{/if}
 		<a href="/editorial-policy" class="underline underline-offset-4 hover:text-brand-accent">How we check our guides</a>
 	</div>
+	{/if}
 	{#if data.guide.visitPlans}<VisitPlanner plans={data.guide.visitPlans} />{/if}
 	{#if data.guide.comparison}
     <section class="mt-10" aria-labelledby="comparison-heading">
@@ -39,11 +41,19 @@
   <section class="mt-10" aria-label="Places and activities in this guide">
     <div class="section-grid">
       {#each data.guide.sections as section}
-        <article class="surface-card p-6">
+        <article class="surface-card overflow-hidden">
+          {#if section.imageSrc}
+            <figure>
+              <img src={section.imageSrc} alt={section.imageAlt ?? section.title} loading="lazy" width="720" height="405" class="aspect-video w-full bg-brand-section" style={`object-fit: ${section.imageFit ?? 'cover'}`} />
+              {#if section.imageCredit}<figcaption class="px-6 pt-2 text-xs text-brand-muted">{section.imageCredit}</figcaption>{/if}
+            </figure>
+          {/if}
+          <div class="p-6">
           {#if section.group}<p class="eyebrow">{section.group}</p>{/if}
           <h2 class="text-2xl text-brand-text">{section.title}</h2>
           <p class="body-copy-sm mt-4">{section.copy}</p>
           <a href={section.href} class="link-subtle mt-5">{section.linkLabel}</a>
+          </div>
         </article>
       {/each}
     </div>

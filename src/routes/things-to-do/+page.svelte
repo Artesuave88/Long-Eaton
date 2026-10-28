@@ -52,6 +52,7 @@
 				</p>
 				<nav class="mt-8 flex flex-wrap gap-2" aria-label="Popular things to do in Long Eaton">
 					{#each [
+						['/guides/things-to-do-this-half-term', 'Things to do this half term'],
 						['/guides/childrens-activities-in-long-eaton', 'Children’s activities'],
 						['#free-things-to-do', 'Free things to do'],
 						['/guides/outdoor-days-out-in-long-eaton', 'Plan an outdoor outing'],

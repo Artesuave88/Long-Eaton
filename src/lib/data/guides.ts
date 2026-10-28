@@ -1,6 +1,7 @@
 import type { Season } from "$utils/seasons";
 import type { ContentSource, VisitSection } from "$types/content";
 import { outdoorPlans, type VisitPlan } from "$data/visit-plans";
+import { halfTermGuide } from "$data/half-term-guide";
 
 export type SeasonalGuide = {
   slug: string;
@@ -21,6 +22,7 @@ export type SeasonalGuide = {
 };
 
 export type SearchGuide = {
+  hideByline?: boolean;
   slug: string;
   title: string;
   seoTitle?: string;
@@ -43,6 +45,10 @@ export type SearchGuide = {
     href: string;
     linkLabel: string;
     group?: string;
+    imageSrc?: string;
+    imageAlt?: string;
+    imageFit?: "cover" | "contain";
+    imageCredit?: string;
   }[];
   relatedSlugs: string[];
   eventTopics: string[];
@@ -184,6 +190,7 @@ export const seasonalGuides: SeasonalGuide[] = [
 ];
 
 export const searchGuides: SearchGuide[] = [
+  halfTermGuide,
   {
     slug: "outdoor-days-out-in-long-eaton",
     title: "Outdoor days out in Long Eaton: park or waterside?",
