@@ -4,9 +4,10 @@
 	import { discoverPlaces } from '$data/discover';
 	import { sortedEvents } from '$data/events';
 	import { getUpcomingEvents } from '$data/listings';
-	import { seasonalGuides } from '$data/guides';
+	import { getCurrentSearchGuides, seasonalGuides } from '$data/guides';
 	import { getSeasonFromDate } from '$utils/seasons';
 
+	const hasHalfTermGuide = getCurrentSearchGuides().some((guide) => guide.slug === 'things-to-do-this-half-term');
 	const upcomingEvents = getUpcomingEvents(sortedEvents);
 	const featuredEvents = upcomingEvents.slice(0, 3);
 	const familyEvents = upcomingEvents
@@ -52,7 +53,7 @@
 				</p>
 				<nav class="mt-8 flex flex-wrap gap-2" aria-label="Popular things to do in Long Eaton">
 					{#each [
-						['/guides/things-to-do-this-half-term', 'Things to do this half term'],
+						...(hasHalfTermGuide ? [['/guides/things-to-do-this-half-term', 'Things to do this half term']] : []),
 						['/guides/childrens-activities-in-long-eaton', 'Children’s activities'],
 						['#free-things-to-do', 'Free things to do'],
 						['/guides/outdoor-days-out-in-long-eaton', 'Plan an outdoor outing'],

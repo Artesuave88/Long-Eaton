@@ -32,7 +32,6 @@
 		/>
 
 		<div class="mb-8 flex flex-wrap gap-3">
-			<a href="/bank-holiday" class="button-primary">Bank Holiday events</a>
 			<a href="/whats-on-this-weekend" class="button-primary">
 				See what’s on this weekend
 			</a>

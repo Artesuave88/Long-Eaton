@@ -8,7 +8,7 @@
     NewsletterSignup,
     SectionHeading,
   } from "$components";
-  import { searchGuides } from "$data/guides";
+  import { getCurrentSearchGuides } from "$data/guides";
   import { businesses } from "$data/businesses";
   import { discoverPlaces } from "$data/discover";
   import { sortedEvents } from "$data/events";
@@ -17,10 +17,9 @@
     getRegularEvents,
     getEventHref,
     getHomepageEventSelection,
-    getUpcomingEvents,
     isRepeatedEventText,
   } from "$data/listings";
-  import { newsItems, isNewsExpired } from "$data/news";
+  import { getCurrentNews } from "$data/news";
   import { formatRecurringLabel } from "$utils/format";
   import type { ActionData } from "./$types";
 
@@ -30,11 +29,8 @@
   const featuredBusiness = getFeaturedBusiness(businesses);
   const homepageDiscoverPlaces = discoverPlaces.slice(0, 3);
   const homepageRegularEvents = getRegularEvents(sortedEvents).slice(0, 6);
-  const featuredNews = newsItems.find((item) => !isNewsExpired(item));
-  const bankHolidayEvents = getUpcomingEvents(sortedEvents).filter((event) =>
-    event.tags?.includes("Bank Holiday"),
-  );
-  const homepageHeroEvents = bankHolidayEvents.length ? bankHolidayEvents : heroEvents;
+  const featuredNews = getCurrentNews()[0];
+  const currentSearchGuides = getCurrentSearchGuides();
 
   let shareStatus = "";
 
@@ -75,8 +71,8 @@
 
 <section class="section-surface">
   <div class="container-shell section-space">
-    {#if homepageHeroEvents.length}
-      <HeroCarousel events={homepageHeroEvents} />
+    {#if heroEvents.length}
+      <HeroCarousel events={heroEvents} />
     {:else}
       <section class="relative overflow-hidden rounded-[1.9rem] border border-brand-border bg-brand-primaryDark text-white shadow-[0_28px_90px_rgba(7,18,41,0.24)]">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_35%),linear-gradient(120deg,rgba(4,14,39,0.96),rgba(11,44,109,0.78))]"></div>
@@ -114,7 +110,7 @@
     <h2 id="home-guides-heading" class="mt-3 text-brand-text">Find the right place for your day</h2>
     <p class="body-copy mt-4 max-w-3xl">Compare places to eat, children’s activities and independent shops, with practical details to check before you go.</p>
     <div class="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {#each searchGuides as guide}
+      {#each currentSearchGuides as guide}
         <a href={`/guides/${guide.slug}`} class="surface-card surface-card-hover p-6">
           <p class="eyebrow">{guide.eyebrow}</p>
           <h3 class="mt-3 text-xl text-brand-text">{guide.title}</h3>

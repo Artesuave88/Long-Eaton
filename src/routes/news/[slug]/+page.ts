@@ -1,7 +1,8 @@
 import { error } from "@sveltejs/kit";
-import { newsItems } from "$data/news";
+import { getCurrentNews } from "$data/news";
 
 export const load = ({ params }) => {
+  const newsItems = getCurrentNews();
   const article = newsItems.find((item) => item.id === params.slug);
 
   if (!article) {

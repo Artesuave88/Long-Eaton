@@ -1,10 +1,11 @@
 import { error, redirect } from "@sveltejs/kit";
-import { guides, type SearchGuide } from "$data/guides";
+import { getCurrentSearchGuides, seasonalGuides, type SearchGuide } from "$data/guides";
 import { sortedEvents } from "$data/events";
 import { businesses } from "$data/businesses";
 import { getEventsForTopics, getUpcomingEvents } from "$data/listings";
 
 export const load = ({ params }) => {
+  const guides = [...seasonalGuides, ...getCurrentSearchGuides()];
   const guide = guides.find((item) => item.slug === params.slug);
   if (!guide) throw error(404, "Guide not found");
   if ("season" in guide) throw redirect(308, `/guides#${guide.season}`);

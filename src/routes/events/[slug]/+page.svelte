@@ -20,10 +20,8 @@
 
 	const formatRelatedDate = (date?: string, dateLabel?: string) =>
 		date ? formatDisplayDate(date) : dateLabel ?? '';
-	$: isCarnival = data.event.slug === 'long-eaton-carnival';
 	$: isParkrun = data.event.slug === 'long-eaton-parkrun';
 	$: isJuniorParkrun = data.event.slug === 'long-eaton-junior-parkrun';
-	$: isMusicFestivalArchive = data.event.slug === 'long-eaton-music-festival-8-august-2026';
 	$: isActivity = data.event.type === 'activity';
 	$: isArtRoomEvent = data.event.sourceUrl === 'https://www.longeatonartroom.co.uk/whats-available/events/';
 	$: hasVisitDetails =
@@ -88,12 +86,6 @@
 			<div>
 				<p class="eyebrow">{data.event.category}</p>
 				<h1 class="mt-3 text-brand-text">{data.event.heading ?? data.event.title}</h1>
-				{#if data.isPast && isMusicFestivalArchive}
-					<div class="mt-5 rounded-xl border border-brand-accent/30 bg-brand-accent/10 p-5" role="status">
-						<p class="text-lg font-bold text-brand-text">This event has now finished.</p>
-						<p class="mt-2 text-sm leading-7 text-brand-muted">The details below are retained as an archive of the 2026 event.</p>
-					</div>
-				{/if}
 				{#if data.event.strapline}
 					<p class="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted">{data.event.strapline}</p>
 				{/if}
@@ -101,12 +93,6 @@
 					<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted">{data.event.excerpt}</p>
 				{/if}
 
-				{#if data.isPast && data.event.postEventMessage}
-					<div class="surface-card mt-6 border-l-4 border-l-brand-accent p-6">
-						<p class="eyebrow">Event archive</p>
-						<p class="mt-3 text-base leading-7 text-brand-muted">{data.event.postEventMessage}</p>
-					</div>
-				{/if}
 
 				{#if isParkrun}
 					<p class="mt-4 text-sm text-brand-muted">Weekly community event with free entry.</p>
@@ -336,9 +322,7 @@
 					<div class="surface-card p-6">
 						<h2 class="text-2xl text-brand-text">Planning your visit</h2>
 						<p class="body-copy-sm mt-4">
-							{#if isCarnival}
-								For the carnival, the day starts with the road parade before the main site activity continues on West Park. The main site is free to enter.
-							{:else if data.event.category === 'Markets'}
+							{#if data.event.category === 'Markets'}
 								West Park car boots are simple to plan for: sellers arrive from 7am, buyers from 8am, and all proceeds support the Carnival fund.
 							{:else if isParkrun}
 								Long Eaton parkrun starts at 9am every Saturday morning at West Park Leisure Centre, with people welcome to walk, jog, run, volunteer or spectate.
@@ -364,7 +348,7 @@
 <NewsletterSignup
 	{form}
 	source="event"
-	heading={isMusicFestivalArchive ? 'Hear about future Long Eaton events' : 'Never miss what’s happening in Long Eaton'}
+	heading="Never miss what’s happening in Long Eaton"
 />
 
 {#if data.event.relatedLinks?.length || data.event.relatedDates?.length}
@@ -372,7 +356,7 @@
 		<div class="container-shell pb-8">
 			{#if data.event.relatedLinks?.length}
 				<nav class="surface-card p-6" aria-label="Related Long Eaton pages">
-					<h2 class="text-2xl text-brand-text">{isMusicFestivalArchive ? 'Find another Long Eaton event' : 'More in Long Eaton'}</h2>
+					<h2 class="text-2xl text-brand-text">More in Long Eaton</h2>
 					<div class="mt-5 flex flex-wrap gap-3">
 						{#each data.event.relatedLinks as link}
 							<a href={link.href} class="button-secondary">{link.label}</a>

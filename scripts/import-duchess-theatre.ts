@@ -337,7 +337,12 @@ async function main(): Promise<void> {
     sanitizeDocument($ticketSource);
 
     const venue = extractVenue($homepage);
-    const shows = extractShowsFromTicketSource($ticketSource);
+    const today = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit'
+    }).format(new Date());
+    const shows = extractShowsFromTicketSource($ticketSource).filter((show) =>
+      !show.startDate || (show.endDate ?? show.startDate).slice(0, 10) >= today
+    );
 
     venue.description = [
       ...venue.description,

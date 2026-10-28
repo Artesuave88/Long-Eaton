@@ -2,6 +2,7 @@ import type { Season } from "$utils/seasons";
 import type { ContentSource, VisitSection } from "$types/content";
 import { outdoorPlans, type VisitPlan } from "$data/visit-plans";
 import { halfTermGuide } from "$data/half-term-guide";
+import { hasDeadlinePassed } from "$utils/dates";
 
 export type SeasonalGuide = {
   slug: string;
@@ -22,6 +23,7 @@ export type SeasonalGuide = {
 };
 
 export type SearchGuide = {
+  validUntil?: string;
   hideByline?: boolean;
   slug: string;
   title: string;
@@ -49,6 +51,8 @@ export type SearchGuide = {
     imageAlt?: string;
     imageFit?: "cover" | "contain";
     imageCredit?: string;
+    validUntil?: string;
+    endTime?: string;
   }[];
   relatedSlugs: string[];
   eventTopics: string[];
@@ -588,3 +592,14 @@ export const searchGuides: SearchGuide[] = [
 ];
 
 export const guides = [...seasonalGuides, ...searchGuides];
+
+export function getCurrentSearchGuides(now = new Date()): SearchGuide[] {
+  return searchGuides
+    .filter((guide) => !hasDeadlinePassed(guide.validUntil, now))
+    .map((guide) => ({
+      ...guide,
+      sections: guide.sections.filter((section) =>
+        !hasDeadlinePassed(section.validUntil, now, section.endTime)
+      )
+    }));
+}

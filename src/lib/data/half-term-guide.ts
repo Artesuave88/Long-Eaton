@@ -6,6 +6,7 @@ const swimmingUrl = 'https://www.leisurecentre.com/west-park-leisure-centre/swim
 export const halfTermGuide: SearchGuide = {
   slug: 'things-to-do-this-half-term',
   title: 'Things to do this half term',
+  validUntil: '2026-11-03',
   seoTitle: 'October Half Term 2026: Things to Do in Long Eaton',
   eyebrow: '28 October–3 November 2026',
   description: 'Family activities in Long Eaton from 28 October to 3 November 2026, including Halloween crafts, the circus, free activities and swimming, plus nearby Ilkeston events.',
@@ -16,6 +17,7 @@ export const halfTermGuide: SearchGuide = {
   sections: [
     {
       title: 'Uncle Sam’s Circus at West Park',
+      validUntil: '2026-11-01',
       imageSrc: '/editorial/uncle-sams-circus.jpg',
       imageAlt: 'Uncle Sam’s Circus performers in red, white and blue feathered costumes',
       imageFit: 'cover',
@@ -27,6 +29,8 @@ export const halfTermGuide: SearchGuide = {
     },
     {
       title: 'Free Halloween Fun Day',
+      validUntil: '2026-10-30',
+      endTime: '14:00',
       imageSrc: '/editorial/halloween-fun-day.png',
       imageAlt: 'Erewash Borough Council poster advertising free Halloween fun days for ages 7–12',
       imageFit: 'contain',
@@ -38,6 +42,7 @@ export const halfTermGuide: SearchGuide = {
     },
     {
       title: 'Long Eaton junior parkrun',
+      validUntil: '2026-11-01',
       imageSrc: '/jnr-park-run.jpg',
       imageAlt: 'Children taking part in Long Eaton junior parkrun',
       imageFit: 'cover',
@@ -48,6 +53,7 @@ export const halfTermGuide: SearchGuide = {
     },
     {
       title: 'Swimming and Fun & Floats',
+      validUntil: '2026-11-03',
       imageSrc: '/editorial/west-park-pool.jpg',
       imageAlt: 'The indoor swimming pool at West Park Leisure Centre',
       imageFit: 'cover',
@@ -59,6 +65,7 @@ export const halfTermGuide: SearchGuide = {
     },
     {
       title: 'West Park play areas',
+      validUntil: '2026-11-03',
       imageSrc: '/west-park.jpg',
       imageAlt: 'West Park in Long Eaton',
       imageFit: 'cover',
@@ -69,6 +76,8 @@ export const halfTermGuide: SearchGuide = {
     },
     {
       title: 'Space & Science Week',
+      validUntil: '2026-10-30',
+      endTime: '16:00',
       imageSrc: '/editorial/erewash-museum-halloween.jpg',
       imageAlt: 'Seasonal pumpkin decorations outside Erewash Museum',
       imageFit: 'cover',
@@ -80,6 +89,8 @@ export const halfTermGuide: SearchGuide = {
     },
     {
       title: 'All Treat and No Trick!',
+      validUntil: '2026-10-31',
+      endTime: '16:00',
       imageSrc: '/editorial/erewash-museum-halloween.jpg',
       imageAlt: 'A smiling Halloween pumpkin outside the entrance to Erewash Museum',
       imageFit: 'cover',
@@ -89,17 +100,6 @@ export const halfTermGuide: SearchGuide = {
       href: museumUrl,
       linkLabel: 'Check Halloween at the museum'
     },
-    {
-      title: 'Spooky Stories and Monster Crafts',
-      imageSrc: '/editorial/spooky-monster-crafts.webp',
-      imageAlt: 'Colourful paper monsters with googly eyes and craft decorations',
-      imageFit: 'contain',
-      imageCredit: 'Derbyshire Adult Community Education Service',
-      group: 'Already finished · Wednesday 28 October · 10:30am–12:30pm',
-      copy: 'This free Long Eaton Library session combined spooky stories with monster badges and bookmarks. It was for families in Petersham, Sawley and Long Eaton with preschool or primary-school children, with adults staying throughout. The session has now finished; it is not an upcoming booking option.',
-      href: '/events/spooky-stories-monster-crafts-long-eaton-library-28-october-2026',
-      linkLabel: 'Read the library session details'
-    }
   ],
   sources: [
     { label: 'Uncle Sam’s Circus — production photographs', href: 'https://american-circus.co.uk/2026-production' },
@@ -113,7 +113,6 @@ export const halfTermGuide: SearchGuide = {
     { label: 'Erewash Museum — half-term and Halloween programme', href: museumUrl },
     { label: 'Erewash Borough Council — play areas', href: 'https://www.erewash.gov.uk/your-borough/play-areas' },
     { label: 'Trentbarton — West Park splash pad season ends 30 September', href: 'https://www.trentbarton.co.uk/news-and-media/our-news/article/splashpad' },
-    { label: 'DACES — Spooky Stories and Monster Crafts', href: 'https://courses.dacesderbyshire.org.uk/CourseDetailsView.asp?ID1=1000&ID2=4640&ID3=1' }
   ],
   relatedSlugs: ['childrens-activities-in-long-eaton', 'outdoor-days-out-in-long-eaton'],
   eventTopics: []

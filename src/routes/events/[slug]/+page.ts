@@ -6,7 +6,7 @@ export const load = ({ params }) => {
   const event = sortedEvents.find(
     (item) =>
       item.slug === params.slug &&
-      (item.retainAfterEvent || getUpcomingEvents([item]).length > 0),
+      getUpcomingEvents([item]).length > 0,
   );
 
   if (!event) {

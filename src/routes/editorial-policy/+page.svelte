@@ -27,7 +27,7 @@
 				<section>
 					<h2 class="text-2xl text-brand-text">Updates and corrections</h2>
 					<p class="mt-3">Time-sensitive pages tell readers to confirm details with the organiser because schedules can change quickly. We remove expired events from current listings and review reported errors against a reliable source. To request a correction, use the contact form and include the page address, the detail that is wrong and a source for the replacement information.</p>
-					<p class="mt-3">Time-limited news offers carry an end date and are labelled as archived after that date. They remain available as historical records but are excluded from the homepage’s featured news selection. Guides distinguish suggested outings from measured routes and link to official visitor information for facilities and access.</p>
+					<p class="mt-3">Time-limited news offers and dated guides carry an end date and are removed from public pages after that date. Past events and expired offers are deleted from the project during content maintenance. Guides distinguish suggested outings from measured routes and link to official visitor information for facilities and access.</p>
 				</section>
 				<section>
 					<h2 class="text-2xl text-brand-text">Commercial independence</h2>

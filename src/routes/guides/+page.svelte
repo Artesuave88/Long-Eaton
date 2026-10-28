@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { EventCard, SectionHeading } from '$components';
-	import { searchGuides, seasonalGuides } from '$data/guides';
+	import { getCurrentSearchGuides, seasonalGuides } from '$data/guides';
 	import { sortedEvents } from '$data/events';
 	import { getUpcomingEvents } from '$data/listings';
 	import { getCurrentSeasonEvents, getEventsForSeason, getSeasonFromDate, type Season } from '$utils/seasons';
@@ -13,6 +13,7 @@
 	};
 
 	const now = new Date();
+	const currentSearchGuides = getCurrentSearchGuides(now);
 	const currentSeason = getSeasonFromDate(now);
 	const currentSeasonEvents = getCurrentSeasonEvents(sortedEvents, now).slice(0, 6);
 	const currentSeasonEventIds = new Set(currentSeasonEvents.map((event) => event.id));
@@ -95,7 +96,7 @@
 				copy="Compare your options, use the outdoor visit planner and follow source links for the details that matter to your visit."
 			/>
 			<div class="section-grid mt-8">
-				{#each searchGuides as guide}
+				{#each currentSearchGuides as guide}
 					<a href={`/guides/${guide.slug}`} class="surface-card surface-card-hover p-6">
 						<p class="eyebrow">{guide.eyebrow}</p>
 						<h2 class="mt-3 text-2xl text-brand-text">{guide.title}</h2>

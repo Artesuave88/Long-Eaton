@@ -1,4 +1,5 @@
 import type { NewsItem } from "$types/content";
+import { hasDeadlinePassed } from "$utils/dates";
 
 export const newsDrafts: NewsItem[] = [
   {
@@ -35,22 +36,15 @@ export const newsItems: NewsItem[] = [
     title: "Long Eaton’s Chestnut Fair cancelled for 2026 as High Street works continue",
     date: "2026-10-21",
     checkedOn: "2026-10-21",
-    excerpt: "High Street regeneration works mean November’s Chestnut Fair will not go ahead. Nearby Ilkeston Charter Fair runs from 21 to 25 October.",
+    excerpt: "High Street regeneration works mean November’s Chestnut Fair will not go ahead. Organisers say it will return to Long Eaton in 2027.",
     content: [
       "Long Eaton’s Chestnut Fair will not take place this November because of ongoing regeneration works in High Street.",
       "The cancellation was confirmed in a joint statement from fair organiser Mellors Group and Erewash Borough Council, published on 12 October. The statement acknowledges the disappointment for people who enjoy the annual street fair and says it will return to Long Eaton in 2027.",
-      "For residents hoping to enjoy a fair this autumn, nearby Ilkeston Charter Fair is taking place from Wednesday 21 to Sunday 25 October 2026. The separate event brings fairground rides and traditional sideshows to Ilkeston town centre.",
-      "Ilkeston’s fair dates back to a charter granted in 1252. This year’s event offers an alternative outing for Long Eaton families while they wait for the Chestnut Fair’s return."
     ],
-    planning: [{
-      title: "Visiting Ilkeston Charter Fair",
-      copy: "Check the council’s Ilkeston Charter Fair page for the latest visitor information before travelling. The dates above are for Ilkeston’s event in October; Long Eaton’s November Chestnut Fair is cancelled."
-    }],
     sourceUrl: "https://www.erewash.gov.uk/news/2026/chestnut-fair-will-not-go-ahead",
     sourceLabel: "Read the joint Chestnut Fair statement",
     sources: [
       { label: "Read the joint Chestnut Fair statement", href: "https://www.erewash.gov.uk/news/2026/chestnut-fair-will-not-go-ahead" },
-      { label: "Check Ilkeston Charter Fair dates and information", href: "https://www.erewash.gov.uk/your-borough/events-erewash/ilkeston-charter-fair" }
     ],
     imageSrc: "/editorial/chestnut-fair-cancelled-2026.jpg",
     imageAlt: "Fairground rides lit up at night with a red banner reading CANCELLED",
@@ -170,36 +164,13 @@ export const newsItems: NewsItem[] = [
       "https://www.erewash.gov.uk/news/2026/long-eatons-ps10million-revamp-start-june",
     sourceLabel: "Read the Erewash Borough Council update",
   },
-  {
-    id: "free-summer-bus-travel-2026",
-    validUntil: "2026-08-31",
-    title: "Free August bus travel for 5 to 18 year olds",
-    date: "2026-07-28",
-    excerpt:
-      "Free travel is available for ages 5–15 across eligible trentbarton services, with an EMCCA extension covering 16–18 year olds on qualifying routes.",
-    content: [
-      "Children aged 5 to 15 can travel free on trentbarton services from 1 to 31 August 2026 as part of the Government’s free bus travel scheme. The offer excludes red arrow and nightbus journeys.",
-      "The East Midlands Combined County Authority has also extended free travel to 16 to 18 year olds on routes that enter Derbyshire, Nottinghamshire, Derby or Nottingham. Red arrow is excluded from this extension too.",
-      "Mango customers can tap on and off as usual. Other passengers can ask the driver for a free single ticket. Proof of age is required, and children under 11 must travel with a responsible person.",
-    ],
-    imageSrc: "/free-summer-bus-travel-2026.jpg",
-    imageAlt:
-      "UK Government poster advertising free summer bus travel for 5 to 18 year olds from 1 to 31 August 2026",
-    imageFit: "contain",
-    imageLabel: "Free summer bus travel",
-    imageStyle: "bg-brand-accent/10",
-    sourceUrl:
-      "https://www.trentbarton.co.uk/news-and-media/our-news/article/summerfare2026",
-    sourceLabel: "Read the full trentbarton announcement",
-  },
 ];
 
 // Use the London calendar date so promotions expire consistently across renderers.
 export function isNewsExpired(item: NewsItem, now = new Date()) {
-  if (!item.validUntil) return false;
-  const parts = new Intl.DateTimeFormat('en-GB', {
-    timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit'
-  }).formatToParts(now);
-  const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((value) => value.type === type)?.value;
-  return item.validUntil < `${part('year')}-${part('month')}-${part('day')}`;
+  return hasDeadlinePassed(item.validUntil, now);
+}
+
+export function getCurrentNews(now = new Date()) {
+  return newsItems.filter((item) => !isNewsExpired(item, now));
 }

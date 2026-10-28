@@ -1,8 +1,8 @@
 # Maintaining Love Long Eaton
 
 The content improvements made on 10 October 2026 add a sourced outdoor guide,
-three suggested visit plans, practical context on council notices, and visible
-expiry labels for dated news offers. They do not establish an audience or
+three suggested visit plans, practical context on council notices, and expiry
+checks for dated content. They do not establish an audience or
 guarantee advertising approval.
 
 ## Weekly editorial review
@@ -24,9 +24,12 @@ have an HTTPS source link. Keep unverified stories in `newsDrafts`; these are
 excluded from public routes, the homepage and the sitemap. The motorway story
 is retained there pending verification of its support and appraisal claims.
 
-Use an ISO `validUntil` date for time-limited offers. Expiry labels and exclusion
-from homepage featured news follow the London calendar date automatically.
-Historical articles remain available. A `checkedOn` date records review of the
+Use an ISO `validUntil` date for time-limited offers, dated guides and guide cards.
+Public pages, navigation and the sitemap exclude them after that London calendar
+date. Guide cards can also specify `endTime` for sessions finishing that day.
+Delete expired event and offer entries, their guide cards and unreferenced images
+from the source during maintenance; do not retain public event archives. News
+publication dates and source-check dates are not expiry dates. A `checkedOn` date records review of the
 source, not confirmation of the current state of construction or a personal visit.
 
 ## Before an advertising resubmission

@@ -90,8 +90,6 @@ export type EventItem = {
     note?: string;
   }[];
   featured?: boolean;
-  retainAfterEvent?: boolean;
-  postEventMessage?: string;
   relatedLinks?: {
     href: string;
     label: string;

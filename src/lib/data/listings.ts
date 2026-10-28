@@ -1,6 +1,7 @@
 import type { BusinessItem, DiscoverPlace, EventItem } from "$types/content";
 import { slugMatches } from "$utils/format";
 import { matchesBusinessBrowseGroup } from "$data/businesses";
+import { getLondonCalendarDate, hasDeadlinePassed } from "$utils/dates";
 
 export const ALL_CATEGORIES = "All";
 const UNKNOWN_DATE_SORT_VALUE = Number.MAX_SAFE_INTEGER;
@@ -13,19 +14,6 @@ const DAY_INDEX: Record<NonNullable<EventItem["dayOfWeek"]>, number> = {
   Friday: 5,
   Saturday: 6,
 };
-
-function getLondonCalendarDate(value: Date) {
-  const parts = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Europe/London",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).formatToParts(value);
-  const part = (type: Intl.DateTimeFormatPartTypes) =>
-    parts.find((item) => item.type === type)?.value ?? "";
-
-  return `${part("year")}-${part("month")}-${part("day")}`;
-}
 
 function getRecurringDays(event: Pick<EventItem, "dayOfWeek" | "daysOfWeek">) {
   if (event.daysOfWeek?.length) {
@@ -145,13 +133,12 @@ export function filterEvents(
 export function isUpcomingEvent(
   event: Pick<
     EventItem,
-    "date" | "endDate" | "recurrence" | "dayOfWeek" | "daysOfWeek" | "ongoing"
+    "date" | "endDate" | "endTime" | "recurrence" | "dayOfWeek" | "daysOfWeek" | "ongoing"
   >,
   today = new Date(),
 ) {
   // A recurrence does not make a finite holiday club permanent.
-  const londonDate = getLondonCalendarDate(today);
-  if (event.endDate && event.endDate.slice(0, 10) < londonDate) return false;
+  if (event.endDate && hasDeadlinePassed(event.endDate, today, event.endTime)) return false;
 
   if (event.ongoing || getNextRecurringDate(event, today)) {
     return true;
@@ -161,7 +148,7 @@ export function isUpcomingEvent(
     return false;
   }
 
-  return (event.endDate ?? event.date).slice(0, 10) >= londonDate;
+  return !hasDeadlinePassed(event.endDate ?? event.date, today, event.endTime);
 }
 
 export function getUpcomingEvents(events: EventItem[], today = new Date()) {
