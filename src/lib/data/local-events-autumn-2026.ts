@@ -90,6 +90,7 @@ export const localAutumnEvents: EventItem[] = [
     id: "event-west-park-fireworks-2026-11-05",
     slug: "west-park-bonfire-fireworks-5-november-2026",
     title: "West Park Bonfire and Fireworks",
+    featured: true,
     date: "2026-11-05",
     time: "Gates 5pm · Bonfire 6:30pm · Fireworks 7:30pm",
     startTime: "17:00",
