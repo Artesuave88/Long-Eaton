@@ -112,6 +112,14 @@
 					{/each}
 				</div>
 
+				{#if !data.isPast && data.event.ticketUrl}
+					<div class="mt-6">
+						<a href={data.event.ticketUrl} target="_blank" rel="noreferrer" class="button-primary">
+							Book tickets
+						</a>
+					</div>
+				{/if}
+
 				{#if description.length}
 				<div class="mt-8">
 					<h2 class="text-2xl text-brand-text">{isActivity ? 'About this group' : 'About this event'}</h2>
@@ -147,7 +155,7 @@
 				</div>
 				{/if}
 
-				{#if !isArtRoomEvent && (data.event.startTime || data.event.time || data.event.endTime || data.event.approximateReturnTime)}
+				{#if !isArtRoomEvent && !data.event.sessions?.length && (data.event.startTime || data.event.time || data.event.endTime || data.event.approximateReturnTime)}
 					<div class="surface-card mt-8 p-6">
 						<h2 class="text-2xl text-brand-text">Timing details</h2>
 						<div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -266,18 +274,11 @@
 					</div>
 				{/if}
 
-				{#if (!data.isPast && data.event.ticketUrl) || (data.event.sourceUrl && data.event.sourceUrl !== data.event.ticketUrl)}
+				{#if data.event.sourceUrl && data.event.sourceUrl !== data.event.ticketUrl}
 					<div class="mt-8 flex flex-wrap gap-3">
-						{#if !data.isPast && data.event.ticketUrl}
-							<a href={data.event.ticketUrl} target="_blank" rel="noreferrer" class="button-primary">
-								Book tickets
-							</a>
-						{/if}
-						{#if data.event.sourceUrl && data.event.sourceUrl !== data.event.ticketUrl}
-							<a href={data.event.sourceUrl} target="_blank" rel="noreferrer" class="button-secondary">
-								More information
-							</a>
-						{/if}
+						<a href={data.event.sourceUrl} target="_blank" rel="noreferrer" class="button-secondary">
+							More information
+						</a>
 					</div>
 				{/if}
 
