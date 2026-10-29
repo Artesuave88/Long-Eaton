@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { EmptyState, EventCard, SearchBar, SectionHeading } from '$components';
 	import { sortedEvents } from '$data/events';
-	import { filterEvents, getCategories, getUpcomingEvents, getRegularEvents } from '$data/listings';
+	import { filterEvents, getCategories, getUpcomingEvents, getRegularEvents, isRegularEvent } from '$data/listings';
 
 	let query = '';
 	let selectedCategory = 'All';
 	let viewMode: 'upcoming' | 'regular' = 'upcoming';
 	const regularEvents = getRegularEvents(sortedEvents);
-	const upcomingEvents = getUpcomingEvents(sortedEvents);
-	const eventCategories = getCategories(upcomingEvents);
+	const upcomingEvents = getUpcomingEvents(sortedEvents).filter((event) => !isRegularEvent(event));
+	const eventCategories = getCategories([...upcomingEvents, ...regularEvents]);
 
 	$: activeEvents = viewMode === 'regular' ? regularEvents : upcomingEvents;
 	$: filteredEvents = filterEvents(activeEvents, { query, category: selectedCategory });
