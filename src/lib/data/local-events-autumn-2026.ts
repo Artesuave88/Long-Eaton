@@ -113,15 +113,16 @@ export const localAutumnEvents: EventItem[] = [
     description: [
       "The Greatest Show in the Sky takes place at West Park, Long Eaton, on Thursday 5 November 2026. The evening includes fairground rides, a bonfire from 6:30pm and a fireworks display from 7:30pm. Gates open at 5pm.",
       "Prepaid and online tickets cost £8 for adults, or £10 on the day. Tickets for ages 16 and under and over 60s cost £5 prepaid, or £7 on the day. Children aged five and under enter free.",
-      "A family ticket covers two adults and up to three children, costing £20 prepaid or £25 on the day. Use the council’s event page for ticket sales and the latest event information."
+      "A family ticket covers two adults and up to three children, costing £20 prepaid or £25 on the day. Use the Book tickets button to buy online, and the council’s event page for the latest event information."
     ],
     sessions: [
       { title: "Gates open", time: "5pm" },
       { title: "Bonfire", time: "From 6:30pm" },
       { title: "Fireworks display", time: "From 7:30pm" }
     ],
+    ticketUrl: "https://www.tickets-live.co.uk/erewash",
     sourceUrl: "https://www.erewash.gov.uk/your-borough/events-erewash/west-park-bonfire-and-fireworks",
-    checkedOn: "2026-10-10",
+    checkedOn: "2026-10-29",
     sources: [{ label: "Erewash Borough Council — West Park Bonfire and Fireworks 2026", href: "https://www.erewash.gov.uk/your-borough/events-erewash/west-park-bonfire-and-fireworks" }],
     visitSections: [{ title: "Plan your arrival", copy: "Gates open at 5pm, before the bonfire at 6:30pm and fireworks at 7:30pm. Allow time to enter the park before the part of the evening you want to see. Check the council’s event page on the day for any changes." }],
     imageSrc: "/editorial/fireworks-illustration.svg",
