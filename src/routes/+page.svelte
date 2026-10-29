@@ -97,6 +97,14 @@
   </div>
 </section>
 
+{#if featuredEvent}
+  <section class="section-surface" aria-label="Featured event">
+    <div class="container-shell section-space pt-0">
+      <FeaturedEventPanel event={featuredEvent} />
+    </div>
+  </section>
+{/if}
+
 <NewsletterSignup
   {form}
   source="home"
@@ -139,14 +147,6 @@
 		{/if}
 	</div>
 </section>
-
-{#if featuredEvent}
-  <section class="section-surface">
-    <div class="container-shell section-space pt-0">
-      <FeaturedEventPanel event={featuredEvent} />
-    </div>
-  </section>
-{/if}
 
 {#if homepageRegularEvents.length}
   <section class="section-surface">
