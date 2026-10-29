@@ -70,12 +70,11 @@ function createImportedEvent(
     ticketUrl: show.url ?? undefined,
     category: "Entertainment",
     excerpt: isSpamalot
-      ? "See Spamalot at the Duchess Theatre in Long Eaton from Wednesday 2 to Saturday 5 December 2026. Performance times are available from the organiser."
+      ? "Spamalot comes to the Duchess Theatre & Chatsworth Arts Centre."
       : show.title,
     description: isSpamalot
       ? [
-          "Spamalot is listed for four dates at the volunteer-run Duchess Theatre & Chatsworth Arts Centre on West Gate.",
-          "Use the official ticket link for performance times, availability and booking details before travelling.",
+          "Check the official booking page for performance times and availability.",
         ]
       : [],
     imageSrc: show.imageUrl ?? "/duchess-theatre-exterior.jpg",
@@ -84,10 +83,6 @@ function createImportedEvent(
     imageStyle: "bg-brand-accent/10",
     sourceUrl: venue.sourceUrl,
     volunteerRun: venue.volunteerRun,
-    relatedDates:
-      show.endDate && show.startDate && show.endDate !== show.startDate
-        ? [{ title: "Final listed date", date: show.endDate }]
-        : undefined,
     featured: false,
     relatedLinks: isSpamalot
       ? [
@@ -116,32 +111,14 @@ const carBootBase = {
   location: "Event Field, West Park, Long Eaton",
   price: "On-foot entry: FREE",
   priceSummary:
-    "Sellers: Car £8, car plus trailer or large van £11. Buyers arriving on foot enter FREE; on-site parking is £1.",
+    "Sellers: car £8; car plus trailer or large van £11. Buyers: free on foot; on-site parking £1.",
   organiser: "Long Eaton Carnival committee",
   tags: ["Car Boot", "West Park", "Fundraising", "Community"],
   category: "Markets",
-  description: [
-    "Long Eaton Carnival's car boot sales return to West Park on selected Sundays through spring and summer.",
-    "Sellers can set up from 7am and there is no booking required. Buyers can come in from 8am. Entry is FREE when arriving on foot, while on-site parking is £1.",
-    "All proceeds go towards future Long Eaton Carnival events. Donations are appreciated.",
-  ],
-  sellerInfo: [
-    "Setup from 7am.",
-    "No booking required.",
-    "Car: £8.",
-    "Car plus trailer or large van: £11.",
-  ],
-  buyerInfo: [
-    "Gates open at 8am.",
-    "Arriving on foot: FREE entry.",
-    "On-site parking: £1.",
-  ],
+  description: ["Sellers do not need to book. Donations to the Carnival fund are appreciated."],
   fundraisingNote:
-    "All proceeds go towards future Long Eaton Carnival events. Donations are appreciated.",
+    "All proceeds go towards future Long Eaton Carnival events.",
   locationNote: "The field is opposite George's Fish and Chip shop.",
-  relatedDates: [
-    { title: "Planned car boot sale", dateLabel: "October 2026", note: "TBC" },
-  ],
   imageLabel: "Car boot stalls on West Park",
   imageStyle: "bg-brand-section",
   imageSrc: "/carboot.jpg",
@@ -174,27 +151,23 @@ const baseEvents: EventItem[] = [
     tags: ["Autism", "Monthly", "Social", "Support"],
     audience: "Autistic people looking to meet others and connect locally.",
     excerpt:
-      "A monthly social meetup for autistic people at The Square Hideaway Café & Sensory Space, on the first Wednesday of each month from 1–3pm.",
-    description: [
-      "The meetup takes place on the first Wednesday of each month, from 1–3pm, at The Square Hideaway Café & Sensory Space on High Street in Long Eaton.",
-      "The group offers autistic people an opportunity to meet others and make local connections. Meetups take place on the first Wednesday of each month.",
-      "The organiser also runs online social and support groups and other meetups across Derbyshire. Their Derbyshire services are NHS-funded, according to the event information supplied.",
-    ],
+      "A monthly social meetup to make local connections.",
+    description: ["The organiser also runs online social and support groups and other meetups across Derbyshire. Their Derbyshire services are NHS-funded, according to the supplied event information."],
     visitSections: [
       {
         title: "Weekly online autism support and learning",
         copy:
-          "Online groups take place on Tuesdays at 7pm and Thursdays at 1pm. Sessions explore autism, understanding your own experiences and ways to improve well-being through questions, discussion and shared experiences. Family members are welcome. You can join as many or as few sessions as you like, keep your camera and microphone off, and simply listen. Learning materials are available from the organiser for studying at your own pace.",
+          "Online groups take place on Tuesdays at 7pm and Thursdays at 1pm. Explore autism and well-being through discussion and shared experiences. Family members are welcome. Attend as often as you like, with your camera and microphone off if preferred. Self-paced learning materials are available.",
       },
       {
         title: "Join the online support groups",
         copy:
-          "Join using Microsoft Teams meeting ID 364 576 640 521 9 and passcode MB2Js6Q2. These details are for the Tuesday and Thursday online support groups.",
+          "For the Tuesday and Thursday groups, use Microsoft Teams meeting ID 364 576 640 521 9 and passcode MB2Js6Q2.",
       },
       {
         title: "Online social meetups",
         copy:
-          "An online social meetup runs every Wednesday from 1–3pm on Zoom. A monthly evening social group meets on the third Wednesday from 6–8pm on Microsoft Teams; the October session is Wednesday 21 October 2026. For the monthly evening group, use meeting ID 385 020 190 587 and passcode 5Xh7vN38.",
+          "An online social meetup runs every Wednesday from 1–3pm on Zoom. A monthly evening social group meets on the third Wednesday from 6–8pm on Microsoft Teams. For the monthly evening group, use meeting ID 385 020 190 587 and passcode 5Xh7vN38.",
       },
     ],
     imageSrc: "/ndsa-logo.png",
@@ -210,12 +183,8 @@ const baseEvents: EventItem[] = [
     title: "Long Eaton parkrun",
     type: "recurringEvent",
     excerpt:
-      "A free weekly 5k community event in Long Eaton. Walk, jog, run, volunteer or spectate.",
-    description: [
-      "Long Eaton parkrun takes place every Saturday morning at West Park Leisure Centre.",
-      "It is a free weekly 5k community event. People can walk, jog, run, volunteer or spectate.",
-      "The event is organised by volunteers.",
-    ],
+      "A weekly 5k community event. Walk, jog, run, volunteer or spectate.",
+    description: [],
     ongoing: true,
     recurrence: "weekly",
     dayOfWeek: "Saturday",
@@ -249,12 +218,8 @@ const baseEvents: EventItem[] = [
     heading: "Long Eaton junior parkrun: Sundays at West Park",
     type: "recurringEvent",
     excerpt:
-      "A free weekly 2k event for children aged 4 to 14, starting at 9am every Sunday at West Park in Long Eaton.",
-    description: [
-      "Long Eaton junior parkrun takes place every Sunday morning at West Park.",
-      "It is a weekly parkrun event for children aged 4 to 14.",
-      "Families can come along to take part, volunteer or watch from the sidelines.",
-    ],
+      "A weekly 2k community event for young runners.",
+    description: ["Families can take part, volunteer or watch from the sidelines."],
     ongoing: true,
     recurrence: "weekly",
     dayOfWeek: "Sunday",
@@ -294,10 +259,7 @@ const baseEvents: EventItem[] = [
     type: "activity",
     excerpt:
       "A Long Eaton & District u3a group for people interested in researching their family history.",
-    description: [
-      "This Long Eaton & District u3a group helps members research their own family history.",
-      "Long Eaton & District u3a membership is required for ongoing participation, but prospective members are very welcome to come along and try the group before deciding whether to join.",
-    ],
+    description: ["u3a membership is required for ongoing participation. Prospective members are welcome to try the group before joining."],
     ongoing: true,
     recurrence: "monthly",
     recurrenceLabel: "Third Monday in the month",
@@ -326,11 +288,8 @@ const baseEvents: EventItem[] = [
     title: "Long Eaton & District u3a Craft in a Bag",
     type: "activity",
     excerpt:
-      "A Long Eaton & District u3a group for portable crafts such as knitting, crochet, embroidery, and paper crafts.",
-    description: [
-      "This Long Eaton & District u3a group is for people interested in crafts that can be carried in a bag, such as knitting, crochet, cross-stitch, embroidery, paper cutting, and colouring.",
-      "Long Eaton & District u3a membership is required for ongoing participation, but prospective members are very welcome to come along and try the group before deciding whether to join.",
-    ],
+      "A friendly u3a group for portable crafts.",
+    description: ["Bring knitting, crochet, cross-stitch, embroidery, paper cutting or colouring. u3a membership is required for ongoing participation; prospective members can try the group before joining."],
     ongoing: true,
     recurrence: "monthly",
     recurrenceLabel: "First and fourth Thursday in the month",
@@ -367,15 +326,11 @@ const baseEvents: EventItem[] = [
     visitSections: [
       {
         "title": "Studios and stalls",
-        "copy": "The programme includes resident artists opening their studios and stalls in the former lace factory. Look for ceramics, jewellery, illustration and textiles. This makes the fair a useful choice for meeting makers and comparing handmade gifts in one visit."
-      },
-      {
-        "title": "Allow time for both spaces",
-        "copy": "Plan to see the working studios as well as the stalls. If you are shopping for a particular piece, take its intended measurements and ask the maker about materials, care and collection arrangements."
+        "copy": "Meet resident artists in their working studios and browse ceramics, jewellery, illustration and textiles in the former lace factory."
       },
       {
         "title": "Arriving by car",
-        "copy": "The organiser advertises free parking. Keep the Lime Grove address handy rather than searching only for the event name; contact the Art Room about any access requirements before setting out."
+        "copy": "Free parking is available. Contact the Art Room about access requirements before setting out."
       }
     ],
     organiser: "Long Eaton Art Room",
@@ -390,7 +345,7 @@ const baseEvents: EventItem[] = [
     category: "Crafts",
     excerpt:
       "Open studios event with local artists, stalls and handmade goods.",
-    description: ["The November weekend combines a chance to buy directly from resident artists with a wider art and craft fair. Entry is free on both days."],
+    description: [],
     featured: true,
     imageSrc: longEatonArtRoomLogo,
     imageAlt: "Long Eaton Art Room logo banner",
@@ -415,8 +370,8 @@ const baseEvents: EventItem[] = [
     ],
     visitSections: [
       {
-        "title": "Comparing ceramics",
-        "copy": "The organiser lists 21 potters, in association with the Northern Potters Association. Entry and parking are free. For a functional piece, ask its maker about food use, washing and care; for a gift, check how it will be packed for the journey home."
+        "title": "About the fair",
+        "copy": "The fair is held in association with the Northern Potters Association. Parking is free."
       }
     ],
     title: "Toasted Ceramic Fair",
@@ -427,8 +382,8 @@ const baseEvents: EventItem[] = [
     location: "Long Eaton Art Room, 29–31 Lime Grove, Long Eaton, NG10 4LD",
     price: "Free",
     category: "Crafts",
-    excerpt: "Ceramic fair featuring 20+ potters.",
-    description: ["Toasted brings a range of ceramic makers together at the Art Room. The December fair offers a focused alternative to a general craft market for visitors choosing pottery or exploring different making techniques."],
+    excerpt: "Browse ceramics from 21 potters.",
+    description: [],
     featured: true,
     imageSrc: longEatonArtRoomLogo,
     imageAlt: "Long Eaton Art Room logo banner",
@@ -445,11 +400,11 @@ const baseEvents: EventItem[] = [
     id: "event-long-eaton-carnival-car-boot-2026-10",
     slug: "long-eaton-carnival-car-boot-sale-october-2026-tbc",
     excerpt:
-      "A further Long Eaton Car boot sale is listed for October 2026, with the date still to be confirmed.",
+      "Browse second-hand stalls and support the Long Eaton Carnival fund.",
     dateLabel: "October 2026",
     isTbc: true,
     ...carBootBase,
-    time: "Date to be confirmed",
+    time: "Sellers from 7am · Buyers from 8am",
   },
 ];
 

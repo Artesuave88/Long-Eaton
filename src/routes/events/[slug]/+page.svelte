@@ -1,6 +1,5 @@
 <script lang="ts">
 	import ImagePlaceholder from '$components/ui/ImagePlaceholder.svelte';
-	import VisitDetails from '$components/ui/VisitDetails.svelte';
 	import NewsletterSignup from '$components/features/newsletter/NewsletterSignup.svelte';
 	import { formatDisplayDate, formatEventDate, formatRecurringLabel } from '$utils/format';
 	import { breadcrumbJsonLd, eventJsonLd } from '$utils/seo';
@@ -20,12 +19,7 @@
 
 	const formatRelatedDate = (date?: string, dateLabel?: string) =>
 		date ? formatDisplayDate(date) : dateLabel ?? '';
-	$: isParkrun = data.event.slug === 'long-eaton-parkrun';
-	$: isJuniorParkrun = data.event.slug === 'long-eaton-junior-parkrun';
 	$: isActivity = data.event.type === 'activity';
-	$: isArtRoomEvent = data.event.sourceUrl === 'https://www.longeatonartroom.co.uk/whats-available/events/';
-	$: hasVisitDetails =
-		Boolean(data.event.priceSummary) || Boolean(data.event.locationNote) || Boolean(data.event.fundraisingNote);
 	$: description = data.event.description.filter((paragraph) => !isRepeatedEventText(paragraph, data.event.title) && !isRepeatedEventText(paragraph, data.event.excerpt));
 	type SummaryItem = {
 		label: string;
@@ -42,10 +36,10 @@
 			label: data.event.ongoing ? (data.event.recurrence ? 'When' : 'Status') : 'Date',
 			value: data.event.ongoing ? formatRecurringLabel(data.event) : formatEventDate(data.event)
 		},
-		data.event.time ?? data.event.startTime
+		!data.event.sessions?.length && (data.event.time || data.event.startTime)
 			? {
 					label: 'Time',
-					value: data.event.time ?? data.event.startTime
+					value: data.event.time ?? [data.event.startTime, data.event.endTime].filter(Boolean).join('–')
 				}
 			: null,
 		data.event.location
@@ -54,10 +48,10 @@
 					value: data.event.location
 				}
 			: null,
-		data.event.price
+		(data.event.priceSummary || data.event.price)
 			? {
 					label: 'Entry',
-					value: data.event.price
+					value: data.event.priceSummary ?? data.event.price
 				}
 			: null
 	].filter((item): item is SummaryItem => Boolean(item));
@@ -93,14 +87,17 @@
 					<p class="mt-5 max-w-2xl text-lg leading-8 text-brand-muted">{data.event.excerpt}</p>
 				{/if}
 
-
-				{#if isParkrun}
-					<p class="mt-4 text-sm text-brand-muted">Weekly community event with free entry.</p>
+				{#if !data.isPast && data.event.ticketUrl}
+					<div class="mt-6">
+						<a href={data.event.ticketUrl} target="_blank" rel="noreferrer" class="button-primary">
+							Book tickets
+						</a>
+					</div>
 				{/if}
 
-				<div class="surface-card mt-8 grid gap-4 p-6 sm:grid-cols-2 lg:grid-cols-4">
+				<div class="surface-card mt-8 grid gap-4 p-6 sm:grid-cols-2">
 					{#each summaryItems as item}
-						<div>
+						<div class={item.label === 'Entry' && data.event.priceSummary ? 'sm:col-span-2' : ''}>
 							<p class="eyebrow">{item.label}</p>
 							<p
 								class:text-brand-primary={item.value === 'On-foot entry: FREE'}
@@ -112,71 +109,13 @@
 					{/each}
 				</div>
 
-				{#if !data.isPast && data.event.ticketUrl}
-					<div class="mt-6">
-						<a href={data.event.ticketUrl} target="_blank" rel="noreferrer" class="button-primary">
-							Book tickets
-						</a>
-					</div>
-				{/if}
-
 				{#if description.length}
-				<div class="mt-8">
-					<h2 class="text-2xl text-brand-text">{isActivity ? 'About this group' : 'About this event'}</h2>
-					<div class="mt-4 space-y-5 text-base leading-8 text-brand-muted">
-						{#each description as paragraph}
-							{#if !isRepeatedEventText(paragraph, data.event.title)}<p>{paragraph}</p>{/if}
-						{/each}
-					</div>
-					{#if isParkrun || isJuniorParkrun}
-						<div class="surface-card mt-6 p-6">
-							<h3 class="text-xl text-brand-text">What parkrun is</h3>
-							<p class="mt-4 text-base leading-8 text-brand-muted">
-								{#if isJuniorParkrun}
-									junior parkrun is a weekly 2k event for children aged 4 to 14. Families can come along to take part, volunteer or spectate.
-								{:else}
-									parkrun is a weekly 5k community event. People can walk, jog, run, volunteer or spectate.
-								{/if}
-							</p>
-						</div>
-					{/if}
-					{#if data.event.audience}
-						<div class="surface-card mt-6 p-6">
-							<h3 class="text-xl text-brand-text">Who it is for</h3>
-							<p class="mt-4 text-base leading-8 text-brand-muted">{data.event.audience}</p>
-						</div>
-					{/if}
-					{#if data.event.contactName}
-						<div class="surface-card mt-6 p-6">
-							<h3 class="text-xl text-brand-text">Group contact</h3>
-							<p class="mt-4 text-base leading-8 text-brand-muted">{data.event.contactName}</p>
-						</div>
-					{/if}
-				</div>
-				{/if}
-
-				{#if !isArtRoomEvent && !data.event.sessions?.length && (data.event.startTime || data.event.time || data.event.endTime || data.event.approximateReturnTime)}
-					<div class="surface-card mt-8 p-6">
-						<h2 class="text-2xl text-brand-text">Timing details</h2>
-						<div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-							<div class="inset-panel p-4">
-								<p class="eyebrow">Starts</p>
-								<p class="mt-2 text-base font-semibold text-brand-text">{data.event.startTime ?? data.event.time}</p>
-							</div>
-							{#if data.event.time !== data.event.startTime}
-								<div class="inset-panel p-4">
-									<p class="eyebrow">At a glance</p>
-									<p class="mt-2 text-base font-semibold text-brand-text">{data.event.time}</p>
-								</div>
-							{/if}
-							{#if data.event.endTime || data.event.approximateReturnTime}
-								<div class="inset-panel p-4">
-									<p class="eyebrow">{data.event.approximateReturnTime ? 'Approximate return' : 'Ends'}</p>
-									<p class="mt-2 text-base font-semibold text-brand-text">
-										{data.event.approximateReturnTime ?? data.event.endTime}
-									</p>
-								</div>
-							{/if}
+					<div class="mt-8">
+						<h2 class="text-2xl text-brand-text">{isActivity ? 'About this group' : 'About this event'}</h2>
+						<div class="mt-4 space-y-5 text-base leading-8 text-brand-muted">
+							{#each description as paragraph}
+								<p>{paragraph}</p>
+							{/each}
 						</div>
 					</div>
 				{/if}
@@ -209,8 +148,7 @@
 
 				{#if data.event.sessions?.length}
 					<div class="surface-card mt-8 p-6">
-						<h2 class="text-2xl text-brand-text">Sessions</h2>
-						<p class="body-copy-sm mt-4">Session times and entry details for the day.</p>
+						<h2 class="text-2xl text-brand-text">Schedule</h2>
 						<div class="mt-5 grid gap-4 sm:grid-cols-2">
 							{#each data.event.sessions as session}
 								<div class="inset-panel p-4">
@@ -225,53 +163,30 @@
 					</div>
 				{/if}
 
-				{#if hasVisitDetails}
-					<div class="surface-card mt-8 p-6">
-						<h2 class="text-2xl text-brand-text">What to know</h2>
-						<div class="mt-5 grid gap-4 sm:grid-cols-2">
-							{#if data.event.priceSummary}
-								<div class="inset-panel p-4">
-									<p class="eyebrow">Pricing</p>
-									<p class="mt-2 text-base leading-7 text-brand-muted">{data.event.priceSummary}</p>
-								</div>
-							{/if}
-							{#if data.event.locationNote}
-								<div class="inset-panel p-4">
-									<p class="eyebrow">Location note</p>
-									<p class="mt-2 text-base leading-7 text-brand-muted">{data.event.locationNote}</p>
-								</div>
-							{/if}
-							{#if data.event.fundraisingNote}
-								<div class="inset-panel p-4 sm:col-span-2">
-									<p class="eyebrow">Fundraising</p>
-									<p class="mt-2 text-base leading-7 text-brand-muted">{data.event.fundraisingNote}</p>
-								</div>
-							{/if}
-						</div>
-					</div>
+				{#if data.event.audience || data.event.contactName || data.event.locationNote || data.event.fundraisingNote || data.event.organiser || data.event.approximateReturnTime}
+					<dl class="mt-8 space-y-3 text-base leading-7 text-brand-muted">
+						{#if data.event.audience}<div><dt class="inline font-semibold text-brand-text">Who it’s for: </dt><dd class="inline">{data.event.audience}</dd></div>{/if}
+						{#if data.event.locationNote}<div><dt class="inline font-semibold text-brand-text">Finding the venue: </dt><dd class="inline">{data.event.locationNote}</dd></div>{/if}
+						{#if data.event.approximateReturnTime}<div><dt class="inline font-semibold text-brand-text">Approximate return: </dt><dd class="inline">{data.event.approximateReturnTime}</dd></div>{/if}
+						{#if data.event.fundraisingNote}<div><dt class="inline font-semibold text-brand-text">Fundraising: </dt><dd class="inline">{data.event.fundraisingNote}</dd></div>{/if}
+						{#if data.event.contactName}<div><dt class="inline font-semibold text-brand-text">Contact: </dt><dd class="inline">{data.event.contactName}</dd></div>{/if}
+						{#if data.event.organiser}
+							<div><dt class="inline font-semibold text-brand-text">Organised by: </dt><dd class="inline">
+								{#if data.event.organiserUrl}<a href={data.event.organiserUrl} target="_blank" rel="noreferrer" class="text-brand-accent hover:underline">{data.event.organiser}</a>{:else}{data.event.organiser}{/if}{#if data.event.volunteerRun} (volunteer run){/if}
+							</dd></div>
+						{/if}
+					</dl>
 				{/if}
 
-				{#if data.event.organiser && !isArtRoomEvent}
-					<div class="surface-card mt-8 p-6">
-						<h2 class="text-2xl text-brand-text">Organiser</h2>
-						<p class="mt-4 text-base leading-8 text-brand-muted">
-							{#if data.event.organiserUrl}
-								<a
-									href={data.event.organiserUrl}
-									target="_blank"
-									rel="noreferrer"
-									class="font-semibold text-brand-accent hover:underline"
-								>
-									{data.event.organiser}
-								</a>
-							{:else}
-								{data.event.organiser}
-							{/if}
-							{#if data.event.volunteerRun}
-								. The event is run entirely by volunteers.
-							{/if}
-						</p>
-					</div>
+				{#if data.event.visitSections?.length}
+					<section class="mt-8 space-y-5" aria-label="Additional event information">
+						{#each data.event.visitSections as section}
+							<div>
+								<h2 class="text-xl text-brand-text">{section.title}</h2>
+								<p class="body-copy-sm mt-2">{section.copy}</p>
+							</div>
+						{/each}
+					</section>
 				{/if}
 
 				{#if data.event.sourceUrl && data.event.sourceUrl !== data.event.ticketUrl}
@@ -281,8 +196,6 @@
 						</a>
 					</div>
 				{/if}
-
-				<VisitDetails sections={data.event.visitSections} />
 
 			</div>
 
@@ -319,28 +232,7 @@
 						{/each}
 					</div>
 				{/if}
-				{#if !isArtRoomEvent}
-					<div class="surface-card p-6">
-						<h2 class="text-2xl text-brand-text">Planning your visit</h2>
-						<p class="body-copy-sm mt-4">
-							{#if data.event.category === 'Markets'}
-								West Park car boots are simple to plan for: sellers arrive from 7am, buyers from 8am, and all proceeds support the Carnival fund.
-							{:else if isParkrun}
-								Long Eaton parkrun starts at 9am every Saturday morning at West Park Leisure Centre, with people welcome to walk, jog, run, volunteer or spectate.
-							{:else if isJuniorParkrun}
-								Long Eaton junior parkrun starts at 9am every Sunday at West Park. It is a free 2k event for children aged 4 to 14; use the organiser link to check current participation details before attending.
-							{:else if isActivity}
-								Check the source page for the latest meeting details before you go, as ongoing groups can change times and venues.
-							{:else}
-								Pair this event with a stop at a local cafe, a browse through the town centre or a walk through one of Long Eaton’s green spaces.
-							{/if}
-						</p>
-						<div class="mt-5 flex flex-wrap gap-3">
-							<a href="/businesses" class="button-primary">Find a local business</a>
-							<a href="/contact" class="button-secondary">Send an event</a>
-						</div>
-					</div>
-				{/if}
+
 			</div>
 		</div>
 	</div>
@@ -369,7 +261,6 @@
 			{#if data.event.relatedDates?.length}
 				<div class="surface-card mt-8 p-6">
 					<h2 class="text-2xl text-brand-text">Related dates</h2>
-					<p class="body-copy-sm mt-4">Useful extra dates connected with this event.</p>
 					<div class="mt-5 grid gap-3 sm:grid-cols-2">
 						{#each data.event.relatedDates as item}
 							<div class="inset-panel p-4">
