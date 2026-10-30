@@ -16,6 +16,7 @@ const fixed = [
   "/discover-long-eaton",
   "/guides",
   "/news",
+  "/news/archive",
   "/about",
   "/editorial-policy",
   "/privacy",

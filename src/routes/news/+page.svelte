@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { EmptyState, NewsCard, SectionHeading } from '$components';
-	import { getCurrentNews } from '$data/news';
-	const newsItems = getCurrentNews();
+	import { getNewsSections } from '$data/news';
+	const { latest: newsItems, archived } = getNewsSections();
 </script>
 
 <svelte:head>
@@ -30,6 +30,11 @@
 				title="No updates are listed right now"
 				message="Check back after the next round of town news, event notices or business updates."
 			/>
+		{/if}
+		{#if archived.length}
+			<div class="mt-8">
+				<a href="/news/archive" class="button-subtle">View news archive</a>
+			</div>
 		{/if}
 	</div>
 </section>

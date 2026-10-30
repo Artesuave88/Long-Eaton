@@ -198,5 +198,12 @@ export function isNewsExpired(item: NewsItem, now = new Date()) {
 }
 
 export function getCurrentNews(now = new Date()) {
-  return newsItems.filter((item) => !isNewsExpired(item, now));
+  return newsItems
+    .filter((item) => !isNewsExpired(item, now))
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function getNewsSections(now = new Date()) {
+  const stories = getCurrentNews(now);
+  return { latest: stories.slice(0, 3), archived: stories.slice(3) };
 }
