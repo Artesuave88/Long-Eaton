@@ -32,6 +32,32 @@ export const newsDrafts: NewsItem[] = [
 
 export const newsItems: NewsItem[] = [
   {
+    id: "gnome-sweet-gnome-long-eaton-roundabout",
+    title: "Gnome Sweet Gnome: Long Eaton Roundabout Has Some New Residents",
+    date: "2026-10-30",
+    originalContent: true,
+    excerpt: "A growing gathering of garden gnomes on the train station roundabout is becoming a wonderfully quirky local landmark.",
+    content: [
+      "What seems to have started with a solitary garden ornament has developed into something of a gathering, with little pointy hatted residents joining the increasing population on the train station roundabout.",
+      "Nobody seems entirely sure whether they’ve been deliberately placed there, are slowly migrating from nearby gardens, or have simply heard that Long Eaton is the place to be.",
+      "Whatever the explanation, the growing collection is becoming a wonderfully quirky local landmark.",
+      "Naturally, this raises some important questions.",
+      "Who was the first gnome?",
+      "How many will eventually arrive?",
+      "Is there some sort of waiting list?",
+      "And, perhaps most importantly, who is actually in charge?",
+      "For now, Long Eaton’s newest residents seem perfectly content watching the traffic go by and bringing a smile to passing motorists.",
+      "So next time you’re passing, keep an eye out.",
+      "Have you spotted the gnomes? Better still, do you know how it all started? Let us know.",
+    ],
+    imageSrc: "/editorial/gnome-sweet-gnome.jpg",
+    imageAlt: "A collection of garden gnomes on the train station roundabout beneath the railway bridge",
+    imageFit: "cover",
+    imagePosition: "center 80%",
+    imageLabel: "Gnome Sweet Gnome",
+    imageStyle: "bg-brand-accent/10",
+  },
+  {
     id: "chestnut-fair-cancelled-2026",
     title: "Long Eaton’s Chestnut Fair cancelled for 2026 as High Street works continue",
     date: "2026-10-21",
@@ -172,5 +198,12 @@ export function isNewsExpired(item: NewsItem, now = new Date()) {
 }
 
 export function getCurrentNews(now = new Date()) {
-  return newsItems.filter((item) => !isNewsExpired(item, now));
+  return newsItems
+    .filter((item) => !isNewsExpired(item, now))
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function getNewsSections(now = new Date()) {
+  const stories = getCurrentNews(now);
+  return { latest: stories.slice(0, 3), archived: stories.slice(3) };
 }
