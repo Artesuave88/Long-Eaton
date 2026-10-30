@@ -40,7 +40,7 @@ try {
   assert.equal(getEventHref(show), show.ticketUrl, 'A title-only import links directly to official booking information');
   assert.equal(getEventHref(club), `/events/${club.slug}`, 'An editorial listing retains its detail URL');
   for (const item of newsItems) {
-    assert.ok(item.sourceUrl && new URL(item.sourceUrl).protocol === 'https:', `Published news has a source: ${item.id}`);
+    assert.ok(item.originalContent === true || (item.sourceUrl && new URL(item.sourceUrl).protocol === 'https:'), `Published news is original content or has a source: ${item.id}`);
     assert.notEqual(item.publicationStatus, 'draft', 'Drafts do not appear in the public feed');
     assert.ok(!newsDrafts.some((draft) => draft.id === item.id), 'A held story stays out of published data');
   }
