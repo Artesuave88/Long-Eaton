@@ -1,7 +1,6 @@
 import type { Season } from "$utils/seasons";
 import type { ContentSource, VisitSection } from "$types/content";
 import { outdoorPlans, type VisitPlan } from "$data/visit-plans";
-import { halfTermGuide } from "$data/half-term-guide";
 import { hasDeadlinePassed } from "$utils/dates";
 
 export type SeasonalGuide = {
@@ -194,7 +193,6 @@ export const seasonalGuides: SeasonalGuide[] = [
 ];
 
 export const searchGuides: SearchGuide[] = [
-  halfTermGuide,
   {
     slug: "outdoor-days-out-in-long-eaton",
     title: "Outdoor days out in Long Eaton: park or waterside?",

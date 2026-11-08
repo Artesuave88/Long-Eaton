@@ -2,6 +2,7 @@ import type { EventItem } from "$types/content";
 import duchessTheatre from "$data/imported/duchess-theatre.json";
 import duchessTheatreEvents from "$data/imported/duchess-theatre-events.json";
 import { localAutumnEvents } from "$data/local-events-autumn-2026";
+import { novemberEvents } from "$data/local-events-november-2026";
 import {
   sortEvents,
 } from "$data/listings";
@@ -103,32 +104,6 @@ const optionalImportedEvents: EventItem[] = includeDuchessEvents
   : [];
 
 const longEatonArtRoomLogo = "/art-room.png";
-
-const carBootBase = {
-  title: "Long Eaton Car Boot Sale",
-  time: "Sellers from 7:00 AM, buyers from 8:00 AM",
-  startTime: "7:00 AM seller setup",
-  location: "Event Field, West Park, Long Eaton",
-  price: "On-foot entry: FREE",
-  priceSummary:
-    "Sellers: car £8; car plus trailer or large van £11. Buyers: free on foot; on-site parking £1.",
-  organiser: "Long Eaton Carnival committee",
-  tags: ["Car Boot", "West Park", "Fundraising", "Community"],
-  category: "Markets",
-  description: ["Sellers do not need to book. Donations to the Carnival fund are appreciated."],
-  fundraisingNote:
-    "All proceeds go towards future Long Eaton Carnival events.",
-  locationNote: "The field is opposite George's Fish and Chip shop.",
-  imageLabel: "Car boot stalls on West Park",
-  imageStyle: "bg-brand-section",
-  imageSrc: "/carboot.jpg",
-  imageAlt: "Cars and stalls at the Long Eaton Car boot sale on West Park",
-  image: {
-    label: "Car boot stalls on West Park",
-    style: "bg-brand-section",
-  },
-  sourceUrl: "https://www.longeatoncarnival.org.uk/car-boots/",
-} satisfies Partial<EventItem>;
 
 const baseEvents: EventItem[] = [
   {
@@ -396,18 +371,8 @@ const baseEvents: EventItem[] = [
     },
     sourceUrl: "https://www.longeatonartroom.co.uk/whats-available/events/",
   },
-  {
-    id: "event-long-eaton-carnival-car-boot-2026-10",
-    slug: "long-eaton-carnival-car-boot-sale-october-2026-tbc",
-    excerpt:
-      "Browse second-hand stalls and support the Long Eaton Carnival fund.",
-    dateLabel: "October 2026",
-    isTbc: true,
-    ...carBootBase,
-    time: "Sellers from 7am · Buyers from 8am",
-  },
 ];
 
-export const events: EventItem[] = [...baseEvents, ...localAutumnEvents, ...optionalImportedEvents];
+export const events: EventItem[] = [...baseEvents, ...localAutumnEvents, ...novemberEvents, ...optionalImportedEvents];
 
 export const sortedEvents = sortEvents(events);

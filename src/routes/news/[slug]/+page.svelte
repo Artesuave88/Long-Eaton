@@ -90,10 +90,6 @@
 
 		<div class="max-w-3xl"><VisitDetails sections={data.article.planning} /></div>
 
-		<div class="mt-10 max-w-3xl rounded-2xl border border-brand-border bg-brand-section p-5 text-sm leading-7 text-brand-muted">
-			Facts can change after publication. <a href="/editorial-policy" class="link-subtle">Read our editorial policy</a>.
-		</div>
-
 		{#if data.relatedNews.length}
 			<section class="mt-14 border-t border-brand-border pt-10" aria-labelledby="more-news-heading">
 				<h2 id="more-news-heading" class="text-3xl text-brand-text">More local news</h2>

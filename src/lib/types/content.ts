@@ -132,6 +132,7 @@ export type BusinessItem = {
 };
 
 export type NewsItem = {
+  originalContent?: boolean;
   sources?: ContentSource[];
   imagePosition?: string;
   imageCredit?: string;
