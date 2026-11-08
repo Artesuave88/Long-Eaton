@@ -227,9 +227,10 @@ export const novemberEvents: EventItem[] = [
     sourceUrl: "https://www.erewash.gov.uk/your-borough/events-erewash/christmas-lights-switch",
     checkedOn: "2026-11-08",
     sources: [{ label: "Erewash Borough Council — Christmas Light Switch-On Celebrations 2026", href: "https://www.erewash.gov.uk/your-borough/events-erewash/christmas-lights-switch" }],
-    imageSrc: "/long-eaton-market.jpg",
-    imageAlt: "Long Eaton market — town centre photograph",
-    imageLabel: "Long Eaton town centre — location photograph",
+    imageSrc: "/editorial/christmas-lights-long-eaton-2026-v2.png",
+    imageAlt: "Long Eaton’s market street and white market canopies with Christmas lights added at dusk",
+    imageCredit: "AI-edited illustration based on a photograph of Long Eaton town centre",
+    imageLabel: "Christmas lights in Long Eaton — illustrative scene",
     imageStyle: "bg-brand-section",
     featured: true
   }
