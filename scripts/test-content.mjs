@@ -33,8 +33,7 @@ try {
   assert.equal(expiredClubs(getCurrentSeasonEvents(clubEvents, now)), false, 'Expired clubs are absent from seasonal selections');
   assert.ok(getRegularEvents(events, at('2027-02-01T12:00:00Z')).some((event) => event.slug === 'long-eaton-parkrun'), 'A weekly event without an end date remains available');
 
-  const show = events.find((event) => event.slug === 'duchess-theatre-blood-brothers');
-  assert.equal(show?.endDate, '2026-11-07', 'The imported production keeps its final performance date');
+  const show = { slug: 'sample-production', date: '2026-11-04', endDate: '2026-11-07', listingOnly: true, ticketUrl: 'https://www.ticketsource.com/duchesstheatre' };
   assert.equal(isUpcomingEvent(show, at('2026-11-06T12:00:00Z')), true, 'A multi-day production stays visible after opening night');
   assert.equal(isUpcomingEvent(show, at('2026-11-08T12:00:00Z')), false, 'A production expires after its final performance');
   assert.equal(getEventHref(show), show.ticketUrl, 'A title-only import links directly to official booking information');
@@ -61,18 +60,17 @@ try {
   for (const plan of outdoorGuide.visitPlans) {
     assert.ok(outdoorGuide.sources.some((source) => source.href === plan.href), 'Every outing links to a checked source in its guide');
   }
-  const cleanupDate = at('2026-10-28T20:00:00Z');
+  const cleanupDate = at('2026-11-08T00:00:00Z');
   assert.ok(events.every((event) => !event.date && !event.endDate || isUpcomingEvent(event, cleanupDate)), 'Expired dated events have been deleted from source data');
+  assert.ok(events.every((event) => !event.dateLabel?.includes('October 2026')), 'The expired October TBC listing has been deleted');
   assert.equal(getCurrentNews(cleanupDate).length, newsItems.length, 'Expired news offers have been deleted from source data');
   const session = { date: '2026-10-28', endTime: '12:30' };
   assert.equal(isUpcomingEvent(session, at('2026-10-28T12:29:00Z')), true, 'A session stays visible until its finish time');
   assert.equal(isUpcomingEvent(session, at('2026-10-28T12:30:00Z')), false, 'A finished same-day session expires');
   assert.equal(isUpcomingEvent({ date: '2026-10-25', endTime: '09:00' }, at('2026-10-25T08:59:00Z')), true, 'Finish times use London time after the clocks change');
   assert.equal(isUpcomingEvent({ date: '2026-10-24', endTime: '09:00' }, at('2026-10-24T08:00:00Z')), false, 'Finish times use London time during BST');
-  const halfTerm = getCurrentSearchGuides(cleanupDate).find((guide) => guide.slug === 'things-to-do-this-half-term');
-  assert.equal(halfTerm.sections.length, 7, 'The finished library card has been deleted');
-  assert.ok(!getCurrentSearchGuides(at('2026-11-04T00:00:00Z')).some((guide) => guide.slug === halfTerm.slug), 'The dated half-term guide expires after its last day');
-  assert.ok(!getCurrentSearchGuides(at('2026-10-30T14:00:00Z')).find((guide) => guide.slug === halfTerm.slug).sections.some((section) => section.title === 'Free Halloween Fun Day'), 'Dated guide cards expire when their session finishes');
+  assert.ok(!searchGuides.some((guide) => guide.slug === 'things-to-do-this-half-term'), 'The expired half-term guide has been deleted from source data');
+  assert.ok(!getCurrentSearchGuides(cleanupDate).some((guide) => guide.sections.some((section) => section.validUntil && section.validUntil < '2026-11-08')), 'Current guides do not include expired event cards');
   console.log('Content regression checks passed: events, publication sources, draft isolation, offer expiry and visit planning.');
 } finally {
   await server.close();
