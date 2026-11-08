@@ -22,6 +22,8 @@ export type SeasonalGuide = {
 };
 
 export type SearchGuide = {
+  imageSrc?: string;
+  imageAlt?: string;
   validUntil?: string;
   hideByline?: boolean;
   slug: string;
@@ -195,6 +197,8 @@ export const seasonalGuides: SeasonalGuide[] = [
 export const searchGuides: SearchGuide[] = [
   {
     slug: "outdoor-days-out-in-long-eaton",
+    imageSrc: "/west-park.jpg",
+    imageAlt: "West Park in Long Eaton",
     title: "Outdoor days out in Long Eaton: park or waterside?",
     eyebrow: "Outdoor planning guide",
     description: "Choose between West Park, the Erewash Canal and Trent Lock, with suggested outings, starting points and practical checks for a local day out.",
@@ -234,6 +238,8 @@ export const searchGuides: SearchGuide[] = [
   },
   {
     slug: "best-cafes-in-long-eaton",
+    imageSrc: "/caffe-inna.png",
+    imageAlt: "Caffè Inna in Long Eaton",
     comparison: {
       "caption": "Choose a café around the visit you want",
       "rows": [
@@ -312,6 +318,8 @@ export const searchGuides: SearchGuide[] = [
   },
   {
     slug: "restaurants-in-long-eaton",
+    imageSrc: "/limas-logo.png",
+    imageAlt: "Limas Restaurant and Bar logo",
     description: "Compare Limas and Mo’ Mo’ on Derby Road by dining style, booking arrangements and service times, with official menu links.",
     intro: [
       "Two independent Derby Road restaurants offer quite different evenings: shared small plates at Limas, or a small Italian dining room at Mo’ Mo’. Choose around how your group likes to eat, then check the current menu and availability."
@@ -383,6 +391,8 @@ export const searchGuides: SearchGuide[] = [
   },
   {
     slug: "childrens-activities-in-long-eaton",
+    imageSrc: "/jnr-park-run.jpg",
+    imageAlt: "Children taking part in Long Eaton junior parkrun",
     description: "Compare free outdoor time, junior parkrun and organised children’s classes in Long Eaton, with planning advice and current event links.",
     intro: [
       "Start with the kind of outing your child wants: a scheduled activity with a group, a class to return to each week, or outdoor time with room to change your plans. These options differ in cost, commitment and the amount of preparation needed."
@@ -486,6 +496,8 @@ export const searchGuides: SearchGuide[] = [
   },
   {
     slug: "independent-shops-in-long-eaton",
+    imageSrc: "/books-on-the-bridge.png",
+    imageAlt: "Books on the Bridge in Long Eaton",
     comparison: {
       "caption": "Plan the right kind of shopping trip",
       "rows": [

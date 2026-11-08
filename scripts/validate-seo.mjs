@@ -66,6 +66,28 @@ async function inspectPage(path, sitemapPaths, queue) {
 
 	const html = await response.text();
 	const $ = cheerio.load(html);
+	const shareImages = ['meta[property="og:image"]', 'meta[name="twitter:image"]'];
+	for (const selector of shareImages) {
+		if ($(`head ${selector}`).length !== 1) report(path, `must have exactly one ${selector} tag`);
+	}
+	const shareImage = $('meta[property="og:image"]').attr('content');
+	if (shareImage !== $('meta[name="twitter:image"]').attr('content')) {
+		report(path, 'Open Graph and Twitter must use the same page image');
+	}
+	const hasPrimaryArticleImage = /^\/(events|businesses|news)\/[^/]+$/.test(path) && path !== '/news/archive';
+	const primaryImage = hasPrimaryArticleImage ? $('article img').first().attr('src') : undefined;
+	if (primaryImage && new URL(primaryImage, canonicalOrigin).href !== shareImage) {
+		report(path, 'share image does not match the article’s primary image');
+	}
+	if (shareImage) {
+		const imageUrl = new URL(shareImage, canonicalOrigin);
+		if (imageUrl.origin === canonicalOrigin.origin) {
+			const imageResponse = await fetchLocal(imageUrl.pathname);
+			if (!imageResponse.ok || !imageResponse.headers.get('content-type')?.startsWith('image/')) {
+				report(path, 'page share image is not accessible as an image');
+			}
+		}
+	}
 	if (path.startsWith('/news/')) {
 		const article = $('script[type="application/ld+json"]').toArray()
 			.map((element) => JSON.parse($(element).text()))

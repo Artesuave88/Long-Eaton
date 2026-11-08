@@ -5,7 +5,6 @@
 	import { businesses } from '$data/businesses';
 	import type { PageData } from './$types';
 	import { breadcrumbJsonLd, businessJsonLd, businessMetaDescription, businessSeoTitle } from '$utils/seo';
-	import { site } from '$data/site';
 
 	export let data: PageData;
 
