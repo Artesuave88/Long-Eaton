@@ -10,8 +10,8 @@
 
 	export let data: LayoutData;
 	$: canonicalUrl = new URL($page.url.pathname, site.url).href;
-	$: articleImage = $page.data.article?.imageSrc;
-	$: shareImageUrl = new URL(articleImage || '/le-logo.png', site.url).href;
+	$: shareImage = $page.data.event?.imageSrc ?? $page.data.article?.imageSrc ?? $page.data.business?.imageSrc;
+	$: shareImageUrl = new URL(shareImage || '/le-logo.png', site.url).href;
 	const intentionallyNoindex = new Set(['/donate/thank-you', '/jobs']);
 	$: isIndexableResponse =
 		$page.status >= 200 && $page.status < 400 && !intentionallyNoindex.has($page.url.pathname);

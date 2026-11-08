@@ -5,7 +5,6 @@
 	import { breadcrumbJsonLd, eventJsonLd } from '$utils/seo';
 	import { isRepeatedEventText } from '$data/listings';
 	import type { PageData } from './$types';
-	import { site } from '$data/site';
 	import type { ActionData } from './$types';
 
 	export let data: PageData;
@@ -63,7 +62,6 @@
 	<meta property="og:title" content={data.event.seoTitle ?? `${data.event.title} | Love Long Eaton`} />
 	<meta property="og:description" content={data.event.metaDescription ?? data.event.excerpt} />
 	<meta property="og:type" content="article" />
-	{#if data.event.imageSrc}<meta property="og:image" content={data.event.imageSrc.startsWith('http') ? data.event.imageSrc : `${site.url}${data.event.imageSrc}`} />{/if}
 	<meta name="twitter:title" content={data.event.seoTitle ?? `${data.event.title} | Love Long Eaton`} />
 	<meta name="twitter:description" content={data.event.metaDescription ?? data.event.excerpt} />
 	{#if structuredData}
