@@ -79,6 +79,48 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-26",
+    slug: "been-coffee",
+    name: "Been Coffee",
+    seoTitle: "Been Coffee Long Eaton: Dog-Friendly Café near West Park",
+    metaDescription:
+      "Visit Been Coffee near West Park in Long Eaton for specialty coffee, loose-leaf tea and locally sourced food, with dogs welcome and a Wall of Pawesomeness.",
+    heading: "Been Coffee Long Eaton",
+    category: "Food & Drink",
+    location: "Unit 1, Boots Court, Cranfleet Way, Long Eaton, NG10 3RJ",
+    description:
+      "Award-winning, independent, environmentally-friendly, coffee-loving and dog-friendly, Been Coffee serves specialty coffee, loose-leaf tea, locally sourced food and more, all hand-crafted in a genuinely welcoming environment.",
+    about: [
+      "Been Coffee is an independent coffee shop at Boots Court on Cranfleet Way, near West Park in Long Eaton.",
+      "Specialty coffee, loose-leaf tea and locally sourced food are hand-crafted with a focus on a warm welcome and environmentally friendly choices.",
+      "Dogs are welcome, with the shop's own Wall of Pawesomeness celebrating its four-legged visitors. Its location near West Park makes it a handy stop for coffee and food after a dog walk.",
+    ],
+    website: "https://www.been.coffee/locations/long-eaton/",
+    telephone: "07598 889 434",
+    openingHours: [
+      { label: "Monday–Friday, 7am–5:30pm", schema: "Mo-Fr 07:00-17:30" },
+      { label: "Saturday–Sunday, 8am–5:30pm", schema: "Sa-Su 08:00-17:30" },
+    ],
+    checkedOn: "2026-11-14",
+    sources: [
+      {
+        label: "Been Coffee — Long Eaton location and visitor information",
+        href: "https://www.been.coffee/locations/long-eaton/",
+      },
+    ],
+    imageSrc: "/been-coffee.jpg",
+    imageAlt: "Been Coffee shop front at Boots Court with yellow signage and blue window frames",
+    imageFit: "cover",
+    imageLabel: "Dog-friendly independent coffee shop",
+    imageStyle: "bg-[#ffbd45]",
+    featured: false,
+    isReal: true,
+    relatedLinks: [
+      { href: "/discover-long-eaton#west-park", label: "Explore West Park" },
+      { href: "/guides/best-cafes-in-long-eaton", label: "Cafés in Long Eaton" },
+    ],
+  },
+  {
     id: "business-25",
     slug: "lesla-alliance",
     name: "LESLA Alliance",
