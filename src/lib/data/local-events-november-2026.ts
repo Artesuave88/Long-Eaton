@@ -4,33 +4,6 @@ import type { EventItem } from "$types/content";
 // Venue photographs and logos are labelled as such, rather than as show artwork.
 const theatreEvents: EventItem[] = [
   {
-    id: "event-brief-encounter-2026-11-12",
-    slug: "brief-encounter-duchess-theatre-november-2026",
-    title: "Brief Encounter — Riverside Drama Company",
-    date: "2026-11-12",
-    endDate: "2026-11-14",
-    time: "7:30pm each evening",
-    startTime: "19:30",
-    organiser: "Riverside Drama Company",
-    price: "£12 — check booking fees",
-    category: "Theatre",
-    excerpt: "A chance meeting at a railway café becomes a forbidden romance in Emma Rice’s stage adaptation of Noël Coward’s story.",
-    description: ["Riverside Drama Company brings this comedy drama with music to the Duchess Theatre for three evening performances."],
-    ticketUrl: "https://www.ticketsource.com/chatsworth/brief-encounter-riverside-drama-company/e-bpqjlz",
-    sourceUrl: "https://www.riversidedrama.com/index.html",
-    sources: [
-      { label: "Riverside Drama Company — production dates and poster", href: "https://www.riversidedrama.com/index.html" },
-      { label: "TicketSource — performances and booking", href: "https://www.ticketsource.com/chatsworth/brief-encounter-riverside-drama-company/e-bpqjlz" }
-    ],
-    imageSrc: "/editorial/brief-encounter-2026.jpg",
-    imageAlt: "Riverside Drama Company’s Brief Encounter poster with a steam train and 12–14 November 2026 performance dates",
-    imageFit: "contain" as const,
-    imageCredit: "Riverside Drama Company — official production poster",
-    imageLabel: "Brief Encounter production poster",
-    imageStyle: "bg-brand-section",
-    featured: true
-  },
-  {
     id: "event-mirror-crackd-2026-11-16",
     slug: "the-mirror-crackd-duchess-theatre-november-2026",
     title: "Agatha Christie’s The Mirror Crack’d",
@@ -223,10 +196,10 @@ export const novemberEvents: EventItem[] = [
     category: "Community / Christmas",
     tags: ["Christmas", "Lights", "Family", "Town centre"],
     excerpt: "Long Eaton welcomes the festive season with its Christmas lights switch-on on Thursday 26 November.",
-    description: ["The council has confirmed the date and says further details will follow. Check its event page for the programme, exact location and timings before travelling."],
+    description: ["The council confirms Thursday 26 November but, when checked on 16 November, still says more details will follow. A separate listing attributed to Long Eaton Silver Prize Band advertises Market Place from 5:30pm. This is a reported event start, not a confirmed time for switching on the lights; check the council’s programme before travelling."],
     sourceUrl: "https://www.erewash.gov.uk/your-borough/events-erewash/christmas-lights-switch",
-    checkedOn: "2026-11-08",
-    sources: [{ label: "Erewash Borough Council — Christmas Light Switch-On Celebrations 2026", href: "https://www.erewash.gov.uk/your-borough/events-erewash/christmas-lights-switch" }],
+    checkedOn: "2026-11-16",
+    sources: [{ label: "Erewash Borough Council — confirmed date; programme to follow", href: "https://www.erewash.gov.uk/your-borough/events-erewash/christmas-lights-switch" }, { label: "StayHappening — listing attributed to Long Eaton Silver Prize Band", href: "https://stayhappening.com/e/long-eaton-christmas-lights-organised-by-erewash-borough-council-E2IT028WSQ3" }],
     imageSrc: "/editorial/christmas-lights-long-eaton-2026-v2.png",
     imageAlt: "Long Eaton’s market street and white market canopies with Christmas lights added at dusk",
     imageCredit: "AI-edited illustration based on a photograph of Long Eaton town centre",

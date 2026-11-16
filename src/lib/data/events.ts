@@ -2,6 +2,7 @@ import type { EventItem } from "$types/content";
 import duchessTheatre from "$data/imported/duchess-theatre.json";
 import duchessTheatreEvents from "$data/imported/duchess-theatre-events.json";
 import { localAutumnEvents } from "$data/local-events-autumn-2026";
+import { festiveEvents } from "$data/local-events-festive-2026";
 import { novemberEvents } from "$data/local-events-november-2026";
 import {
   sortEvents,
@@ -289,51 +290,6 @@ const baseEvents: EventItem[] = [
     sourceUrl: "https://longeaton.u3asite.uk/u3a_groups/craft-in-a-bag/",
   },
   {
-    id: "event-long-eaton-art-room-open-studios-2026-11-14",
-    slug: "open-studios-art-craft-fair-14-november-2026",
-    checkedOn: "2026-09-11",
-    sources: [
-      {
-        "label": "Long Eaton Art Room — 2026 event programme",
-        "href": "https://www.longeatonartroom.co.uk/whats-available/events/"
-      }
-    ],
-    visitSections: [
-      {
-        "title": "Studios and stalls",
-        "copy": "Meet resident artists in their working studios and browse ceramics, jewellery, illustration and textiles in the former lace factory."
-      },
-      {
-        "title": "Arriving by car",
-        "copy": "Free parking is available. Contact the Art Room about access requirements before setting out."
-      }
-    ],
-    organiser: "Long Eaton Art Room",
-    title: "Open Studios Art & Craft Fair",
-    date: "2026-11-14",
-    endDate: "2026-11-15",
-    time: "10:00-16:00",
-    startTime: "10:00",
-    endTime: "16:00",
-    location: "Long Eaton Art Room, 29–31 Lime Grove, Long Eaton, NG10 4LD",
-    price: "Free",
-    category: "Crafts",
-    excerpt:
-      "Open studios event with local artists, stalls and handmade goods.",
-    description: [],
-    featured: true,
-    imageSrc: longEatonArtRoomLogo,
-    imageAlt: "Long Eaton Art Room logo banner",
-    imageFit: "contain",
-    imageLabel: "Open studios weekend at Long Eaton Art Room",
-    imageStyle: "bg-brand-section",
-    image: {
-      label: "Open studios weekend at Long Eaton Art Room",
-      style: "bg-brand-section",
-    },
-    sourceUrl: "https://www.longeatonartroom.co.uk/whats-available/events/",
-  },
-  {
     id: "event-long-eaton-art-room-toasted-ceramic-fair-2026-12-05",
     slug: "toasted-ceramic-fair-5-december-2026",
     checkedOn: "2026-09-11",
@@ -373,6 +329,6 @@ const baseEvents: EventItem[] = [
   },
 ];
 
-export const events: EventItem[] = [...baseEvents, ...localAutumnEvents, ...novemberEvents, ...optionalImportedEvents];
+export const events: EventItem[] = [...baseEvents, ...localAutumnEvents, ...novemberEvents, ...festiveEvents, ...optionalImportedEvents];
 
 export const sortedEvents = sortEvents(events);

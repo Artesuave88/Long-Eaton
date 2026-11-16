@@ -79,6 +79,30 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-27",
+    slug: "bb-reformer-studio",
+    name: "BB Reformer Studio",
+    seoTitle: "BB Reformer Studio: Reformer Pilates | Love Long Eaton",
+    metaDescription:
+      "Find BB Reformer Studio on Instagram and contact the studio directly for reformer Pilates class information, availability and booking details.",
+    category: "Fitness & Wellness",
+    location: "Contact the studio for its address",
+    description:
+      "Reformer Pilates studio. Contact BB Reformer Studio on Instagram for class information and booking enquiries.",
+    about: [
+      "Find BB Reformer Studio on Instagram at @bb.reformer.studio.",
+      "Contact the studio directly to confirm its location, class timetable, prices and how to book before visiting.",
+    ],
+    instagram: "https://www.instagram.com/bb.reformer.studio/",
+    imageSrc: "/bb-reformer-studio.png",
+    imageAlt: "BB Reformer Studio Old Stables logo in rose pink on white",
+    imageFit: "contain",
+    imageLabel: "Reformer Pilates studio",
+    imageStyle: "bg-white",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-26",
     slug: "been-coffee",
     name: "Been Coffee",
