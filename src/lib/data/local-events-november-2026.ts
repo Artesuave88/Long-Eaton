@@ -205,6 +205,6 @@ export const novemberEvents: EventItem[] = [
     imageCredit: "Long Eaton Silver Prize Band — event listing photograph via StayHappening",
     imageLabel: "Long Eaton Silver Prize Band — group photograph",
     imageStyle: "bg-brand-section",
-    featured: true
+    featured: false
   }
 ];

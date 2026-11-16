@@ -166,14 +166,14 @@
 
 <section
 	class="hero-panel relative overflow-hidden text-white"
-	aria-label="Featured events"
+	aria-label="Upcoming events"
 	aria-roledescription="carousel"
 >
 	<div
 		bind:this={carouselElement}
 		class="relative min-h-[23rem] touch-pan-y sm:min-h-[24rem] lg:h-[58vh] lg:min-h-[32rem] lg:max-h-[40rem]"
 		role="group"
-		aria-label="Featured event slides"
+		aria-label="Upcoming event slides"
 		on:touchstart={handleTouchStart}
 		on:touchmove={handleTouchMove}
 		on:touchend={handleTouchEnd}
@@ -198,7 +198,7 @@
 										: 'h-2 w-2 bg-white/45 hover:bg-white/70'
 								}`}
 								on:click={() => goToSlide(index)}
-								aria-label={`Go to featured event ${index + 1}: ${slide.title}`}
+								aria-label={`Go to event ${index + 1}: ${slide.title}`}
 								aria-current={index === activeIndex ? 'true' : undefined}
 							></button>
 						{/each}
@@ -215,7 +215,7 @@
 										: 'h-2 w-2 bg-white/45 hover:bg-white/70'
 								}`}
 								on:click={() => goToSlide(index)}
-								aria-label={`Go to featured event ${index + 1}: ${slide.title}`}
+								aria-label={`Go to event ${index + 1}: ${slide.title}`}
 								aria-current={index === activeIndex ? 'true' : undefined}
 							></button>
 						{/each}

@@ -16,9 +16,21 @@ try {
   const { newsItems, newsDrafts, isNewsExpired, getCurrentNews, getNewsSections } = await server.ssrLoadModule('/src/lib/data/news.ts');
   const { outdoorPlans, filterVisitPlans } = await server.ssrLoadModule('/src/lib/data/visit-plans.ts');
   const { searchGuides, getCurrentSearchGuides } = await server.ssrLoadModule('/src/lib/data/guides.ts');
-  const { isUpcomingEvent, getRegularEvents, getUpcomingEvents, getEventHref } =
+  const { isUpcomingEvent, getRegularEvents, getUpcomingEvents, getEventHref, getHomepageEventSelection, getFeaturedBusiness } =
     await server.ssrLoadModule('/src/lib/data/listings.ts');
   const { getCurrentSeasonEvents } = await server.ssrLoadModule('/src/lib/utils/seasons.ts');
+  const { businesses } = await server.ssrLoadModule('/src/lib/data/businesses.ts');
+  assert.ok(events.every((event) => !event.featured), 'No events are currently marked as featured');
+  assert.ok(businesses.every((business) => !business.featured), 'No businesses are currently marked as featured');
+  const ordinaryEvent = { slug: 'ordinary-event', ongoing: true };
+  const homepage = getHomepageEventSelection([ordinaryEvent]);
+  assert.equal(homepage.featuredEvent, undefined, 'An ordinary event is not automatically promoted to featured');
+  assert.deepEqual(homepage.heroEvents, [ordinaryEvent], 'Upcoming events remain available in the homepage carousel');
+  assert.equal(getFeaturedBusiness([{ slug: 'ordinary-business' }]), undefined, 'An ordinary business is not automatically promoted to featured');
+  const selectedEvent = { ...ordinaryEvent, featured: true };
+  assert.equal(getHomepageEventSelection([ordinaryEvent, selectedEvent]).featuredEvent, selectedEvent, 'An explicitly featured event can still be selected');
+  const selectedBusiness = { slug: 'selected-business', featured: true };
+  assert.equal(getFeaturedBusiness([{ slug: 'ordinary-business' }, selectedBusiness]), selectedBusiness, 'An explicitly featured business can still be selected');
   const at = (value) => new Date(value);
   const club = { slug: 'finite-club', date: '2026-08-01', endDate: '2026-09-01', recurrence: 'weekly', dayOfWeek: 'Tuesday' };
   assert.equal(isUpcomingEvent(club, at('2026-09-01T22:59:00Z')), true, 'Club remains current on its final London date');

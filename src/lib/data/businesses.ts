@@ -668,7 +668,7 @@ const baseBusinesses: BusinessItem[] = [
     imageAlt: "Long Eaton BJJ logo",
     imageLabel: "BJJ academy",
     imageStyle: "bg-brand-primaryDark/10",
-    featured: true,
+    featured: false,
     isReal: true,
   },
 ];

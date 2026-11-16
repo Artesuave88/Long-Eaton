@@ -315,7 +315,7 @@ const baseEvents: EventItem[] = [
     category: "Crafts",
     excerpt: "Browse ceramics from 21 potters.",
     description: [],
-    featured: true,
+    featured: false,
     imageSrc: longEatonArtRoomLogo,
     imageAlt: "Long Eaton Art Room logo banner",
     imageFit: "contain",

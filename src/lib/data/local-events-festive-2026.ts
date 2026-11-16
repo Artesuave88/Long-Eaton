@@ -64,7 +64,7 @@ export const festiveEvents: EventItem[] = [
       "Fair",
       "Fundraising"
     ],
-    "featured": true,
+    "featured": false,
     "imageSrc": "/editorial/forever-stars-christmas-fair-2026.jpg",
     "imageAlt": "Forever Stars Christmas Fair 2026 poster with 22 November date, free entry and Village Hotel venue",
     "imageCredit": "Forever Stars — official event poster",

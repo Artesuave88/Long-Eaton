@@ -227,7 +227,7 @@ export function getHomepageEventSelection(events: EventItem[]) {
   const heroEvents = (
     featuredEvents.length ? featuredEvents : upcomingEvents
   ).slice(0, 5);
-  const featuredEvent = featuredEvents[0] ?? upcomingEvents[0];
+  const featuredEvent = featuredEvents[0];
 
   return {
     featuredEvent,
@@ -269,5 +269,5 @@ export function filterBusinesses(
 }
 
 export function getFeaturedBusiness(businesses: BusinessItem[]) {
-  return businesses.find((business) => business.featured) ?? businesses[0];
+  return businesses.find((business) => business.featured);
 }
