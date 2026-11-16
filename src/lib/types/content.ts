@@ -132,6 +132,8 @@ export type BusinessItem = {
 };
 
 export type NewsItem = {
+  layout?: "gnome-feature";
+  gallery?: { id: string; src: string; alt: string; caption: string; credit: string }[];
   originalContent?: boolean;
   sources?: ContentSource[];
   imagePosition?: string;

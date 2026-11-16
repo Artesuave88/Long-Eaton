@@ -5,6 +5,7 @@
 	import { breadcrumbJsonLd } from '$utils/seo';
 	import { isNewsExpired } from '$data/news';
 	import VisitDetails from '$components/ui/VisitDetails.svelte';
+	import GnomeFeature from '$components/news/GnomeFeature.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -49,6 +50,9 @@
 	<article class="container-shell section-space">
 		<a href="/news" class="button-subtle">Back to news</a>
 
+		{#if data.article.layout === 'gnome-feature'}
+			<GnomeFeature article={data.article} />
+		{:else}
 		<header class="mt-8 max-w-4xl">
 			<p class="eyebrow">Published {formatDisplayDate(data.article.date)} · Love Long Eaton editorial team</p>
 			<h1 class="mt-4 text-brand-text">{data.article.title}</h1>
@@ -87,6 +91,18 @@
 		</div>
 
 		<div class="max-w-3xl"><VisitDetails sections={data.article.planning} /></div>
+		{/if}
+
+		{#if data.article.sources?.length || data.article.sourceUrl}
+			<section class="mt-8 max-w-3xl border-t border-brand-border pt-6" aria-labelledby="article-links-heading">
+				<h2 id="article-links-heading" class="text-2xl text-brand-text">Find out more</h2>
+				<ul class="mt-4 space-y-3">
+					{#each data.article.sources?.length ? data.article.sources : [{ href: data.article.sourceUrl!, label: data.article.sourceLabel ?? 'Read the source' }] as source}
+						<li><a href={source.href} class="text-brand-accent underline underline-offset-4">{source.label}</a></li>
+					{/each}
+				</ul>
+			</section>
+		{/if}
 
 		{#if data.relatedNews.length}
 			<section class="mt-14 border-t border-brand-border pt-10" aria-labelledby="more-news-heading">
