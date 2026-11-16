@@ -31,6 +31,32 @@ export const newsDrafts: NewsItem[] = [
 ];
 
 export const newsItems: NewsItem[] = [
+{
+  "id": "active-lives-awards-2027-nominations",
+  "title": "Nominate Long Eaton’s active heroes before 30 November",
+  "date": "2026-11-16",
+  "checkedOn": "2026-11-16",
+  "validUntil": "2026-11-30",
+  "excerpt": "Nominations for the 2027 Active Lives in Erewash Awards close on Monday 30 November, recognising people and groups helping others get active.",
+  "content": [
+    "Erewash Borough Council is inviting nominations for its 2027 Active Lives Awards. The deadline is Monday 30 November 2026.",
+    "The ten categories recognise volunteers, leaders, young people, groups, projects, achievement, fundraising and clubs or teams, alongside Special Recognition and All Move in Erewash awards. The latter recognises an individual living with a long-term condition, limiting illness or disability.",
+    "Visit the council’s awards page for category criteria and the nomination form. Forms can also be requested from communityhealthwellbeing@erewash.gov.uk."
+  ],
+  "sourceUrl": "https://www.erewash.gov.uk/news/2026/nominate-your-heroes-our-2027-active-lives-awards",
+  "sourceLabel": "Read the council’s nominations announcement",
+  "sources": [
+    {
+      "label": "Award categories and nomination form",
+      "href": "https://www.erewash.gov.uk/community-support/community-health-and-wellbeing/active-lives-erewash-awards"
+    }
+  ],
+  "imageSrc": "/editorial/active-lives-abbie-breakwell-2026.jpg",
+  "imageAlt": "Wheelchair tennis player Abbie Breakwell, pictured in the council’s Active Lives Awards announcement",
+  "imageCredit": "Mathilde Dusol / Erewash Borough Council",
+  "imageLabel": "Active Lives in Erewash Awards",
+  "imageStyle": "bg-brand-section"
+},
   {
     id: "gnome-mans-land-long-eaton-ma-and-pa",
     layout: "gnome-feature",
@@ -125,26 +151,46 @@ export const newsItems: NewsItem[] = [
     imageLabel: "Chestnut Fair cancelled for 2026",
     imageStyle: "bg-brand-accent/10"
   },
-  {
-    id: "tamworth-road-restrictions-october-2026",
-    title: "Tamworth Road works: overnight closures scheduled to end, southbound restriction continues",
-    date: "2026-10-01",
-    checkedOn: "2026-10-10",
-    excerpt: "The council scheduled the final overnight closure to lift on 10 October, while its notice says southbound traffic remains restricted until December.",
-    content: [
-      "Erewash Borough Council’s 1 October announcement set out a week of overnight Tamworth Road closures as part of Long Eaton’s town centre refurbishment. Closures were scheduled from 7pm to 5am, beginning on Sunday 4 October, with the final closure due to lift on Saturday 10 October.",
-      "The council says the overnight work allows construction to move from one side of the road to the other while new paving is installed. Its notice also says the road has become one-way, with southbound vehicles barred until December.",
-      "These are the announced arrangements, rather than a live traffic report. Check the council’s latest information and signs on the route before travelling."
-    ],
-    planning: [{ title: "Plan the approach to your destination", copy: "Check which direction you can approach from before setting off, particularly if you normally drive south along Tamworth Road. Contact your destination if you need to confirm a delivery entrance or accessible arrival point during the works." }],
-    sourceUrl: "https://www.erewash.gov.uk/news/2026/week-overnight-closures-tamworth-road-part-ps10m-long-eaton-revamp",
-    sourceLabel: "Read the council’s Tamworth Road works notice",
-    imageSrc: "/long-eaton-town-centre-transformation.jpg",
-    imageAlt: "Artist’s impression of the planned Long Eaton town centre improvements",
-    imageCredit: "Artist’s impression — Erewash Borough Council",
-    imageLabel: "Tamworth Road and town centre works",
-    imageStyle: "bg-brand-accent/10"
-  },
+{
+  "id": "tamworth-road-restrictions-october-2026",
+  "title": "Tamworth Road and Beaconsfield Street: November travel update",
+  "date": "2026-10-01",
+  "checkedOn": "2026-11-16",
+  "excerpt": "A 16 November source review finds published restrictions extending into December, plus a Beaconsfield Street closure affecting the car-park approach.",
+  "content": [
+    "Update, 16 November 2026: Erewash Sound’s travel page lists the Tamworth Road and Market Place one-way restriction until 4 December. It reports traffic travelling from Broad Street towards The Green, with the opposite direction diverted via Waverley Street.",
+    "The same page lists Beaconsfield Street closed at its junction with Tamworth Road until 22 November. Beaconsfield car park remains open, with access diverted via Salisbury Street and Claye Street. It also reports Skylink and My15 diversions and a temporary stop outside Tesco on Waverley Street.",
+    "The Town Deal FAQ still schedules major Tamworth Road works to finish in November, while the travel listing gives a later restriction end date. These published dates are not confirmation that roads have reopened; follow signs and check current travel information before setting out.",
+    "The council’s original October announcement described overnight work to change sides of the road while paving was installed. Its October overnight schedule is historical, rather than a current closure timetable."
+  ],
+  "planning": [
+    {
+      "title": "Check your approach and bus stop",
+      "copy": "Allow for the one-way route and check with your bus operator before travelling. Contact your destination if you need an accessible entrance or delivery access during the works."
+    }
+  ],
+  "sourceUrl": "https://www.erewashsound.com/news/travel-news/",
+  "sourceLabel": "Check Erewash Sound’s latest travel information",
+  "sources": [
+    {
+      "label": "Erewash Sound — road restrictions and diversions",
+      "href": "https://www.erewashsound.com/news/travel-news/"
+    },
+    {
+      "label": "Long Eaton Town Deal — High Street project FAQ",
+      "href": "https://www.longeatontowndeal.org/en/projects/high-street/high-street-faqs.html"
+    },
+    {
+      "label": "Council — original October overnight works notice",
+      "href": "https://www.erewash.gov.uk/news/2026/week-overnight-closures-tamworth-road-part-ps10m-long-eaton-revamp"
+    }
+  ],
+  "imageSrc": "/long-eaton-town-centre-transformation.jpg",
+  "imageAlt": "Artist’s impression of Long Eaton town centre improvements",
+  "imageCredit": "Artist’s impression — Erewash Borough Council",
+  "imageLabel": "Tamworth Road and town centre works",
+  "imageStyle": "bg-brand-accent/10"
+},
   {
     id: "all-saints-sawley-bellringers-grant-september-2026",
     title: "Sawley’s All Saints bellringers receive £3,484 for tower improvements",
@@ -218,8 +264,9 @@ export const newsItems: NewsItem[] = [
     date: "2026-08-03",
     excerpt:
       "The council’s announcement sets out changes to High Street and Tamworth Road, including parking and access arrangements to check before visiting.",
-    checkedOn: "2026-10-10",
+    checkedOn: "2026-11-16",
     content: [
+      "Update, 16 November 2026: the Town Deal FAQ schedules High Street and Back Market works to finish in March 2027 and major Tamworth Road works in November 2026. Separate travel reporting lists the Tamworth Road one-way restriction until 4 December. Read our linked travel update for the published access arrangements; these are planned dates, not confirmation of completion.",
       "Erewash Borough Council’s announcement sets out a £10 million project covering Long Eaton High Street and Tamworth Road, funded through the £25 million Town Deal. The published plan gives a June start and completion by the following spring; it is a project announcement rather than a live construction progress report.",
       "The council describes new paving, greener public spaces and designs reflecting the furniture industry. It also plans a Laura Knight trail and a return of the market to Market Place, with contractors working with businesses to keep them open.",
       "The notice says High Street Blue Badge access and parking will be suspended during works, with alternative Blue Badge parking in Beaconsfield and Claye Street car parks. It says Tamworth Road will remain open with possible narrowing or one-way arrangements."
@@ -236,6 +283,10 @@ export const newsItems: NewsItem[] = [
     sourceUrl:
       "https://www.erewash.gov.uk/news/2026/long-eatons-ps10million-revamp-start-june",
     sourceLabel: "Read the Erewash Borough Council update",
+    sources: [
+      { label: "Town Deal — project timetable and access FAQ", href: "https://www.longeatontowndeal.org/en/projects/high-street/high-street-faqs.html" },
+      { label: "November road restrictions and car-park access update", href: "https://www.lovelongeaton.com/news/tamworth-road-restrictions-october-2026" }
+    ],
   },
 ];
 

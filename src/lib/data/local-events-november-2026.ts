@@ -129,8 +129,8 @@ const theatreEvents: EventItem[] = [
   relatedLinks: [{ href: "/businesses/duchess-theatre-chatsworth-arts-centre", label: "About the venue" }],
   checkedOn: "2026-11-08",
   ...event,
-  ticketUrl: event.status ? undefined : (event.ticketUrl ?? event.sourceUrl),
-  sources: event.sources ?? [{ label: "Duchess Theatre — official TicketSource event details", href: event.sourceUrl! }]
+  ticketUrl: event.status ? undefined : event.sourceUrl,
+  sources: [{ label: "Duchess Theatre — official TicketSource event details", href: event.sourceUrl }]
 }));
 
 export const novemberEvents: EventItem[] = [
@@ -200,10 +200,10 @@ export const novemberEvents: EventItem[] = [
     sourceUrl: "https://www.erewash.gov.uk/your-borough/events-erewash/christmas-lights-switch",
     checkedOn: "2026-11-16",
     sources: [{ label: "Erewash Borough Council — confirmed date; programme to follow", href: "https://www.erewash.gov.uk/your-borough/events-erewash/christmas-lights-switch" }, { label: "StayHappening — listing attributed to Long Eaton Silver Prize Band", href: "https://stayhappening.com/e/long-eaton-christmas-lights-organised-by-erewash-borough-council-E2IT028WSQ3" }],
-    imageSrc: "/editorial/christmas-lights-long-eaton-2026-v2.png",
-    imageAlt: "Long Eaton’s market street and white market canopies with Christmas lights added at dusk",
-    imageCredit: "AI-edited illustration based on a photograph of Long Eaton town centre",
-    imageLabel: "Christmas lights in Long Eaton — illustrative scene",
+    imageSrc: "/editorial/christmas-lights-band-2026.jpg",
+    imageAlt: "Long Eaton Silver Prize Band pictured in the Christmas lights event listing",
+    imageCredit: "Long Eaton Silver Prize Band — event listing photograph via StayHappening",
+    imageLabel: "Long Eaton Silver Prize Band — group photograph",
     imageStyle: "bg-brand-section",
     featured: true
   }

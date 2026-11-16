@@ -21,14 +21,18 @@ export const festiveEvents: EventItem[] = [
       }
     ],
     "checkedOn": "2026-11-16",
-    "imageLabel": "Long Eaton Comedy — Jacob Nussey",
+    "imageLabel": "Long Eaton Comedy — Jacob Nussey — event poster",
     "imageStyle": "bg-brand-section",
     "time": "Doors 7:45pm · show 8–10:15pm",
     "startTime": "20:00",
     "endTime": "22:15",
     "location": "The Barge Inn, 177 Tamworth Road, Long Eaton, NG10 1DH",
     "organiser": "Den Of Laughs",
-    "price": "Free entry / pay what you want — suggested donation £5"
+    "price": "Free entry / pay what you want — suggested donation £5",
+    "imageSrc": "/editorial/long-eaton-comedy-november-2026.jpg",
+    "imageAlt": "Den Of Laughs poster advertising Jacob Nussey and Luke Harrower at The Barge Inn on 19 November",
+    "imageCredit": "Den Of Laughs — event poster via HappeningNext",
+    "imageFit": "contain"
   },
   {
     "id": "event-forever-stars-christmas-fair-22-november-2026",
@@ -38,7 +42,7 @@ export const festiveEvents: EventItem[] = [
     "category": "Community / Christmas",
     "excerpt": "Browse a Christmas fair supporting Forever Stars at the Village Hotel.",
     "description": [
-      "The charity’s event page confirms the date, times and venue. Its £15 booking charge is for stallholders; it does not establish an admission price for visitors. Check visitor arrangements with Forever Stars."
+      "The charity’s official poster advertises free entry, more than 20 stalls and a Santa’s grotto costing £4, including a chocolate gift. Dietary alternatives are available on request. Check grotto arrangements with Forever Stars before visiting."
     ],
     "sourceUrl": "https://www.foreverstars.org/events/forever-stars-christmas-fair-2025-stalls-booking-information-2/",
     "sources": [
@@ -48,19 +52,24 @@ export const festiveEvents: EventItem[] = [
       }
     ],
     "checkedOn": "2026-11-16",
-    "imageLabel": "Forever Stars Christmas Fair",
+    "imageLabel": "Forever Stars Christmas Fair — event poster",
     "imageStyle": "bg-brand-section",
     "time": "10am–3pm",
     "startTime": "10:00",
     "endTime": "15:00",
-    "location": "Village Hotel Nottingham, Chilwell",
+    "location": "Village Hotel Nottingham, Brailsford Way, Chilwell, NG9 6DL",
     "organiser": "Forever Stars",
     "tags": [
       "Christmas",
       "Fair",
       "Fundraising"
     ],
-    "featured": true
+    "featured": true,
+    "imageSrc": "/editorial/forever-stars-christmas-fair-2026.jpg",
+    "imageAlt": "Forever Stars Christmas Fair 2026 poster with 22 November date, free entry and Village Hotel venue",
+    "imageCredit": "Forever Stars — official event poster",
+    "imageFit": "contain",
+    "price": "Free entry · Santa’s grotto £4"
   },
   {
     "id": "event-spring-lakes-festive-light-walk-04-december-2026",
@@ -77,10 +86,14 @@ export const festiveEvents: EventItem[] = [
       {
         "label": "KiddyCompass — Spring Lakes festive light walk listing",
         "href": "https://www.kiddycompass.com/event/festive-light-walk-at-spring-lakes"
+      },
+      {
+        "label": "Spring Lakes — booking page linked by KiddyCompass",
+        "href": "https://ecom.roller.app/springlakeswatersportsandleisure/sessions/en/product/680958"
       }
     ],
     "checkedOn": "2026-11-16",
-    "imageLabel": "Spring Lakes Festive Light Walk",
+    "imageLabel": "Spring Lakes Festive Light Walk — event photograph",
     "imageStyle": "bg-brand-section",
     "endDate": "2026-12-06",
     "time": "4–7pm · timed entry, last slot 6:30pm",
@@ -93,7 +106,14 @@ export const festiveEvents: EventItem[] = [
       "Family",
       "Lights",
       "Outdoor"
-    ]
+    ],
+    "imageSrc": "/editorial/spring-lakes-festive-light-walk-2026.jpg",
+    "imageAlt": "Santa and children beside an illuminated arch on a woodland light walk",
+    "imageCredit": "Spring Lakes event image via KiddyCompass",
+    "imageFit": "cover",
+    "ticketUrl": "https://ecom.roller.app/springlakeswatersportsandleisure/sessions/en/product/680958",
+    "seoTitle": "Spring Lakes Festive Light Walk: 4–6 December 2026 | Long Eaton",
+    "metaDescription": "Plan the Spring Lakes Festive Light Walk in Long Eaton on 4–6 December 2026. Find advertised entry times, the booking link and separate Santa visit information."
   },
   {
     "id": "event-spring-lakes-festive-light-walk-11-december-2026",
@@ -110,10 +130,14 @@ export const festiveEvents: EventItem[] = [
       {
         "label": "KiddyCompass — Spring Lakes festive light walk listing",
         "href": "https://www.kiddycompass.com/event/festive-light-walk-at-spring-lakes"
+      },
+      {
+        "label": "Spring Lakes — booking page linked by KiddyCompass",
+        "href": "https://ecom.roller.app/springlakeswatersportsandleisure/sessions/en/product/680958"
       }
     ],
     "checkedOn": "2026-11-16",
-    "imageLabel": "Spring Lakes Festive Light Walk",
+    "imageLabel": "Spring Lakes Festive Light Walk — event photograph",
     "imageStyle": "bg-brand-section",
     "endDate": "2026-12-13",
     "time": "4–7pm · timed entry, last slot 6:30pm",
@@ -126,7 +150,14 @@ export const festiveEvents: EventItem[] = [
       "Family",
       "Lights",
       "Outdoor"
-    ]
+    ],
+    "imageSrc": "/editorial/spring-lakes-festive-light-walk-2026.jpg",
+    "imageAlt": "Santa and children beside an illuminated arch on a woodland light walk",
+    "imageCredit": "Spring Lakes event image via KiddyCompass",
+    "imageFit": "cover",
+    "ticketUrl": "https://ecom.roller.app/springlakeswatersportsandleisure/sessions/en/product/680958",
+    "seoTitle": "Spring Lakes Festive Light Walk: 11–13 December 2026 | Long Eaton",
+    "metaDescription": "Plan the Spring Lakes Festive Light Walk in Long Eaton on 11–13 December 2026. Find advertised entry times, the booking link and separate Santa visit information."
   },
   {
     "id": "event-spring-lakes-festive-light-walk-18-december-2026",
@@ -143,10 +174,14 @@ export const festiveEvents: EventItem[] = [
       {
         "label": "KiddyCompass — Spring Lakes festive light walk listing",
         "href": "https://www.kiddycompass.com/event/festive-light-walk-at-spring-lakes"
+      },
+      {
+        "label": "Spring Lakes — booking page linked by KiddyCompass",
+        "href": "https://ecom.roller.app/springlakeswatersportsandleisure/sessions/en/product/680958"
       }
     ],
     "checkedOn": "2026-11-16",
-    "imageLabel": "Spring Lakes Festive Light Walk",
+    "imageLabel": "Spring Lakes Festive Light Walk — event photograph",
     "imageStyle": "bg-brand-section",
     "endDate": "2026-12-23",
     "time": "4–7pm · timed entry, last slot 6:30pm",
@@ -159,7 +194,14 @@ export const festiveEvents: EventItem[] = [
       "Family",
       "Lights",
       "Outdoor"
-    ]
+    ],
+    "imageSrc": "/editorial/spring-lakes-festive-light-walk-2026.jpg",
+    "imageAlt": "Santa and children beside an illuminated arch on a woodland light walk",
+    "imageCredit": "Spring Lakes event image via KiddyCompass",
+    "imageFit": "cover",
+    "ticketUrl": "https://ecom.roller.app/springlakeswatersportsandleisure/sessions/en/product/680958",
+    "seoTitle": "Spring Lakes Festive Light Walk: 18–23 December 2026 | Long Eaton",
+    "metaDescription": "Plan the Spring Lakes Festive Light Walk in Long Eaton on 18–23 December 2026. Find advertised entry times, the booking link and separate Santa visit information."
   },
   {
     "id": "event-sleeping-beauty-duchess-theatre-december-2026",
@@ -176,13 +218,17 @@ export const festiveEvents: EventItem[] = [
       {
         "label": "Duchess Theatre — official TicketSource booking",
         "href": "https://www.ticketsource.com/chatsworth/sleeping-beauty-panto-the-duchess-players/e-jzkayj"
+      },
+      {
+        "label": "The Duchess Players — production poster and event listing",
+        "href": "https://stayhappening.com/e/sleeping-beauty-by-the-duchess-players-E2ISYQ8B9S5"
       }
     ],
     "checkedOn": "2026-11-16",
-    "imageLabel": "Sleeping Beauty — The Duchess Players",
+    "imageLabel": "Sleeping Beauty — The Duchess Players — event poster",
     "imageStyle": "bg-brand-section",
     "endDate": "2026-12-12",
-    "time": "See individual performances on the booking page",
+    "time": "Wednesday–Friday 7:30pm · Saturday 2pm and 6:30pm",
     "location": "Duchess Theatre & Chatsworth Arts Centre, West Gate, Long Eaton, NG10 1EF",
     "organiser": "The Duchess Players",
     "ticketUrl": "https://www.ticketsource.com/chatsworth/sleeping-beauty-panto-the-duchess-players/e-jzkayj",
@@ -191,13 +237,25 @@ export const festiveEvents: EventItem[] = [
       "Pantomime",
       "Family"
     ],
-    "imageSrc": "/duchess-theatre-exterior.jpg",
-    "imageAlt": "Exterior of the Duchess Theatre & Chatsworth Arts Centre in Long Eaton",
-    "imageCredit": "Venue photograph",
+    "imageSrc": "/editorial/sleeping-beauty-2026.jpg",
+    "imageAlt": "The Duchess Players Sleeping Beauty poster showing 9–12 December 2026 at the Duchess Theatre",
+    "imageCredit": "The Duchess Players — production poster via StayHappening",
     "relatedLinks": [
       {
         "href": "/businesses/duchess-theatre-chatsworth-arts-centre",
         "label": "About Duchess Theatre"
+      }
+    ],
+    "imageFit": "contain",
+    "price": "Poster: £10 adults / £9 concessions, plus booking fee",
+    "sessions": [
+      {
+        "title": "Wednesday 9–Friday 11 December",
+        "time": "7:30pm"
+      },
+      {
+        "title": "Saturday 12 December",
+        "time": "2pm and 6:30pm"
       }
     ]
   },
@@ -219,7 +277,7 @@ export const festiveEvents: EventItem[] = [
       }
     ],
     "checkedOn": "2026-11-16",
-    "imageLabel": "Aladdin — Amici Productions",
+    "imageLabel": "Aladdin — Amici Productions — event poster",
     "imageStyle": "bg-brand-section",
     "endDate": "2026-12-19",
     "time": "See individual performances on the booking page",
@@ -231,9 +289,9 @@ export const festiveEvents: EventItem[] = [
       "Pantomime",
       "Family"
     ],
-    "imageSrc": "/duchess-theatre-exterior.jpg",
-    "imageAlt": "Exterior of the Duchess Theatre & Chatsworth Arts Centre in Long Eaton",
-    "imageCredit": "Venue photograph",
+    "imageSrc": "/editorial/aladdin-2026.png",
+    "imageAlt": "Aladdin production poster for 15–19 December at Duchess Theatre, with a matinee sold-out banner",
+    "imageCredit": "Amici Productions — official poster via TicketSource",
     "relatedLinks": [
       {
         "href": "/businesses/duchess-theatre-chatsworth-arts-centre",
@@ -254,7 +312,8 @@ export const festiveEvents: EventItem[] = [
         "title": "Saturday 19 December evening",
         "time": "7–9pm"
       }
-    ]
+    ],
+    "imageFit": "contain"
   },
   {
     "id": "event-christmas-makers-market-st-johns-13-december-2026",
@@ -274,12 +333,12 @@ export const festiveEvents: EventItem[] = [
       }
     ],
     "checkedOn": "2026-11-16",
-    "imageLabel": "Long Eaton Christmas Makers Market",
+    "imageLabel": "Long Eaton Christmas Makers Market — event poster",
     "imageStyle": "bg-brand-section",
     "time": "1–5:30pm · Santa 2–4pm",
     "startTime": "13:00",
     "endTime": "17:30",
-    "location": "St John’s Church Hall, Long Eaton",
+    "location": "St John’s Church Hall, Canal Street, Long Eaton, NG10 4NL",
     "organiser": "Mosswood Makers Markets",
     "price": "Free market entry; Santa tickets booked separately",
     "ticketUrl": "https://buytickets.at/mosswoodmakersmarkets/2458916",
@@ -288,6 +347,10 @@ export const festiveEvents: EventItem[] = [
       "Market",
       "Family",
       "Crafts"
-    ]
+    ],
+    "imageSrc": "/editorial/christmas-makers-market-2026.jpg",
+    "imageAlt": "Long Eaton Christmas Makers Market poster for 13 December, 1–5:30pm at St John’s Church Hall",
+    "imageCredit": "Mosswood Makers Markets — event poster via StayHappening",
+    "imageFit": "contain"
   }
 ];

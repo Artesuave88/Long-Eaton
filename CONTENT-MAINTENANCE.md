@@ -17,6 +17,14 @@ guarantee advertising approval.
 - Add useful local comparisons or practical information when verified. More
   pages or longer descriptions alone do not make a guide more useful.
 
+## Event and news images
+
+Always find images on the organiser’s or linked source page. Use the relevant
+production poster or event photograph, keep a local copy, and record its source
+and credit. Inspect posters for dates, times and booking details. Use `contain`
+for artwork with text so it remains readable. Do not substitute generated artwork
+or a generic venue photograph for available source event images.
+
 ## Publishing news
 
 Published stories live in `src/lib/data/news.ts` under `newsItems`. Each must
