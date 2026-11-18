@@ -81,6 +81,14 @@
 							</a>
 						</div>
 					{/if}
+					{#if data.business.facebook}
+						<div>
+							<p class="eyebrow">Facebook</p>
+							<a href={data.business.facebook} target="_blank" rel="noreferrer" class="mt-2 inline-flex text-base font-semibold text-brand-accent hover:underline">
+								View page
+							</a>
+						</div>
+					{/if}
 					{#if data.business.instagram}
 						<div>
 							<p class="eyebrow">Instagram</p>
@@ -111,7 +119,7 @@
 
 				<VisitDetails sections={data.business.visitSections} />
 
-				{#if data.business.website || data.business.instagram || data.business.telephone || data.business.email}
+				{#if data.business.website || data.business.instagram || data.business.facebook || data.business.telephone || data.business.email}
 					<div class="mt-8 flex flex-wrap gap-3" aria-label={`Contact ${data.business.name}`}>
 					{#if data.business.website}
 						<a href={data.business.website} target="_blank" rel="noreferrer" class="button-primary">
@@ -121,6 +129,11 @@
 					{#if data.business.instagram}
 						<a href={data.business.instagram} target="_blank" rel="noreferrer" class="button-primary">
 							Follow {data.business.name} on Instagram
+						</a>
+					{/if}
+					{#if data.business.facebook}
+						<a href={data.business.facebook} target="_blank" rel="noreferrer" class="button-primary">
+							Follow {data.business.name} on Facebook
 						</a>
 					{/if}
 					{#if data.business.telephone}<a href={`tel:${data.business.telephone.replace(/\s/g, '')}`} class="button-primary">Call {data.business.name}</a>{/if}

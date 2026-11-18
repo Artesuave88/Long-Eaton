@@ -112,6 +112,7 @@ export type BusinessItem = {
   about: string[];
   website?: string;
   instagram?: string;
+  facebook?: string;
   telephone?: string;
   email?: string;
   openingHours?: {

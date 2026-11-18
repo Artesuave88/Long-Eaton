@@ -59,8 +59,8 @@ export function businessJsonLd(business: BusinessItem) {
     ...(business.openingHours?.length
       ? { openingHours: business.openingHours.map((hours) => hours.schema) }
       : {}),
-    ...(business.website || business.instagram
-      ? { sameAs: [business.website, business.instagram].filter(Boolean) }
+    ...(business.website || business.instagram || business.facebook
+      ? { sameAs: [business.website, business.instagram, business.facebook].filter(Boolean) }
       : {}),
     ...(business.imageSrc
       ? {

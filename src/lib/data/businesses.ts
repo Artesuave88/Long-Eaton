@@ -79,6 +79,50 @@ const optionalImportedBusinesses: BusinessItem[] =
 
 const baseBusinesses: BusinessItem[] = [
   {
+    id: "business-28",
+    slug: "le-motorcycles",
+    name: "LE Motorcycles",
+    category: "Motorcycle Sales & Repairs",
+    location: "Long Eaton",
+    description:
+      "Independent motorcycle dealership and workshop established in 2017. Offering new and used motorcycles, MOTs, servicing, repairs, diagnostics and accessories. Proudly serving Long Eaton with honest advice, quality workmanship and 5-star customer service.",
+    about: [
+      "Independent motorcycle dealership and workshop established in 2017.",
+      "Offering new and used motorcycles, MOTs, servicing, repairs, diagnostics and accessories.",
+      "Proudly serving Long Eaton with honest advice, quality workmanship and 5-star customer service.",
+    ],
+    website: "http://www.lemotorcycles.co.uk/",
+    facebook: "https://www.facebook.com/LEmotorcycles",
+    imageSrc: "/le-motorcycles.jpg",
+    imageAlt: "LE Motorcycles logo in black on white",
+    imageFit: "contain",
+    imageLabel: "Motorcycle dealership and workshop",
+    imageStyle: "bg-white",
+    featured: false,
+    isReal: true,
+  },
+  {
+    id: "business-29",
+    slug: "2-counties-training",
+    name: "2 Counties Training ltd",
+    category: "Motorcycle Training Services",
+    location: "Long Eaton",
+    description:
+      "Long Eaton's 5-star rated motorcycle training school, backed by over 200 Google reviews. Offering CBT courses, motorcycle lessons and full licence training, with friendly, experienced instructors helping riders gain confidence and ride safely.",
+    about: [
+      "Long Eaton's 5-star rated motorcycle training school, backed by over 200 Google reviews.",
+      "Offering CBT courses, motorcycle lessons and full licence training, with friendly, experienced instructors helping riders gain confidence and ride safely.",
+    ],
+    website: "http://www.2countiesridertraining.co.uk/",
+    imageSrc: "/2-counties-training.png",
+    imageAlt: "2 Counties Rider Training logo in red and black on white",
+    imageFit: "contain",
+    imageLabel: "Motorcycle training school",
+    imageStyle: "bg-white",
+    featured: false,
+    isReal: true,
+  },
+  {
     id: "business-27",
     slug: "bb-reformer-studio",
     name: "BB Reformer Studio",
