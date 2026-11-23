@@ -4,6 +4,118 @@ import type { EventItem } from "$types/content";
 // Separate light-walk blocks avoid advertising the intervening closed days.
 export const festiveEvents: EventItem[] = [
   {
+    "id": "event-sawley-christmas-lights-29-november-2026",
+    "slug": "sawley-christmas-lights-29-november-2026",
+    "title": "Sawley Christmas Lights",
+    "date": "2026-11-29",
+    "time": "Band carols from 4pm · switch-on time not confirmed",
+    "startTime": "16:00",
+    "location": "Sawley Memorial Hall, Sawley, Long Eaton",
+    "organiser": "See organiser listing",
+    "category": "Community / Christmas",
+    "tags": [
+      "Christmas",
+      "Lights",
+      "Music",
+      "Sawley"
+    ],
+    "excerpt": "Long Eaton Silver Prize Band advertises carols from 4pm at Sawley’s Christmas lights event.",
+    "description": [
+      "The HappeningNext listing attributed to Long Eaton Silver Prize Band advertises carols at intervals from 4pm at Sawley Memorial Hall. It does not give a separate lights switch-on time or a finish time; check the latest arrangements before travelling."
+    ],
+    "sourceUrl": "https://happeningnext.com/event/sawley-christmas-lights-eid3a0eabaikg",
+    "sources": [
+      {
+        "label": "HappeningNext — listing attributed to Long Eaton Silver Prize Band",
+        "href": "https://happeningnext.com/event/sawley-christmas-lights-eid3a0eabaikg"
+      }
+    ],
+    "imageSrc": "/editorial/sawley-november-2026.jpg",
+    "imageAlt": "Long Eaton Silver Prize Band group photograph used in the Sawley Christmas lights listing",
+    "imageCredit": "Long Eaton Silver Prize Band — event listing photograph via HappeningNext",
+    "imageLabel": "Long Eaton Silver Prize Band — group photograph",
+    "imageFit": "cover",
+    "checkedOn": "2026-11-23",
+    "imageStyle": "bg-brand-section",
+    "featured": false
+  },
+  {
+    "id": "event-butchers-christmas-shopping-3-december-2026",
+    "slug": "butchers-christmas-shopping-3-december-2026",
+    "title": "Christmas Shopping Evening at The Butchers",
+    "date": "2026-12-03",
+    "time": "6–9pm · last admission 8pm",
+    "startTime": "18:00",
+    "endTime": "21:00",
+    "location": "The Butchers at Westgate, Clifford Street, Long Eaton, NG10 1ED",
+    "organiser": "The Butchers at Westgate",
+    "category": "Shopping / Christmas",
+    "tags": [
+      "Christmas",
+      "Shopping",
+      "Local makers"
+    ],
+    "price": "Free entry · one ticket per person required",
+    "excerpt": "Browse gifts from local makers and independent businesses at The Butchers, with free ticketed entry.",
+    "description": [
+      "The listing attributed to The Butchers advertises local makers, gifts and a bar for an evening of Christmas shopping. Entry is free, but each person needs a ticket. Arrive between 6pm and 8pm; last admission is 8pm and the event finishes at 9pm. Check the linked booking page for availability."
+    ],
+    "sourceUrl": "https://stayhappening.com/e/christmas-shopping-evening-E2IT03IPMUE",
+    "ticketUrl": "https://www.eventbrite.com/e/2004359468125",
+    "sources": [
+      {
+        "label": "StayHappening — Christmas shopping listing attributed to The Butchers",
+        "href": "https://stayhappening.com/e/christmas-shopping-evening-E2IT03IPMUE"
+      }
+    ],
+    "imageSrc": "/editorial/shopping-november-2026.jpg",
+    "imageAlt": "Christmas shopping evening artwork from The Butchers event listing",
+    "imageCredit": "The Butchers — event artwork via StayHappening",
+    "imageLabel": "Christmas Shopping Evening at The Butchers — event artwork",
+    "imageFit": "contain",
+    "checkedOn": "2026-11-23",
+    "imageStyle": "bg-brand-section",
+    "featured": false
+  },
+  {
+    "id": "event-lerfc-crimbo-bingo-4-december-2026",
+    "slug": "lerfc-crimbo-bingo-4-december-2026",
+    "title": "Crimbo Bingo for Forever Stars",
+    "date": "2026-12-04",
+    "time": "7–11:30pm",
+    "startTime": "19:00",
+    "endTime": "23:30",
+    "location": "Long Eaton Rugby Club clubhouse, West Park, Long Eaton",
+    "organiser": "Long Eaton Rugby Club Choir",
+    "category": "Community / Christmas",
+    "tags": [
+      "Christmas",
+      "Bingo",
+      "Fundraising"
+    ],
+    "price": "£7.50 per person · includes four bingo games",
+    "excerpt": "A festive bingo, carol-oke and disco evening at Long Eaton Rugby Club supporting Forever Stars.",
+    "description": [
+      "Long Eaton Rugby Club Choir is hosting an evening of bingo, Christmas carol-oke and a disco by Galaxy Events UK to raise money for Forever Stars. Christmas fancy dress is optional. The charity’s booking form says each £7.50 ticket includes four games of bingo; use the official page to book and check availability."
+    ],
+    "sourceUrl": "https://www.foreverstars.org/events/lerfc-crimbo-bingo/",
+    "ticketUrl": "https://www.foreverstars.org/events/lerfc-crimbo-bingo/",
+    "sources": [
+      {
+        "label": "Forever Stars — official Crimbo Bingo information and booking",
+        "href": "https://www.foreverstars.org/events/lerfc-crimbo-bingo/"
+      }
+    ],
+    "imageSrc": "/editorial/crimbo-november-2026.jpg",
+    "imageAlt": "Long Eaton Rugby Club Choir Crimbo Bingo poster for Friday 4 December, 7–11:30pm, with £7.50 tickets",
+    "imageCredit": "Long Eaton Rugby Club Choir / Forever Stars — official event poster",
+    "imageLabel": "Crimbo Bingo — official event poster",
+    "imageFit": "contain",
+    "checkedOn": "2026-11-23",
+    "imageStyle": "bg-brand-section",
+    "featured": false
+  },
+  {
     "id": "event-spring-lakes-festive-light-walk-04-december-2026",
     "slug": "spring-lakes-festive-light-walk-04-december-2026",
     "title": "Spring Lakes Festive Light Walk",

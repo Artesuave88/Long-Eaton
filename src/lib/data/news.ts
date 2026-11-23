@@ -31,6 +31,48 @@ export const newsDrafts: NewsItem[] = [
 ];
 
 export const newsItems: NewsItem[] = [
+  {
+    "id": "long-eaton-free-christmas-parking-december-2026",
+    "title": "Free Christmas parking includes Long Eaton station car park",
+    "validUntil": "2027-01-03",
+    "excerpt": "Erewash council car parks will be free from 1 December, with pay-and-display charges returning on 4 January 2027.",
+    "content": [
+      "Erewash Borough Council has announced free parking in its car parks throughout December 2026. The offer includes the council’s car park at Long Eaton railway station, as well as its other car parks in Long Eaton, Ilkeston and Sandiacre.",
+      "The council says drivers will not need to buy a car park ticket from Tuesday 1 December until Monday 4 January 2027. The announcement follows the introduction of free weekend parking earlier this year and aims to support local shops and markets.",
+      "The announcement applies to council-operated car parks. Check the signs at your chosen car park for parking conditions."
+    ],
+    "sourceUrl": "https://www.erewash.gov.uk/news/2026/erewash-car-parks-be-free-all-december",
+    "sourceLabel": "Read the council’s Christmas parking announcement",
+    "imageSrc": "/editorial/parking-november-2026.jpg",
+    "imageAlt": "Council festive free parking graphic with holly above a blue parking sign",
+    "imageCredit": "Erewash Borough Council — Christmas free parking graphic",
+    "imageLabel": "Free Christmas parking",
+    "imageFit": "contain",
+    "date": "2026-11-23",
+    "checkedOn": "2026-11-23",
+    "imageStyle": "bg-brand-section"
+  },
+  {
+    "id": "long-eaton-garden-waste-winter-pause-2026",
+    "title": "Long Eaton’s final garden-waste collections start in the week of 30 November",
+    "validUntil": "2027-03-21",
+    "excerpt": "Brown-bin collections pause over winter after the final Long Eaton round, with the service due to resume in the week of 8 March 2027.",
+    "content": [
+      "Long Eaton residents who subscribe to Erewash Borough Council’s garden-waste service are being reminded that the final collections of 2026 take place in the week beginning Monday 30 November. This is the collection week, rather than a single collection date for every home.",
+      "The council says collections in and around Long Eaton will restart in the week beginning Monday 8 March 2027. Existing subscribers will receive at least two collections before subscriptions need renewing from 1 April.",
+      "Check the council’s garden-waste information for arrangements at your address before putting out your brown bin."
+    ],
+    "sourceUrl": "https://www.erewash.gov.uk/news/2026/last-chance-put-your-brown-bin-out-year-coming",
+    "sourceLabel": "Read the council’s winter garden-waste reminder",
+    "imageSrc": "/editorial/bins-november-2026.jpg",
+    "imageAlt": "A resident putting garden cuttings into a brown garden-waste bin",
+    "imageCredit": "Erewash Borough Council — garden-waste service photograph",
+    "imageLabel": "Garden-waste winter pause",
+    "imageFit": "cover",
+    "date": "2026-11-23",
+    "checkedOn": "2026-11-23",
+    "imageStyle": "bg-brand-section"
+  },
 {
   "id": "active-lives-awards-2027-nominations",
   "title": "Nominate Long Eaton’s active heroes before 30 November",
