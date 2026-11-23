@@ -1,0 +1,22 @@
+Use case: ads-marketing.
+Create a finished portrait 4:5 Instagram feed graphic for Love Long Eaton's weekend guide, 20–22 November 2026. Use the attached existing logo as a brand reference/supporting insert: preserve its appearance and wording in a neat white masthead at the top. Brand palette navy #102d55, vivid blue #073dff, cyan #38BDF8, white. Polished local magazine editorial design, bold large exceptionally legible typography, generous margins and confident hierarchy, subtle paper grain. Main field navy with white headline and cyan accents. Three stacked editorial event rows below headline, each with a small beautiful original cut-paper illustration at right: theatre curtain and fairy wand for Iolanthe; knotted cream macrame snowflake for workshop; festive gift parcels and stars for Christmas fair. Illustrations are decorative, not event photographs. Keep text area uncluttered; no invented sponsors, social handles, QR codes or additional events.
+Exact text, use smart line breaks:
+"WHAT’S GOING ON
+THIS WEEKEND?"
+"20–22 NOVEMBER 2026"
+"IN & AROUND LONG EATON"
+"IOLANTHE"
+"Duchess Theatre"
+"Fri 20 · 7:30pm  /  Sat 21 · 2:30pm"
+"MACRAMÉ SNOWFLAKE WORKSHOP"
+"Long Eaton Art Room"
+"Sun 22 · 9:30am–noon"
+"FOREVER STARS CHRISTMAS FAIR"
+"Village Hotel, Chilwell"
+"Sun 22 · 10am–3pm"
+Footer call to action:
+"Your weekend starts here."
+"lovelongeaton.com/whats-on-this-weekend"
+Small footer:
+"Check booking and event details before travelling."
+Make a professional final graphic, not a mockup. All important text well within safe margins. Do not duplicate the brand logo.

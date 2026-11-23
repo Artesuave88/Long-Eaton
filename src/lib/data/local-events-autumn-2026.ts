@@ -45,7 +45,7 @@ export const localAutumnEvents: EventItem[] = [
     excerpt: "Bring your bicycle for marking by the Long Eaton South policing team.",
     description: ["The police listing does not specify a meeting point within the park, a charge or booking requirements. Check with the neighbourhood team before bringing your bicycle."],
     sourceUrl: "https://www.derbyshire.police.uk/area/your-area/derbyshire/erewash/long-eaton-south/meetings-and-events/our-priorities",
-    checkedOn: "2026-10-10",
+    checkedOn: "2026-11-23",
     sources: [{ label: "Derbyshire Constabulary — Long Eaton South meetings and events", href: "https://www.derbyshire.police.uk/area/your-area/derbyshire/erewash/long-eaton-south/meetings-and-events/our-priorities" }],
     imageSrc: "/editorial/bike-marking-illustration.svg",
     imageAlt: "Illustration of a green bicycle with a security tag",

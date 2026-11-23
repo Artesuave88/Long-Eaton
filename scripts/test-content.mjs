@@ -72,7 +72,7 @@ try {
   for (const plan of outdoorGuide.visitPlans) {
     assert.ok(outdoorGuide.sources.some((source) => source.href === plan.href), 'Every outing links to a checked source in its guide');
   }
-  const cleanupDate = at('2026-11-16T00:00:00Z');
+  const cleanupDate = at('2026-11-23T00:00:00Z');
   assert.ok(events.every((event) => !event.date && !event.endDate || isUpcomingEvent(event, cleanupDate)), 'Expired dated events have been deleted from source data');
   assert.ok(events.every((event) => !event.dateLabel?.includes('October 2026')), 'The expired October TBC listing has been deleted');
   assert.equal(getCurrentNews(cleanupDate).length, newsItems.length, 'Expired news offers have been deleted from source data');

@@ -1,60 +1,8 @@
 import type { EventItem } from "$types/content";
 
-// Reviewed 8 November 2026 against the linked organiser/booking sources.
+// Reviewed 23 November 2026 against the linked organiser/booking sources.
 // Venue photographs and logos are labelled as such, rather than as show artwork.
 const theatreEvents: EventItem[] = [
-  {
-    id: "event-mirror-crackd-2026-11-16",
-    slug: "the-mirror-crackd-duchess-theatre-november-2026",
-    title: "Agatha Christie’s The Mirror Crack’d",
-    date: "2026-11-16",
-    endDate: "2026-11-17",
-    time: "7:30–10pm each evening",
-    startTime: "19:30",
-    endTime: "22:00",
-    organiser: "Your Chance Productions",
-    audience: "Ages 12+",
-    category: "Theatre",
-    excerpt: "Miss Marple investigates a murder in St Mary Mead in this stage adaptation of Agatha Christie’s mystery.",
-    description: ["The booking page gives an age rating of 12+ and notes depictions of tobacco and alcohol, mild peril, murder and discussion of child loss."],
-    sourceUrl: "https://www.ticketsource.com/chatsworth/agatha-christies-the-mirror-crackd-your-chance-productions/e-rpmdvq",
-    imageLabel: "Duchess Theatre — venue photograph",
-    imageStyle: "bg-brand-section"
-  },
-  {
-    id: "event-legacy-show-2026-11-18",
-    slug: "the-legacy-show-duchess-theatre-18-november-2026",
-    title: "The Legacy Show — Elvis Presley & Michael Jackson Tribute",
-    date: "2026-11-18",
-    time: "7:30pm",
-    startTime: "19:30",
-    price: "Listed ticket price £24.41 — check booking total",
-    category: "Live Music",
-    excerpt: "An evening celebrating Elvis Presley and Michael Jackson through tribute performances, live vocals and choreography.",
-    description: ["The programme draws on songs from both performers’ careers, with costumes and dance routines accompanying the music."],
-    sourceUrl: "https://www.ticketsource.com/chatsworth/the-legacy-show-elvis-presley-michael-jackson-tribute-show/e-vgdxgx",
-    imageLabel: "Duchess Theatre — venue photograph",
-    imageStyle: "bg-brand-section"
-  },
-  {
-    id: "event-iolanthe-2026-11-20",
-    slug: "iolanthe-duchess-theatre-november-2026",
-    title: "Iolanthe — Derby G & S",
-    date: "2026-11-20",
-    endDate: "2026-11-21",
-    time: "Friday 7:30pm · Saturday 2:30pm",
-    organiser: "Derby G & S",
-    category: "Theatre / Music",
-    excerpt: "Gilbert and Sullivan’s comic opera brings fairies, romance and political satire to Long Eaton.",
-    description: ["Strephon, who is half fairy and half mortal, wants to marry Phyllis but faces opposition from members of the House of Lords."],
-    sessions: [
-      { title: "Friday 20 November", time: "7:30pm" },
-      { title: "Saturday 21 November", time: "2:30pm" }
-    ],
-    sourceUrl: "https://www.ticketsource.com/chatsworth/iolanthe-derby-g-amp-s/e-evzxpj",
-    imageLabel: "Duchess Theatre — venue photograph",
-    imageStyle: "bg-brand-section"
-  },
   {
     id: "event-shadowing-hank-2026-11-23",
     slug: "shadowing-hank-duchess-theatre-23-november-2026",
@@ -127,7 +75,7 @@ const theatreEvents: EventItem[] = [
   imageSrc: "/duchess-theatre-exterior.jpg",
   imageAlt: "Exterior of the Duchess Theatre & Chatsworth Arts Centre in Long Eaton",
   relatedLinks: [{ href: "/businesses/duchess-theatre-chatsworth-arts-centre", label: "About the venue" }],
-  checkedOn: "2026-11-08",
+  checkedOn: "2026-11-23",
   ...event,
   ticketUrl: event.status ? undefined : event.sourceUrl,
   sources: [{ label: "Duchess Theatre — official TicketSource event details", href: event.sourceUrl }]
@@ -135,30 +83,6 @@ const theatreEvents: EventItem[] = [
 
 export const novemberEvents: EventItem[] = [
   ...theatreEvents,
-  {
-    id: "event-macrame-snowflake-2026-11-22",
-    slug: "macrame-snowflake-workshop-22-november-2026",
-    title: "Macramé Snowflake Decoration Workshop",
-    date: "2026-11-22",
-    time: "9:30am–noon",
-    startTime: "09:30",
-    endTime: "12:00",
-    location: "Long Eaton Art Room, 29–31 Lime Grove, Long Eaton, NG10 4LD",
-    organiser: "Ewe Tree Yarns",
-    category: "Crafts / Workshop",
-    tags: ["Christmas", "Macramé", "Beginners", "Crafts"],
-    excerpt: "Learn macramé knots with Sarah from Ewe Tree Yarns and make a snowflake or star decoration.",
-    description: ["Beginners and people with some experience are welcome. All materials are provided. Check the booking page for the current ticket price and availability."],
-    ticketUrl: "https://www.eventbrite.com/e/macrame-snowflake-decoration-workshop-tickets-1981571206822",
-    sourceUrl: "https://www.eventbrite.com/e/macrame-snowflake-decoration-workshop-tickets-1981571206822",
-    checkedOn: "2026-11-08",
-    sources: [{ label: "Ewe Tree Yarns — official workshop booking page", href: "https://www.eventbrite.com/e/macrame-snowflake-decoration-workshop-tickets-1981571206822?aff=ebdssbdestsearch" }],
-    imageSrc: "/art-room.png",
-    imageAlt: "Long Eaton Art Room logo — workshop venue",
-    imageFit: "contain",
-    imageLabel: "Workshop at Long Eaton Art Room",
-    imageStyle: "bg-brand-section"
-  },
   {
     id: "event-business-christmas-social-2026-11-24",
     slug: "long-eaton-business-christmas-social-24-november-2026",
@@ -176,7 +100,7 @@ export const novemberEvents: EventItem[] = [
     description: ["There is no speaker or formal agenda. Partnership membership is not required, and new attendees are welcome. Check the organiser’s booking page before attending."],
     ticketUrl: "https://www.eventbrite.com/e/long-eaton-business-partnership-christmas-social-tickets-2002198523682",
     sourceUrl: "https://www.eventbrite.com/e/long-eaton-business-partnership-christmas-social-tickets-2002198523682",
-    checkedOn: "2026-11-08",
+    checkedOn: "2026-11-23",
     sources: [{ label: "Long Eaton Business Partnership — official Christmas social booking page", href: "https://www.eventbrite.com/e/long-eaton-business-partnership-christmas-social-tickets-2002198523682" }],
     imageSrc: "/limas-logo.png",
     imageAlt: "Limas Restaurant and Bar logo — Christmas social venue",
@@ -190,20 +114,33 @@ export const novemberEvents: EventItem[] = [
     slug: "long-eaton-christmas-lights-26-november-2026",
     title: "Long Eaton Christmas Lights Switch-On",
     date: "2026-11-26",
-    time: "Timings to be confirmed by the council",
+    time: "5:30–8:30pm · lights switch on at 7pm",
+    startTime: "17:30",
+    endTime: "20:30",
     location: "Long Eaton town centre",
     organiser: "Erewash Borough Council",
     category: "Community / Christmas",
     tags: ["Christmas", "Lights", "Family", "Town centre"],
-    excerpt: "Long Eaton welcomes the festive season with its Christmas lights switch-on on Thursday 26 November.",
-    description: ["The council confirms Thursday 26 November but, when checked on 16 November, still says more details will follow. A separate listing attributed to Long Eaton Silver Prize Band advertises Market Place from 5:30pm. This is a reported event start, not a confirmed time for switching on the lights; check the council’s programme before travelling."],
+    excerpt: "Festive celebrations from 5:30–8:30pm on Thursday 26 November, with the lights switched on at 7pm.",
+    description: [
+      "Erewash Borough Council confirms celebrations from 5:30–8:30pm, with the lights switched on at 7pm. Jamie Bigg, formerly Giant on Gladiators, joins Santa for the countdown. Expect brass band music, stage entertainment, stalls and fairground rides.",
+      "Town-centre improvement works mean a smaller funfair this year. The council recommends travelling by public transport."
+    ],
+    sessions: [
+      { title: "Celebrations and entertainment", time: "5:30–8:30pm" },
+      { title: "Christmas lights switch-on", time: "7pm" }
+    ],
     sourceUrl: "https://www.erewash.gov.uk/your-borough/events-erewash/christmas-lights-switch",
-    checkedOn: "2026-11-16",
-    sources: [{ label: "Erewash Borough Council — confirmed date; programme to follow", href: "https://www.erewash.gov.uk/your-borough/events-erewash/christmas-lights-switch" }, { label: "StayHappening — listing attributed to Long Eaton Silver Prize Band", href: "https://stayhappening.com/e/long-eaton-christmas-lights-organised-by-erewash-borough-council-E2IT028WSQ3" }],
-    imageSrc: "/editorial/christmas-lights-band-2026.jpg",
-    imageAlt: "Long Eaton Silver Prize Band pictured in the Christmas lights event listing",
-    imageCredit: "Long Eaton Silver Prize Band — event listing photograph via StayHappening",
-    imageLabel: "Long Eaton Silver Prize Band — group photograph",
+    checkedOn: "2026-11-23",
+    sources: [
+      { label: "Erewash Borough Council — confirmed programme and travel advice", href: "https://www.erewash.gov.uk/your-borough/events-erewash/christmas-lights-switch" },
+      { label: "Erewash Borough Council — official poster with start, finish and switch-on times", href: "https://www.erewash.gov.uk/sites/default/files/2026-11/Xmas%20lights%20switch-ons%20poster_0.jpg" }
+    ],
+    imageSrc: "/editorial/christmas-lights-switch-on-2026.jpg",
+    imageAlt: "Erewash Christmas lights poster advertising Long Eaton on Thursday 26 November, 5:30–8:30pm, with the switch-on at 7pm",
+    imageCredit: "Erewash Borough Council — official Christmas lights switch-on poster",
+    imageLabel: "Long Eaton Christmas Lights Switch-On — official poster",
+    imageFit: "contain",
     imageStyle: "bg-brand-section",
     featured: false
   }

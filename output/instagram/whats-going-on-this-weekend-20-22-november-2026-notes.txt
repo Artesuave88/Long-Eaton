@@ -1,0 +1,14 @@
+Created using the built-in image_gen tool.
+Format: portrait 4:5 Instagram feed graphic.
+Brand reference: static/le-logo.png.
+
+Alt text:
+Blue and white Love Long Eaton weekend guide for 20–22 November 2026. Iolanthe at Duchess Theatre: Friday 20, 7:30pm, and Saturday 21, 2:30pm. Macramé Snowflake Workshop at Long Eaton Art Room: Sunday 22, 9:30am to noon. Forever Stars Christmas Fair at Village Hotel, Chilwell: Sunday 22, 10am to 3pm. Decorative theatre curtains, a knotted snowflake and wrapped gifts accompany the listings.
+
+Sources checked:
+https://www.ticketsource.com/chatsworth/iolanthe-derby-g-amp-s/e-evzxpj
+https://www.foreverstars.org/events/forever-stars-christmas-fair-2025-stalls-booking-information-2/
+https://www.eventbrite.se/ttd/united-kingdom--long-eaton/
+https://happeningnext.com/event/macrame-snowflake-decoration-workshop-eid1ef0ksgr6qaa
+
+The direct Eventbrite workshop page returned HTTP 429. Its date and start time were corroborated on Eventbrite’s Long Eaton directory; duration and venue were corroborated on the syndicated event listing and project data.
